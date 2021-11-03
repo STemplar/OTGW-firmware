@@ -147,7 +147,9 @@ void sendtimecommand(){
   //send time command to OTGW
   //send time / weekday
   char msg[15]={0};
-  sprintf(msg,"SC=%d:%02d/%d", hour(), minute(), dayOfWeek(now()));
+  int dayofweek = weekday(now()) - 1; // 1 = monday
+  if (dayofweek == 0) dayofweek = 7;    // 7 = sunday
+  sprintf(msg,"SC=%d:%02d/%d", hour(now()), minute(now()), dayofweek);
   addOTWGcmdtoqueue(msg, strlen(msg));
 
   static int lastDay = 0;

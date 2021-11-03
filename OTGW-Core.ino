@@ -546,7 +546,7 @@ uint16_t print_status()
     _flag8_slave[8] = '\0';
 
     PROGMEM_readAnything (&OTmap[OTdata.id], OTlookupitem);
-    OTGWDebugf("%s = Slave [%s] \r\n", OTlookupitem.label, _flag8_slave);
+    OTGWDebugf("%s = Slave  [%s] \r\n", OTlookupitem.label, _flag8_slave);
 
     //Slave Status
     sendMQTTData(F("status_slave"), _flag8_slave);
@@ -563,7 +563,7 @@ uint16_t print_status()
   }
 
   uint16_t _value = OTdata.u16();
-  OTGWDebugTf("Status u16 [%04x] _value [%04x] hb [%02x] lb [%02x]\r\n", OTdata.u16(), _value, OTdata.valueHB, OTdata.valueLB);
+  // OTGWDebugTf("Status u16 [%04x] _value [%04x] hb [%02x] lb [%02x]\r\n", OTdata.u16(), _value, OTdata.valueHB, OTdata.valueLB);
   return _value;
 }
 
@@ -656,7 +656,7 @@ uint16_t print_statusVH()
     _flag8_slave[8] = '\0';
 
     PROGMEM_readAnything (&OTmap[OTdata.id], OTlookupitem);
-    OTGWDebugf("%s = VH Slave [%s] \r\n", OTlookupitem.label, _flag8_slave);
+    OTGWDebugf("%s = VH Slave  [%s] \r\n", OTlookupitem.label, _flag8_slave);
 
     //Slave Status
     sendMQTTData(F("status_vh_slave"), _flag8_slave);
@@ -1104,7 +1104,7 @@ void handleOTGWqueue(){
 */
 void checkOTGWcmdqueue(const char *buf, int len){
   if ((len<3) || (buf[2]!=':')) {
-    OTGWDebugT("CmdQueue: Error: Not a command response [");
+    OTGWDebugT(F("CmdQueue: Error: Not a command response ["));
     for (int i = 0; i < len; i++) {
       OTGWDebug((char)buf[i]);
     }
@@ -1112,7 +1112,7 @@ void checkOTGWcmdqueue(const char *buf, int len){
     return; //not a valid command response
   }
 
-  OTGWDebugT("CmdQueue: Checking if command is in in queue [");
+  OTGWDebugT(F("CmdQueue: Checking if command is in queue ["));
   for (int i = 0; i < len; i++) {
     OTGWDebug((char)buf[i]);
   }
@@ -1156,11 +1156,11 @@ int sendOTGW(const char* buf, int len)
   if (OTGWSerial.availableForWrite()>=len+2) {
     //check the write buffer
     //OTGWDebugf("Serial Write Buffer space = [%d] - needed [%d]\r\n",OTGWSerial.availableForWrite(), (len+2));
-    OTGWDebugT("Sending to Serial [");
+    OTGWDebugT(F("Sending to Serial ["));
     for (int i = 0; i < len; i++) {
       OTGWDebug((char)buf[i]);
     }
-    OTGWDebug("] ("); OTGWDebug(len); OTGWDebug(")"); OTGWDebugln();
+    OTGWDebug(F("] (")); OTGWDebug(len); OTGWDebug(F(")")); OTGWDebugln();
     
     while (OTGWSerial.availableForWrite()==(len+2)) {
       //cannot write, buffer full, wait for some space in serial out buffer
@@ -1174,8 +1174,8 @@ int sendOTGW(const char* buf, int len)
       OTGWSerial.write('\r');
       OTGWSerial.write('\n');
       OTGWSerial.flush(); 
-    } else OTGWDebugln("Error: Write buffer not big enough!");
-  } else OTGWDebugln("Error: Serial device not found!");
+    } else OTGWDebugln(F("Error: Write buffer not big enough!"));
+  } else OTGWDebugln(F("Error: Serial device not found!"));
 }
 
 /*
@@ -1199,6 +1199,7 @@ bool isvalidotmsg(const char *buf, int len){
   - ...
 */
 void processOTGW(const char *buf, int len){
+  char msg[256] = {0};
   static timer_t epochBoilerlastseen = 0;
   static timer_t epochThermostatlastseen = 0;
   static bool bOTGWboilerpreviousstate = false;
@@ -1218,27 +1219,26 @@ void processOTGW(const char *buf, int len){
     // source of otmsg
     if (buf[0]=='B')
     {
-      OTGWDebugT("Boiler           ");
+      OTGWDebugT(F("Boiler           "));
       epochBoilerlastseen = now(); 
     } else if (buf[0]=='T')
     {
-      OTGWDebugT("Thermostat       ");
+      OTGWDebugT(F("Thermostat       "));
       epochThermostatlastseen = now();
     } else if (buf[0]=='R')
     {
-      OTGWDebugT("Request Boiler   ");
+      OTGWDebugT(F("Request Boiler   "));
       epochBoilerlastseen = now();
     } else if (buf[0]=='A')
     {
-      OTGWDebugT("Answer Themostat ");
+      OTGWDebugT(F("Answer Themostat "));
       epochThermostatlastseen = now();
     } else if (buf[0]=='E')
     {
-      OTGWDebugT("Parity error     ");
+      OTGWDebugT(F("Parity error     "));
     } 
 
-    //print OTmessage to debug
-    OTGWDebugf("%s ", buf);
+
 
     //If the Boiler or Thermostat messages have not been seen for 30 seconds, then set the state to false. 
     bOTGWboilerstate = (now() < (epochBoilerlastseen+30));  
@@ -1261,9 +1261,16 @@ void processOTGW(const char *buf, int len){
     }
 
     const char *bufval = buf + 1;
-    uint32_t value = strtoul(bufval, NULL, 16);
-    //Debugf("value=[%08x]", value);
+    //uint32_t value = strtoul(bufval, NULL, 16);
+    uint32_t value = 0;
+    sscanf(bufval, "%8x", &value);
 
+    //print OTmessage to debug
+    //memset(msg, 0, sizeof(msg));
+    memcpy(msg, buf, len);
+    OTGWDebugf("%s (%d)", msg, len);
+    OTGWDebugf("[%08x]", value);
+    
     //split 32bit value into the relevant OT protocol parts
     OTdata.type = (value >> 28) & 0x7;                // byte 1 = take 3 bits that define msg msgType
     OTdata.masterslave = (OTdata.type >> 2) & 0x1;    // MSB from type --> 0 = master and 1 = slave
@@ -1278,7 +1285,7 @@ void processOTGW(const char *buf, int len){
     OTGWDebugf("[%-16s]", messageTypeToString(static_cast<OpenThermMessageType>(OTdata.type)));
     OTGWDebugf("[%-30s]", messageIDToString(static_cast<OpenThermMessageID>(OTdata.id)));
     // OTGWDebugf("[M=%d]",OTdata.master);
-    OTGWDebug("\t");
+    OTGWDebug(F("\t"));
 
     //keep track of update
     msglastupdated[OTdata.id] = now();
@@ -1501,20 +1508,15 @@ void handleOTGW()
   }
   
   //Handle incoming data from OTGW through serial port (READ BUFFER)
-  while(OTGWSerial.available()) 
-  {
+  while(OTGWSerial.available()) {
     inByte = OTGWSerial.read();   // read from serial port
     OTGWstream.write(inByte); // write to port 25238
-    if (inByte== '\r')
-    { //on CR, continue to process incoming message
-      sRead[bytes_read] = 0;
+    if ((inByte== '\r') || (inByte == '\n') || ((bytes_read==9) && isvalidotmsg(sRead, bytes_read))){  
       blinkLEDnow(LED2);
-      processOTGW(sRead, bytes_read);
+      if (bytes_read>0) processOTGW(sRead, bytes_read);
       bytes_read = 0;
+      sRead[bytes_read] = 0;
       break; // to continue processing incoming message
-    } 
-    else if (inByte == '\n')
-    { // on LF, just ignore... 
     } 
     else
     {
