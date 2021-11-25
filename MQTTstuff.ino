@@ -110,43 +110,32 @@ void handleMQTTcallback(char* topic, byte* payload, unsigned int length) {
   }
 
   // parse the incoming topic and execute commands
-  char *topictoken;
-  char otgwcmd[20];
+  char* token;
+  char otgwcmd[20]={0};
   // naming convention <mqtt top>/set/<node id>/<command>
-  topictoken = strtok(topic, '/'); 
-  if (stricmp(topictoken, CSTR(settingMQTTtopTopic)) == 0) {
-    topictoken = strtok(NULL, '/'); 
-    if (stricmp(topictoken, "set") == 0) {
-      topictoken = strtok(NULL, '/'); 
-      if (stricmp(topictoken, CSTR(NodeId) == 0) {
-        topictoken = strtok(NULL, '/');
-        if (topictoken != NULL){
+  token = strtok(topic, "/"); 
+  if (stricmp(token, CSTR(settingMQTTtopTopic)) == 0) {
+    token = strtok(NULL, "/"); 
+    if (stricmp(token, "set") == 0) {
+      token = strtok(NULL, "/"); 
+      if (stricmp(token, CSTR(NodeId)) == 0) {
+        token = strtok(NULL, "/");
+        if (token != NULL){
           //loop thru command
           for (int i=0; i<nrcmds; i++){
-            if (stricmp(topictoken, setcmds[i].setcmd) == 0){
+            if (stricmp(token, setcmds[i].setcmd) == 0){
               //found a match
-              if (setcmds[i].ottype == "temp"){
-                //temperature
-                float temp = atof(msgPayload);
-                if (temp > 0) {
-                  //set the temperature
-                  snprintf(otgwcmd, sizeof(otgwcmd), "%s=%f", setcmds[i].otgwcmd, temp);
-                  addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
-                }
-              } else if (setcmds[i].ottype == "on"){
-                //on/off
-                snprintf(otgwcmd, sizeof(otgwcmd), "%s=%s", setcmds[i].otgwcmd, temp);
-                addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
-              } else if (setcmds[i].ottype == "level"){
-                //level
-                snprintf(otgwcmd, sizeof(otgwcmd), "%s=%s", setcmds[i].otgwcmd, temp);
-                addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
-              } else if (setcmds[i].ottype == "raw"){
+              if (setcmds[i].ottype == "raw"){
                 //raw command
                 snprintf(otgwcmd, sizeof(otgwcmd), "%s", msgPayload);
-                addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
+                addOTWGcmdtoqueue((char *)otgwcmd, strlen(otgwcmd), true);
+              } else {
+                //all other commands are <otgwcmd>=<payload message> 
+                snprintf(otgwcmd, sizeof(otgwcmd), "%s=%s", setcmds[i].otgwcmd, msgPayload);
+                addOTWGcmdtoqueue((char *)otgwcmd, strlen(otgwcmd), true);
               }
-            }
+              break; //exit loop
+            } 
           }
         }
       }
