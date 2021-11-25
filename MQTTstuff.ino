@@ -36,6 +36,36 @@
   String            MQTTPubNamespace = "";
   String            MQTTSubNamespace = "";
   String            NodeId = "";
+
+  //set command list
+  struct MQTT_set_cmd_t
+    {
+        char* setcmd;
+        char* otgwcmd;
+        char* ottype;
+    };
+
+
+    const MQTT_set_cmd_t setcmds[] {
+        {   "setpoint", "TT", "temp" },
+        {   "constant", "TC", "temp" },
+        {   "outside", "OT", "temp" },
+        {   "hotwater", "HW", "on" },
+        {   "gatewaymode", "GW", "on" },
+        {   "setback", "SB", "temp" },
+        {   "maxchsetpt", "SH", "temp" },
+        {   "maxdhwsetpt", "SW", "temp" },
+        {   "maxmodulation", "MM", "level" },        
+        {   "ctrlsetpt", "CS", "temp" },        
+        {   "chenable", "CH", "on" },        
+        {   "ventsetpt", "VS", "level" },
+        {   "command", "", "raw" },
+        } ;
+
+    const int nrcmds = sizeof(setcmds) / sizeof(setcmds[0]);
+
+
+
 //===========================================================================================
 void startMQTT() 
 {
@@ -60,16 +90,7 @@ void handleMQTTcallback(char* topic, byte* payload, unsigned int length) {
     }
     Debug("] ("); Debug(length); Debug(")"); Debugln();
   }  
-  char subscribeTopic[100];
-  // naming convention <mqtt top>/set/<node id>/<command>
-  snprintf(subscribeTopic, sizeof(subscribeTopic), "%s/", MQTTSubNamespace.c_str());
-  strlcat(subscribeTopic, OTGW_COMMAND_TOPIC, sizeof(subscribeTopic));
-  //what is the incoming message?  
-  if (stricmp(topic, subscribeTopic) == 0) 
-  {
-    //incoming command to be forwarded to OTGW
-    addOTWGcmdtoqueue((char *)payload, length, false);
-  }
+
   //detect home assistant going down...
   char msgPayload[50];
   int msglen = min((int)(length)+1, (int)sizeof(msgPayload));
@@ -87,6 +108,62 @@ void handleMQTTcallback(char* topic, byte* payload, unsigned int length) {
       DebugTf("Home Assistant Status=[%s]\r\n", msgPayload); 
     }
   }
+
+  // parse the incoming topic and execute commands
+  char *topictoken;
+  char otgwcmd[20];
+  // naming convention <mqtt top>/set/<node id>/<command>
+  topictoken = strtok(topic, '/'); 
+  if (stricmp(topictoken, CSTR(settingMQTTtopTopic)) == 0) {
+    topictoken = strtok(NULL, '/'); 
+    if (stricmp(topictoken, "set") == 0) {
+      topictoken = strtok(NULL, '/'); 
+      if (stricmp(topictoken, CSTR(NodeId) == 0) {
+        topictoken = strtok(NULL, '/');
+        if (topictoken != NULL){
+          //loop thru command
+          for (int i=0; i<nrcmds; i++){
+            if (stricmp(topictoken, setcmds[i].setcmd) == 0){
+              //found a match
+              if (setcmds[i].ottype == "temp"){
+                //temperature
+                float temp = atof(msgPayload);
+                if (temp > 0) {
+                  //set the temperature
+                  snprintf(otgwcmd, sizeof(otgwcmd), "%s=%f", setcmds[i].otgwcmd, temp);
+                  addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
+                }
+              } else if (setcmds[i].ottype == "on"){
+                //on/off
+                snprintf(otgwcmd, sizeof(otgwcmd), "%s=%s", setcmds[i].otgwcmd, temp);
+                addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
+              } else if (setcmds[i].ottype == "level"){
+                //level
+                snprintf(otgwcmd, sizeof(otgwcmd), "%s=%s", setcmds[i].otgwcmd, temp);
+                addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
+              } else if (setcmds[i].ottype == "raw"){
+                //raw command
+                snprintf(otgwcmd, sizeof(otgwcmd), "%s", msgPayload);
+                addOTWGcmdtoqueue((char *)otgwcmd, sizeof(ofgwcmd), false);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // char subscribeTopic[100];  
+  // snprintf(subscribeTopic, sizeof(subscribeTopic), "%s/", MQTTSubNamespace.c_str());
+  // strlcat(subscribeTopic, OTGW_COMMAND_TOPIC, sizeof(subscribeTopic));
+  // //what is the incoming message?  
+  // if (stricmp(topic, subscribeTopic) == 0) 
+  // {
+  //   //incoming command to be forwarded to OTGW
+  //   addOTWGcmdtoqueue((char *)payload, length, false);
+  // }
+
+  
 }
 
 //===========================================================================================
