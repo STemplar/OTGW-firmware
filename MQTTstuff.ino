@@ -47,6 +47,7 @@
 
 
     const MQTT_set_cmd_t setcmds[] {
+        {   "command", "", "raw" },
         {   "setpoint", "TT", "temp" },
         {   "constant", "TC", "temp" },
         {   "outside", "OT", "temp" },
@@ -57,12 +58,108 @@
         {   "maxdhwsetpt", "SW", "temp" },
         {   "maxmodulation", "MM", "level" },        
         {   "ctrlsetpt", "CS", "temp" },        
+        {   "ctrlsetpt2", "C2", "temp" },        
         {   "chenable", "CH", "on" },        
+        {   "chenable2", "H2", "on" },        
         {   "ventsetpt", "VS", "level" },
-        {   "command", "", "raw" },
+        {   "temperaturesensor", "TS", "function" },
+        {   "addalternative", "AA", "function" },
+        {   "delalternative", "DA", "function" },
+        {   "unknownid", "UI", "function" },
+        {   "knonwnid", "KI", "function" },
+        {   "priomsg", "PM", "function" },
+        {   "setresponse", "SR", "function" },
+        {   "clearrespons", "CR", "function" },
+        {   "resetcounter", "RS", "function" },
+        {   "ignoretransitations", "IT", "function" },
+        {   "overridehb", "OH", "function" },
+        {   "forcethermostat", "FT", "function" },
+        {   "voltageref", "VR", "function" },
+        {   "debugptr", "DP", "function" },
         } ;
 
     const int nrcmds = sizeof(setcmds) / sizeof(setcmds[0]);
+
+    // const char learnmsg[] { "LA", "PR=L", "LB", "PR=L", "LC", "PR=L", "LD", "PR=L", "LE", "PR=L", "LF", "PR=L", "GA", "PR=G", "GB", "PR=G", "VR", "PR=V", "GW", "PR=M", "IT", "PR=T", "SB", "PR=S", "HW", "PR=W" } ;
+    // const int nrlearnmsg = sizeof(learnmsg) / sizeof(learnmsg[0]);
+    
+  // array set learn {
+  //     LA PR=L LB PR=L LC PR=L LD PR=L LE PR=L LF PR=L GA PR=G GB PR=G
+  //     VR PR=V GW PR=M IT PR=T SB PR=S HW PR=W
+  // }
+
+	// BoilerWaterTemperature	boilertemp	d
+	// BoilerWaterTemperature2	boilertemp2	d
+	// CHEnable		chenable	b
+	// CH2Enable		ch2enable	b
+	// CHSetpoint		chsetpoint	d
+	// CentralHeating		chmode		b
+	// CentralHeating2		ch2mode		b
+	// ControlSetpoint		controlsp	d
+	// ControlSetpoint2	controlsp2	d
+	// DHWEnable		dhwenable	b
+	// DHWSetpoint		dhwsetpoint	d
+	// DHWTemperature		dhwtemp		d
+	// DHWTemperature2		dhwtemp2	d
+	// Fault			fault		b
+	// Flame			flame		b
+	// HotWater		dhwmode		b
+	// Modulation		modulation	d
+	// OutsideTemperature	outside		d
+	// ReturnWaterTemperature	returntemp	d
+	// RoomTemperature		roomtemp	d
+	// RoomTemperature2	roomtemp2	d
+	// Setpoint		setpoint	d
+	// Setpoint2		setpoint2	d
+
+    // airpresfault	"Air pressure fault"
+    // boilertemp		"Boiler water temperature"
+    // boilertemp2		"Boiler water temperature 2"
+    // exhausttemp		"Boiler exhaust temperature"
+    // ch2enable		"Central heating 2 enable"
+    // ch2mode		"Central heating 2 mode"
+    // chenable		"Central heating enable"
+    // chmode		"Central heating mode"
+    // chwsetpoint		"Central heating setpoint"
+    // chbh		"CH burner hours"
+    // chbs		"CH burner starts"
+    // chph		"CH pump hours"
+    // chps		"CH pump starts"
+    // pressure		"CH water pressure"
+    // controlsp		"Control setpoint"
+    // controlsp2		"Control setpoint 2"
+    // coolingenable	"Cooling enable"
+    // coolingstatus	"Cooling status"
+    // diag		"Diagnostic indication"
+    // dhwbh		"DHW burner hours"
+    // dhwbs		"DHW burner starts"
+    // dhwflowrate		"DHW flow rate"
+    // dhwph		"DHW pump hours"
+    // dhwps		"DHW pump starts"
+    // dhwenable		"Domestic hot water enable"
+    // dhwmode		"Domestic hot water mode"
+    // dhwsetpoint		"Domestic hot water setpoint"
+    // dhwtemp		"Domestic hot water temp"
+    // dhwtemp2		"Domestic hot water temp 2"
+    // fault		"Fault indication"
+    // flame		"Flame"
+    // flamefault		"Gas/flame fault"
+    // lockoutreset	"Lockout-reset"
+    // lowpressure		"Low water pressure"
+    // maxmod		"Max rel modulation level"
+    // modulation		"Modulation"
+    // faultcode		"OEM fault/error code"
+    // otcstate		"Outside temp compensation"
+    // outside		"Outside temperature"
+    // override    	"Rem override room setpoint"
+    // returntemp		"Return water temperature"
+    // setpoint		"Room setpoint"
+    // setpoint2		"Room setpoint 2"
+    // roomtemp		"Room temperature"
+    // roomtemp2		"Room temperature 2"
+    // service		"Service request"
+    // timestamp		"Time stamp"
+    // overtemp		"Water over-temperature"
 
 
 
@@ -114,24 +211,31 @@ void handleMQTTcallback(char* topic, byte* payload, unsigned int length) {
   char otgwcmd[20]={0};
   // naming convention <mqtt top>/set/<node id>/<command>
   token = strtok(topic, "/"); 
+  MQTTDebugT("Parsing topic: ");
+  MQTTDebugf("%s/", token);
   if (stricmp(token, CSTR(settingMQTTtopTopic)) == 0) {
     token = strtok(NULL, "/"); 
+    MQTTDebugf("%s/", token);
     if (stricmp(token, "set") == 0) {
-      token = strtok(NULL, "/"); 
+      token = strtok(NULL, "/");
+      MQTTDebugf("%s/", token); 
       if (stricmp(token, CSTR(NodeId)) == 0) {
         token = strtok(NULL, "/");
+        MQTTDebugf("%s", token);
         if (token != NULL){
           //loop thru command
           for (int i=0; i<nrcmds; i++){
             if (stricmp(token, setcmds[i].setcmd) == 0){
               //found a match
-              if (setcmds[i].ottype == "raw"){
+                            if (setcmds[i].ottype == "raw"){
                 //raw command
                 snprintf(otgwcmd, sizeof(otgwcmd), "%s", msgPayload);
+                MQTTDebugf(" found command, sending payload [%s]\r\n", otgwcmd);
                 addOTWGcmdtoqueue((char *)otgwcmd, strlen(otgwcmd), true);
               } else {
                 //all other commands are <otgwcmd>=<payload message> 
                 snprintf(otgwcmd, sizeof(otgwcmd), "%s=%s", setcmds[i].otgwcmd, msgPayload);
+                MQTTDebugf(" found command, sending payload [%s]\r\n", otgwcmd);
                 addOTWGcmdtoqueue((char *)otgwcmd, strlen(otgwcmd), true);
               }
               break; //exit loop
