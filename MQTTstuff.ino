@@ -245,17 +245,6 @@ void handleMQTTcallback(char* topic, byte* payload, unsigned int length) {
       }
     }
   }
-
-  // char subscribeTopic[100];  
-  // snprintf(subscribeTopic, sizeof(subscribeTopic), "%s/", MQTTSubNamespace.c_str());
-  // strlcat(subscribeTopic, OTGW_COMMAND_TOPIC, sizeof(subscribeTopic));
-  // //what is the incoming message?  
-  // if (stricmp(topic, subscribeTopic) == 0) 
-  // {
-  //   //incoming command to be forwarded to OTGW
-  //   addOTWGcmdtoqueue((char *)payload, length, false);
-  // }
-
   
 }
 
