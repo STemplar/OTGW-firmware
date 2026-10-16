@@ -11,7 +11,8 @@
   "source": "Remeha Quinta 25/30s 28/35c handleiding, versie AH: Tabel 05 bedrijfscodes, Tabel 06 blokkeringscodes, Tabel 07/09 gebruikersniveau, Tabel 10 serviceniveau, Tabel 11 uitleesmode, Tabel 13 storingsmode, Tabel 21 storingscodes.",
   "notes": {
     "platform": "Oudere besturing: één bedrijfscode (0–9, b, H, L) in plaats van status/substatus; blokkeringen als bXX; parameters met één teken (1, 2, 3, A, u … y). Ketelvariant via parameter P (25s 50, 30s 70, 28c 51, 35c 51), niet via dF/dU.",
-    "opentherm": "De handleiding koppelt deze codes niet aan OpenTherm (ID5, ID115, TSP). Niets hieruit wordt toegepast zonder bevestigde uitlezing."
+    "opentherm": "De handleiding koppelt deze codes niet aan OpenTherm (ID5, ID115, TSP). Niets hieruit wordt toegepast zonder bevestigde uitlezing.",
+    "data_ids": "Onbekend naar welk OpenTherm-data-ID (TSP-index, ID5, ID115 of een OEM-ID) deze instellingen en codes verwijzen. Alleen een uitlezing van een echte ketel kan dat vastleggen."
   },
   "operating_codes": {
     "0": "Stand-by; er is geen warmtevraag van de kamerthermostaat, externe regeling of boiler",
@@ -111,7 +112,8 @@
       "label": "Voetpunt interne stooklijn",
       "range": "15 t/m 60 (alleen met buitenvoeler)",
       "unit": "°C",
-      "default": 20
+      "default": 20,
+      "note": "Kleine u (gebruikersniveau), een ander teken dan U op serviceniveau; bevestigd door de gebruiker."
     },
     {
       "code": "4",
@@ -305,7 +307,8 @@
       "level": "service",
       "label": "Maximale blokkeringstijd bij blijvende warmtevraag",
       "range": "00 t/m 99 minuten",
-      "default": 15
+      "default": 15,
+      "note": "Hoofdletter U (serviceniveau), een ander teken dan u op gebruikersniveau; bevestigd door de gebruiker."
     },
     {
       "code": "q",

@@ -11,7 +11,8 @@
   "source": "Remeha Quinta 85 handleiding, versie AD: tabel 04 bedrijfscodes, tabel 05 blokkeringscodes, tabel 06 gebruikersniveau, tabel 09 serviceniveau, tabel 20 storingscodes.",
   "notes": {
     "platform": "Oudere besturing (Comfort Master): één bedrijfscode (0–9, b, H, L) in plaats van status/substatus; blokkeringen als bXX; parameters met één teken. Ketelvariant via parameter P (85 = 80), niet via dF/dU.",
-    "opentherm": "De handleiding koppelt deze codes niet aan OpenTherm (ID5, ID115, TSP). Niets hieruit wordt toegepast zonder bevestigde uitlezing."
+    "opentherm": "De handleiding koppelt deze codes niet aan OpenTherm (ID5, ID115, TSP). Niets hieruit wordt toegepast zonder bevestigde uitlezing.",
+    "data_ids": "Onbekend naar welk OpenTherm-data-ID (TSP-index, ID5, ID115 of een OEM-ID) deze instellingen en codes verwijzen. Alleen een uitlezing van een echte ketel kan dat vastleggen."
   },
   "operating_codes": {
     "0": "Stand-by; er is geen warmtevraag van de kamerthermostaat, externe regeling of boiler",
@@ -109,7 +110,8 @@
       "label": "Voetpunt interne stooklijn",
       "range": "15 t/m 60 (alleen met buitenvoeler)",
       "unit": "°C",
-      "default": 20
+      "default": 20,
+      "note": "Kleine u (gebruikersniveau), een ander teken dan U op serviceniveau; bevestigd door de gebruiker."
     },
     {
       "code": "4",
@@ -257,7 +259,8 @@
       "level": "service",
       "label": "Maximale blokkeringstijd bij blijvende warmtevraag",
       "range": "00 t/m 99 minuten",
-      "default": 15
+      "default": 15,
+      "note": "Hoofdletter U (serviceniveau), een ander teken dan u op gebruikersniveau; bevestigd door de gebruiker."
     },
     {
       "code": "q",
