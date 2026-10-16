@@ -67,4 +67,5 @@ Elk profiel noemt daarom het documentnummer en de versie waaruit het komt.
 (2) Tzerra M/M Plus, Quinta Pro: status/substatus, Su:xx, E:xx, P-nummers, dF/dU.
 (3) CU-GH (Ace-reeks): AP/CP/DP/GP/PP-codes, A/H/E.xx.xx, CN1/CN2. De oude Quinta's
 en de Quinta Pro zijn handmatig van de pagina's overgenomen (codes zijn afbeeldingen);
-waar een displayteken niet eenduidig is, staat dat in een `note`.
+de tekens I en II in de servicetabellen van de oude Quinta's zijn door de gebruiker bevestigd.
+De parametercodes volgen de volgorde cijfers, dan letters (…, H, I, J, L, n, o, P, t, U, q, y, II).

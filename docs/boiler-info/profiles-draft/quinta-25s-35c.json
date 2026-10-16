@@ -241,7 +241,8 @@
       "label": "Overtemperatuur c.v.-water bij warmwaterbedrijf t.o.v. boilertemperatuur",
       "range": "00 t/m 30",
       "unit": "°C",
-      "default": 20
+      "default": 20,
+      "note": "Displayteken I (linker segmenten), bevestigd door de gebruiker; niet het cijfer 1."
     },
     {
       "code": "J",
@@ -321,12 +322,12 @@
       "default": "0.0 (=100)"
     },
     {
-      "code": "I? (2e)",
+      "code": "II",
       "level": "service",
       "label": "Overtemperatuur bij einde tapvraag",
       "range": "05 t/m 30 °C",
       "default": "05",
-      "note": "Het teken in de handleiding (p35) lijkt op dat van \"I\" (p34); het werkelijke displayteken is onzeker."
+      "note": "Displayteken II, bevestigd door de gebruiker. Laatste code van de servicetabel (na y)."
     }
   ],
   "readout_codes": {
