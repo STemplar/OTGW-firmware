@@ -38,6 +38,11 @@ int main(){
  assert(!b.next(104000,true,cmd,sizeof(cmd))&&!b.busy);
  assert(!b.next(106000,true,cmd,sizeof(cmd))); // one boot cycle only
  { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);reply(v,131,0x25,0x01);assert(v.tzerra()&&!v.tzerraM28cPlus()); }
+ { BoilerInfo a;char c[12];reply(a,3,0,11);reply(a,127,27,1);a.bootReadStarted=true;assert(a.start(BoilerInfo::Identification,0)); // Ace Matic: no PM=131
+   const char* seq[]={"PM=3","PM=127","PM=125","PM=93","PM=94","PM=95"};uint32_t now=0;
+   for(const char* s:seq){assert(a.next(now,true,c,sizeof(c))&&!strcmp(c,s));uint8_t id=atoi(s+3);a.observe('R',frame(0,id),now+1);
+     if(id==3)a.observe('B',frame(4,3,0,11),now+2);else if(id==127)a.observe('B',frame(4,127,27,1),now+2);else a.observe('B',frame(7,id),now+2);now+=3000;}
+   assert(!a.next(now,true,c,sizeof(c))&&!a.busy); }
  { BoilerInfo g;char c[12];reply(g,3,0,8);g.bootReadStarted=true;assert(g.start(BoilerInfo::Identification,0)); // no ID131 for other vendors
    const char* seq[]={"PM=3","PM=127","PM=125","PM=93","PM=94","PM=95"};uint32_t now=0;
    for(const char* s:seq){assert(g.next(now,true,c,sizeof(c))&&!strcmp(c,s));g.observe('R',frame(0,atoi(s+3)),now+1);g.observe('B',frame(7,atoi(s+3)),now+2);now+=3000;}
