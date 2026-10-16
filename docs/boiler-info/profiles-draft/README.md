@@ -21,8 +21,19 @@ filling niet beschikbaar) of 0x49 (plus bit 3 DHW-boilervat). Bit 3 hangt af van
 installatie, niet van het model, dus ID3 onderscheidt deze ketels niet. Eén Calenta Ace-log
 (2024-10-25) toont ID3 0/0 en ID5 0/0; dat is geen Remeha-antwoord en wordt niet gebruikt.
 
-**ID127 is niet uniek per model.** De Avanta Ace en de Calenta Ace melden allebei 20/1.
-Een profiel op ID127 alleen zou ze verwisselen. Voor deze ketels is een extra kenmerk
+**ID127 in de matrix (member-ID 11):**
+
+| Vermelding | ID127 | OT |
+|---|---|---|
+| Remeha Avanta | 5/17, 5/20, 5/24 | 2.20, 3.00 |
+| Remeha Avanta Ace | 20/1 | 3.00 |
+| Remeha Calenta | 10/17, 10/18, 10/19, 10/20; één log 5/24 (2023-11-27) | 3.00 |
+| Remeha Calenta Ace | 20/1, één log 17/1 | 3.00, 4.00 bij 17/1 |
+
+**ID127 is niet uniek per model.** De Avanta Ace en de Calenta Ace melden allebei 20/1,
+en 5/24 staat zowel onder Avanta als onder Calenta (mogelijk een verkeerd benoemde log,
+mogelijk dezelfde besturing; uit de matrix niet te beslissen). Een profiel op ID127 alleen
+zou ze verwisselen. Voor deze ketels is een extra kenmerk
 nodig voordat een model-specifiek profiel actief kan worden, bijvoorbeeld het member-ID
 (ID3) in combinatie met de merk-/typeteksten (ID93–95, alleen bij OT 4.x) of een
 OEM-ID dat per model verschilt. Gedeelde betekenissen (zoals de CU-GH-statuslijst) zouden
