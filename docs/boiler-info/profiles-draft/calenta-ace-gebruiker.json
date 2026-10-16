@@ -1,0 +1,282 @@
+{
+  "id": "remeha-calenta-ace",
+  "name": "Remeha Calenta Ace (25ds / 28c / 35ds / 40c) — gebruikershandleiding",
+  "language": "nl",
+  "status_of_draft": "CONCEPT — niet in gebruik. Zonder bevestigde herkenning (member-ID, ID127) staat dit profiel niet in kBoilerModelProfiles.",
+  "document": {
+    "number": "7685808",
+    "version": "v.08",
+    "date": "25082022"
+  },
+  "notes": {
+    "settings": "Instellingscodes zijn geen OpenTherm-TSP-indexen; de handleiding geeft geen koppeling.",
+    "codes": "A = waarschuwing, H = tijdelijke storing/blokkering, E = permanente storing/vergrendeling. Geen koppeling met ID5 (OEM fault code) in de handleiding.",
+    "status": "Status/substatus zijn displaywaarden. Of ID115 dezelfde codering heeft, is niet bevestigd."
+  },
+  "settings": [
+    {
+      "code": "AP016",
+      "label": "CV-functie activeren",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "CU-GH08",
+      "default": "1",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "AP017",
+      "label": "Warm water functie activeren",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "CU-GH08",
+      "default": "1",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "AP073",
+      "label": "Buitentemperatuur voor zomerbedrijf: bovengrens voor verwarming",
+      "range": "10 - 30 °C",
+      "submenu": "CU-GH08",
+      "default": "22",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "AP074",
+      "label": "De CV-functie is uitgeschakeld. Warm water blijft aan. Zomerbedrijf forceren.",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "CU-GH08",
+      "default": "0",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP000",
+      "label": "Instelpunt maximale aanvoertemperatuur groep",
+      "range": "0 - 90 °C",
+      "submenu": "CIRCA",
+      "default": "80",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP080",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "16",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP081",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "20",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP082",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "6",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP083",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "21",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP084",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "22",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP085",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "20",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP200",
+      "label": "Gewenste ruimtetemperatuur tijdens handmatig bedrijf",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "20",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP320",
+      "label": "Bedrijfsmodus van de groep",
+      "range": "0 = Schema 1 = Handmatig 2 = Uit",
+      "submenu": "CIRCA",
+      "default": "1",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP510",
+      "label": "Tijdelijk gewenste ruimtetemperatuur",
+      "range": "5 - 30 °C",
+      "submenu": "CIRCA",
+      "default": "20",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP550",
+      "label": "Openhaardmodus is actief",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "CIRCA",
+      "default": "0",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 19
+    },
+    {
+      "code": "CP660",
+      "label": "Kies icoon voor deze groep",
+      "range": "0 = Geen 1 = Alle 2 = Slaapkamer 3 = Woonkamer 4 = Studeer-/werkkamer 5 = Buiten 6 = Keuken 7 = Kelder",
+      "submenu": "CIRCA",
+      "default": "3",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP060",
+      "label": "Geselecteerde klokprogramma voor warmwater",
+      "range": "0 = Klokprogramma 1 1 = Klokprogramma 2 2 = Klokprogramma 3",
+      "submenu": "SWW",
+      "default": "0",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP070",
+      "label": "Comfort temperatuur warmwater",
+      "range": "40 - 65 °C",
+      "submenu": "SWW",
+      "default": "60",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP080",
+      "label": "ECO temperatuur voor warmwater",
+      "range": "7 - 50 °C",
+      "submenu": "SWW",
+      "default": "15",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP190",
+      "label": "Eindtijd tijdelijke temperatuursverandering",
+      "submenu": "SWW",
+      "default": "-",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP200",
+      "label": "Warmwater modus",
+      "range": "0 = Schema 1 = Handmatig 2 = Uit",
+      "submenu": "SWW",
+      "default": "0",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP337",
+      "label": "Vakantierichttemperatuur uit sanitair-warmwaterboiler",
+      "range": "10 - 60 °C",
+      "submenu": "SWW",
+      "default": "10",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP357",
+      "label": "Instelling maximale douchetijd",
+      "range": "0 - 180 Min",
+      "submenu": "SWW",
+      "default": "0",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP367",
+      "label": "Instelling actie bij overschreiden maximale douchetijd",
+      "range": "0 = Uit 1 = Waarschuwing 2 = Verlaag setpunt",
+      "submenu": "SWW",
+      "default": "0",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "DP377",
+      "label": "Verlaagde warmwater temperatuur na verstrijken douchetimer",
+      "range": "0 - 65 °C",
+      "submenu": "SWW",
+      "default": "40",
+      "table": "Tab.12 Fabrieksinstellingen op gebruikers-niveau",
+      "page": 20
+    },
+    {
+      "code": "AP067",
+      "label": "Helderheidsinstelling, eco uitgeschakeld helderheid hoog. Eco ingeschakeld na 3 min. lage helderheid",
+      "range": "0 = Normaal 1 = Economisch",
+      "default": "0",
+      "table": "Tab.13 Fabrieksinstellingen - > HMI",
+      "page": 20
+    },
+    {
+      "code": "AP082",
+      "label": "Klok automatisch aan zomertijd aanpassen",
+      "range": "0 = Uit 1 = Aan",
+      "default": "1",
+      "table": "Tab.13 Fabrieksinstellingen - > HMI",
+      "page": 20
+    },
+    {
+      "code": "AP103",
+      "label": "HMI-taalinstelling",
+      "range": "0 = No language EN = English FR = Français DE = Deutsch NL = Nederlands IT = Italiano ES = Espagno PL = Polski PT = Português",
+      "default": "0",
+      "table": "Tab.13 Fabrieksinstellingen - > HMI",
+      "page": 20
+    },
+    {
+      "code": "AP104",
+      "label": "Contr.inst. bed.pan.",
+      "range": "0 - 3",
+      "default": "3",
+      "table": "Tab.13 Fabrieksinstellingen - > HMI",
+      "page": 20
+    },
+    {
+      "code": "AP105",
+      "label": "Weergave in graden Celsius of Farenheit",
+      "range": "0 = °C/bar 1 = °F/Psi",
+      "default": "0",
+      "table": "Tab.13 Fabrieksinstellingen - > HMI",
+      "page": 20
+    }
+  ]
+}
