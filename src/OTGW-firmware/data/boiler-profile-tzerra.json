@@ -4,8 +4,14 @@
   "language": "nl",
   "member": 11,
   "product": 13,
-  "versions": [14, 16],
+  "versions": [
+    14,
+    16
+  ],
   "source": "User qSense lookup; Tzerra M Plus installation/service manual 7618573 v.10 (2017-03-17), Tab.34; TSP index = P-number confirmed against a live 28c Plus readout (2026-10-16)",
+  "models": {
+    "36:1": "Tzerra M 28c Plus"
+  },
   "status": {
     "0": "Rust",
     "1": "Ketel start (warmtevraag)",

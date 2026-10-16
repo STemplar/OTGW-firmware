@@ -7442,7 +7442,9 @@ function renderBoilerDetails(data) {
   var oem = document.getElementById('boilerOEM'); oem.textContent = '';
   if (profile) {
     boilerRow(oem, 'Configuration', data.value_131 === undefined ? boilerUnknown(data,131) :
-      'dF: ' + (data.value_131 >> 8) + ' dU: ' + (data.value_131 & 255), '', data.value_131 !== undefined);
+      'dF: ' + (data.value_131 >> 8) + ' dU: ' + (data.value_131 & 255),
+      data.value_131 === undefined ? '' : (profile.models && profile.models[(data.value_131 >> 8) + ':' + (data.value_131 & 255)]) || '',
+      data.value_131 !== undefined);
     boilerRow(oem, 'Service message', data.value_132 === undefined ? boilerUnknown(data,132) : boilerRaw(data.value_132),
       data.value_132 === undefined ? '' : 'Service A/B/C response mapping not yet confirmed', false);
     boilerRow(oem, 'Connected SCU', data.value_133 === undefined ? boilerUnknown(data,133) : (data.value_133 >> 8) + ': ' + (data.value_133 & 255), '', data.value_133 !== undefined);

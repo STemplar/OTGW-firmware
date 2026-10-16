@@ -90,7 +90,13 @@ Substatusbeschrijvingen worden met de combinatie status/substatus opgezocht:
 substatus 0 heeft bijvoorbeeld niet bij iedere status dezelfde betekenis.
 
 - ID131 heeft de bevestigde bytevolgorde HB=dF en LB=dU. Deze waarden krijgen
-  geen extra hexadecimale presentatie.
+  geen extra hexadecimale presentatie. dF/dU staat op de typeplaat; 0x2401 =
+  dF 36 / dU 1 = Tzerra M 28c Plus (typeplaat, ID127 13/16). Alleen bevestigde
+  combinaties krijgen een typenaam (`models` in het profiel); 0x2501 (dF 37 / dU 1,
+  gezien bij 13/14 in de matrix) blijft zonder typenaam.
+- Met dF/dU legt de ketel zijn typeafhankelijke veiligheidsparameters vast. Een
+  qSense kan die via OpenTherm opnieuw instellen. Deze firmware leest ID131
+  uitsluitend en biedt die reset bewust niet aan.
 - ID132 blijft een ruwe waarde. Het formaat u8/u8 en de koppeling van antwoorden
   aan A/B/C zijn niet voldoende bevestigd. Het bestaan van servicetypen A/B/C
   in de handleiding bewijst die bytekoppeling niet. Het bevestigde wiscommando
