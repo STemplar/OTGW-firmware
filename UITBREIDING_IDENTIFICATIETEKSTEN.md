@@ -113,8 +113,12 @@ Nieuw model: regel toevoegen in de tabel en het profielbestand in `data/` zetten
 | 3 | Tzerra Ace | vermoedelijk 23/1 | 3.00 | geen |
 | 4 | Tzerra Ace-Matic | 27/1 | 4.00 | `tzerra-ace-matic.json` |
 
-De generatievolgorde is door de gebruiker opgegeven. ID127 23/1 staat in de matrix
-als "Remeha Tzerra" (onder meer 2022-11-20, ID15 5/96, ID125 3.00, ID93–95 ✖). Of dat
+De generatievolgorde is door de gebruiker opgegeven. De matrixvermelding "Remeha
+Tzerra" bevat logs met ID127 **13/13, 13/14, 13/16 en 23/1** (o.a. 2022-11-20: ID15 5/96,
+ID125 3.00, ID93–95 ✖). Producttype 13 komt dus met drie productversies voor; 13/13 is
+alleen onder deze vermelding gezien. Het M Plus-profiel blijft daarnaast dF/dU 36/1
+vereisen, en de ID131-uitlezing geldt alleen voor 13/14 en 13/16. Of 13/13 een Tzerra M
+of een M Plus is, is niet bevestigd. Of dat
 de Tzerra M of de Tzerra Ace is, is niet bevestigd; het oplopende producttype
 (13 → 23 → 27) wijst op de Ace, maar is geen bewijs. 23/1 blijft generiek tot een
 handleiding en een bevestigde uitlezing beschikbaar zijn.

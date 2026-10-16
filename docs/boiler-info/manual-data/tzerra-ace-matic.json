@@ -1,0 +1,2120 @@
+{
+  "id": "remeha-tzerra-ace-matic",
+  "name": "Remeha Tzerra Ace-Matic (24c / 28c / 35c)",
+  "language": "nl",
+  "purpose": "Handleidinggegevens naast het actieve profiel src/OTGW-firmware/data/tzerra-ace-matic.json. Niet op LittleFS: de UI gebruikt deze lijsten niet, omdat de handleiding ze niet aan OpenTherm koppelt.",
+  "source": "Remeha Tzerra Ace-Matic installatie- en servicehandleiding 7875186-01 (20-06-2024): Tab.48 instellingen (§9.2), meetwaarden (§9.6), Tab.56 tellers (§9.7), §11.2 foutcodes CU-GH16.",
+  "notes": {
+    "settings": "Codes (AP/CP/DP/GP/PP…) zijn geen OpenTherm-TSP-indexen; ID10/11 zijn bij deze ketel UNKNOWN-DATAID. De handleiding meldt dat fabrieksinstellingen per doelmarkt kunnen verschillen; CN1/CN2 zet ze terug.",
+    "codes": "Driedelige codes: A = waarschuwing, H = tijdelijke storing, E = permanente afwijking (reset vereist). Geen koppeling met ID5 (OEM fault code) in de handleiding."
+  },
+  "settings": [
+    {
+      "code": "AP002",
+      "label": "Handmatige warmtevraag ingeschakeld op basis van implementatie van instelling AP026 0: Uitgeschakeld 1: Ingeschakeld",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP006",
+      "label": "Minimale waterdruk in het systeem. Als de waterdruk onder deze waarde ligt, geeft het toestel een lage waterdruk aan of start automatisch bijvullen wanneer deze functie beschikbaar en actief is volgens de instelling van parameter AP014 [bar]",
+      "default": "0,8",
+      "min": "0,6",
+      "max": "1,5",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP008",
+      "label": "Wachttijd voordat het toestel start. Wanneer het activeringscontact X11 in de wachttijd wordt gesloten, start het apparaat meteen. Wanneer het activeringscontact niet in de wachttijd wordt gesloten, wordt het toestel 10 minuten lang geblokkeerd [seconden]",
+      "default": "1",
+      "min": "1",
+      "max": "255",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP009",
+      "label": "Aantal bedrijfsuren van het toestel tot een onderhoudsmelding wordt gegenereerd [uren]",
+      "default": "3000",
+      "min": "0",
+      "max": "51.000",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP010",
+      "label": "Schakelt onderhoudsmeldingen in of uit: 0: Geen melding 1: Aangepaste melding (afhankelijk van instellingen AP009 en AP011) 2: ABC servicemelding",
+      "default": "2",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP011",
+      "label": "Aantal uren van het toestel op netvoeding tot een servicemelding wordt gegenereerd [uren]",
+      "default": "17.500",
+      "min": "0",
+      "max": "51.000",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP013",
+      "label": "Configuratie van vrijgave-ingang van verwarmingsketel 0: Uitgeschakeld 1: Complete stop 2: Verwarmingsinstallatie geblokkeerd",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP014",
+      "label": "Modus van de automatische vulfunctie 0: Uitgeschakeld 1: Handmatig (vereist bevestiging via bedieningspaneel) 2: Automatisch (vereist geen bevestiging via bedieningspaneel)",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP016",
+      "label": "Verwarming aan/uit 0: Uit 1: Aan",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 58
+    },
+    {
+      "code": "AP017",
+      "label": "Sanitair warm water (SWW) Aan/Uit 0: Uit 1: Aan",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 58
+    },
+    {
+      "code": "AP018",
+      "label": "Configuratie van de vrijgave-ingang (normaal open of normaal gesloten) 0: Normaal open 1: Normaal gesloten",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP023",
+      "label": "Maximale duur van automatisch vullen tijdens installatie [minuten]",
+      "default": "5",
+      "min": "0",
+      "max": "65535",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP026",
+      "label": "Setpunt aanvoertemperatuur voor handmatig warmtevraag [°C]",
+      "default": "40",
+      "min": "10",
+      "max": "90",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP051",
+      "label": "Toegestane minimumtijd tussen tweemaal water vullen in automatische modus [dagen]",
+      "default": "90",
+      "min": "0",
+      "max": "65535",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP056",
+      "label": "Buitentemperatuursensor 0: Geen buitentemperatuursensor 1: AF60 2: QAC34",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP069",
+      "label": "Maximale tijdsduur van bijvullen [minuten]",
+      "default": "5",
+      "min": "0",
+      "max": "65535",
+      "level": "Installateur",
+      "page": 58
+    },
+    {
+      "code": "AP070",
+      "label": "Drukniveau dat de verwarmingsinstallatie moet bereiken na een automatische vulsequentie [bar]",
+      "default": "1,5",
+      "min": "0",
+      "max": "4,0",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "AP071",
+      "label": "Vereiste maximumtijd om systeem volledig te vullen [seconden]",
+      "default": "840",
+      "min": "0",
+      "max": "3600",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "AP073",
+      "label": "Zomer-winterverwarming aan/uit (buitentemperatuursensor aangesloten). Wanneer de buitentemperatuur deze drempel overschrijdt, staat het toestel in de zomermodus en zal het niet starten voor centrale verwarming. Wanneer de buitentemperatuur onder deze waarde ligt, staat het toestel in de wintermodus [°C]",
+      "default": "22",
+      "min": "10",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "AP074",
+      "label": "Zomermodus forceren (met buitentemperatuursensor). Sanitair warm water (SWW) ingeschakeld en verwarming uitgeschakeld. 0: Automatisch conform AP073 1: Zomer",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "AP079",
+      "label": "Isolatieniveau gebouw (met buitentemperatuursensor) [°C] 0: Slecht geïsoleerd gebouw 15: Goed geïsoleerd gebouw",
+      "default": "3",
+      "min": "0",
+      "max": "15",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "AP080",
+      "label": "Buitentemperatuur waaronder de vorstbeveiliging wordt geactiveerd [°C]",
+      "default": "-10",
+      "min": "-30",
+      "max": "+25",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "AP082",
+      "label": "Energiebesparing tijdens winterperiode inschakelen/uitschakelen 0: Uit: Uitgeschakeld 1: Aan: Ingeschakeld",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "AP089",
+      "label": "Naam installateur",
+      "default": "–",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "AP090",
+      "label": "Tel.nr. installateur",
+      "default": "–",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "AP091",
+      "label": "Type gebruikte buitentemperatuursensor: 0: Automatisch 1: Bedrade sensor 2: Draadloze sensor 3: Internet gemeten 4: Geen",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "CP000",
+      "label": "Aanvoertemperatuur ingesteld voor de zone, zonder buitentemperatuursensor [°C]",
+      "default": "80",
+      "min": "25",
+      "max": "80",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "CP020",
+      "label": "Zonefunctie 0: Uitgeschakeld 1: Ingeschakeld",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "CP060",
+      "label": "Vereiste omgevingstemperatuur (°C) in de zone tijdens de vakantieperiode",
+      "default": "6",
+      "min": "5",
+      "max": "20",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP070",
+      "label": "Maximale ruimtetemperatuur van circuit voor gereduceerde modus waarbij naar comfortmodus overgeschakeld kan worden [°C]",
+      "default": "16",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP080",
+      "label": "Temperatuur (°C) ingesteld door activiteit van gebruiker in de zone.",
+      "default": "16",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP081",
+      "label": "Temperatuur (°C) ingesteld door activiteit van gebruiker in de zone.",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP082",
+      "label": "Temperatuur (°C) ingesteld door activiteit van gebruiker in de zone.",
+      "default": "6",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP083",
+      "label": "Temperatuur (°C) ingesteld door activiteit van gebruiker in de zone.",
+      "default": "21",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP084",
+      "label": "Temperatuur (°C) ingesteld door activiteit van gebruiker in de zone.",
+      "default": "22",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP085",
+      "label": "Temperatuur (°C) ingesteld door activiteit van gebruiker in de zone.",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP200",
+      "label": "Handmatige instelling van omgevingstemperatuur (°C).",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 59
+    },
+    {
+      "code": "CP210",
+      "label": "Wijziging van de stooklijn in de comfortmodus",
+      "default": "15",
+      "min": "15",
+      "max": "90",
+      "level": "Installateur",
+      "page": 59
+    },
+    {
+      "code": "CP220",
+      "label": "Wijziging van de stooklijn in de gereduceerde modus",
+      "default": "15",
+      "min": "15",
+      "max": "90",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP230",
+      "label": "Helling van de stooklijn",
+      "default": "1,5",
+      "min": "0",
+      "max": "4",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP240",
+      "label": "Pas het effect van de ruimte-unit in de zone aan",
+      "default": "3",
+      "min": "0",
+      "max": "10",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP250",
+      "label": "Toegevoegde waarde voor kalibratie van de ruimtetemperatuur. Deze waarde kan worden gebruikt om de temperatuur te laten overeenstemmen tussen de thermostaat en een ander apparaat zoals een weerstation.",
+      "default": "0",
+      "min": "-5",
+      "max": "5",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP320",
+      "label": "Bedrijfsmodus zone: 0: Programmering 1: Handleiding 2: Uit",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 60
+    },
+    {
+      "code": "CP340",
+      "label": "Type gereduceerde nachtmodus: 0: Warmteverzoek stoppen 1: Warmteverzoek voortzetten",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP510",
+      "label": "Tijdelijke waarde van kamertemperatuur ingesteld voor de zone [°C]",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 60
+    },
+    {
+      "code": "CP550",
+      "label": "Openhaardfunctie 0: Uitgeschakeld 1: Ingeschakeld",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 60
+    },
+    {
+      "code": "CP570",
+      "label": "Klokprogramma voor verwarming/koeling 0: Programma 1 1: Programma 2 2: Programma 3",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 60
+    },
+    {
+      "code": "CP640",
+      "label": "Verwarmingsprestaties voor de zone bij gebruik van een aan/uit-regelaar met normaal gesloten contacten: 0: Contact open (stop verwarming) 1: Contact gesloten (start verwarming)",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP660",
+      "label": "Zoneselectiepictogram",
+      "default": "-",
+      "min": "-",
+      "max": "-",
+      "level": "Gebruiker",
+      "page": 60
+    },
+    {
+      "code": "CP730",
+      "label": "Selectie van verwarmingssnelheid zone 0: Extra langzaam 1: Min. snelheid 2: Langzamer 3: Normaal 4: Sneller 5: Max. snelheid",
+      "default": "3",
+      "min": "-",
+      "max": "-",
+      "level": "Gebruiker",
+      "page": 60
+    },
+    {
+      "code": "CP740",
+      "label": "Selectie van koelsnelheid zone 0: Min. snelheid 1: Langzamer 2: Normaal 3: Sneller 4: Max. snelheid",
+      "default": "2",
+      "min": "-",
+      "max": "-",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP750",
+      "label": "Maximale voorverwarmingstijd [minuten].",
+      "default": "0",
+      "min": "0",
+      "max": "240",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "CP780",
+      "label": "Selectie van zoneregelingsstrategie 0: Automatisch 1: Op basis van omgevingstemperatuur 2: Op basis van buitentemperatuur 3: Op basis van buiten-/omgevingstemperatuur.",
+      "default": "0",
+      "min": "-",
+      "max": "-",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "DP004",
+      "label": "Legionella-preventiefunctie aan 0: Uitgeschakeld 1: Wekelijks 2: Dagelijks (alleen beschikbaar met thermostaat)",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "DP005",
+      "label": "Instellen offsetwaarde tankdebiet (°C)",
+      "default": "15",
+      "min": "0",
+      "max": "25",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "DP006",
+      "label": "Inschakeling hysteresetemperatuur voor verwarming SWW-boiler (°C)",
+      "default": "4",
+      "min": "2",
+      "max": "15",
+      "level": "Installateur",
+      "page": 60
+    },
+    {
+      "code": "DP007",
+      "label": "Stand van driewegklep in stand-bymodus (alleen met SWW boiler) 0: Positie van verwarmingssysteem 1: Positie van SWW (sanitair warm water)",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP008",
+      "label": "Ingestelde waarde voor temperatuurverschil van SWW-pomp",
+      "default": "40",
+      "min": "5",
+      "max": "80",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP034",
+      "label": "Offset voor SWW-boilersensor [°C]",
+      "default": "0",
+      "min": "0",
+      "max": "10",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP035",
+      "label": "Pomp voor SWW-boiler starten [°C]",
+      "default": "-3",
+      "min": "-20",
+      "max": "20",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP060",
+      "label": "Klokprogramma voor SWW 0: Programma 1 1: Programma 2 2: Programma 3",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP070",
+      "label": "Setpunt sanitair warm water (°C).",
+      "default": "60",
+      "min": "35",
+      "max": "65",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP080",
+      "label": "Verlaagd setpunt van temperatuur voor de sanitair-warmwaterboiler [°C].",
+      "default": "15",
+      "min": "7",
+      "max": "50",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP150",
+      "label": "De boilersensor/-thermostaat inschakelen 0: SWW (sanitair warm water)-sensor 1: SWW (sanitair warm water)-thermostaat",
+      "default": "1",
+      "min": "-",
+      "max": "-",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP160",
+      "label": "Ingestelde waarde voor legionellapreventie in SWW (met externe ketel) [°C]",
+      "default": "65",
+      "min": "50",
+      "max": "90",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP170",
+      "label": "Begin van vakantieperiode opslaan",
+      "default": "–",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP180",
+      "label": "Eind van vakantieperiode opslaan",
+      "default": "–",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP190",
+      "label": "De uitschakeltijd voor de verwarmingsperiode van de opslagtank wijzigen",
+      "default": "–",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP200",
+      "label": "Sanitair-warmwatermodus (SWW-modus): 0: Volgens klokprogramma 1: Comfortstand 2: Eco-stand",
+      "default": "0 - Verwarming + SWW model 1 - Verwarming + SWW boiler model",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP337",
+      "label": "Setpunt sanitair-warmwatertemperatuur (SWW-temperatuur) voor de vakantieperiode [°C]",
+      "default": "10",
+      "min": "10",
+      "max": "60",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP357",
+      "label": "Tijd voordat alarm van douchetijd in werking treedt [minuten]",
+      "default": "0",
+      "min": "0",
+      "max": "180",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP367",
+      "label": "Actie door het primaire systeem van sanitair warm water wanneer de douchetimer afgelopen is 0: Uit 1: Opgelet 2: SWW-setpunt verlagen",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP377",
+      "label": "Gewenste temperatuur sanitair warm water voor de gereduceerde modus (°C)",
+      "default": "40",
+      "min": "20",
+      "max": "65",
+      "level": "Gebruiker",
+      "page": 61
+    },
+    {
+      "code": "DP410",
+      "label": "Duur van de desinfectiefase (DP160) tijdens de sanitair warm water anti-legionellafunctie [minuten]",
+      "default": "3",
+      "min": "0",
+      "max": "600",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP420",
+      "label": "Maximale duur van legionellapreventie [minuten]",
+      "default": "15",
+      "min": "0",
+      "max": "360",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP430",
+      "label": "Startdag SWW anti-legionellaprogramma [dag] 1: Maandag 2: Dinsdag 3: Woensdag 4: Donderdag 5: Vrijdag 6: Zaterdag 7: Zondag",
+      "default": "1",
+      "min": "1",
+      "max": "7",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP440",
+      "label": "Starttijd voor SWW anti-legionellaprogramma [tientallen minuten na middernacht]",
+      "default": "30",
+      "min": "0",
+      "max": "143",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "DP475",
+      "label": "De tijd dat de 3-wegklep in de SWW-positie staat na de SWW-aanvraag [seconden]",
+      "default": "120",
+      "min": "0",
+      "max": "255",
+      "level": "Installateur",
+      "page": 61
+    },
+    {
+      "code": "GP043",
+      "label": "Selecteer het type gas: 0: Geen geselecteerd 1: Aardgas 2: Vloeibaar propaangas (G30-G31)",
+      "default": "0",
+      "min": "-",
+      "max": "-",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "GP066",
+      "label": "Ontstekingsvermogen (%) * Zie tabel in sectie 'Service-instellingen'",
+      "default": "*",
+      "min": "20",
+      "max": "60",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "GP067",
+      "label": "Correctie van minimumvermogen (%) * Zie tabel in sectie 'Afvoertype C ' (10)3",
+      "default": "*",
+      "min": "0",
+      "max": "15",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "GP068",
+      "label": "Correctie van maximaal SWW-vermogen [%] * Zie tabel in sectie \"'uitgang correctie-instellingen [%]\"",
+      "default": "*",
+      "min": "-30",
+      "max": "30",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "GP082",
+      "label": "Sanitair-watercircuit tijdens de schoorsteenvegerfunctie inschakelen",
+      "default": "0",
+      "min": "0",
+      "max": "1",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "GP088",
+      "label": "Correctie van maximaal verwarmingsvermogen [%] * Zie tabel in hoofdstuk \"Instelling van maximumvermogen voor verwarmingsmodus\" * Zie tabel in sectie \"'uitgang correctie-instellingen [%]\"",
+      "default": "*",
+      "min": "-70",
+      "max": "30",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "GP089",
+      "label": "Geluidsarme werkingsmodus 0: Uit 1: Aan",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP000",
+      "label": "Instelling van het aantal verstreken dagen in de eerste fase van de vloerdroging [dagen]",
+      "default": "0",
+      "min": "0",
+      "max": "30",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP010",
+      "label": "Begintemperatuur van de vloerdroging voor de zone tijdens de eerste fase [°C]",
+      "default": "7",
+      "min": "7",
+      "max": "60",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP020",
+      "label": "Eindtemperatuur van de vloerdroging voor de zone tijdens de eerste fase [°C]",
+      "default": "7",
+      "min": "7",
+      "max": "60",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP030",
+      "label": "Instelling van het aantal verstreken dagen in de tweede fase van de vloerdroging [dagen]",
+      "default": "0",
+      "min": "0",
+      "max": "30",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP040",
+      "label": "Begintemperatuur van de vloerdroging voor de zone tijdens de tweede fase [°C]",
+      "default": "7",
+      "min": "7",
+      "max": "60",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP050",
+      "label": "Eindtemperatuur van de vloerdroging voor de zone tijdens de tweede fase [°C]",
+      "default": "7",
+      "min": "7",
+      "max": "60",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP060",
+      "label": "Instelling van het aantal verstreken dagen in de derde fase van de vloerdroging [dagen]",
+      "default": "0",
+      "min": "0",
+      "max": "30",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP070",
+      "label": "Begintemperatuur van de vloerdroging voor de zone tijdens de derde fase [°C]",
+      "default": "7",
+      "min": "7",
+      "max": "60",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP080",
+      "label": "Eindtemperatuur van de vloerdroging voor de zone tijdens de derde fase [°C]",
+      "default": "7",
+      "min": "7",
+      "max": "60",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "ZP090",
+      "label": "Zone vloerdroging Aan 0 = Uit 1 = Aan",
+      "default": "0",
+      "min": "0",
+      "max": "1",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "PP015",
+      "label": "Nalooptijd van pomp na warmtevraag [minuten]",
+      "default": "1",
+      "min": "0",
+      "max": "99",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "PP016",
+      "label": "Maximaal pomptoerental in de verwarmingsmodus (%)",
+      "default": "100",
+      "min": "80",
+      "max": "100",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "PP018",
+      "label": "Minimumtoerental voor ketelpomp [%]",
+      "default": "60",
+      "min": "60",
+      "max": "100",
+      "level": "Installateur",
+      "page": 62
+    },
+    {
+      "code": "CP060",
+      "label": "Vereiste omgevingstemperatuur (°C) in de zone tijdens de vakantie-/antivriesperiode",
+      "default": "6",
+      "min": "5",
+      "max": "20",
+      "level": "Gebruiker",
+      "page": 62
+    },
+    {
+      "code": "CP070",
+      "label": "Maximale richtwaarde omgevingstemperatuur (°C) in de gereduceerde modus waarmee kan worden overgeschakeld naar de comfortmodus met klimaatregeling (met buitentemperatuursensor)",
+      "default": "16",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 62
+    },
+    {
+      "code": "CP080",
+      "label": "Temperatuur (°C) ingesteld door SLEEP activiteit in de zone",
+      "default": "16",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP081",
+      "label": "Temperatuur (°C) ingesteld door HOME activiteit in de zone",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP082",
+      "label": "Temperatuur (°C) ingesteld door AWAY activiteit in de zone",
+      "default": "6",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP083",
+      "label": "Temperatuur (°C) ingesteld door MORNING activiteit in de zone",
+      "default": "21",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP084",
+      "label": "Temperatuur (°C) ingesteld door EVENING activiteit in de zone",
+      "default": "22",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP085",
+      "label": "Temperatuur (°C) ingesteld door CUSTOM activiteit in de zone",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP200",
+      "label": "Vereiste omgevingstemperatuur (°C) voor de zone in handmatige modus",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP210",
+      "label": "Wijziging van de stooklijn in de comfortmodus",
+      "default": "15",
+      "min": "15",
+      "max": "90",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "CP220",
+      "label": "Wijziging van de stooklijn in de gereduceerde modus",
+      "default": "15",
+      "min": "15",
+      "max": "90",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "CP230",
+      "label": "Helling van de stooklijn",
+      "default": "1,5",
+      "min": "0",
+      "max": "4",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "CP240",
+      "label": "Pas het effect van de ruimte-unit in de zone aan",
+      "default": "3",
+      "min": "0",
+      "max": "10",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "CP250",
+      "label": "Toegevoegde waarde voor kalibratie van de ruimtetemperatuur. Deze waarde kan worden gebruikt om de temperatuur te laten overeenstemmen tussen de thermostaat en een ander apparaat zoals een weerstation.",
+      "default": "0",
+      "min": "-5",
+      "max": "5",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "CP320",
+      "label": "Bedrijfsmodus zone 0: Programmering 1: Handleiding 2: Uit",
+      "default": "1",
+      "min": "-",
+      "max": "-",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP340",
+      "label": "Type gereduceerde nachtmodus 0: Warmteverzoek stoppen 1: Warmteverzoek voortzetten",
+      "default": "1",
+      "min": "-",
+      "max": "-",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "CP510",
+      "label": "Tijdelijke waarde van kamertemperatuur ingesteld voor de zone [°C]",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP550",
+      "label": "Openhaardfunctie 0: Uitgeschakeld 1: Ingeschakeld",
+      "default": "0",
+      "min": "-",
+      "max": "-",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP570",
+      "label": "Door gebruiker geselecteerd klokprogramma 0: Programma 1 1: Programma 2 2: Programma 3",
+      "default": "0",
+      "min": "-",
+      "max": "-",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP730",
+      "label": "Boost bij het begin van de zoneverwarming: De stooklijn aanpassen om de tijd tot het bereiken van het vereiste omgevingscomfort te verkorten of te verlengen 0: Extreem langzaam 1: Langzamer 2: Langzaam 3: Normaal 4: Snel 5: Extreem snel",
+      "default": "3",
+      "min": "-",
+      "max": "-",
+      "level": "Gebruiker",
+      "page": 63
+    },
+    {
+      "code": "CP740",
+      "label": "Afkoelsnelheid van het gebouw wanneer de verwarming is uitgeschakeld 0: Extreem langzaam 1: Langzaam 2: Normaal 3: Snel 4: Extreem snel",
+      "default": "2",
+      "min": "-",
+      "max": "-",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "CP750",
+      "label": "Maximale voorverwarmingstijd [minuten].",
+      "default": "0",
+      "min": "0",
+      "max": "240",
+      "level": "Installateur",
+      "page": 63
+    },
+    {
+      "code": "DP060",
+      "label": "Voor SWW geselecteerd klokprogramma 0: Programma 1 1: Programma 2 2: Programma 3",
+      "default": "0",
+      "min": "-",
+      "max": "-",
+      "level": "Gebruiker",
+      "page": 64
+    },
+    {
+      "code": "DP080",
+      "label": "Verlaagd setpunt van temperatuur voor de sanitair-warmwaterboiler [°C].",
+      "default": "15",
+      "min": "7",
+      "max": "50",
+      "level": "Gebruiker",
+      "page": 64
+    },
+    {
+      "code": "DP337",
+      "label": "Setpunt sanitair-warmwatertemperatuur (SWW-temperatuur) voor de vakantieperiode [°C]",
+      "default": "10",
+      "min": "10",
+      "max": "60",
+      "level": "Gebruiker",
+      "page": 64
+    }
+  ],
+  "measurements": [
+    {
+      "code": "AM001",
+      "label": "SWW-modus ingeschakeld (0: uitgeschakeld, 1: ingeschakeld)",
+      "unit": "0/1",
+      "page": 69
+    },
+    {
+      "code": "AM010",
+      "label": "Pomptoerental (0 ÷ 100%)",
+      "unit": "%",
+      "page": 69
+    },
+    {
+      "code": "AM011",
+      "label": "Service vereist (0: uitgeschakeld, 1: ingeschakeld)",
+      "unit": "0/1",
+      "page": 69
+    },
+    {
+      "code": "AM012",
+      "label": "Apparaatstatus",
+      "unit": "Lijst van statussen",
+      "page": 69
+    },
+    {
+      "code": "AM014",
+      "label": "Substatus van apparaat",
+      "unit": "Lijst van substatussen",
+      "page": 69
+    },
+    {
+      "code": "AM015",
+      "label": "Pomp draait",
+      "unit": "0 = Uit 1 = Aan",
+      "page": 69
+    },
+    {
+      "code": "AM016",
+      "label": "Aanvoertemperatuur",
+      "unit": "°C",
+      "page": 69
+    },
+    {
+      "code": "AM018",
+      "label": "Retourtemperatuur",
+      "unit": "°C",
+      "page": 69
+    },
+    {
+      "code": "AM019",
+      "label": "Actuele waterdruk in de cv-installatie",
+      "unit": "bar",
+      "page": 69
+    },
+    {
+      "code": "AM024",
+      "label": "Actueel relatief vermogen",
+      "unit": "0..........100%",
+      "page": 69
+    },
+    {
+      "code": "AM027",
+      "label": "Buitentemperatuur",
+      "unit": "°C",
+      "page": 69
+    },
+    {
+      "code": "AM036",
+      "label": "Rookgastemperatuur",
+      "unit": "°C",
+      "page": 69
+    },
+    {
+      "code": "AM037",
+      "label": "Status van de driewegklep (0: verwarming, 1: SWW)",
+      "unit": "0/1",
+      "page": 69
+    },
+    {
+      "code": "AM040",
+      "label": "Voor regeling gebruikte temperatuur",
+      "unit": "°C",
+      "page": 69
+    },
+    {
+      "code": "AM088",
+      "label": "Positie van kraan voor autovullen",
+      "unit": "0 = autovullen ingeschakeld 1 = autovullen uitgeschakeld",
+      "page": 69
+    },
+    {
+      "code": "AM091",
+      "label": "Seizoensgebonden modus",
+      "unit": "0 = Winter 3 = Zomer",
+      "page": 69
+    },
+    {
+      "code": "AM101",
+      "label": "Intern setpunt",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "BM000",
+      "label": "SWW temperatuur",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "CM030",
+      "label": "Huidige kamertemperatuur voor zone",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "CM120",
+      "label": "Actuele zonemodus",
+      "unit": "0 = Programma 1 = Handbediening 2 = Vorstbeveiliging 3 = Tijdelijk",
+      "page": 70
+    },
+    {
+      "code": "CM190",
+      "label": "Instelling van kamertemperatuur in zone",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "CM210",
+      "label": "Buitentemperatuur binnen de zone",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "CM280",
+      "label": "Berekend setpunt voor zone",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "DM001",
+      "label": "Temperatuur van SWW boiler (onderste sonde)",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "DM002",
+      "label": "SWW stroomsnelheid uitlaat",
+      "unit": "l/min",
+      "page": 70
+    },
+    {
+      "code": "DM005",
+      "label": "Zonneboilertemperatuur SWW",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "DM009",
+      "label": "Primaire bedrijfsmodus (0: Programmeren, 1: Handmatig, 2: Vorstbeveiliging/ vakantie)",
+      "unit": "0/1/2",
+      "page": 70
+    },
+    {
+      "code": "DM019",
+      "label": "SWW-bedrijf actief (1: Comfort, 2: Laag, 3: Vakantie, 4: antivries",
+      "unit": "1/2/3/4",
+      "page": 70
+    },
+    {
+      "code": "DM029",
+      "label": "Warmwatersetpunt",
+      "unit": "°C",
+      "page": 70
+    },
+    {
+      "code": "GM001",
+      "label": "Actueel toerental ventilator",
+      "unit": "tpm",
+      "page": 70
+    },
+    {
+      "code": "GM002",
+      "label": "Actuele richtwaarde toerental ventilator",
+      "unit": "tpm",
+      "page": 70
+    },
+    {
+      "code": "GM003",
+      "label": "Vlam gedetecteerd",
+      "unit": "0 = Niet gedetecteerd 1 = Gedetecteerd",
+      "page": 70
+    },
+    {
+      "code": "GM004",
+      "label": "Gasklep",
+      "unit": "0 = open 1 = gesloten",
+      "page": 70
+    },
+    {
+      "code": "GM007",
+      "label": "Opstarten",
+      "unit": "0 = Uit 1 = Aan",
+      "page": 70
+    },
+    {
+      "code": "GM008",
+      "label": "Actuele gemeten vlamstroom",
+      "unit": "μA",
+      "page": 70
+    },
+    {
+      "code": "GM013",
+      "label": "Input uitschakelingssignaal ketel",
+      "unit": "0 = open 1 = gesloten",
+      "page": 70
+    },
+    {
+      "code": "GM044",
+      "label": "Reden voor blokkering geverifieerd (0: geen) 1. Vergrendeling verwarming 2. Vergrendeling SWW 3. Wachten op ontsteking van de brander 4. Aanvoertemperatuur voor verwarming boven maximumwaarde 5. Aanvoertemperatuur voor verwarming boven de startwaarde 6. Temperatuur van warmtewisselaar boven de startwaarde 7. Gemiddelde waarde voor aanvoertemperatuur voor verwarming boven de startwaarde 8. Aanvoertemperatuur voor verwarming boven de richtwaarde 9. Temperatuurverschil tussen aanvoer en retour te groot 10. Aanvoertemperatuur voor verwarming boven de uitschakelwaarde 11. Warmtevraag vóór de minimale wachttijd tussen twee opeenvolgende verzoeken 12. Uitschakeling vanwege te lage vlamwaarde 13. Temperatuur van zonneboiler boven de uitschakelwaarde",
+      "unit": "0/13",
+      "page": 70
+    }
+  ],
+  "counters": [
+    {
+      "code": "AC001",
+      "level": "Gebruiker",
+      "label": "Aantal netvoedingsuren van de ketel",
+      "page": 72
+    },
+    {
+      "code": "AC002",
+      "level": "Installateur",
+      "label": "Aantal bedrijfsuren van de ketel na de laatste onderhoudshandeling",
+      "page": 72
+    },
+    {
+      "code": "AC003",
+      "level": "Installateur",
+      "label": "Aantal netvoedingsuren van de ketel na de laatste onderhoudshandeling",
+      "page": 72
+    },
+    {
+      "code": "AC004",
+      "level": "Installateur",
+      "label": "Mislukte opstartpogingen na de laatste onderhoudshandeling",
+      "page": 72
+    },
+    {
+      "code": "AC005",
+      "level": "Gebruiker",
+      "label": "Indicatief energieverbruik [kW/h] in verwarmingsmodus",
+      "page": 72
+    },
+    {
+      "code": "AC006",
+      "level": "Gebruiker",
+      "label": "Indicatief energieverbruik [kW/h] in sanitair-warmwatermodus (SWW)",
+      "page": 72
+    },
+    {
+      "code": "AC016",
+      "level": "Installateur",
+      "label": "Vulteller: telt aantal vulacties",
+      "page": 72
+    },
+    {
+      "code": "AC026",
+      "level": "Installateur",
+      "label": "Aantal bedrijfsuren van de pomp",
+      "page": 72
+    },
+    {
+      "code": "AC027",
+      "level": "Installateur",
+      "label": "Aantal pompstarts",
+      "page": 72
+    },
+    {
+      "code": "AM033",
+      "level": "Gebruiker",
+      "label": "Indicatie van aanstaande onderhoudstype A, B of C",
+      "page": 72
+    },
+    {
+      "code": "DC002",
+      "level": "Installateur",
+      "label": "Aantal sanitair-warmwatercycli (driewegklepschakeling)",
+      "page": 72
+    },
+    {
+      "code": "DC003",
+      "level": "Installateur",
+      "label": "Aantal uren in de sanitair-warmwatermodus (driewegklepschakeling)",
+      "page": 72
+    },
+    {
+      "code": "DC004",
+      "level": "Installateur",
+      "label": "Aantal branderstarts voor de sanitair-warmwatermodus",
+      "page": 72
+    },
+    {
+      "code": "DC005",
+      "level": "Installateur",
+      "label": "Aantal opstarturen van de brander voor de sanitair-warmwatermodus",
+      "page": 72
+    },
+    {
+      "code": "GC007",
+      "level": "Gebruiker",
+      "label": "Mislukte opstartpogingen",
+      "page": 72
+    },
+    {
+      "code": "PC002",
+      "level": "Installateur",
+      "label": "Aantal branderstarts voor verwarming en de sanitair-warmwatermodus",
+      "page": 72
+    },
+    {
+      "code": "PC003",
+      "level": "Installateur",
+      "label": "Aantal opstarturen van de brander voor verwarming en de sanitair-warmwatermodus",
+      "page": 72
+    },
+    {
+      "code": "PC004",
+      "level": "Installateur",
+      "label": "Lekkage brandervlam",
+      "page": 72
+    },
+    {
+      "code": "ZC000",
+      "level": "Installateur",
+      "label": "Resterende tijd voor het vloerdroogprogramma",
+      "page": 72
+    }
+  ],
+  "codes": [
+    {
+      "code": "A00.34",
+      "type": "Waarschuwing",
+      "description": "Buitensensor ontbreekt",
+      "cause_solution": "Controleer de laagspanningskabels Controleer de verbindingsprint Controleer de buitentemperatuursensor Controleer de apparaten die aangesloten zijn op het systeem via de functie 'Geavanceerd onderhoudsmenu' Controleer/vervang de printplaat",
+      "page": 79
+    },
+    {
+      "code": "A02.06",
+      "type": "Waarschuwing",
+      "description": "Lage druk in het verwarmingscircuit",
+      "cause_solution": "Controleer en herstel de druk van de installatie Controleer de drukt van het expansievat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 79
+    },
+    {
+      "code": "A02.18",
+      "type": "Waarschuwing",
+      "description": "Verkeerde configuratie",
+      "cause_solution": "Voer CN1/CN2 in Controleer/vervang de printplaat",
+      "page": 79
+    },
+    {
+      "code": "A02.33",
+      "type": "Waarschuwing",
+      "description": "Storing maximale bijvulduur overschreden",
+      "cause_solution": "Controleer bedrading van drukschakelaar Controleer watervulkraan Controleer/vervang de printplaat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 79
+    },
+    {
+      "code": "A02.34",
+      "type": "Waarschuwing",
+      "description": "Voor automatisch vullen is het minimale tijdsinterval tussen twee verzoeken niet bereikt",
+      "cause_solution": "Controleer bedrading van drukschakelaar Controleer watervulkraan Controleer/vervang de printplaat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 79
+    },
+    {
+      "code": "A02.36",
+      "type": "Waarschuwing",
+      "description": "Functioneel apparaat losgekoppeld",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie",
+      "page": 79
+    },
+    {
+      "code": "A02.37",
+      "type": "Waarschuwing",
+      "description": "Passief functioneel apparaat losgekoppeld",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie",
+      "page": 79
+    },
+    {
+      "code": "A02.45",
+      "type": "Waarschuwing",
+      "description": "Verbindingsfout",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie",
+      "page": 79
+    },
+    {
+      "code": "A02.46",
+      "type": "Waarschuwing",
+      "description": "Prioriteitsfout apparaat",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie",
+      "page": 79
+    },
+    {
+      "code": "A02.48",
+      "type": "Waarschuwing",
+      "description": "Configuratiefout unitfunctie",
+      "cause_solution": "FOUT ELEKTRISCHE AANSLUITING Start de automatische detectiefunctie Controleer de elektrische aansluitingen van externe apparatuur.",
+      "page": 79
+    },
+    {
+      "code": "A02.49",
+      "type": "Waarschuwing",
+      "description": "Initialisatie knooppunt mislukt",
+      "cause_solution": "FOUT ELEKTRISCHE AANSLUITING Start de automatische detectiefunctie Controleer de elektrische aansluitingen van externe apparatuur.",
+      "page": 79
+    },
+    {
+      "code": "A02.55",
+      "type": "Waarschuwing",
+      "description": "Verkeerd of ontbrekend serienummer",
+      "cause_solution": "Neem contact op met het netwerk van erkende dealers",
+      "page": 79
+    },
+    {
+      "code": "A02.76",
+      "type": "Waarschuwing",
+      "description": "Intern geheugen gereserveerd voor volledige aanpassing van de instellingen. Er kunnen geen verdere wijzigingen worden doorgevoerd",
+      "cause_solution": "Neem contact op met het netwerk van erkende dealers",
+      "page": 80
+    },
+    {
+      "code": "A02.80",
+      "type": "Waarschuwing",
+      "description": "Geen afsluitweerstand op bus",
+      "cause_solution": "Controleer of de busafsluitweerstand op de bus zit",
+      "page": 80
+    },
+    {
+      "code": "A05.29",
+      "type": "Waarschuwing",
+      "description": "Gasdruk onder de limiet",
+      "cause_solution": "Controleer de gastoevoerdruk bij maximaal- en minimaalvermogen",
+      "page": 80
+    },
+    {
+      "code": "A05.30",
+      "type": "Waarschuwing",
+      "description": "Gasdrukcontrole mislukt",
+      "cause_solution": "Controleer de gastoevoerdruk bij maximaal- en minimaalvermogen",
+      "page": 80
+    },
+    {
+      "code": "A05.95",
+      "type": "Waarschuwing",
+      "description": "Er is een korte onderbreking van het vlamsignaal gedetecteerd",
+      "cause_solution": "",
+      "page": 80
+    },
+    {
+      "code": "A08.02",
+      "type": "Waarschuwing",
+      "description": "Fout douchetijd voorbij",
+      "cause_solution": "Controleer de communicatiebus Controleer of de thermostaat aangesloten is Controleer/vervang de printplaat",
+      "page": 80
+    },
+    {
+      "code": "H00.42",
+      "type": "Tijdelijke storing",
+      "description": "Druksensor geopend/defect of druk te hoog",
+      "cause_solution": "STORING VAN WATERDRUKSENSOR Controleer of vervang de waterdruksensor Controleer de bedrading van de waterdruksensor Controleer of vervang de printplaat Controleer de druk van de installatie",
+      "page": 80
+    },
+    {
+      "code": "H00.81",
+      "type": "Tijdelijke storing",
+      "description": "Omgevingstemperatuursensor ontbreekt",
+      "cause_solution": "Controleer de communicatiebus Controleer of de thermostaat aangesloten is Controleer/vervang de printplaat",
+      "page": 80
+    },
+    {
+      "code": "H01.00",
+      "type": "Tijdelijke storing",
+      "description": "Tijdelijke communicatiestoring in de printplaat",
+      "cause_solution": "De fout wordt automatisch opgelost",
+      "page": 80
+    },
+    {
+      "code": "H01.05",
+      "type": "Tijdelijke storing",
+      "description": "Maximaal temperatuurverschil tussen de aanvoer en de retour bereikt",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de circulatie van de verwarmingsketel/ installatie Start een handmatige ontluchtingscyclus Controleer de druk van de installatie OVERIGE OORZAKEN Controleer de wisselaar op vervuiling Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 80
+    },
+    {
+      "code": "H01.08",
+      "type": "Tijdelijke storing",
+      "description": "Te snelle toename van de aanvoertemperatuur in de verwarmingsinstallatie",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de circulatie van de verwarmingsketel/ installatie Start een handmatige ontluchting Controleer de druk van de installatie OVERIGE OORZAKEN Controleer de wisselaar op vervuiling Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 80
+    },
+    {
+      "code": "H01.14",
+      "type": "Tijdelijke storing",
+      "description": "Maximale aanvoer- of retourtemperatuur bereikt",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de aanvoer- en retourtemperatuursensor Controleer de circulatie van de verwarmingsketel/ installatie Start een handmatige ontluchting",
+      "page": 80
+    },
+    {
+      "code": "H01.18",
+      "type": "Tijdelijke storing",
+      "description": "Water stroomt niet door (tijdelijk)",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de druk van de installatie Start een handmatige ontluchting Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/ installatie FOUT TEMPERATUURSENSOR Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 80
+    },
+    {
+      "code": "H01.21",
+      "type": "Tijdelijke storing",
+      "description": "Aanvoertemperatuur loopt te snel op tijdens sanitair-warmwatermodus.",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de druk van de installatie Start een handmatige ontluchting Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/ installatie FOUT TEMPERATUURSENSOR Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 81
+    },
+    {
+      "code": "H02.00",
+      "type": "Tijdelijke storing",
+      "description": "Bezig met resetprocedure.",
+      "cause_solution": "Lost zichzelf op",
+      "page": 81
+    },
+    {
+      "code": "H02.02",
+      "type": "Tijdelijke storing",
+      "description": "Wacht op invoer van configuratie-instellingen (CN1,CN2)",
+      "cause_solution": "CN1/CN2 CONFIGURATIE ONTBREEKT Configureer CN1/CN2",
+      "page": 81
+    },
+    {
+      "code": "H02.03",
+      "type": "Tijdelijke storing",
+      "description": "Configuratie-instellingen (CN1,CN2) niet correct ingevoerd",
+      "cause_solution": "CONFIGURATIEFOUT VOOR PARAMETERS CN1– CN2 Controleer CN1/CN2 configuratie Configureer CN1/CN2 op juiste wijze",
+      "page": 81
+    },
+    {
+      "code": "H02.04",
+      "type": "Tijdelijke storing",
+      "description": "Printplaat-instellingen kunnen niet worden gelezen",
+      "cause_solution": "PRINTPLAATFOUT Configureer CN1/CN2 Vervang CSU (extern configuratiegeheugen) Vervang de printplaat",
+      "page": 81
+    },
+    {
+      "code": "H02.05",
+      "type": "Tijdelijke storing",
+      "description": "Het instelgeheugen is niet compatibel met het type printplaat van de verwarmingsketel.",
+      "cause_solution": "Neem contact op met een vakman",
+      "page": 81
+    },
+    {
+      "code": "H02.07",
+      "type": "Tijdelijke storing",
+      "description": "Lage druk in het verwarmingscircuit (water moet worden bijgevuld).",
+      "cause_solution": "STORING VAN WATERDRUKSENSOR Controleer de druk van de installatie Controleer de drukt van het expansievat Start een handmatige ontluchtingscyclus Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/ installatie SENSORFOUT Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 81
+    },
+    {
+      "code": "H02.12",
+      "type": "Tijdelijke storing",
+      "description": "Storing van ingang die vrijgave verwarmingsketel blokkeert",
+      "cause_solution": "STORING VAN BLOKKERENDE INGANG VERWARMINGSKETEL Controleer of het RL-contact (vrijgavecontact) open is Controleer het externe apparaat dat de vrijgave-ingang regelt",
+      "page": 81
+    },
+    {
+      "code": "H02.31",
+      "type": "Tijdelijke storing",
+      "description": "Het apparaat vereist automatisch vullen van het systeem door lage druk",
+      "cause_solution": "VERZOEK VOOR VULLEN VAN VERWARMINGSKETEL/SYSTEEM (HANDMATIGE ACTIVERING) Automatisch bijvullen inschakelen Controleer de drukt van het expansievat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 81
+    },
+    {
+      "code": "H02.38",
+      "type": "Tijdelijke storing",
+      "description": "Maximumaantal cycli voor automatisch vullen is bereikt",
+      "cause_solution": "FOUT BIJ AUTOMATISCH VULLEN VAN VERWARMINGSKETEL/SYSTEEM Het toegestane maximum aantal keren voor automatisch vullen is bereikt Controleer de verwarmingsketel/installatie op lekkage Neem contact op met het netwerk van erkende dealers",
+      "page": 81
+    },
+    {
+      "code": "H02.70",
+      "type": "Tijdelijke storing",
+      "description": "Test externe warmteterugwinunit mislukt",
+      "cause_solution": "Storing printplaat accessoire SCB-09 Controleer het apparaat dat is aangesloten op contact X9",
+      "page": 81
+    },
+    {
+      "code": "H03.00",
+      "type": "Tijdelijke storing",
+      "description": "Geen identificatiegegevens voor veiligheidsapparaat van de verwarmingsketel",
+      "cause_solution": "STORING BESTURINGSPRINT Vervang de besturingsprint",
+      "page": 81
+    },
+    {
+      "code": "H03.01",
+      "type": "Tijdelijke storing",
+      "description": "Communicatiefout in comfortsoftware (interne storing in besturingsprint verwarmingsketel)",
+      "cause_solution": "STORING BESTURINGSPRINT Vervang de besturingsprint",
+      "page": 81
+    },
+    {
+      "code": "H03.02",
+      "type": "Tijdelijke storing",
+      "description": "Vlam tijdelijk weg",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer OVERIGE OORZAKEN Controleer de voedingsspanning.",
+      "page": 82
+    },
+    {
+      "code": "H03.05",
+      "type": "Tijdelijke storing",
+      "description": "Interne stop",
+      "cause_solution": "STORING BESTURINGSPRINT Controleer/vervang de verbindingsprint Voer CN1/CN2 in Controleer/vervang de printplaat",
+      "page": 82
+    },
+    {
+      "code": "H03.08",
+      "type": "Tijdelijke storing",
+      "description": "Valse vlam",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode VALSE VLAM Controleer het aardcircuit Controleer de voedingsspanning. STORING BESTURINGSPRINT Controleer/vervang de printplaat",
+      "page": 82
+    },
+    {
+      "code": "H03.09",
+      "type": "Tijdelijke storing",
+      "description": "Lage spanning",
+      "cause_solution": "STORING IN VOEDING Controleer voedingsspanning van verwarmingsketel Controleer/vervang de printplaat",
+      "page": 82
+    },
+    {
+      "code": "H03.17",
+      "type": "Tijdelijke storing",
+      "description": "Storing in gasregelsysteem",
+      "cause_solution": "STORING BESTURINGSPRINT Voer CN1/CN2 in Controleer/vervang de printplaat",
+      "page": 82
+    },
+    {
+      "code": "H03.26",
+      "type": "Tijdelijke storing",
+      "description": "Verzoek tot ketelkalibratie",
+      "cause_solution": "KALIBRATIEVERZOEK Stel de handmatige kalibratiefunctie op de verwarmingsketel in Controleer/vervang de printplaat",
+      "page": 82
+    },
+    {
+      "code": "H03.28",
+      "type": "Tijdelijke storing",
+      "description": "Synchronisatiefout",
+      "cause_solution": "STORING IN VOEDING Controleer voedingsfrequentie van verwarmingsketel",
+      "page": 82
+    },
+    {
+      "code": "H03.31",
+      "type": "Tijdelijke storing",
+      "description": "Storing geblokkeerde schoorsteen",
+      "cause_solution": "STORING IN ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer Schakel handmatige kalibratie in",
+      "page": 82
+    },
+    {
+      "code": "H03.54",
+      "type": "Tijdelijke storing",
+      "description": "Onbekende fout",
+      "cause_solution": "ONBEPAALDE STORING Controleer/vervang de printplaat Controleer voeding van verwarmingsketel Controleer op elektromagnetische storing bij voeding van verwarmingsketel",
+      "page": 82
+    },
+    {
+      "code": "H20.36",
+      "type": "Tijdelijke storing",
+      "description": "Handmatige kalibratie mislukt",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de instelling ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer OVERIGE OORZAKEN Controleer de voedingsspanning Controleer/vervang de printplaat Controleer of er voldoende warmte-uitwisseling is tijdens het kalibreren",
+      "page": 83
+    },
+    {
+      "code": "H20.39",
+      "type": "Tijdelijke storing",
+      "description": "Geen primaire kalibratie",
+      "cause_solution": "KALIBRATIE VEREIST Als de primaire kalibratie niet voltooid is, moet er een handmatige kalibratie uitgevoerd worden Controleer/vervang de printplaat",
+      "page": 83
+    },
+    {
+      "code": "H20.40",
+      "type": "Tijdelijke storing",
+      "description": "Geen gasconfiguratie",
+      "cause_solution": "GASTYPE Als de primaire kalibratie niet voltooid is, moet er een handmatige kalibratie uitgevoerd worden en moet het gebruikte gastype ingevoerd worden Controleer/vervang de printplaat",
+      "page": 83
+    },
+    {
+      "code": "E00.04",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Retourtemperatuursensor niet aangesloten op ketelontsteking (bij inschakeling van verwarmingsketel detecteert besturingsprint of sensor aanwezig is en aangesloten is)",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meting van ohmse weerstand",
+      "page": 83
+    },
+    {
+      "code": "E00.05",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Retour temperatuursensor kortgesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meting van ohmse weerstand",
+      "page": 83
+    },
+    {
+      "code": "E00.06",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Retoursensor niet aangesloten tijdens ketelbedrijf (besturingsprint detecteert dat sensor tijdens bedrijf niet aangesloten is)",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meet de weerstandswaarde",
+      "page": 83
+    },
+    {
+      "code": "E00.07",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Retoursensortemperatuur te hoog",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meet de weerstandswaarde",
+      "page": 83
+    },
+    {
+      "code": "E00.16",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Temperatuursensor SWW boiler niet aangesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meet de weerstandswaarde Voer bij het verwijderen van een sanitair-warmwaterboiler instelling DP150=ON in",
+      "page": 83
+    },
+    {
+      "code": "E00.17",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Temperatuursensor SWW boiler kortgesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meet de weerstandswaarde",
+      "page": 83
+    },
+    {
+      "code": "E00.40",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Waterdruksensoringang open",
+      "cause_solution": "STORING VAN WATERDRUKSENSOR Controleer en herstel de druk van de installatie Controleer de drukt van het expansievat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 83
+    },
+    {
+      "code": "E00.41",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Waterdruksensoringang gesloten",
+      "cause_solution": "STORING VAN WATERDRUKSENSOR Controleer en herstel de druk van de installatie Controleer de drukt van het expansievat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 84
+    },
+    {
+      "code": "E00.44",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "SWW temperatuursensor open",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meting van ohmse weerstand",
+      "page": 84
+    },
+    {
+      "code": "E00.45",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "SWW temperatuursensor kortgesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de temperatuursensor Meet de weerstandswaarde",
+      "page": 84
+    },
+    {
+      "code": "E01.12",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "De door de retoursensor gemeten temperatuur is hoger dan de aanvoertemperatuur",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer of de sensoren op de juiste manier zijn geplaatst Controleer of de aanvoersensor op de juiste positie zit Controleer de retourtemperatuur in de verwarmingsketel Controleer de werking van de sensoren ALS HET PROBLEEM AANHOUDT 1- Reset CN1/CN2 2- Vervang de besturingsprint",
+      "page": 84
+    },
+    {
+      "code": "E01.17",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Het water stroomt niet door (permanent)",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de druk van de installatie Start een handmatige ontluchtingscyclus Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/installatie SENSORFOUT Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 84
+    },
+    {
+      "code": "E01.20",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Maximale rookgastemperatuur bereikt",
+      "cause_solution": "WISSELAAR AAN DE ROOKGASZIJDE GEBLOKKEERD Controleer de wisselaar op vervuiling",
+      "page": 84
+    },
+    {
+      "code": "E02.15",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Minimumtijd voor herkenning van CSU-sleutel overschreden",
+      "cause_solution": "TIME-OUT CSU-SLEUTEL Sleutel niet aangesloten of niet herkend",
+      "page": 84
+    },
+    {
+      "code": "E02.17",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Permanente communicatiestoring in de printplaat",
+      "cause_solution": "PRINTPLAATFOUT Controleer op elektromagnetische storing Neem contact op met het netwerk van erkende dealers",
+      "page": 84
+    },
+    {
+      "code": "E02.32",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Tijd voor automatisch vullen verstreken",
+      "cause_solution": "STORING BESTURINGSPRINT Controleer bedrading van drukschakelaar Controleer watervulkraan Controleer/vervang de printplaat",
+      "page": 84
+    },
+    {
+      "code": "E02.35",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Kritiek veiligheidsapparaat losgekoppeld",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie (instelling AD)",
+      "page": 84
+    },
+    {
+      "code": "E02.39",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Drukverhoging onvoldoende na automatisch vullen",
+      "cause_solution": "STORING BESTURINGSPRINT Controleer bedrading van drukschakelaar Controleer watervulkraan Controleer/vervang de printplaat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 84
+    },
+    {
+      "code": "E02.47",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Verbinding met extern apparaat mislukt",
+      "cause_solution": "FOUT ELEKTRISCHE AANSLUITING Start de automatische detectiefunctie (instelling AD) Controleer de elektrische aansluitingen van externe apparatuur.",
+      "page": 84
+    },
+    {
+      "code": "E04.00",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Fout in veiligheidsinstellingen",
+      "cause_solution": "PRINTPLAATFOUT Vervang de besturingsprint",
+      "page": 84
+    },
+    {
+      "code": "E04.01",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Aanvoertemperatuursensor kortgesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de sensor",
+      "page": 84
+    },
+    {
+      "code": "E04.02",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Aanvoertemperatuursensor niet aangesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de sensor",
+      "page": 84
+    },
+    {
+      "code": "E04.03",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Maximale aanvoertemperatuur overschreden",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de circulatie van de verwarmingsketel/installatie Start een handmatige ontluchtingscyclus Controleer de werking van de sensoren",
+      "page": 85
+    },
+    {
+      "code": "E04.04",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Rookgassensor kortgesloten",
+      "cause_solution": "STORING VAN ROOKGASSENSOR Controleer de werking van de rookgastemperatuursensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 85
+    },
+    {
+      "code": "E04.05",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Rookgassensor niet aangesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de werking van de rookgastemperatuursensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 85
+    },
+    {
+      "code": "E04.06",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Kritische rookgastemperatuur bereikt",
+      "cause_solution": "SCHOORSTEENBLOKKADE Controleer of schoorsteen geblokkeerd is STORING VAN ROOKGASSENSOR Controleer de werking van de sensor",
+      "page": 85
+    },
+    {
+      "code": "E04.07",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Maximaal verschil tussen aanvoertemperaturen bereikt",
+      "cause_solution": "SENSORPROBLEEM Controleer of de sensor goed geplaatst is Controleer de goede werking van de sensor ONVOLDOENDE CIRCULATIE Controleer de druk van de installatie Start een handmatige ontluchtingscyclus Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/installatie",
+      "page": 85
+    },
+    {
+      "code": "E04.10",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Ontsteking brander mislukt na vijf pogingen",
+      "cause_solution": "GASTOEVOER Controleer de gastoevoerdruk Controleer de elektrische aansluiting van de gasklep Controleer de kalibratie van de gasklep Controleer de werking van de gasklep PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode OVERIGE OORZAKEN Controleer de werking van de ventilator Controleer de staat van de rookgasafvoer (blokkades)",
+      "page": 85
+    },
+    {
+      "code": "E04.11",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Test gasklep VPS mislukt",
+      "cause_solution": "BEDRADING/GASKLEP Vervang de bedrading. Vervang de gasklep.",
+      "page": 85
+    },
+    {
+      "code": "E04.12",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Ontstekingsfout voor detectie van valse vlam",
+      "cause_solution": "VALSE VLAM Controleer het aardcircuit Controleer de voedingsspanning.",
+      "page": 85
+    },
+    {
+      "code": "E04.13",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Ventilatorblad geblokkeerd",
+      "cause_solution": "PROBLEEM VENTILATOR/BESTURINGSPRINT Controleer de aansluiting van de besturingsprint/ventilator Vervang de gas-/luchteenheid",
+      "page": 85
+    },
+    {
+      "code": "E04.14",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Storing in verbranding",
+      "cause_solution": "CONTROLE VAN ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer Controleer de voedingsspanning",
+      "page": 85
+    },
+    {
+      "code": "E04.15",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Storing geblokkeerd uitlaatgas",
+      "cause_solution": "CONTROLE VAN ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode Start handmatige kalibratie ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer Controleer de voedingsspanning.",
+      "page": 85
+    },
+    {
+      "code": "E04.17",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Fout in het regelcircuit van de gasklep",
+      "cause_solution": "PRINTPLAATFOUT Vervang de besturingsprint De gasklep vervangen",
+      "page": 86
+    },
+    {
+      "code": "E04.18",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "De aanvoertemperatuur ligt onder de minimumtemperatuur",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de sensor",
+      "page": 86
+    },
+    {
+      "code": "E04.23",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Communicatie interne stop",
+      "cause_solution": "GASKLEP Controleer/vervang de bedrading van de gaskraan Controleer/vervang de gaskraan PRINTPLAATFOUT Vervang de besturingsprint Schakel de stroomvoorziening uit en weer in en daarna RESETTEN",
+      "page": 86
+    },
+    {
+      "code": "E04.24",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Gastype niet gevonden-fout",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer OVERIGE OORZAKEN Controleer de voedingsspanning. Voer het juiste gastype in",
+      "page": 86
+    },
+    {
+      "code": "E04.25",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Storing vlamverlies tijdens veiligheidstijd",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer OVERIGE OORZAKEN Controleer de voedingsspanning. Voer het juiste gastype in",
+      "page": 86
+    },
+    {
+      "code": "E04.26",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Ontstekingsfout",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer OVERIGE OORZAKEN Controleer de voedingsspanning. Voer het juiste gastype in",
+      "page": 86
+    },
+    {
+      "code": "E04.27",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Storing gasklep open bij vlamdetectie",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer OVERIGE OORZAKEN Controleer de voedingsspanning. Voer het juiste gastype in",
+      "page": 86
+    },
+    {
+      "code": "E04.28",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Storing feedback van gasklep",
+      "cause_solution": "GASKLEP Controleer/vervang de printplaat Controleer/vervang de gaskraan Controleer/vervang de bedrading van de gaskraan",
+      "page": 87
+    },
+    {
+      "code": "E04.29",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Maximumaantal toegestane resets bereikt",
+      "cause_solution": "Schakel de stroomvoorziening uit en weer in en daarna RESETTEN Controleer/vervang de printplaat",
+      "page": 87
+    },
+    {
+      "code": "E04.50",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Gasklepstoring",
+      "cause_solution": "GASKLEP Controleer/vervang de printplaat Controleer/vervang de gaskraan Controleer/vervang de bedrading van de gaskraan",
+      "page": 87
+    },
+    {
+      "code": "E04.54",
+      "type": "Permanente afwijking (reset vereist)",
+      "description": "Onbekende fout",
+      "cause_solution": "PRINTPLAATFOUT Controle van elektrische aansluitingen",
+      "page": 87
+    }
+  ]
+}
