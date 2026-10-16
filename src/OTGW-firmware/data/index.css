@@ -473,7 +473,7 @@
 }
 
 /* DevInfo - Table Layout */
-#deviceinfoPage {
+#deviceinfoPage, .boiler-table {
   display: table;
   width: fit-content;
   border-collapse: collapse;
@@ -541,7 +541,7 @@
 
 /* Responsive: Stack on small screens */
 @media (max-width: 768px) {
-  #deviceinfoPage {
+  #deviceinfoPage, .boiler-table {
     display: block;
     width: 100%;
   }

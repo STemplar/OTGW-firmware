@@ -21,14 +21,16 @@ Nederlandse qSense-lookup en bijbehorende Tzerra-documentatie. Er worden geen
 zelfbedachte Engelse vertalingen gebruikt. Een geverifieerde Engelse brontabel
 kan later als afzonderlijk profielbestand worden toegevoegd.
 
-Status, substatus, parameterwaarden en de **hele** notatie `dF: 8 dU: 6`
-worden in een licht hellende 7-segmentstijl weergegeven. De betekenis staat
-ernaast in gewone tekst. Dit is HTML/CSS met toegankelijke tekstlabels; er zijn
-geen nieuwe libraries, fonts of externe downloads voor de segmenten nodig.
-sevenSeg.js en SegmentDisplay zijn niet toegevoegd.
+Alle regels gebruiken dezelfde tabel als **Device info** (`devinforow`,
+`devinfocolumn1`, `devinfocolumn2`): links het label, rechts de waarde in gewone tekst.
+Er is geen 7-segmentweergave. Parameters met een profiel staan als in de handleiding:
+links `P1 Aanvoertemperatuur: TSet`, rechts `80 °C`, of bij een keuzeparameter
+`1 (CV aan / SWW aan)`; wijkt de waarde af, dan volgt `· fabrieksinstelling: 39`.
+Zonder profiel blijft het `TSP n` met de ruwe waarde. Rijen waarvan de ketel
+UNKNOWN-DATAID gaf (**Not supported by this boiler**) worden weggelaten, ook bij
+merk, versie en serienummer. De profielregel staat direct onder de kop Boiler info.
 
-Op smalle schermen staat het label boven de waarde. Identificatieteksten blijven
-op één regel en hebben zo nodig een eigen horizontale scrollbalk. Een gedeeltelijke
+Op smalle schermen staat het label boven de waarde. Een gedeeltelijke
 tekst toont de ontvangen tekens en `·` voor ontbrekende posities, met **Reception
 incomplete** en de aantallen. Zodra de tekst compleet is, vervalt die statusregel.
 Zonder antwoord blijft **Support not yet determined** staan; alleen een werkelijk
@@ -228,7 +230,7 @@ Home Assistant Discovery is in deze wijziging niet uitgebreid.
 | `OTGW-firmware.ino` | Controller in de bestaande loop; periodieke MQTT-publicatie |
 | `MQTTstuff.ino` | Teksten opnieuw aanbieden na reconnect |
 | `restAPI.ino` | Boiler info GET en geauthenticeerde uitleesacties |
-| `data/index.html`, `index.js`, `index_common.css` | Knop, pagina, responsieve segmentweergave en polling |
+| `data/index.html`, `index.js`, `index_common.css` | Knop, pagina, tabelweergave (Device info-stijl) en polling |
 | `data/tzerra-m-28c-plus.json` | Modelgebonden bronbeschrijvingen |
 | `version.h` | Samenhangende prereleaseverhoging naar beta.2 |
 
@@ -238,7 +240,7 @@ Hosttests staan in `test/host/test_otBrandText.cpp`, `test_boilerInfo.cpp` en
 `test_otBrandTextUi.js`. Zij controleren onder andere correlatie, parity,
 vervangende R-verzoeken, ongewenste A-antwoorden, 50 tekens, ontbrekende posities,
 indexreeksen, time-outs, UNKNOWN-DATAID, vendorselectie, contextafhankelijke
-beschrijvingen, segmentnotatie, nulwaarden en veilige tekstweergave.
+beschrijvingen, parameterregels in handleidingvorm, weggelaten niet-ondersteunde rijen en veilige tekstweergave.
 
 De bestaande `test_otBusLiveness.cpp` wordt als regressiecontrole uitgevoerd.
 De browsercontrole gebruikt de echte pagina en JavaScript met **synthetische

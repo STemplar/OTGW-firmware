@@ -265,42 +265,35 @@
       <div class="page-nav-shell"></div>
       <section class="boiler-info-panel" aria-labelledby="boilerInfoTitle">
         <h2 id="boilerInfoTitle">Boiler info</h2>
+        <p id="boilerProfile">Device profile not yet determined</p>
         <h3>Device identification</h3>
         <p id="boilerInfoMessage" role="status"></p>
-        <div class="boiler-info-row">
-          <div class="boiler-info-label" id="boiler-brand-label">Brand name</div>
-          <div class="boiler-info-field">
-            <div class="boiler-info-value" id="boiler-brand-value" role="region" tabindex="0" aria-labelledby="boiler-brand-label">No data received yet</div>
-            <div class="boiler-info-status" id="boiler-brand-status">Support not yet determined</div>
+        <div class="boiler-table">
+          <div class="devinforow" id="boiler-brand-row">
+            <div class="devinfocolumn1" id="boiler-brand-label">Brand name</div>
+            <div class="devinfocolumn2"><span id="boiler-brand-value">No data received yet</span> <span class="boiler-info-status" id="boiler-brand-status">Support not yet determined</span></div>
           </div>
-        </div>
-        <div class="boiler-info-row">
-          <div class="boiler-info-label" id="boiler-version-label">Product version</div>
-          <div class="boiler-info-field">
-            <div class="boiler-info-value" id="boiler-version-value" role="region" tabindex="0" aria-labelledby="boiler-version-label">No data received yet</div>
-            <div class="boiler-info-status" id="boiler-version-status">Support not yet determined</div>
+          <div class="devinforow" id="boiler-version-row">
+            <div class="devinfocolumn1" id="boiler-version-label">Product version</div>
+            <div class="devinfocolumn2"><span id="boiler-version-value">No data received yet</span> <span class="boiler-info-status" id="boiler-version-status">Support not yet determined</span></div>
           </div>
-        </div>
-        <div class="boiler-info-row">
-          <div class="boiler-info-label" id="boiler-serial-label">Serial number</div>
-          <div class="boiler-info-field">
-            <div class="boiler-info-value" id="boiler-serial-value" role="region" tabindex="0" aria-labelledby="boiler-serial-label">No data received yet</div>
-            <div class="boiler-info-status" id="boiler-serial-status">Support not yet determined</div>
+          <div class="devinforow" id="boiler-serial-row">
+            <div class="devinfocolumn1" id="boiler-serial-label">Serial number</div>
+            <div class="devinfocolumn2"><span id="boiler-serial-value">No data received yet</span> <span class="boiler-info-status" id="boiler-serial-status">Support not yet determined</span></div>
           </div>
         </div>
         <div class="boiler-info-actions"><button type="button" data-boiler-read="identification">Refresh identification</button></div>
         <p class="boiler-info-status">Identification is read once after startup and on request. Values are kept in ESP memory.</p>
-        <div id="boilerIdentityDetails"></div>
-        <p id="boilerProfile">Device profile not yet determined</p>
+        <div id="boilerIdentityDetails" class="boiler-table"></div>
         <h3>Operating status</h3>
-        <div id="boilerOperating"></div>
+        <div id="boilerOperating" class="boiler-table"></div>
         <button type="button" data-boiler-read="operating">Read operating status</button>
         <h3>OEM information</h3>
         <div class="boiler-info-actions" aria-label="Unknown value format"><button type="button" data-boiler-format="hex" aria-pressed="true">Hex</button><button type="button" data-boiler-format="binary" aria-pressed="false">Binary</button></div>
-        <div id="boilerOEM"></div>
+        <div id="boilerOEM" class="boiler-table"></div>
         <button type="button" data-boiler-read="oem" id="boilerReadOEM" disabled>Read OEM information</button>
-        <details class="boiler-info-details"><summary>Parameters</summary><div id="boilerParameters"></div><button type="button" data-boiler-read="parameters">Read parameters</button></details>
-        <details class="boiler-info-details"><summary>Fault history</summary><div id="boilerHistory"></div><button type="button" data-boiler-read="history">Read fault history</button></details>
+        <details class="boiler-info-details"><summary>Parameters</summary><div id="boilerParameters" class="boiler-table"></div><button type="button" data-boiler-read="parameters">Read parameters</button></details>
+        <details class="boiler-info-details"><summary>Fault history</summary><div id="boilerHistory" class="boiler-table"></div><button type="button" data-boiler-read="history">Read fault history</button></details>
         <p id="boilerReadStatus" role="status"></p>
       </section>
     </div>

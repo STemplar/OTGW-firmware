@@ -220,36 +220,14 @@ body.col-resizing * {
   }
 }
 
-/* Boiler information: values stay on one line, with field-local scrolling. */
+/* Boiler information: tables share the Device info layout (.boiler-table + devinforow). */
 .boiler-info-panel { padding: 1rem; max-width: 100%; box-sizing: border-box; }
-.boiler-info-row { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border-color, #888); }
-.boiler-info-label small { display: block; font-weight: normal; opacity: .75; }
-.boiler-info-field { min-width: 0; }
-.boiler-info-value { white-space: pre; overflow-x: auto; max-width: 100%; padding: .25rem 0; font-family: var(--font-mono, monospace); user-select: text; }
-.boiler-info-status { margin-top: .4rem; font-size: .9rem; opacity: .8; }
-@media (max-width: 600px) {
-  .boiler-info-row { grid-template-columns: minmax(0, 1fr); gap: .4rem; }
-}
-
-/* qSense-style, slightly inclined seven-segment readouts. No font/library download. */
+.boiler-info-status { font-size: .9rem; opacity: .8; }
+.boiler-table { margin-bottom: .6rem; }
+@media(max-width:600px) { .boiler-info-panel { padding:12px; } }
 .boiler-info-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0; }
 .boiler-info-details { margin-top:1rem; border-top:1px solid var(--border-color,#536273); padding:1rem 0; }
 .boiler-info-details summary { cursor:pointer; font-weight:bold; margin-bottom:1rem; }
-.boiler-code-value { display:inline-block; vertical-align:middle; margin-right:1rem; overflow-wrap:anywhere; max-width:100%; }
-.boiler-code-meaning { vertical-align:middle; overflow-wrap:anywhere; }
-.boiler-lcd { display:inline-flex; flex-wrap:wrap; align-items:center; gap:3px; padding:3px; transform:skewX(-6deg); vertical-align:middle; max-width:100%; }
-.boiler-lcd-digit { position:relative; display:inline-block; width:19px; height:34px; flex:none; }
-.boiler-lcd-bar { position:absolute; background:currentColor; opacity:.08; }
-.boiler-lcd-bar.on { opacity:.9; }
-.boiler-lcd-bar.a,.boiler-lcd-bar.g,.boiler-lcd-bar.d { left:3px; width:13px; height:4px; clip-path:polygon(16% 0,84% 0,100% 50%,84% 100%,16% 100%,0 50%); }
-.boiler-lcd-bar.a { top:0; }.boiler-lcd-bar.g { top:15px; }.boiler-lcd-bar.d { top:30px; }
-.boiler-lcd-bar.b,.boiler-lcd-bar.c,.boiler-lcd-bar.e,.boiler-lcd-bar.f { width:4px; height:14px; clip-path:polygon(50% 0,100% 16%,100% 84%,50% 100%,0 84%,0 16%); }
-.boiler-lcd-bar.b { right:0; top:2px; }.boiler-lcd-bar.c { right:0; top:18px; }
-.boiler-lcd-bar.e { left:0; top:18px; }.boiler-lcd-bar.f { left:0; top:2px; }
-.boiler-lcd-space { width:8px; }.boiler-lcd-colon { width:5px; height:34px; position:relative; }
-.boiler-lcd-colon::before,.boiler-lcd-colon::after { content:''; position:absolute; left:1px; width:4px; height:4px; background:currentColor; }
-.boiler-lcd-colon::before { top:9px; }.boiler-lcd-colon::after { top:23px; }
-@media(max-width:600px) { .boiler-code-meaning { display:block; margin-top:.5rem; }.boiler-info-panel { padding:12px; } }
 
 .boiler-info-panel button { width:auto; min-height:44px; max-width:100%; padding:.5rem .8rem; border:1px solid currentColor; border-radius:4px; font:inherit; cursor:pointer; }
 .boiler-info-panel button:disabled { cursor:default; opacity:.55; }

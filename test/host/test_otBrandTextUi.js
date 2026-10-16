@@ -1,7 +1,7 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const script=fs.readFileSync(process.argv[2] || 'src/OTGW-firmware/data/index.js','utf8');
 class Node {
-  constructor(){this.children=[];this.dataset={};this.attributes={};this._text='';this.disabled=false;this.classList={contains:()=>false};}
+  constructor(){this.children=[];this.dataset={};this.attributes={};this.style={};this._text='';this.disabled=false;this.classList={contains:()=>false};}
   set textContent(s){this._text=String(s);this.children=[];} get textContent(){return this._text+this.children.map(n=>n.textContent).join('');}
   appendChild(n){this.children.push(n);return n;} setAttribute(k,v){this.attributes[k]=v;}
 }
@@ -20,10 +20,10 @@ assert.equal(ctx.formatBoilerText({serial_text:'A'.repeat(50),serial_mask:'1'.re
 ctx.boilerProfileData=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/tzerra-m-28c-plus.json','utf8'));
 d={profile:'remeha-tzerra-m-28c-plus',profile_file:'tzerra-m-28c-plus.json',value_115:0x031e,value_131:0x0806,value_132:2,value_133:0xff01,value_0:0,value_5:0,value_3:11,value_127:0x0d10,tsp_entries:'1:80,21:0',fhb_entries:'0:11',oem_allowed:true,oem_readable:true};
 ctx.renderBoilerDetails(d);
-function findText(n,text){return n.attributes['aria-label']===text || n.children.some(c=>findText(c,text));}
+function findText(n,text){return n.textContent.includes(text);}
 assert(findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 assert(!nodes.boilerOEM.textContent.includes('0x0806'));
-assert(nodes.boilerOEM.textContent.includes('0x0002'));assert(!findText(nodes.boilerOEM,'B'));
+assert(nodes.boilerOEM.textContent.includes('0x0002'));
 assert(nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(nodes.boilerOperating.textContent.includes('Temperatuurregeling'));
 assert(nodes.boilerOperating.textContent.includes('No active fault reported'));assert(!nodes.boilerOperating.textContent.includes('PSU'));
 assert(nodes.boilerParameters.textContent.includes('Aanvoertemperatuur: TSet'));assert(findText(nodes.boilerParameters,'0'));
@@ -31,12 +31,12 @@ assert(nodes.boilerHistory.textContent.includes('Meaning not yet confirmed'));
 // Live Tzerra M 28c Plus readout: 255 = unsupported is hidden, signed values and option texts shown.
 const live='1:80,2:60,3:1,4:2,5:1,'+[6,7,8,9,10,11,12,13,14,15,16].map(i=>i+':255').join(',')+',17:15,18:56,21:23,22:255,24:35,27:241,30:246,32:20,39:255,44:2';
 ctx.renderBoilerDetails({...d,tsp_entries:live});const tp=nodes.boilerParameters.textContent;
-assert(!tp.includes('TSP 6')&&!tp.includes('TSP 16')&&!tp.includes('TSP 22')&&!tp.includes('Minimum waterdruk'));
-assert(tp.includes('TSP 5')&&tp.includes('Pompnadraaitijd')&&tp.includes('Startvolumestroom')&&tp.includes('Setpuntverhoging boiler'));
+assert(!tp.includes('TSP ')&&!tp.includes('P6 ')&&!tp.includes('P16 ')&&!tp.includes('P22 ')&&!tp.includes('Minimum waterdruk'));
+assert(tp.includes('P5 Pompnadraaitijd')&&tp.includes('Startvolumestroom')&&tp.includes('Setpuntverhoging boiler'));
 assert(findText(nodes.boilerParameters,'-15')&&findText(nodes.boilerParameters,'-10'));
-assert(tp.includes('TSP 39')&&findText(nodes.boilerParameters,'255'),'P39 0-255 s keeps a real 255');
-assert(tp.includes('Ketelregeling / SWW: CV aan / SWW aan')&&tp.includes('Ontluchtingscyclus: Modulerende pomp'));
-assert(tp.includes('fabrieksinstelling: 39'),'P17=15 differs from 28c default');assert(!/Aanvoertemperatuur: TSet \(°C\) · fabriek/.test(tp));
+assert(tp.includes('P39 Rookgasklep looptijd')&&tp.includes('255 s'),'P39 0-255 s keeps a real 255');
+assert(tp.includes('P3 Ketelregeling / SWW')&&tp.includes('1 (CV aan / SWW aan)')&&tp.includes('2 (Modulerende pomp)'));
+assert(tp.includes('fabrieksinstelling: 39'),'P17=15 differs from 28c default');assert(!/80 °C · fabriek/.test(tp));
 ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.textContent.includes('Waterdruk te laag'));
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});assert(nodes.boilerParameters.textContent.includes('No supported parameters reported'));
 ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(nodes.boilerParameters.textContent.includes('TSP 6'),'OT 4.2: generic READ-ACK 255 is a valid value');
@@ -50,8 +50,16 @@ assert(!nodes.boilerOperating.textContent.includes('E:01')&&!findText(nodes.boil
 ctx.renderBoilerDetails({profile:'remeha-tzerra-ace-matic',value_115:0x115f});assert(nodes.boilerOperating.textContent.includes('waterdruk voldoende'));
 ctx.renderBoilerDetails({...d,profile:'remeha-tzerra-ace-matic'});assert(!nodes.boilerParameters.textContent.includes('Aanvoertemperatuur'));
 ctx.boilerProfileData=tz;
+// Manual view: P-number + description, value with unit/option; no TSP label, no 7-segment, unsupported rows omitted.
+ctx.renderBoilerDetails({...d,tsp_entries:'1:80,3:1,17:15,27:241'});const pv=nodes.boilerParameters.textContent;
+assert(pv.includes('P1 Aanvoertemperatuur: TSet')&&pv.includes('80 °C')&&!pv.includes('TSP 1'));
+assert(pv.includes('1 (CV aan / SWW aan)')&&pv.includes('-15 °C')&&pv.includes('15 · fabrieksinstelling: 39'));
+assert(nodes.boilerParameters.children.every(r=>r.className==='devinforow'));
+ctx.renderBoilerDetails({...d,value_131:undefined,support_131:2});assert(!nodes.boilerOEM.textContent.includes('Not supported'));
+ctx.renderBoilerInfo({...d,brand_support:'unsupported'});assert(nodes['boiler-brand-row'].style.display==='none');
+ctx.renderBoilerInfo({...d,brand_support:'supported',brand_text:'Remeha',brand_mask:'111111',brand_received:6,brand_expected:6,brand_complete:true});assert(nodes['boiler-brand-row'].style.display==='');
 ctx.boilerRawFormat='binary';ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.textContent.includes('0000000000000010'));
 ctx.renderBoilerDetails({...d,profile:'generic'});assert(!nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(!findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 // Context-dependent substatus zero must use the status/substatus pair.
 ctx.renderBoilerDetails({...d,value_115:0x0800});assert(nodes.boilerOperating.textContent.includes('Wacht op branderstart'));
-console.log('PASS: partial/complete/safe text, profile matching, contextual labels, LCD notation including zero, raw fallback and service uncertainty');
+console.log('PASS: partial/complete/safe text, profile matching, contextual labels, manual-style parameter rows, unsupported rows omitted, raw fallback and service uncertainty');
