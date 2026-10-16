@@ -1,0 +1,449 @@
+{
+  "id": "remeha-quinta-pro",
+  "name": "Remeha Quinta Pro 45 / 65 / 90 / 115",
+  "language": "nl",
+  "status_of_draft": "CONCEPT — niet in gebruik. Member-ID en ID127 van de Quinta Pro zijn onbekend; zonder bevestigde herkenning staat dit profiel niet in kBoilerModelProfiles.",
+  "document": {
+    "number": "121803",
+    "version": "v.12",
+    "date": "07112018"
+  },
+  "source": "Remeha Quinta Pro installatie-, gebruikers- en servicehandleiding 121803 v.12 (07-11-2018): Tab.39 parameters (G25), Tab.44 status/substatus, Tab.45 blokkeringscodes, Tab.46 storingscodes.",
+  "notes": {
+    "typeplate": "dF/dU op de typeplaat (Tab.39: fabrieksinstelling herstellen met dF en dU).",
+    "parameters": "Andere P-nummering dan de Tzerra M/M Plus: P1–P8 en P17–P48, plus Ad en dF/dU. P22 = minimum waterdruk. Of TSP-index = P-nummer is niet bevestigd.",
+    "signed": "Negatieve fabriekswaarden (P27 -15, P30 -10) zijn signed; zoals bij de Tzerra-handleidingen wordt dat bij uitlezen vermoedelijk als 256 + waarde gecodeerd. Niet bevestigd."
+  },
+  "oem_dfdu": true,
+  "models": {},
+  "status": {
+    "0": "Rust",
+    "1": "Ketel start (warmtevraag)",
+    "2": "Brander start",
+    "3": "Branden op CV-bedrijf",
+    "4": "SWW-bedrijf actief",
+    "5": "Branderstop",
+    "6": "Ketelstop (einde warmtevraag)",
+    "8": "Regelstop",
+    "9": "Blokkering",
+    "17": "Ontluchten"
+  },
+  "substatus": {
+    "0:0": "Rust",
+    "1:1": "Anti-pendel",
+    "1:2": "Driewegklep aansturen",
+    "1:3": "Start pomp",
+    "1:4": "Wacht op juiste temperatuur voor branderstart",
+    "2:10": "Open rookgasklep / externe gasklep",
+    "2:11": "Verhogen toerental ventilator",
+    "2:13": "Voorventileren",
+    "2:14": "Wacht op releasesignaal",
+    "2:15": "Brander aan",
+    "2:17": "Voorontsteking",
+    "2:18": "Hoofdontsteking",
+    "2:19": "Vlamdetectie",
+    "2:20": "Tussenventileren",
+    "3:30": "Temperatuurregeling",
+    "3:31": "Begrensde temperatuurregeling (ΔT beveiliging)",
+    "3:32": "Vermogensregeling",
+    "3:33": "Bescherming temperatuurgradiënt niveau 1 (Terugmoduleren)",
+    "3:34": "Bescherming temperatuurgradiënt niveau 2 (Laaglast)",
+    "3:35": "Bescherming temperatuurgradiënt niveau 3 (Blokkering)",
+    "3:36": "Opmoduleren voor vlambeveiliging",
+    "3:37": "Temperatuurstabilisatietijd",
+    "3:38": "Koude start",
+    "4:30": "Temperatuurregeling",
+    "4:31": "Begrensde temperatuurregeling (ΔT beveiliging)",
+    "4:32": "Vermogensregeling",
+    "4:33": "Bescherming temperatuurgradiënt niveau 1 (Terugmoduleren)",
+    "4:34": "Bescherming temperatuurgradiënt niveau 2 (Laaglast)",
+    "4:35": "Bescherming temperatuurgradiënt niveau 3 (Blokkering)",
+    "4:36": "Opmoduleren voor vlambeveiliging",
+    "4:37": "Temperatuurstabilisatietijd",
+    "4:38": "Koude start",
+    "5:40": "Brander uit",
+    "5:41": "Naventileren",
+    "5:42": "Sluit rookgasklep / externe gasklep",
+    "5:43": "Recirculatiebeveiliging",
+    "5:44": "Stop ventilator",
+    "6:60": "Pomp nadraaien",
+    "6:61": "Pomp uit",
+    "6:62": "Driewegklep aansturen",
+    "6:63": "Start anti-pendel",
+    "8:0": "Wacht op branderstart",
+    "8:1": "Anti-pendel",
+    "9:0": "Blokkeringscode Su:0 — Parameterfout",
+    "9:1": "Blokkeringscode Su:1 — Maximale aanvoertemperatuur overschreden",
+    "9:2": "Blokkeringscode Su:2 — Maximale stijging van de aanvoertemperatuur is overschreden",
+    "9:7": "Blokkeringscode Su:7 — Maximaal verschil tussen aanvoer- en retourtemperatuur overschreden",
+    "9:8": "Blokkeringscode Su:8 — Geen vrijgavesignaal",
+    "9:9": "Blokkeringscode Su:9 — Fase en nul van netspanning omgewisseld",
+    "9:10": "Blokkeringscode Su:10 — Blokkerende ingang is actief",
+    "9:11": "Blokkeringscode Su:11 — Blokkerende ingang of vorstbeveiliging is actief",
+    "9:13": "Blokkeringscode Su:13 — Communicatiefout met de SCU print",
+    "9:14": "Blokkeringscode Su:14 — Waterdruk te laag",
+    "9:15": "Blokkeringscode Su:15 — Gasdruk te laag",
+    "9:16": "Blokkeringscode Su:16 — Configuratiefout of SU print niet herkend",
+    "9:17": "Blokkeringscode Su:17 — Configuratiefout of default parametertabel niet in orde",
+    "9:18": "Blokkeringscode Su:18 — Configuratiefout of PSU print niet herkend",
+    "9:19": "Blokkeringscode Su:19 — Configuratiefout of parameters dF en dU onbekend",
+    "9:20": "Blokkeringscode Su:20 — Configuratieprocedure actief",
+    "9:21": "Blokkeringscode Su:21 — Communicatiefout met de SU print",
+    "9:22": "Blokkeringscode Su:22 — Vlamwegval tijdens bedrijf",
+    "9:25": "Blokkeringscode Su:25 — Interne fout SU print",
+    "17:0": "Rust",
+    "17:2": "Driewegklep aansturen",
+    "17:3": "Start pomp",
+    "17:61": "Pomp uit",
+    "17:62": "Driewegklep aansturen"
+  },
+  "faults": {
+    "0": "Parameter storage unit PSU niet gevonden",
+    "1": "Veiligheidsparameters niet in orde",
+    "2": "Aanvoertemperatuursensor kortgesloten",
+    "3": "Aanvoertemperatuursensor open",
+    "4": "Temperatuur warmtewisselaar te laag",
+    "5": "Temperatuur warmtewisselaar te hoog",
+    "6": "Retourtemperatuursensor kortgesloten",
+    "7": "Retourtemperatuursensor open",
+    "8": "Retourtemperatuur te laag",
+    "9": "Retourtemperatuur te hoog",
+    "10": "Te veel verschil tussen aanvoer- en retourtemperatuur",
+    "11": "Te veel verschil tussen aanvoer- en retourtemperatuur",
+    "12": "Temperatuur warmtewisselaar boven normaal bereik (maximaalthermostaat STB), of luchtdrukverschilschakelaar aangesproken",
+    "14": "5 mislukte branderstarts",
+    "15": "5 mislukte gaslekcontroles (indien VPS-schakelaar aanwezig)",
+    "16": "Vals vlamsignaal",
+    "17": "Gasklep storing SU-print",
+    "34": "Ventilatorstoring",
+    "35": "Aanvoer en retour verwisseld",
+    "36": "5x Vlamverlies",
+    "37": "Communicatiefout met de SU-print",
+    "38": "Communicatiefout met de SCU-print",
+    "39": "Blokkerende ingang in vergrendelende mode",
+    "40": "HRU/WTW unit testfout"
+  },
+  "parameters": {
+    "1": {
+      "label": "Aanvoertemperatuur: TSet",
+      "unit": "°C",
+      "range": "20 tot 90",
+      "default": 90
+    },
+    "2": {
+      "label": "Temperatuur SWW: TSet",
+      "unit": "°C",
+      "range": "40 tot 65",
+      "default": 65
+    },
+    "3": {
+      "label": "Ketelregeling / SWW",
+      "default": 1,
+      "options": {
+        "0": "CV uit / SWW uit",
+        "1": "CV aan / SWW aan",
+        "2": "CV aan / SWW uit",
+        "3": "CV uit / SWW aan"
+      }
+    },
+    "4": {
+      "label": "ECO stand",
+      "default": 2,
+      "options": {
+        "0": "Comfort",
+        "1": "ECO-stand",
+        "2": "Regelaar afhankelijk"
+      }
+    },
+    "5": {
+      "label": "Anticipatieweerstand",
+      "default": 0,
+      "options": {
+        "0": "Geen anticipatieweerstand voor de Aan/Uit-thermostaat",
+        "1": "Anticipatieweerstand voor de Aan/Uit-thermostaat"
+      }
+    },
+    "6": {
+      "label": "Display weergave",
+      "default": 2,
+      "options": {
+        "0": "Eenvoudig",
+        "1": "Uitgebreid",
+        "2": "Automatisch op eenvoudig na 3 minuten",
+        "3": "Automatisch op eenvoudig na 3 minuten; Toetsenblokkering is actief"
+      }
+    },
+    "7": {
+      "label": "Pompnadraaitijd",
+      "unit": "min",
+      "range": "1 tot 98; 99 = continu",
+      "default": 3,
+      "options": {
+        "99": "Continu"
+      }
+    },
+    "8": {
+      "label": "Helderheid displayverlichting",
+      "default": 1,
+      "options": {
+        "0": "Gedimd",
+        "1": "Helder"
+      }
+    },
+    "17": {
+      "label": "Maximum toerental van de ventilator (CV)",
+      "unit": "x100 omw/min",
+      "default": {
+        "45": 56,
+        "65": 58,
+        "90": 62,
+        "115": 70
+      },
+      "note": "G25 (L-gas)"
+    },
+    "18": {
+      "label": "Maximum toerental van de ventilator (SWW)",
+      "unit": "x100 omw/min",
+      "default": {
+        "45": 56,
+        "65": 58,
+        "90": 62,
+        "115": 70
+      },
+      "note": "G25 (L-gas)"
+    },
+    "19": {
+      "label": "Minimum toerental van de ventilator (CV + SWW)",
+      "unit": "x100 omw/min",
+      "default": {
+        "45": 15,
+        "65": 16,
+        "90": 17,
+        "115": 18
+      },
+      "note": "G25 (L-gas)"
+    },
+    "20": {
+      "label": "Minimum toerental van de ventilator (offset)",
+      "default": {
+        "45": 50,
+        "65": 0,
+        "90": 0,
+        "115": 0
+      },
+      "note": "G25 (L-gas)"
+    },
+    "21": {
+      "label": "Starttoerental",
+      "unit": "x100 omw/min",
+      "default": 25,
+      "note": "G25 (L-gas)"
+    },
+    "22": {
+      "label": "Minimum waterdruk",
+      "unit": "x 0,1 bar",
+      "range": "0 - 3 bar",
+      "default": 8
+    },
+    "23": {
+      "label": "Maximum aanvoertemperatuur systeem",
+      "unit": "°C",
+      "range": "0 tot 90",
+      "default": 90
+    },
+    "24": {
+      "label": "Reserve",
+      "default": "-"
+    },
+    "25": {
+      "label": "Instelpunt van de stooklijn (Maximum buitentemperatuur)",
+      "unit": "°C",
+      "range": "0 tot 30",
+      "default": 20
+    },
+    "26": {
+      "label": "Instelpunt van de stooklijn (Aanvoertemperatuur)",
+      "unit": "°C",
+      "range": "0 tot 90",
+      "default": 20
+    },
+    "27": {
+      "label": "Instelpunt van de stooklijn (Minimum buitentemperatuur)",
+      "unit": "°C",
+      "range": "-30 tot 0",
+      "default": -15,
+      "signed": true
+    },
+    "28": {
+      "label": "Instelling van het toerental van de pomp (Minimale pompsnelheid CV-bedrijf)",
+      "unit": "x 10 %",
+      "range": "2 - 10",
+      "default": 4
+    },
+    "29": {
+      "label": "Instelling van het toerental van de pomp (Maximale pompsnelheid CV-bedrijf)",
+      "unit": "x 10 %",
+      "range": "2 - 10",
+      "default": 10
+    },
+    "30": {
+      "label": "Temperatuur vorstbeveiliging",
+      "unit": "°C",
+      "range": "-30 tot 0",
+      "default": -10,
+      "signed": true
+    },
+    "31": {
+      "label": "Legionellabeveiliging",
+      "default": 1,
+      "options": {
+        "0": "Uit",
+        "1": "Aan",
+        "2": "Regelaar afhankelijk"
+      }
+    },
+    "32": {
+      "label": "Setpuntverhoging boiler",
+      "unit": "°C",
+      "range": "0 tot 20",
+      "default": 15
+    },
+    "33": {
+      "label": "Inschakeltemperatuur SWW boilersensor",
+      "unit": "°C",
+      "range": "2 tot 15",
+      "default": 5
+    },
+    "34": {
+      "label": "Aansturing driewegklep",
+      "default": 0,
+      "options": {
+        "0": "Normaal",
+        "1": "Omgekeerd"
+      }
+    },
+    "35": {
+      "label": "Keteltype",
+      "default": 0,
+      "options": {
+        "0": "Solo",
+        "1": "Open vented",
+        "2": "Solo (boilerregeling progressief)"
+      }
+    },
+    "36": {
+      "label": "Functie blokkerende ingang",
+      "default": 1,
+      "options": {
+        "0": "CV aan",
+        "1": "Blokkering zonder vorstbeveiliging",
+        "2": "Blokkering met vorstbeveiliging",
+        "3": "Vergrendeling met vorstbeveiliging"
+      }
+    },
+    "37": {
+      "label": "Vrijgavefunctie",
+      "default": 1,
+      "options": {
+        "0": "SWW aan",
+        "1": "Vrijgave ingang"
+      }
+    },
+    "38": {
+      "label": "Vrijgave wachttijd",
+      "unit": "s",
+      "range": "0 tot 255",
+      "default": 0,
+      "allows255": true
+    },
+    "39": {
+      "label": "Gasklep schakeltijd",
+      "unit": "s",
+      "range": "0 tot 255",
+      "default": 0,
+      "allows255": true
+    },
+    "40": {
+      "label": "Functie storingsrelais",
+      "default": 1,
+      "options": {
+        "0": "Bedrijfsmelding",
+        "1": "Alarmmelding"
+      }
+    },
+    "41": {
+      "label": "GpS aangesloten",
+      "default": 0,
+      "options": {
+        "0": "Niet aangesloten",
+        "1": "Aangesloten"
+      }
+    },
+    "42": {
+      "label": "HRU aangesloten",
+      "default": 0,
+      "options": {
+        "0": "Niet aangesloten",
+        "1": "Aangesloten"
+      }
+    },
+    "43": {
+      "label": "Fase detectie lichtnet",
+      "default": 0,
+      "options": {
+        "0": "Uit",
+        "1": "Aan"
+      }
+    },
+    "44": {
+      "label": "Servicemelding (niet wijzigen)",
+      "default": 1
+    },
+    "45": {
+      "label": "Service bedrijfsuren (niet wijzigen)",
+      "default": 175
+    },
+    "46": {
+      "label": "Service branduren (niet wijzigen)",
+      "default": 30
+    },
+    "47": {
+      "label": "Startpunt moduleren",
+      "unit": "°C",
+      "range": "1 tot 30",
+      "default": {
+        "45": 25,
+        "65": 25,
+        "90": 25,
+        "115": 20
+      },
+      "note": "In een cascadeopstelling P47 op 25 zetten."
+    },
+    "48": {
+      "label": "SWW stabilisatietijd",
+      "unit": "s",
+      "range": "10 tot 100",
+      "default": {
+        "45": 100,
+        "65": 100,
+        "90": 100,
+        "115": 20
+      }
+    }
+  },
+  "other_settings": [
+    {
+      "code": "Ad",
+      "label": "Detectie aangesloten SCU’s",
+      "options": {
+        "0": "Geen detectie",
+        "1": "Detectie"
+      },
+      "default": 0
+    },
+    {
+      "code": "dF + dU",
+      "label": "Fabrieksinstelling: waarden van het typeplaatje invoeren bij vervanging van de automaat of om fabrieksinstellingen te herstellen"
+    }
+  ]
+}

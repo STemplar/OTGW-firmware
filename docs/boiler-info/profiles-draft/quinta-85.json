@@ -1,0 +1,283 @@
+{
+  "id": "remeha-quinta-85",
+  "name": "Remeha Quinta 85 (versie AD)",
+  "language": "nl",
+  "status_of_draft": "CONCEPT — niet in gebruik. Member-ID en ID127 van deze oude Quinta zijn onbekend; zonder bevestigde herkenning staat dit profiel niet in kBoilerModelProfiles.",
+  "document": {
+    "number": "57342",
+    "version": "AD",
+    "date": "2009-04-22 (drukbestand)"
+  },
+  "source": "Remeha Quinta 85 handleiding, versie AD: tabel 04 bedrijfscodes, tabel 05 blokkeringscodes, tabel 06 gebruikersniveau, tabel 09 serviceniveau, tabel 20 storingscodes.",
+  "notes": {
+    "platform": "Oudere besturing (Comfort Master): één bedrijfscode (0–9, b, H, L) in plaats van status/substatus; blokkeringen als bXX; parameters met één teken. Ketelvariant via parameter P (85 = 80), niet via dF/dU.",
+    "opentherm": "De handleiding koppelt deze codes niet aan OpenTherm (ID5, ID115, TSP). Niets hieruit wordt toegepast zonder bevestigde uitlezing."
+  },
+  "operating_codes": {
+    "0": "Stand-by; er is geen warmtevraag van de kamerthermostaat, externe regeling of boiler",
+    "1": "Voorspoelen of naventileren (voorspoeltijd 4,2 s, naspoeltijd 10 s)",
+    "2": "Ontsteken; gedurende 2,4 s is de ontsteking actief en de gasklep geopend",
+    "3": "C.v.-bedrijf; het toestel brandt voor de c.v.",
+    "4": "Boilerbedrijf; het toestel brandt voor de warmwatervoorziening",
+    "5": "Wachtstand; de ventilator draait en het toestel wacht tot het juiste toerental is bereikt",
+    "6": "Aanvoertemperatuur > gewenste temperatuur + 5 °C (normale regelstop tijdens c.v.-bedrijf)",
+    "7": "Nadraaien pomp c.v.",
+    "8": "Nadraaien pomp over de boiler (tot verschil aanvoer-retour < 4 °C, max. 5 minuten)",
+    "9": "Aanvoertemperatuur > 95 °C tijdens branden op c.v.; of aanvoertemperatuur > ingestelde boilertemperatuur + overtemperatuur + 5 °C tijdens branden boiler (normale regelstop warmwaterbedrijf)",
+    "b": "Blokkeringsmode",
+    "H": "Gedwongen vollast (HOOG)",
+    "L": "Gedwongen laaglast (LAAG)"
+  },
+  "blocking_codes": {
+    "b25": "Maximaal toelaatbare stijgsnelheid van de aanvoertemperatuur overschreden; 10 minuten blokkering",
+    "b26": "Contacten van de externe beveiliging geopend tijdens warmtevraag; 120 seconden blokkering",
+    "b28": "Ventilator defect of niet goed gemonteerd; na 5 blokkeringen vergrendeling",
+    "b29": "Ventilator blijft na naspoeltijd doordraaien of toerentalweergave niet correct; na 5 keer vergrendeling",
+    "b30": "Maximaal toelaatbaar verschil tussen aanvoer- en retourtemperatuur overschreden; 150 seconden blokkering",
+    "b43": "Verkeerde parameterinstelling of geheugen defect; parameter P terugzetten (Quinta 85: P = 80)"
+  },
+  "fault_codes": {
+    "00": "Onterecht vlamsignaal",
+    "01": "Kortsluiting 24V",
+    "02": "Geen vlamvorming of geen ionisatie (na 5 startpogingen)",
+    "03": "Bedradingsfout (gasblok)",
+    "04": "Spanningswegval tijdens storingsvergrendeling",
+    "05": "Externe invloeden (EMC)",
+    "08": "Programmeerfout (parameter d: tweede cijfer moet 0 zijn)",
+    "11": "Storing interne communicatiebus",
+    "18": "Te hoge aanvoertemperatuur",
+    "19": "Te hoge retourtemperatuur",
+    "24": "Aanvoer- en retourwisseling",
+    "28": "Ventilator draait niet",
+    "29": "Ventilator blijft draaien of signaal niet correct",
+    "31": "Aanvoertemperatuursensor kortgesloten",
+    "32": "Retourtemperatuursensor kortgesloten",
+    "34": "Buitentemperatuursensor kortgesloten",
+    "35": "Rookgastemperatuursensor kortgesloten (indien aangesloten en geselecteerd)",
+    "36": "Aanvoertemperatuursensor niet aangesloten of defect",
+    "37": "Retourtemperatuursensor niet aangesloten of defect",
+    "40": "Rookgastemperatuursensor niet aangesloten of defect (indien aangesloten en geselecteerd)",
+    "52": "Te hoge rookgastemperatuur (warmtewisselaar rookgaszijdig vervuild)",
+    "77": "Ionisatiewegval tijdens bedrijf (na 4 herstarts tijdens 1 warmtevraag)",
+    "overige": "Automaatstoring"
+  },
+  "settings": [
+    {
+      "code": "1",
+      "level": "gebruiker",
+      "label": "Maximale aanvoertemperatuur",
+      "range": "20 t/m 90",
+      "unit": "°C",
+      "default": 90
+    },
+    {
+      "code": "2",
+      "level": "gebruiker",
+      "label": "Pompnadraaitijd c.v.-bedrijf",
+      "range": "00 = 10 seconden; 01 t/m 15 minuten",
+      "default": "03"
+    },
+    {
+      "code": "3",
+      "level": "gebruiker",
+      "label": "Boilertemperatuur boiler",
+      "range": "20 t/m 70 (met boilertemperatuursensor)",
+      "unit": "°C",
+      "default": 60
+    },
+    {
+      "code": "A",
+      "level": "gebruiker",
+      "label": "Toestelregeling",
+      "range": "XY",
+      "default": "31",
+      "options": {
+        "X0": "C.v. uit, warmwater uit",
+        "X1": "C.v. aan, warmwater aan",
+        "X2": "C.v. aan, warmwater uit",
+        "X3": "C.v. uit, warmwater aan",
+        "1Y": "C.v. modulerend, boosterfunctie op buitentemperatuur",
+        "2Y": "C.v. hoog / laag",
+        "3Y": "C.v. modulerend, boosterfunctie uit",
+        "4Y": "C.v. modulerend, externe ingang 0-10 V op aanvoertemperatuur",
+        "5Y": "C.v. modulerend, externe ingang 0-10 V op belastingpercentage"
+      }
+    },
+    {
+      "code": "u",
+      "level": "gebruiker",
+      "label": "Voetpunt interne stooklijn",
+      "range": "15 t/m 60 (alleen met buitenvoeler)",
+      "unit": "°C",
+      "default": 20
+    },
+    {
+      "code": "4",
+      "level": "service",
+      "label": "Max. aanvoertemperatuur tijdens gedwongen laaglast",
+      "range": "20 t/m 90",
+      "unit": "°C",
+      "default": 89
+    },
+    {
+      "code": "5",
+      "level": "service",
+      "label": "Maximaalthermostaat",
+      "range": "90 t/m 1.0",
+      "default": "1.0 (=110)"
+    },
+    {
+      "code": "6",
+      "level": "service",
+      "label": "Ventilatortoerental vollast tijdens c.v.",
+      "range": "10 t/m 70",
+      "unit": "x100 omw/min",
+      "default": 62
+    },
+    {
+      "code": "7",
+      "level": "service",
+      "label": "Ventilatortoerental laaglast (c.v. en ww)",
+      "range": "10 t/m 60",
+      "unit": "x100 omw/min",
+      "default": 12
+    },
+    {
+      "code": "8",
+      "level": "service",
+      "label": "Startpunt terugmoduleren op ΔT",
+      "range": "05 t/m 30 (verschil aanvoer-retour)",
+      "unit": "°C",
+      "default": 25
+    },
+    {
+      "code": "9",
+      "level": "service",
+      "label": "Interface selectie",
+      "range": "00 interne interface (= OpenTherm); 01 externe interface",
+      "default": "00"
+    },
+    {
+      "code": "b",
+      "level": "service",
+      "label": "Inschakeldifferentie warmwaterbedrijf",
+      "range": "01 t/m 05 °C; 06 = 10 °C; 07 = 15 °C; 08 = 20 °C",
+      "default": "05"
+    },
+    {
+      "code": "C",
+      "level": "service",
+      "label": "Ventilatortoerental vollast tijdens warmwaterbedrijf",
+      "range": "10 t/m 70",
+      "unit": "x100 omw/min",
+      "default": 62
+    },
+    {
+      "code": "d",
+      "level": "service",
+      "label": "Intern (niet wijzigen)",
+      "default": "00"
+    },
+    {
+      "code": "E",
+      "level": "service",
+      "label": "Intern (niet wijzigen)",
+      "default": "0.0 (=100)"
+    },
+    {
+      "code": "F",
+      "level": "service",
+      "label": "Intern (niet wijzigen)",
+      "default": 20
+    },
+    {
+      "code": "G",
+      "level": "service",
+      "label": "Gedwongen laaglasttijd na start c.v.-bedrijf",
+      "range": "00 t/m 15 minuten",
+      "default": "03"
+    },
+    {
+      "code": "H",
+      "level": "service",
+      "label": "Start toerental (niet wijzigen)",
+      "default": 20
+    },
+    {
+      "code": "I",
+      "level": "service",
+      "label": "Overtemperatuur c.v.-water bij warmwaterbedrijf t.o.v. boilertemperatuur",
+      "range": "00 t/m 30",
+      "unit": "°C",
+      "default": 20
+    },
+    {
+      "code": "J",
+      "level": "service",
+      "label": "Warmwater aansturing",
+      "range": "00 wisselklep (A=c.v., B=boiler); 01 boilerpomp; 02 wisselklep (A=boiler, B=c.v.)",
+      "default": "01"
+    },
+    {
+      "code": "L",
+      "level": "service",
+      "label": "PWM-pomp aansturing (optie)",
+      "range": "1e cijfer pompstand bij c.v.; 2e cijfer pompstand tijdens nadraaien",
+      "default": "0.3"
+    },
+    {
+      "code": "n",
+      "level": "service",
+      "label": "Inschakeldifferentie aanvoertemperatuur c.v.-bedrijf",
+      "range": "1.0 (= -10 °C) t/m 20 °C",
+      "default": "03"
+    },
+    {
+      "code": "o",
+      "level": "service",
+      "label": "N.v.t.",
+      "default": null
+    },
+    {
+      "code": "P",
+      "level": "service",
+      "label": "Keteluitvoering (niet wijzigen)",
+      "default": 80,
+      "note": "Typecode van de ketel; ook gebruikt om fabrieksinstellingen terug te zetten (b43)."
+    },
+    {
+      "code": "t",
+      "level": "service",
+      "label": "Intern (niet wijzigen)",
+      "default": "01"
+    },
+    {
+      "code": "U",
+      "level": "service",
+      "label": "Maximale blokkeringstijd bij blijvende warmtevraag",
+      "range": "00 t/m 99 minuten",
+      "default": 15
+    },
+    {
+      "code": "q",
+      "level": "service",
+      "label": "Gewenste aanvoertemperatuur bij 0 V (optie)",
+      "range": "5.0 (= -50) t/m 50 °C",
+      "default": "00"
+    },
+    {
+      "code": "y",
+      "level": "service",
+      "label": "Gewenste aanvoertemperatuur bij 10 V (optie)",
+      "range": "50 t/m 9.9 (= 299 °C)",
+      "default": "0.0 (=100)"
+    },
+    {
+      "code": "I? (2e)",
+      "level": "service",
+      "label": "Intern (niet wijzigen)",
+      "default": "01",
+      "note": "Het teken in de handleiding (p29) lijkt op dat van \"I\"; het werkelijke displayteken is onzeker."
+    }
+  ]
+}

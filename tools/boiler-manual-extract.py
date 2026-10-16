@@ -11,6 +11,7 @@ Recognised table rows (pdfplumber table extraction):
   counters   [code, level, description]          level Gebruiker/Installateur
   codes      [code, description, cause]          code A.00.00 / A00.00
              [group, .specific, description, cause]  group A.00 + specific .42
+             [code, display text, description, solution]
   status     rows [text, number] after a STATUS / SUBSTATUS header
 
 Every row records the nearest preceding table caption ("Tab.NN ..."), so rows from e.g.
@@ -155,6 +156,13 @@ def extract(path):
                         code = fault_code(c[0])
                         out['codes'].append(O([('code', code), ('type', TYPES[code[0]]), ('description', c[1]),
                                                ('cause_solution', c[2]), ('table', caption), ('page', number)]))
+                        continue
+                    if len(c) == 4 and FAULT.fullmatch(c[0]):
+                        # [code, display text, description, solution]
+                        code = fault_code(c[0])
+                        out['codes'].append(O([('code', code), ('type', TYPES[code[0]]), ('display', c[1]),
+                                               ('description', c[2]), ('cause_solution', c[3]),
+                                               ('table', caption), ('page', number)]))
                         continue
                     if len(c) == 4:
                         if GROUP.fullmatch(c[0]):

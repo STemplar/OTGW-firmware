@@ -1,0 +1,1365 @@
+{
+  "id": "remeha-quinta-ace-135-160",
+  "name": "Remeha Quinta Ace 135 / 160",
+  "language": "nl",
+  "status_of_draft": "CONCEPT — niet in gebruik. Zonder bevestigde herkenning (member-ID, ID127) staat dit profiel niet in kBoilerModelProfiles.",
+  "document": {
+    "number": "7698979",
+    "version": "v.10",
+    "date": "14112025"
+  },
+  "notes": {
+    "settings": "Instellingscodes zijn geen OpenTherm-TSP-indexen; de handleiding geeft geen koppeling.",
+    "codes": "A = waarschuwing, H = tijdelijke storing/blokkering, E = permanente storing/vergrendeling. Geen koppeling met ID5 (OEM fault code) in de handleiding.",
+    "status": "Status/substatus zijn displaywaarden. Of ID115 dezelfde codering heeft, is niet bevestigd."
+  },
+  "settings": [
+    {
+      "code": "DP003",
+      "label": "Maximum ventilatortoerental voor SWW",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "5700",
+        "160": "7100"
+      },
+      "table": "Tab.27 Fabrieksinstellingen G25.3 (K-gas)",
+      "page": 35
+    },
+    {
+      "code": "GP007",
+      "label": "Maximum ventilatortoerental in CV-modus",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "5700",
+        "160": "7100"
+      },
+      "table": "Tab.27 Fabrieksinstellingen G25.3 (K-gas)",
+      "page": 35
+    },
+    {
+      "code": "GP008",
+      "label": "Minimum ventilatortoerental in CV- en SWW-modus",
+      "range": "900 - 8500 Rpm",
+      "default": "1900",
+      "table": "Tab.27 Fabrieksinstellingen G25.3 (K-gas)",
+      "page": 35
+    },
+    {
+      "code": "GP009",
+      "label": "Ventilatortoerental bij het starten app.",
+      "range": "900 - 5000 Rpm",
+      "default": "2200",
+      "table": "Tab.27 Fabrieksinstellingen G25.3 (K-gas)",
+      "page": 35
+    },
+    {
+      "code": "DP003",
+      "label": "Maximum ventilatortoerental voor SWW",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "5700",
+        "160": "6700"
+      },
+      "table": "Tab.29 Instelling voor gassoort G20 (H-gas)",
+      "page": 36
+    },
+    {
+      "code": "GP007",
+      "label": "Maximum ventilatortoerental in CV-modus",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "5700",
+        "160": "6700"
+      },
+      "table": "Tab.29 Instelling voor gassoort G20 (H-gas)",
+      "page": 36
+    },
+    {
+      "code": "GP008",
+      "label": "Minimum ventilatortoerental in CV- en SWW-modus",
+      "range": "900 - 8500 Rpm",
+      "default": "1900",
+      "table": "Tab.29 Instelling voor gassoort G20 (H-gas)",
+      "page": 36
+    },
+    {
+      "code": "GP009",
+      "label": "Ventilatortoerental bij het starten app.",
+      "range": "900 - 5000 Rpm",
+      "default": "2200",
+      "table": "Tab.29 Instelling voor gassoort G20 (H-gas)",
+      "page": 36
+    },
+    {
+      "code": "DP003",
+      "label": "Maximum ventilatortoerental voor SWW",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "6300",
+        "160": "7100"
+      },
+      "table": "Tab.30 Instelling voor gassoort G25.3 (K-gas) Vamil",
+      "page": 36
+    },
+    {
+      "code": "GP007",
+      "label": "Maximum ventilatortoerental in CV-modus",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "6300",
+        "160": "7100"
+      },
+      "table": "Tab.30 Instelling voor gassoort G25.3 (K-gas) Vamil",
+      "page": 36
+    },
+    {
+      "code": "GP008",
+      "label": "Minimum ventilatortoerental in CV- en SWW-modus",
+      "range": "900 - 8500 Rpm",
+      "default": {
+        "135": "1950",
+        "160": "1900"
+      },
+      "table": "Tab.30 Instelling voor gassoort G25.3 (K-gas) Vamil",
+      "page": 36
+    },
+    {
+      "code": "GP009",
+      "label": "Ventilatortoerental bij het starten app.",
+      "range": "900 - 5000 Rpm",
+      "default": "2200",
+      "table": "Tab.30 Instelling voor gassoort G25.3 (K-gas) Vamil",
+      "page": 36
+    },
+    {
+      "code": "DP003",
+      "label": "Maximum ventilatortoerental voor SWW",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "5450",
+        "160": "6400"
+      },
+      "table": "Tab.31 Aanpassing aan gassoort G31 (propaan)",
+      "page": 36
+    },
+    {
+      "code": "GP007",
+      "label": "Maximum ventilatortoerental in CV-modus",
+      "range": "1000 - 8500 Rpm",
+      "default": {
+        "135": "5450",
+        "160": "6400"
+      },
+      "table": "Tab.31 Aanpassing aan gassoort G31 (propaan)",
+      "page": 36
+    },
+    {
+      "code": "GP008",
+      "label": "Minimum ventilatortoerental in CV- en SWW-modus",
+      "range": "900 - 8500 Rpm",
+      "default": "2150",
+      "table": "Tab.31 Aanpassing aan gassoort G31 (propaan)",
+      "page": 36
+    },
+    {
+      "code": "GP009",
+      "label": "Ventilatortoerental bij het starten app.",
+      "range": "900 - 5000 Rpm",
+      "default": "3000",
+      "table": "Tab.31 Aanpassing aan gassoort G31 (propaan)",
+      "page": 36
+    },
+    {
+      "code": "AP016",
+      "label": "CV-functie activeren",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "Gasgestookt apparaat",
+      "default": "1",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "AP017",
+      "label": "Warm water functie activeren",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "Gasgestookt apparaat",
+      "default": "1",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "AP081",
+      "label": "Afkorting apparaat",
+      "submenu": "Systeemfunctionalit.",
+      "default": "CU6",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP080",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "16",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP081",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "20",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP082",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "6",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP083",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "21",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP084",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "22",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP085",
+      "label": "Activiteittemperatuur per groep",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "20",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP200",
+      "label": "Gewenste ruimtetemperatuur tijdens handmatig bedrijf",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "20",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP320",
+      "label": "Bedrijfsmodus van de groep",
+      "range": "0 = Schema 1 = Handmatig 2 = Uit",
+      "submenu": "CH",
+      "default": "1",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP550",
+      "label": "Openhaardmodus is actief",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 42
+    },
+    {
+      "code": "CP570",
+      "label": "Door de gebruiker geselecteerd klokprogramma van de groep",
+      "range": "0 = Klokprogramma 1 1 = Klokprogramma 2 2 = Klokprogramma 3",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP660",
+      "label": "Kies icoon voor deze groep",
+      "range": "0 = Geen 1 = Alle",
+      "submenu": "CH",
+      "default": "1",
+      "table": "Tab.41 Fabrieksinstellingen op basisinstallateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP001",
+      "label": "Functie blokkerende ingang",
+      "range": "1 = Volledig geblokkeerd 2 = Gedeelt. blokkering 3 = Resetvergr. gebruik.",
+      "submenu": "Gasgestookt apparaat",
+      "default": "1",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP006",
+      "label": "Het toestel zal beneden deze waarde een lage waterdrukmelding geven",
+      "range": "0 - 7bar",
+      "submenu": "Gasgestookt apparaat",
+      "default": "0.7",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP008",
+      "label": "Wachttijd na sluiten van vrijgavecontact om de verwarmingsgenerator te starten.",
+      "range": "0 - 255Sec",
+      "submenu": "Gasgestookt apparaat",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP009",
+      "label": "Aantal branduren voor het genereren van een servicemelding",
+      "range": "24 - 51000Uren",
+      "submenu": "Gasgestookt apparaat",
+      "default": "17400",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP010",
+      "label": "Servicemelding apparaat onderhoudsafd.",
+      "range": "0 = Geen 1 = Zelf ingesteld 2 = ABC melding",
+      "submenu": "Gasgestookt apparaat",
+      "default": "2",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP011",
+      "label": "Aantal uren dat het toestel onder spanning staat tussen twee service meldingen.",
+      "range": "24 - 51000Uren",
+      "submenu": "Gasgestookt apparaat",
+      "default": "17400",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP073",
+      "label": "Buitentemperatuur voor zomerbedrijf: bovengrens voor verwarming",
+      "range": "1.5 - 60°C",
+      "submenu": "Buitentemp voeler",
+      "default": "22",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP074",
+      "label": "De CV-functie is uitgeschakeld. Warm water blijft aan. Zomerbedrijf forceren.",
+      "range": "0 = Uit 1 = Aan",
+      "submenu": "Buitentemp voeler",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP079",
+      "label": "Instelling aanwarm- en afkoelsnelheid. Tijdconstante van het gebouw voor weersafhankelijk regelen.",
+      "range": "0 - 255",
+      "submenu": "Buitentemp voeler",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP080",
+      "label": "Buitentemperatuur waaronder de vorstbeveiliging wordt geactiveerd",
+      "range": "-32 - 32°C",
+      "submenu": "Buitentemp voeler",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP102",
+      "label": "Toestelpompfunctie groep of systeem pomp",
+      "range": "0 = Nee 1 = Ja",
+      "submenu": "Gasgestookt apparaat",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "AP110",
+      "label": "Tweede retoursensor activeren",
+      "range": "0 = Niet actief 1 = Actief",
+      "submenu": "Gasgestookt apparaat",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP000",
+      "label": "Instelpunt maximale aanvoertemperatuur groep",
+      "range": "0 - 90°C",
+      "submenu": "CH",
+      "default": "90",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP010",
+      "label": "Aanvoertemperatuur setpunt voor groep bij afwezigheid van ruimte- en buitentemperatuurvoeler",
+      "range": "0 - 90°C",
+      "submenu": "CH",
+      "default": "80",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP020",
+      "label": "Functionaliteit van de groep",
+      "range": "0 = Uitschakelen 1 = Direct",
+      "submenu": "CH",
+      "default": "1",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP060",
+      "label": "Gewenste ruimtetemperatuur in vakantieperiode",
+      "range": "5 - 20°C",
+      "submenu": "CH",
+      "default": "6",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP070",
+      "label": "Gewenste ruimtetemperatuur tijdens nachtbedrijf",
+      "range": "5 - 30°C",
+      "submenu": "CH",
+      "default": "15",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP210",
+      "label": "Voetpunt stooklijn (dagbedrijf)",
+      "range": "15 - 90°C",
+      "submenu": "CH",
+      "default": "15",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP220",
+      "label": "Voetpunt stooklijn (nachtbedrijf)",
+      "range": "15 - 90°C",
+      "submenu": "CH",
+      "default": "15",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP230",
+      "label": "Helling stooklijn",
+      "range": "0 - 4",
+      "submenu": "CH",
+      "default": "2.5",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 43
+    },
+    {
+      "code": "CP340",
+      "label": "Nachtbedrijf",
+      "range": "0 = Stop warmtevraag 1 = Continue warmtevraag",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "CP470",
+      "label": "Aantal dagen vloerdroogtijd",
+      "range": "0 - 30Dagen",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "CP480",
+      "label": "Begintemperatuur van het vloerdroogprogramma",
+      "range": "20 - 50°C",
+      "submenu": "CH",
+      "default": "20",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "CP490",
+      "label": "Eindtemperatuur van het vloerdroogprogramma",
+      "range": "20 - 50°C",
+      "submenu": "CH",
+      "default": "20",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "CP750",
+      "label": "Maximale aanwarmtijd groep",
+      "range": "0 - 65000Min",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "CP780",
+      "label": "Selecteer de manier van regelen voor de groep",
+      "range": "0 = Automatisch 1 = Ruimteregeling 2 = Weersafhankelijk 3 = Buiten&ruimte gebas.",
+      "submenu": "CH",
+      "default": "1",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "DP003",
+      "label": "Maximum ventilatortoerental voor SWW",
+      "range": "1000 - 8500Rpm",
+      "submenu": "Gasgestookt apparaat",
+      "default": {
+        "135": "5700",
+        "160": "7100"
+      },
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "DP010",
+      "label": "Temperatuurhysterese voor generator om bereiding sanitair warmwater te starten",
+      "range": "0 - 60°C",
+      "submenu": "Gasgestookt apparaat",
+      "default": "7",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "DP011",
+      "label": "Temperatuur offset om verwarmingsgenerator voor bereiding sanitair warmwater te stoppen",
+      "range": "0 - 60°C",
+      "submenu": "Gasgestookt apparaat",
+      "default": "5",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "EP014",
+      "label": "Selecteer de functie van de 0-10V ingang.",
+      "range": "0 = Uit 1 = Temperatuur 2 = Vermogen",
+      "submenu": "0-10V ingang",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "GP007",
+      "label": "Maximum ventilatortoerental in CV-modus",
+      "range": "1000 - 8500Rpm",
+      "submenu": "Gasgestookt apparaat",
+      "default": {
+        "135": "5700",
+        "160": "7100"
+      },
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "GP008",
+      "label": "Minimum ventilatortoerental in CV- en SWW-modus",
+      "range": "900 - 8500Rpm",
+      "submenu": "Gasgestookt apparaat Pneumatische GVC",
+      "default": "1900",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "GP009",
+      "label": "Ventilatortoerental bij het starten app.",
+      "range": "900 - 5000Rpm",
+      "submenu": "Gasgestookt apparaat Pneumatische GVC",
+      "default": "2200",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "GP010",
+      "label": "Controle externe gasdrukschakelaar (GPS) activeren.",
+      "range": "0 = Nee 1 = Ja",
+      "submenu": "Gasgestookt apparaat",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "GP021",
+      "label": "Terug moduleren wanneer temperatuurverschil groter is dan deze drempelwaarde",
+      "range": "5 - 25 of 40°C",
+      "submenu": "Gasgestookt apparaat",
+      "default": {
+        "135": "40",
+        "160": "25"
+      },
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "GP022",
+      "label": "Tau-factor voor berekening van gemiddelde aanvoertemperatuur",
+      "range": "0 - 255",
+      "submenu": "Gasgestookt apparaat",
+      "default": "1",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "GP024",
+      "label": "Test van gaslekcontrolesysteem (VPS) activeren",
+      "range": "0 = Nee 1 = Ja",
+      "submenu": "Gasgestookt apparaat Pneumatische GVC",
+      "default": "0",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "PP007",
+      "label": "Minimum verwarmingsgeneratorwachttijd die kan worden bereikt na meerdere starts/stops",
+      "range": "0 - 20Min",
+      "submenu": "Gasgestookt apparaat",
+      "default": "3",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "PP012",
+      "label": "Stabilisatietijd na verwarmingsgenerator start voor centrale verwarming",
+      "range": "5 - 180Sec",
+      "submenu": "Gasgestookt apparaat",
+      "default": "30",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "PP015",
+      "label": "Pompnadraaitijd CV.",
+      "range": "1 - 99Min",
+      "submenu": "Gasgestookt apparaat",
+      "default": "1",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "PP016",
+      "label": "Maximum pomptoerental CV bedrijf",
+      "range": "20 - 100%",
+      "submenu": "Gasgestookt apparaat",
+      "default": "100",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "PP018",
+      "label": "Minimum pomptoerental voor CV-bedrijf",
+      "range": "20 - 100%",
+      "submenu": "Gasgestookt apparaat",
+      "default": "20",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "PP023",
+      "label": "Temperatuurhysterese voor verwarmingsgenerator om centrale verwarming te starten",
+      "range": "1 - 25°C",
+      "submenu": "Gasgestookt apparaat",
+      "default": "10",
+      "table": "Tab.43 Fabrieksinstelling op installateursniveau",
+      "page": 44
+    },
+    {
+      "code": "AP002",
+      "label": "Activeren handmatige warmtevraag",
+      "range": "0 = Uit 1 = Setpunt 2 = TBuiten regelaar",
+      "submenu": "Gasgestookt apparaat",
+      "default": "0",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "AP026",
+      "label": "Setpunt aanvoertemperatuur voor handbediening warmtevraag",
+      "range": "7 - 90°C",
+      "submenu": "Gasgestookt apparaat",
+      "default": "40",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "AP056",
+      "label": "Buitentemperatuur sensor aanwezig",
+      "range": "0 = Geen buitenvoeler 1 = AF60",
+      "submenu": "Buitentemp voeler",
+      "default": "1",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "AP089",
+      "label": "Naam installateur",
+      "submenu": "Verplichte bus-mast.",
+      "default": "",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "AP090",
+      "label": "Telefoonnummer installateur",
+      "submenu": "Verplichte bus-mast.",
+      "default": "6",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "CP040",
+      "label": "Nadraaitijd groeppomp",
+      "range": "0 - 20Min",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "CP240",
+      "label": "Ruimteinvloed op stooklijn",
+      "range": "0 - 10",
+      "submenu": "CH",
+      "default": "3",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "CP250",
+      "label": "Calibratie ruimtesensor groep",
+      "range": "-5 - 5°C",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "CP290",
+      "label": "Pompconfiguratie",
+      "range": "0 = Groep uitgang 1 = CV bedrijf 2 = SWW-modus 3 = Koeling 4 = Foutstatus 5 = Branden 6 = Servicemelding 7 = Systeemfout 8 = DHW looping",
+      "submenu": "CH",
+      "default": "0",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "CP510",
+      "label": "Tijdelijk gewenste ruimtetemperatuur",
+      "range": "5 - 50°C",
+      "submenu": "CH",
+      "default": "20",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "GP030",
+      "label": "Maximale rookgastemperatuur",
+      "range": "20 - 200°C",
+      "submenu": "Gasgestookt apparaat",
+      "default": "120",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "GP048",
+      "label": "Minimum pulsbreedtemodulatie voor de ventilatorregelaar",
+      "range": "0 - 100%",
+      "submenu": "Pneumatische GVC",
+      "default": "10",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "GP050",
+      "label": "Minimumvermogen in kilowatt voor berekening energieverbruik",
+      "range": "0 - 300kW",
+      "submenu": "Gasgestookt apparaat",
+      "default": "6.5",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "GP056",
+      "label": "Vermogensreductiefactor als temperatuurgradiënt > parHeDThMaxNiveau1 is gedetecteerd",
+      "range": "0 - 1000",
+      "submenu": "Gasgestookt apparaat",
+      "default": "1",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    },
+    {
+      "code": "PP017",
+      "label": "Maximum pomptoerental bij laaglast als percentage van het max. pomptoerental",
+      "range": "0 - 100%",
+      "submenu": "Gasgestookt apparaat",
+      "default": "30",
+      "table": "Tab.45 Fabrieksinstellingen op geavanceerd installateursniveau",
+      "page": 45
+    }
+  ],
+  "codes": [
+    {
+      "code": "A.01.21",
+      "type": "Waarschuwing",
+      "description": "Maximale SWW-temperatuurgradiënt Level3 overschreden",
+      "cause_solution": "Temperatuur waarschuwing: Controleer de doorstroming.",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.02.06",
+      "type": "Waarschuwing",
+      "description": "Waarschuwing waterdruk actief",
+      "cause_solution": "Waterdruk waarschuwing: Waterdruk te laag; controleer de waterdruk",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.02.18",
+      "type": "Waarschuwing",
+      "description": "Fout woordenboekobject",
+      "cause_solution": "Configuratiefout: CN1 en CN2 opnieuw instellen Zie De typeplaat voor de CN1 en CN2 waarden.",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.02.37",
+      "type": "Waarschuwing",
+      "description": "Niet kritisch apparaat is ontkoppeld",
+      "cause_solution": "SCB niet gevonden: Slechte verbinding: controleer de bedrading en connectoren Defecte SCB: Vervang SCB",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.02.45",
+      "type": "Waarschuwing",
+      "description": "CAN-verbindingsmatrix vol",
+      "cause_solution": "SCB niet gevonden: Voer een automatische detectie uit",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.02.46",
+      "type": "Waarschuwing",
+      "description": "CAN-admin. apparaat vol",
+      "cause_solution": "SCB niet gevonden: Voer een automatische detectie uit",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.02.49",
+      "type": "Waarschuwing",
+      "description": "Initialisatienode mislukt",
+      "cause_solution": "SCB niet gevonden: Voer een automatische detectie uit",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.02.55",
+      "type": "Waarschuwing",
+      "description": "Ongeldig of ontbrekend serienr. apparaat",
+      "cause_solution": "Neem contact op met uw leverancier.",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "A.03.17",
+      "type": "Waarschuwing",
+      "description": "Periodieke veiligheidscontrole wordt uitgevoerd",
+      "cause_solution": "Veiligheidscontroleprocedure actief: Geen actie",
+      "table": "Tab.47 Waarschuwingscodes",
+      "page": 48
+    },
+    {
+      "code": "H.00.36",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Tweede retourtemperatuursensor is verwijderd of meet een temperatuur beneden het bereik",
+      "cause_solution": "Tweede retourtemperatuursensor open: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 49
+    },
+    {
+      "code": "H.00.37",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Tweede retourtemperatuursensor is kortgesloten of meet een temperatuur boven het bereik",
+      "cause_solution": "Tweede retourtemperatuursensor kortgesloten: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 49
+    },
+    {
+      "code": "H.01.00",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Communicatiefout opgetreden",
+      "cause_solution": "Communicatiefout met de veiligheidskern: Herstart de ketel Vervang de CU-GH",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 49
+    },
+    {
+      "code": "H.01.06",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Maximaal verschil tussen temperatuur warmtewisselaar en aanvoertemperatuur",
+      "cause_solution": "Maximaal verschil tussen warmtewisselaar- en aanvoertemperatuur overschreden: Geen of te weinig doorstroming: Controleer de doorstroming (richting, pomp, kleppen). Controleer de waterdruk. Controleer warmtewisselaar op vervuiling. Controleer of de installatie ontlucht is. Controleer of de waterkwaliteit aan de specificaties van de leverancier voldoet. Sensorfout: Controleer de goede werking van de sensors. Controleer of de sensor goed gemonteerd is.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 49
+    },
+    {
+      "code": "H.01.07",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Maximaal verschil tussen temp. warmtewisselaar en retourtemperatuur",
+      "cause_solution": "Maximaal verschil tussen warmtewisselaar- en retourtemperatuur overschreden: Geen of te weinig doorstroming: Controleer de doorstroming (richting, pomp, kleppen). Controleer de waterdruk. Controleer warmtewisselaar op vervuiling. Controleer of de installatie correct is ontlucht. Sensorfout: Controleer de goede werking van de sensors. Controleer of de sensor goed gemonteerd is.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 49
+    },
+    {
+      "code": "H.01.08",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Maximale CV-temperatuurgradiënt niveau 3 overschreden",
+      "cause_solution": "Maximale stijging van de warmtewisselaartemperatuur is overschreden: Geen of te weinig doorstroming: Controleer de doorstroming (richting, pomp, kleppen) Controleer de waterdruk Controleer warmtewisselaar op vervuiling Controleer of de cv-installatie correct is ontlucht Sensorfout: Controleer de goede werking van de sensors Controleer of de sensor goed gemonteerd is",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 49
+    },
+    {
+      "code": "H.01.09",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Gasdrukschakelaar",
+      "cause_solution": "Gasdruk te laag: Geen of te weinig doorstroming: Zorg ervoor dat de gaskraan volledig is geopend Controleer de gastoevoerdruk Als er een gasfilter is: Zorg ervoor dat het filter schoon is Verkeerde afstelling van de gasdrukschakelaar : Zorg ervoor dat de schakelaar goed is gemonteerd Vervang schakelaar indien nodig",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 49
+    },
+    {
+      "code": "H.01.13",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Temperatuur van warmtewisselaar heeft de maximale bedrijfswaarde overschreden",
+      "cause_solution": "Maximale warmtewisselaartemperatuur overschreden: Controleer de doorstroming (richting, pomp, kleppen). Controleer de waterdruk. Controleer de goede werking van de sensors. Controleer of de sensor goed gemonteerd is. Controleer warmtewisselaar op vervuiling. Controleer of de cv-installatie correct is ontlucht.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.01.14",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "De aanvoertemperatuur heeft de maximale bedrijfswaarde overschreden",
+      "cause_solution": "Aanvoertemperatuursensor boven normaal bereik: Slechte verbinding: controleer de bedrading en connectoren Geen of te weinig doorstroming: Controleer de doorstroming (richting, pomp, kleppen) Controleer de waterdruk Controleer warmtewisselaar op vervuiling",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.01.15",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "De rookgastemperatuur heeft de maximale bedrijfswaarde overschreden",
+      "cause_solution": "Maximum rookgastemperatuur overschreden: Controleer het rookgasafvoersysteem Controleer de warmtewisselaar op rookgaszijdige vervuiling Defecte sensor: vervang de sensor",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.00",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Reset wordt uitgev.",
+      "cause_solution": "Resetprocedure actief: Geen actie",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.02",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Wacht op configuratienummer",
+      "cause_solution": "Configuratiefout of configuratienummer onbekend: CN1 en CN2 opnieuw instellen",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.03",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Configuratiefout",
+      "cause_solution": "Configuratiefout of configuratienummer onbekend: CN1 en CN2 opnieuw instellen",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.05",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "CSU komt niet overeen met CU-type",
+      "cause_solution": "Configuratiefout: CN1 en CN2 opnieuw instellen",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.09",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Deelblokkering van het apparaat gedetecteerd",
+      "cause_solution": "Blokkerende ingang of vorstbeveiliging is actief: Externe oorzaak: neem externe oorzaak weg Fout ingestelde parameter: controleer parameters Slechte verbinding: controleer de verbinding",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.10",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Volledige blokkering van het apparaat gedetecteerd",
+      "cause_solution": "Blokkerende ingang is actief (zonder vorstbeveiliging): Externe oorzaak: neem externe oorzaak weg Fout ingestelde parameter: controleer parameters Slechte verbinding: controleer de verbinding",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.12",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Ingang vrijgavesignaal van de regeleenheid van externe apparaatomgeving",
+      "cause_solution": "Wachttijd vrijgave signaal is verlopen: Externe oorzaak: neem externe oorzaak weg Fout ingestelde parameter: controleer parameters Slechte verbinding: controleer de verbinding",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.18",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Fout woordenboekobject",
+      "cause_solution": "CN1 en CN2 opnieuw instellen Zie De typeplaat voor de CN1 en CN2 waarden.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.36",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Functioneel apparaat is ontkoppeld",
+      "cause_solution": "Communicatiefout met de SCB print: Slechte verbinding met BUS: controleer de bedrading. Print niet aanwezig: print opnieuw aansluiten of met Autodetect uit geheugen halen.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.48",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Configuratiefout functiegroep",
+      "cause_solution": "SCB niet gevonden: Voer een automatische detectie uit",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.02.50",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Communicatiefout functiegroep",
+      "cause_solution": "SCB niet gevonden: Voer een autodetect uit.",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.03.00",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Veiligheidsparameters niveau 2, 3, 4 zijn niet correct of ontbreken",
+      "cause_solution": "Veiligheidskern parameterfout Herstart de ketel Vervang de CU-GH",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.03.01",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Geen geldige data v CU nr GRK ontvangen",
+      "cause_solution": "Communicatiefout met de CU-GH: Herstart de ketel",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 50
+    },
+    {
+      "code": "H.03.02",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Gemeten ionisatiestroom is onder limiet",
+      "cause_solution": "Vlamwegval tijdens bedrijf: Geen ionisatiestroom: Ontlucht de gasleiding Controleer of de gaskraan goed geopend is Controleer de gastoevoerdruk Controleer correcte werking en afstelling gasblok Controleer luchttoevoer en rookgasafvoer op verstopping Controleer op rookgasrecirculatie",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 51
+    },
+    {
+      "code": "H.03.05",
+      "type": "Tijdelijke storing / blokkering",
+      "description": "Gasklepregeling interne blokkering opgetreden",
+      "cause_solution": "Fout in veiligheidskern: Herstart de ketel Vervang de CU-GH",
+      "table": "Tab.48 Blokkeringscodes",
+      "page": 51
+    },
+    {
+      "code": "E.00.00",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "De aanvoertemperatuursensor is verwijderd of meet een temperatuur beneden het bereik",
+      "cause_solution": "Aanvoertemperatuursensor zone open: Sensor is niet aanwezig. Verkeerde Groepfunctie instelling: controleer de instelling van parameter CP02x. Slechte verbinding: controleer de bedrading en connectoren. Slecht gemonteerde sensor: zorg ervoor dat de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 51
+    },
+    {
+      "code": "E.00.01",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "De aanvoertemperatuursensor is kortgesloten of meet een temperatuur boven het bereik",
+      "cause_solution": "Aanvoertemperatuursensor zone kortgesloten: Sensor is niet aanwezig. Slechte verbinding: controleer de bedrading en connectoren. Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 51
+    },
+    {
+      "code": "E.00.04",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Retourtemperatuursensor is verwijderd of meet een temperatuur beneden het bereik",
+      "cause_solution": "Retourtemperatuursensor open: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is Defecte sensor: vervang de sensor",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 51
+    },
+    {
+      "code": "E.00.05",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "De retourtemperatuursensor is kortgesloten of meet een temperatuur boven het bereik",
+      "cause_solution": "Retourtemperatuursensor kortgesloten: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is Defecte sensor: vervang de sensor",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 51
+    },
+    {
+      "code": "E.00.08",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Temperatuursensor warmtewisselaar is verwijderd of meet een temperatuur beneden het bereik",
+      "cause_solution": "Warmtewisselaar-temperatuursensor open: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 51
+    },
+    {
+      "code": "E.00.09",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Temperatuursensor van warmtewisselaar is kortgesloten of meet een temperatuur boven het bereik",
+      "cause_solution": "Warmtewisselaar-temperatuursensor kortgesloten: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 51
+    },
+    {
+      "code": "E.00.40",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Waterdruksensor is verwijderd of meet een druk beneden het bereik",
+      "cause_solution": "Waterdruksensor open: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.00.41",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Waterdruksensor is kortgesloten of meet een temperatuur boven het bereik",
+      "cause_solution": "Waterdruksensor kortgesloten: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is. Defecte sensor: vervang de sensor.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.01.04",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "5x onbedoeld vlamverliesfout opgetreden",
+      "cause_solution": "5 keer vlamverlies: Ontlucht de gasleiding Controleer of de gaskraan goed geopend is Controleer de gastoevoerdruk Controleer correcte werking en afstelling gasblok Controleer luchttoevoer en rookgasafvoer op verstopping Controleer op rookgasrecirculatie",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.01.12",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Retourtemperatuur heeft hogere temperatuurwaarde dan de aanvoertemperatuur",
+      "cause_solution": "Aanvoer en retour verwisseld: Slechte verbinding: controleer de bedrading en connectoren Doorstroomrichting verkeerd: controleer de doorstroming (richting, pomp, kleppen) Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is Slecht werkende sensor: controleer de weerstandswaarde van de sensor Defecte sensor: vervang de sensor",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.04",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Parameterfout",
+      "cause_solution": "Configuratiefout: CN1 en CN2 opnieuw instellen Zie De typeplaat voor de CN1 en CN2 waarden.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.13",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Blokkerende ingang van besturingsautomaat door buitenomgeving van apparaat",
+      "cause_solution": "Blokkerende ingang is actief: Externe oorzaak: neem externe oorzaak weg Fout ingestelde parameter: controleer parameters",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.15",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Time-out externe CSU",
+      "cause_solution": "CSU time-out: Slechte verbinding: controleer de bedrading en connectoren Defecte CSU: Vervang CSU",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.17",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Gasklepregeleenheid communicatie heeft feedbacktijd overschreden",
+      "cause_solution": "Communicatiefout met de veiligheidskern: Herstart de ketel Vervang de CU-GH",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.35",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Kritisch veiligheidsapparaat is ontkoppeld",
+      "cause_solution": "Communicatiestoring Voer een automatische detectie uit",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.47",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Verbinding functiegroepen mislukt",
+      "cause_solution": "Functiegroep niet gevonden: Voer een automatische detectie uit Herstart de ketel Vervang de CU-GH",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.48",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Configuratiefout functiegroep",
+      "cause_solution": "SCB niet gevonden: Voer een autodetect uit.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.02.52",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Profielfout GKR-brander",
+      "cause_solution": "-",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.04.00",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Veiligheidsparameters niveau 5 zijn niet correct of ontbreken",
+      "cause_solution": "Vervang de. CU-GH",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.04.01",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Aanvoertemperatuursensor is kortgesloten of meet een temperatuur boven het bereik",
+      "cause_solution": "Aanvoertemperatuursensor kortgesloten: Slechte verbinding: controleer de bedrading en connectoren Slecht gemonteerde sensor: controleer of de sensor goed gemonteerd is Defecte sensor: vervang de sensor",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 52
+    },
+    {
+      "code": "E.04.02",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Aanvoertemperatuursensor is verwijderd of meet een temperatuur beneden het bereik",
+      "cause_solution": "Aanvoertemperatuursensor open: Slechte verbinding: controleer de bedrading en connectoren Defecte sensor: vervang de sensor",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.03",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Gemeten temperatuur boven veiligheidslimiet",
+      "cause_solution": "Geen of te weinig doorstroming: Controleer de doorstroming (richting, pomp, kleppen) Controleer de waterdruk Controleer warmtewisselaar op vervuiling",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.06",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Gemeten rooktemperatuur boven limiet",
+      "cause_solution": "-",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.07",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Afwijking in aanvoersensor 1 en aanvoersensor 2 gedetecteerd",
+      "cause_solution": "Afwijking van aanvoertemperatuursensor: Slechte verbinding: controleer de verbinding Defecte sensor: vervang de sensor",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.08",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Veiligheidsingang is open",
+      "cause_solution": "Luchtdrukverschilschakelaar geactiveerd: Slechte verbinding: controleer de bedrading en connectoren Druk in het rookgaskanaal is te hoog of te hoog geweest: Terugslagklep opent niet Verstopte of lege sifon Controleer luchttoevoer en rookgasafvoer op verstopping Controleer warmtewisselaar op vervuiling",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.10",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "5 mislukte branderstarts gedetecteerd",
+      "cause_solution": "Vijf mislukte branderstarts: Geen ontstekingsvonk: Controleer de bekabeling tussen de CU-GH en de ontstekingstrafo Controleer de ionisatie- /ontstekingselektrode Controleer de doorslag naar massa / aarde Controleer de conditie van het branderdek Controleer aarding Vervang de CU-GH Wel ontstekingsvonk maar geen vlamvorming: Ontlucht de gasleidingen Controleer luchttoevoer en rookgasafvoer op verstopping Controleer of de gaskraan goed geopend is Controleer de gastoevoerdruk Controleer correcte werking en afstelling gasblok Controleer de bekabeling van het gasblok Vervang de CU-GH Wel vlam maar geen of onvoldoende ionisatie: Controleer of de gaskraan goed geopend is Controleer de gastoevoerdruk Controleer de ionisatie- /ontstekingselektrode Controleer aarding Controleer de bekabeling ionisatie- /ontstekingselektrode.",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.11",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "VPS gasklepcontrole mislukt",
+      "cause_solution": "Gaslekcontrole fout: Slechte verbinding: controleer de bedrading en connectoren Gaslekcontrole VPS defect: Vervang het kleptestsysteem (VPS) Defect gasblok: Vervang het gasblok",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.12",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Valse vlam gedetecteerd voor branderstart",
+      "cause_solution": "Vals vlamsignaal: Brander gloeit na: Stel O af 2 Wel ionisatiestroom gemeten, terwijl er geen vlam mag zijn: controleer ionisatie- /ontstekingselektrode Defecte gasklep: vervang de gasklep Defecte ontstekingstrafo: vervang de ontstekingstrafo",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.13",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Ventilatortoerental overschrijdt normaal werkingsbereik",
+      "cause_solution": "Ventilator storing: Slechte verbinding: controleer de bedrading en connectoren. Ventilator draait terwijl hij niet mag draaien: controleer of er teveel schoorsteentrek is Defecte ventilator: vervang de ventilator",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 53
+    },
+    {
+      "code": "E.04.14",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "De brandertemperatuur en zijn instelpunt verschillen meer dan 60 seconden wat betreft GKR-config.",
+      "cause_solution": "-",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 54
+    },
+    {
+      "code": "E.04.15",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "De rookgasleiding zit verstopt",
+      "cause_solution": "Rookgasafvoer is geblokkeerd: Controleer de rookgasafvoer op verstopping Herstart de ketel",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 54
+    },
+    {
+      "code": "E.04.17",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "De aandrijving voor de gasklep is defect",
+      "cause_solution": "Gasblok storing: Slechte verbinding: controleer de bedrading en connectoren Defect gasblok: Vervang het gasblok",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 54
+    },
+    {
+      "code": "E.04.23",
+      "type": "Permanente storing / vergrendeling (reset vereist)",
+      "description": "Interne vergrendeling gasklepregeling",
+      "cause_solution": "Herstart de ketel Vervang de CU-GH",
+      "table": "Tab.49 Vergrendelingscodes",
+      "page": 54
+    }
+  ]
+}
