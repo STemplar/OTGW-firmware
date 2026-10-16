@@ -119,6 +119,9 @@ de Tzerra M of de Tzerra Ace is, is niet bevestigd; het oplopende producttype
 (13 → 23 → 27) wijst op de Ace, maar is geen bewijs. 23/1 blijft generiek tot een
 handleiding en een bevestigde uitlezing beschikbaar zijn.
 
+Conceptprofielen voor de Tzerra M (7600997-06) en de Tzerra Ace (7680248 v.11) staan
+in `docs/boiler-info/profiles-draft/`. Ze worden niet geladen tot hun herkenning bevestigd is.
+
 ## Betekenissen en bewijsniveau
 
 Het modelprofiel is specifiek voor de **Remeha Tzerra M 28c Plus**. Het vereist

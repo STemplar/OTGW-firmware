@@ -1,0 +1,358 @@
+{
+  "id": "remeha-tzerra-m",
+  "name": "Remeha Tzerra M (24c CW3 / 28c CW4 / 39c CW5)",
+  "language": "nl",
+  "status_of_draft": "CONCEPT — niet in gebruik. ID127 van de Tzerra M is onbekend; zonder bevestigde herkenning staat dit profiel niet in kBoilerModelProfiles.",
+  "source": "Remeha Tzerra M installatie- en servicehandleiding 7600997-06 (110713): §5.6.1 status/substatus, §5.7.1 parameters, §8.2.1 blokkeringscodes, §8.2.2 vergrendelingscodes.",
+  "generation": "1e Tzerra-generatie (opgave gebruiker); typeplaat met dF/dU (§3, §8.2).",
+  "oem_dfdu": true,
+  "models": {},
+  "status": {
+    "0": "Rust",
+    "1": "Ketel start (Warmtevraag)",
+    "2": "Brander start",
+    "3": "Brander op CV-bedrijf",
+    "4": "Brander op SWW-bedrijf",
+    "5": "Branderstop",
+    "6": "Ketel stop (Einde warmtevraag)",
+    "8": "Regelstop",
+    "9": "Blokkering",
+    "17": "Ontluchten"
+  },
+  "substatus": {
+    "0:0": "Rust",
+    "1:1": "Anti-pendel",
+    "1:2": "Driewegklep aansturen",
+    "1:3": "Start pomp",
+    "1:4": "Wacht op juiste temperaturen voor branderstart",
+    "2:10": "Open rookgasklep / externe gasklep",
+    "2:11": "Verhogen toerental ventilator",
+    "2:13": "Voorventileren",
+    "2:14": "Wacht op release signaal",
+    "2:15": "Brander aan",
+    "2:17": "Voorontsteking",
+    "2:18": "Hoofdontsteking",
+    "2:19": "Vlamdetectie",
+    "2:20": "Tussenventileren",
+    "3:30": "Temperatuurregeling",
+    "3:31": "Begrensde temperatuurregeling (ΔT beveiliging)",
+    "3:32": "Vermogensregeling",
+    "3:33": "Stijgingsbeveiliging niveau 1 (Terugmoduleren)",
+    "3:34": "Stijgingsbeveiliging niveau 2 (Laaglast)",
+    "3:35": "Stijgingsbeveiliging niveau 3 (Blokkering)",
+    "3:36": "Opmoduleren voor vlambeveiliging",
+    "3:37": "Temperatuur stabilisatietijd",
+    "3:38": "Koude start",
+    "4:30": "Temperatuurregeling",
+    "4:31": "Begrensde temperatuurregeling (ΔT beveiliging)",
+    "4:32": "Vermogensregeling",
+    "4:33": "Stijgingsbeveiliging niveau 1 (Terugmoduleren)",
+    "4:34": "Stijgingsbeveiliging niveau 2 (Laaglast)",
+    "4:35": "Stijgingsbeveiliging niveau 3 (Blokkering)",
+    "4:36": "Opmoduleren voor vlambeveiliging",
+    "4:37": "Temperatuur stabilisatietijd",
+    "4:38": "Koude start",
+    "5:40": "Brander uit",
+    "5:41": "Naventileren",
+    "5:42": "Sluit rookgasklep / externe gasklep",
+    "5:43": "Recirculatie beveiliging",
+    "5:44": "Stop ventilator",
+    "6:60": "Pomp nadraaien",
+    "6:61": "Pomp uit",
+    "6:62": "Driewegklep aansturen",
+    "6:63": "Start anti-pendel",
+    "8:0": "Wacht op branderstart",
+    "8:1": "Anti-pendel",
+    "9:0": "Blokkeringscode Su:0 — Parameterfout",
+    "9:1": "Blokkeringscode Su:1 — Maximale aanvoertemperatuur overschreden",
+    "9:2": "Blokkeringscode Su:2 — Maximale stijging van de aanvoertemperatuur is overschreden",
+    "9:7": "Blokkeringscode Su:7 — Maximaal verschil tussen aanvoer- en retourtemperatuur overschreden",
+    "9:10": "Blokkeringscode Su:10 — Blokkerende ingang is actief",
+    "9:11": "Blokkeringscode Su:11 — Blokkerende ingang of vorstbeveiliging is actief",
+    "9:12": "Blokkeringscode Su:12 — Communicatiefout met de HMI print",
+    "9:13": "Blokkeringscode Su:13 — Communicatiefout met de SCU print",
+    "9:15": "Blokkeringscode Su:15 — Gasdruk te laag",
+    "9:16": "Blokkeringscode Su:16 — Configuratiefout",
+    "9:17": "Blokkeringscode Su:17 — Configuratiefout of default parametertabel niet in orde",
+    "9:18": "Blokkeringscode Su:18 — Configuratiefout (Ketel/PSU niet herkend)",
+    "9:19": "Blokkeringscode Su:19 — Configuratiefout of parameters dF-dU onbekend",
+    "9:20": "Blokkeringscode Su:20 — Configuratieprocedure actief",
+    "9:21": "Blokkeringscode Su:21 — Communicatiefout",
+    "9:22": "Blokkeringscode Su:22 — Vlamwegval tijdens bedrijf",
+    "9:25": "Blokkeringscode Su:25 — Interne fout gas/lucht-eenheid",
+    "17:0": "Rust",
+    "17:2": "Driewegklep aansturen",
+    "17:3": "Start pomp",
+    "17:61": "Pomp uit",
+    "17:62": "Driewegklep aansturen"
+  },
+  "faults": {
+    "0": "Parameter storage unit PSU niet gevonden",
+    "1": "Veiligheids parameters niet in orde",
+    "2": "Aanvoer temperatuursensor kortgesloten",
+    "3": "Aanvoer temperatuursensor open",
+    "4": "Aanvoertemperatuur te laag",
+    "5": "Aanvoertemperatuur te hoog",
+    "6": "Retour temperatuursensor kortgesloten",
+    "7": "Retour temperatuursensor open",
+    "8": "Retour temperatuur te laag",
+    "9": "Retour temperatuur te hoog",
+    "10": "Te veel verschil tussen aanvoer- en retourtemperatuur",
+    "11": "Te veel verschil tussen aanvoer- en retourtemperatuur",
+    "12": "Temperatuur warmtewisselaar boven normaal bereik (maximaalthermostaat STB)",
+    "14": "5 mislukte branderstarts",
+    "16": "Vals vlamsignaal",
+    "17": "Gasklep storing",
+    "34": "Ventilator storing",
+    "35": "Aanvoer en retour verwisseld",
+    "36": "5x Vlamverlies",
+    "37": "Communicatiefout",
+    "38": "Communicatiefout met de SCU print",
+    "39": "Blokkerende ingang in vergrendelende mode",
+    "40": "HRU/WTW unit testfout",
+    "41": "Maximale temperatuur van de automaat overschreden"
+  },
+  "parameters": {
+    "1": {
+      "label": "Aanvoertemperatuur: TSet",
+      "unit": "°C",
+      "range": "20 tot 90",
+      "default": 80
+    },
+    "2": {
+      "label": "Temperatuur SWW: TSet",
+      "unit": "°C",
+      "range": "40 tot 65",
+      "default": 60
+    },
+    "3": {
+      "label": "Ketelregeling / SWW",
+      "default": 1,
+      "options": {
+        "0": "CV uit / SWW uit",
+        "1": "CV aan / SWW aan",
+        "2": "CV aan / SWW uit",
+        "3": "CV uit / SWW aan"
+      }
+    },
+    "4": {
+      "label": "ECO stand",
+      "default": 2,
+      "options": {
+        "0": "Comfort",
+        "1": "ECO-stand",
+        "2": "Regelaar afhankelijk"
+      }
+    },
+    "5": {
+      "label": "Pompnadraaitijd",
+      "unit": "min",
+      "range": "1 tot 98; 99 = continu",
+      "default": 1,
+      "options": {
+        "99": "Continu"
+      }
+    },
+    "17": {
+      "label": "Maximum volumestroom van de ventilator (Verwarming)",
+      "unit": "x100",
+      "default": {
+        "24c CW3": 39,
+        "28c CW4": 39,
+        "39c CW5": 60
+      },
+      "note": "Fabrieksinstelling voor G25 (L-gas); andere gassoorten en CLV-overdruk: zie handleiding §5.7.1."
+    },
+    "18": {
+      "label": "Maximum volumestroom van de ventilator (SWW)",
+      "unit": "x100",
+      "default": {
+        "24c CW3": 47,
+        "28c CW4": 56,
+        "39c CW5": 78
+      },
+      "note": "Fabrieksinstelling voor G25 (L-gas); andere gassoorten en CLV-overdruk: zie handleiding §5.7.1."
+    },
+    "19": {
+      "label": "Minimum volumestroom van de ventilator (Verwarming+SWW)",
+      "unit": "x100",
+      "default": {
+        "24c CW3": 11,
+        "28c CW4": 11,
+        "39c CW5": 15
+      },
+      "note": "Fabrieksinstelling voor G25 (L-gas); andere gassoorten en CLV-overdruk: zie handleiding §5.7.1."
+    },
+    "20": {
+      "label": "Minimum volumestroom van de ventilator (offset)",
+      "default": {
+        "24c CW3": 80,
+        "28c CW4": 80,
+        "39c CW5": 60
+      },
+      "note": "Fabrieksinstelling voor G25 (L-gas); andere gassoorten en CLV-overdruk: zie handleiding §5.7.1."
+    },
+    "21": {
+      "label": "Startvolumestroom (niet wijzigen)",
+      "unit": "x100",
+      "default": {
+        "24c CW3": 23,
+        "28c CW4": 23,
+        "39c CW5": 30
+      }
+    },
+    "23": {
+      "label": "Maximum aanvoertemperatuur systeem",
+      "unit": "°C",
+      "range": "20 tot 90",
+      "default": 90
+    },
+    "24": {
+      "label": "Tijdfactor gemiddelde aanvoerberekening (niet wijzigen)",
+      "unit": "x10 s",
+      "default": 35
+    },
+    "25": {
+      "label": "Instelpunt van de stooklijn (Maximum buitentemperatuur)",
+      "unit": "°C",
+      "range": "0 tot 30",
+      "default": 20
+    },
+    "26": {
+      "label": "Instelpunt van de stooklijn (Aanvoertemperatuur)",
+      "unit": "°C",
+      "range": "0 tot 90",
+      "default": 20
+    },
+    "27": {
+      "label": "Instelpunt van de stooklijn (Minimum buitentemperatuur)",
+      "unit": "°C",
+      "range": "-30 tot 0",
+      "default": -15,
+      "signed": true
+    },
+    "28": {
+      "label": "Minimale pompsnelheid CV-bedrijf (Instelling van het toerental van de pomp)",
+      "unit": "x 10 %",
+      "range": "2 tot 10",
+      "default": 3
+    },
+    "29": {
+      "label": "Maximale pompsnelheid CV-bedrijf (Instelling van het toerental van de pomp)",
+      "unit": "x 10 %",
+      "range": "2 tot 10",
+      "default": {
+        "24c CW3": 7,
+        "28c CW4": 7,
+        "39c CW5": 10
+      }
+    },
+    "30": {
+      "label": "Temperatuur vorstbeveiliging",
+      "unit": "°C",
+      "range": "-30 tot 0",
+      "default": -10,
+      "signed": true
+    },
+    "31": {
+      "label": "Legionellabeveiliging",
+      "default": 1,
+      "options": {
+        "0": "Uit",
+        "1": "Aan",
+        "2": "Regelaar afhankelijk"
+      }
+    },
+    "32": {
+      "label": "Setpuntverhoging boiler",
+      "unit": "°C",
+      "range": "0 tot 25",
+      "default": 20
+    },
+    "33": {
+      "label": "Inschakeltemperatuur SWW Boilersensor",
+      "unit": "°C",
+      "range": "2 tot 15",
+      "default": 4
+    },
+    "34": {
+      "label": "Aansturing externe driewegklep",
+      "default": 0,
+      "options": {
+        "0": "Normaal",
+        "1": "Omgekeerd"
+      }
+    },
+    "35": {
+      "label": "Keteltype",
+      "default": 0,
+      "options": {
+        "0": "Combi",
+        "1": "Solo"
+      }
+    },
+    "36": {
+      "label": "Functie blokkerende ingang",
+      "default": 1,
+      "options": {
+        "1": "Blokkering zonder vorstbeveiliging",
+        "2": "Blokkering met vorstbeveiliging",
+        "3": "Vergrendeling met vorstbeveiliging (alleen pomp)"
+      }
+    },
+    "37": {
+      "label": "Minimum gasdrukschakelaar (GpS) (Optioneel)",
+      "default": 0,
+      "options": {
+        "0": "Niet aangesloten",
+        "1": "Aangesloten"
+      }
+    },
+    "38": {
+      "label": "Warmteterugwinunit (HRU) (Optioneel)",
+      "default": 0,
+      "options": {
+        "0": "Niet aangesloten",
+        "1": "Aangesloten"
+      }
+    },
+    "39": {
+      "label": "Rookgasklep looptijd",
+      "unit": "s",
+      "range": "0 tot 255",
+      "default": 0,
+      "allows255": true
+    },
+    "40": {
+      "label": "Functie storingsrelais (Optioneel voor standaard aansluitbox)",
+      "default": 2,
+      "options": {
+        "0": "Bedrijfsmelding",
+        "1": "Alarmmelding",
+        "2": "Externe driewegklep"
+      }
+    },
+    "41": {
+      "label": "Servicemelding (niet wijzigen)",
+      "default": 1
+    },
+    "42": {
+      "label": "Service bedrijfsuren (niet wijzigen)",
+      "default": 175
+    },
+    "43": {
+      "label": "Service branduren (niet wijzigen)",
+      "default": 30
+    },
+    "44": {
+      "label": "Ontluchtingscyclus",
+      "default": 1,
+      "options": {
+        "0": "Uit",
+        "1": "Standenpomp",
+        "2": "Modulerende pomp"
+      }
+    }
+  },
+  "tsp_note": "Of TSP-index = P-nummer en of deze ketel 255 of DATA-INVALID geeft voor ontbrekende indexen, is niet met een uitlezing bevestigd (wel bij de M Plus)."
+}
