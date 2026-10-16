@@ -42,6 +42,14 @@ ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});assert(nodes.boilerPar
 ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(nodes.boilerParameters.textContent.includes('TSP 6'),'OT 4.2: generic READ-ACK 255 is a valid value');
 ctx.renderBoilerDetails({...d,value_131:0x2401});assert(findText(nodes.boilerOEM,'dF: 36 dU: 1'));assert(nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
 ctx.renderBoilerDetails({...d,value_131:0x2501});assert(!nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
+// Tzerra Ace Matic: Tab.54/55 status texts, flat substatus list, raw ID5, no dF/dU block.
+const tz=ctx.boilerProfileData;ctx.boilerProfileData=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/tzerra-ace-matic.json','utf8'));
+ctx.renderBoilerDetails({profile:'remeha-tzerra-ace-matic',value_115:0x031e,value_0:1,value_5:0x0001,value_127:0x1b01,value_131:0x2401,oem_allowed:true});
+assert(nodes.boilerOperating.textContent.includes('Bedrijf in de verwarmingsmodus')&&nodes.boilerOperating.textContent.includes('Werking op de ingestelde richttemperatuur'));
+assert(!nodes.boilerOperating.textContent.includes('E:01')&&!findText(nodes.boilerOEM,'dF: 36 dU: 1')&&nodes.boilerOEM.textContent.includes('No OEM fields documented'));
+ctx.renderBoilerDetails({profile:'remeha-tzerra-ace-matic',value_115:0x115f});assert(nodes.boilerOperating.textContent.includes('waterdruk voldoende'));
+ctx.renderBoilerDetails({...d,profile:'remeha-tzerra-ace-matic'});assert(!nodes.boilerParameters.textContent.includes('Aanvoertemperatuur'));
+ctx.boilerProfileData=tz;
 ctx.boilerRawFormat='binary';ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.textContent.includes('0000000000000010'));
 ctx.renderBoilerDetails({...d,profile:'generic'});assert(!nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(!findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 // Context-dependent substatus zero must use the status/substatus pair.

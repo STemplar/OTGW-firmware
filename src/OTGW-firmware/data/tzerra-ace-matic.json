@@ -1,0 +1,69 @@
+{
+  "id": "remeha-tzerra-ace-matic",
+  "name": "Remeha Tzerra Ace Matic",
+  "language": "nl",
+  "match": {
+    "member": 11,
+    "product": 27,
+    "versions": [
+      1
+    ]
+  },
+  "source": "Remeha Tzerra Ace-Matic installatie- en servicehandleiding 7875186-01 (20-06-2024): Tab.54 (statussen, AM012) en Tab.55 (substatussen, AM014). ID127 27/1 en member-ID 11 uit de OTGW-ketelmatrix (3 logs).",
+  "notes": {
+    "status_encoding": "ID115 is volgens OT 4.2 een OEM-specifieke code. HB=status, LB=substatus is overgenomen van de Remeha Tzerra M Plus en past bij de matrixwaarde 798 (3/30: verwarmingsmodus, ingestelde richttemperatuur); nog niet met een live uitlezing bevestigd.",
+    "substatus": "De handleiding geeft één substatuslijst, los van de status.",
+    "parameters": "ID10/11 (TSP) en ID12/13 (FHB) zijn in alle matrixlogs UNKNOWN-DATAID: er zijn geen parameters of foutgeheugen via OpenTherm.",
+    "faults": "De CU-GH16 gebruikt tweedelige codes (Axx.yy, Hxx.yy, Exx.yy). De handleiding koppelt die niet aan de ene byte van ID5 (OEM fault code); ID5 blijft daarom ruw.",
+    "oem": "Geen ID131–133-verkeer waargenomen; geen dF/dU (typeplaat gebruikt CN1/CN2)."
+  },
+  "status": {
+    "0": "Stand-by",
+    "1": "Warmteverzoek",
+    "2": "Ontsteking van de brander",
+    "3": "Bedrijf in de verwarmingsmodus",
+    "4": "Bedrijf in de sanitair-watermodus",
+    "5": "Brander uit",
+    "6": "Pomp nadraaien",
+    "8": "Uitschakeling brander voor het bereiken van het temperatuursetpunt",
+    "9": "Tijdelijke storing",
+    "10": "Permanente storing (handmatige reset nodig)",
+    "11": "Schoorsteenvegerfunctie bij minimumvermogen",
+    "12": "Schoorsteenvegerfunctie bij maximumvermogen in de verwarmingsmodus",
+    "13": "Schoorsteenvegerfunctie bij maximumvermogen in de sanitair-watermodus",
+    "15": "Handmatig warmteverzoek",
+    "16": "Vorstbeveiligingsfunctie actief",
+    "17": "Ontluchtingsfunctie actief",
+    "19": "Verwarmingsketel wordt gereset",
+    "20": "Automatisch vullen wordt uitgevoerd",
+    "22": "Geforceerde kalibratie actief"
+  },
+  "substatus_any": {
+    "0": "Stand-by",
+    "1": "Wachttijd tot volgende ontsteking in de verwarmingsmodus",
+    "4": "Het toestel wacht op de temperatuur om te voldoen aan de startvoorwaarden",
+    "13": "Voorventileren",
+    "15": "Ontstekingssignaal brander naar veiligheidskern verzonden",
+    "17": "Voorontsteking brander",
+    "18": "Ontsteking van de brander",
+    "19": "Vlamcontrole",
+    "20": "Werking van de ventilator tijdens ontstekingspogingen",
+    "30": "Werking op de ingestelde richttemperatuur",
+    "31": "Werking op de beperkte richttemperatuur",
+    "32": "Werking op het vereiste vermogen",
+    "33": "Helling niveau 1 gedetecteerd",
+    "34": "Helling niveau 2 gedetecteerd",
+    "35": "Helling niveau 3 gedetecteerd",
+    "36": "Vlambescherming actief",
+    "37": "Stabilisatietijd",
+    "38": "Start ketel bij minimumvermogen",
+    "39": "De werking van de verwarmingsmodus is onderbroken door een verzoek om sanitair warm water. Start opnieuw vanuit het uitgangsvermogen waarin die werd onderbroken.",
+    "41": "Naventileren",
+    "44": "Ventilator uit",
+    "45": "Vermogensreductie als gevolg van een hoge rookgastemperatuur",
+    "46": "De automatische vulinrichting vult de installatie. De installatie was leeg",
+    "47": "De automatische vulinrichting vult de installatie bij. De waterdruk in de installatie was laag",
+    "60": "Pomp nadraaien",
+    "95": "De ketel is in stand-bymodus tot de waterdruk voldoende is. Het ontluchtingsprogramma start niet"
+  }
+}

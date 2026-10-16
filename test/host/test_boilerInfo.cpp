@@ -38,6 +38,8 @@ int main(){
  assert(!b.next(104000,true,cmd,sizeof(cmd))&&!b.busy);
  assert(!b.next(106000,true,cmd,sizeof(cmd))); // one boot cycle only
  { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);reply(v,131,0x25,0x01);assert(v.tzerra()&&!v.tzerraM28cPlus()); }
+ { BoilerInfo m;reply(m,3,0,11);reply(m,127,27,1);assert(m.tzerraAceMatic()&&!m.tzerra()&&!m.tzerraM28cPlus());
+   reply(m,127,23,1);assert(!m.tzerraAceMatic()); }
  { BoilerInfo a;char c[12];reply(a,3,0,11);reply(a,127,27,1);a.bootReadStarted=true;assert(a.start(BoilerInfo::Identification,0)); // Ace Matic: no PM=131
    const char* seq[]={"PM=3","PM=127","PM=125","PM=93","PM=94","PM=95"};uint32_t now=0;
    for(const char* s:seq){assert(a.next(now,true,c,sizeof(c))&&!strcmp(c,s));uint8_t id=atoi(s+3);a.observe('R',frame(0,id),now+1);

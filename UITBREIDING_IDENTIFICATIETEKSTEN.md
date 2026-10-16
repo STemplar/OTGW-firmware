@@ -91,6 +91,15 @@ fabriekswaarden en mogelijk parameters per uitvoering; een andere dF/dU (zoals
 eigen, bevestigd profiel is. Alleen member-ID 11 is onvoldoende om deze
 modelbeschrijvingen op een willekeurige ketel toe te passen.
 
+Het profiel **Remeha Tzerra Ace Matic** (`data/tzerra-ace-matic.json`) geldt voor
+member-ID 11 met ID127 **27/1**. Het bevat alleen status (Tab.54) en substatus
+(Tab.55) uit handleiding 7875186-01 voor ID115. Volgens OT 4.2 is ID115 een
+OEM-specifieke code; HB=status/LB=substatus is overgenomen van Remeha en past bij
+de matrixwaarde 798 (3/30), maar is nog niet live bevestigd. De Ace Matic geeft
+UNKNOWN-DATAID op ID10–13, dus er zijn geen parameters of foutgeheugen. De
+tweedelige CU-GH16-foutcodes (Axx.yy, Hxx.yy) zijn niet aan ID5 gekoppeld; ID5
+blijft ruw. Er wordt geen ID131 gelezen (typeplaat gebruikt CN1/CN2).
+
 Het profiel bevat uit handleiding 7618573 v.10: Tab.43 (status/substatus), Tab.45
 (blokkeringscodes als substatus bij status 9), Tab.48 (storingscodes) en Tab.34
 (parameters met bereik en de fabrieksinstelling uit de kolom 28c Plus). Wijkt een

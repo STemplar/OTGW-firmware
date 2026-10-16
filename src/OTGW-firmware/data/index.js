@@ -7362,7 +7362,7 @@ window.addEventListener('pagehide', stopBoilerInfoPolling);
 
 // Boiler values and manufacturer descriptions are rendered as text, never HTML.
 var boilerInfoData = null, boilerProfileData = null, boilerRawFormat = 'hex';
-var boilerProfileLoading = false;
+var boilerProfileLoading = false, boilerProfileRequested = null;
 function boilerRaw(value) {
   return boilerRawFormat === 'binary' ? value.toString(2).padStart(16, '0') :
     '0x' + value.toString(16).toUpperCase().padStart(4, '0');
@@ -7404,16 +7404,19 @@ function boilerRow(container, label, notation, meaning, segment) {
 function boilerUnknown(data, id) {
   return data['support_' + id] === 2 ? 'Not supported by this boiler' : 'Support not yet determined';
 }
+// Model profiles: OEM-specific meanings (OT 4.2 leaves ID5 LB, ID115 and IDs 128-255 to the manufacturer).
+var BOILER_PROFILE_FILES = { 'remeha-tzerra-m-28c-plus': 'tzerra-m-28c-plus.json', 'remeha-tzerra-ace-matic': 'tzerra-ace-matic.json' };
 function renderBoilerDetails(data) {
   boilerInfoData = data;
-  if (data.profile === 'remeha-tzerra-m-28c-plus' && !boilerProfileData && !boilerProfileLoading) {
-    boilerProfileLoading = true;
-    fetch('tzerra-m-28c-plus.json').then(function(r) { if (!r.ok) throw new Error('Profile unavailable'); return r.json(); })
+  var profileFile = BOILER_PROFILE_FILES[data.profile];
+  if (profileFile && boilerProfileRequested !== data.profile && !boilerProfileLoading) {
+    boilerProfileLoading = true; boilerProfileRequested = data.profile; // one request per profile id
+    fetch(profileFile).then(function(r) { if (!r.ok) throw new Error('Profile unavailable'); return r.json(); })
       .then(function(p) { boilerProfileData = p; if (boilerInfoData) renderBoilerDetails(boilerInfoData); })
       .catch(function() { /* Keep raw values when the optional profile file cannot be loaded. */ })
       .then(function() { boilerProfileLoading = false; });
   }
-  var profile = data.profile === 'remeha-tzerra-m-28c-plus' ? boilerProfileData : null;
+  var profile = boilerProfileData && boilerProfileData.id === data.profile ? boilerProfileData : null;
   var caption = document.getElementById('boilerProfile');
   if (!caption) return;
   caption.textContent = profile ? profile.name + ' · Manufacturer descriptions: Nederlands' : 'Generic OpenTherm device';
@@ -7428,7 +7431,9 @@ function renderBoilerDetails(data) {
   var status = data.value_115;
   if (status !== undefined && profile) {
     boilerRow(operating, 'Status', status >> 8, profile.status[status >> 8] || 'Meaning not yet confirmed', true);
-    boilerRow(operating, 'Substatus', status & 255, profile.substatus[(status >> 8) + ':' + (status & 255)] || 'Meaning not yet confirmed', true);
+    var sub = (profile.substatus && profile.substatus[(status >> 8) + ':' + (status & 255)]) ||
+      (profile.substatus_any && profile.substatus_any[status & 255]);
+    boilerRow(operating, 'Substatus', status & 255, sub || 'Meaning not yet confirmed', true);
   } else boilerRow(operating, 'Diagnostic status', status === undefined ? boilerUnknown(data,115) : boilerRaw(status), '', false);
   var fault = data.value_5;
   if (data.value_0 !== undefined && !(data.value_0 & 1)) boilerRow(operating, 'Fault status', 'No active fault reported', '', false);
@@ -7436,11 +7441,12 @@ function renderBoilerDetails(data) {
   else {
     // The ASF payload alone does not establish whether an E-code is an active fault.
     boilerRow(operating, 'Fault flags', (fault >> 8).toString(2).padStart(8,'0'), '', false);
-    boilerRow(operating, 'Reported fault code', profile ? 'E:' + String(fault & 255).padStart(2,'0') : boilerRaw(fault),
-      profile ? profile.faults[fault & 255] || 'Meaning not yet confirmed' : '', !!profile);
+    var faults = profile && profile.faults;
+    boilerRow(operating, 'Reported fault code', faults ? 'E:' + String(fault & 255).padStart(2,'0') : boilerRaw(fault),
+      faults ? faults[fault & 255] || 'Meaning not yet confirmed' : '', !!faults);
   }
   var oem = document.getElementById('boilerOEM'); oem.textContent = '';
-  if (profile) {
+  if (profile && profile.oem_dfdu) {
     boilerRow(oem, 'Configuration', data.value_131 === undefined ? boilerUnknown(data,131) :
       'dF: ' + (data.value_131 >> 8) + ' dU: ' + (data.value_131 & 255),
       data.value_131 === undefined ? '' : (profile.models && profile.models[(data.value_131 >> 8) + ':' + (data.value_131 & 255)]) || '',
@@ -7449,11 +7455,12 @@ function renderBoilerDetails(data) {
       data.value_132 === undefined ? '' : 'Service A/B/C response mapping not yet confirmed', false);
     boilerRow(oem, 'Connected SCU', data.value_133 === undefined ? boilerUnknown(data,133) : (data.value_133 >> 8) + ': ' + (data.value_133 & 255), '', data.value_133 !== undefined);
   } else {
-    boilerRow(oem, 'OEM information', data.oem_allowed ? 'OEM vendor recognised; no matching model profile' : 'No matching OEM vendor observed', '', false);
+    boilerRow(oem, 'OEM information', profile ? 'No OEM fields documented for this model' :
+      data.oem_allowed ? 'OEM vendor recognised; no matching model profile' : 'No matching OEM vendor observed', '', false);
   }
   Object.keys(data).filter(function(key) { return /^support_\d+$/.test(key) && Number(key.slice(8)) > 127 && data[key] !== 0; }).forEach(function(key) {
     var id = Number(key.slice(8));
-    if (profile && [131,132,133].includes(id)) return;
+    if (profile && profile.oem_dfdu && [131,132,133].includes(id)) return;
     var value = data['value_' + id];
     boilerRow(oem, 'OEM field ' + id, value === undefined ? boilerUnknown(data,id) : boilerRaw(value), '', false);
   });
@@ -7485,7 +7492,7 @@ function renderBoilerDetails(data) {
     entries.split(',').forEach(function(entry) {
       var parts = entry.split(':'), index = Number(parts[0]), value = Number(parts[1]);
       if (parts.length !== 2 || !Number.isInteger(index) || !Number.isInteger(value)) return;
-      var parameter = profile && kind === 'Parameters' ? profile.parameters[index] : null;
+      var parameter = profile && profile.parameters && kind === 'Parameters' ? profile.parameters[index] : null;
       var shown = parameter && parameter.signed && value > 127 ? value - 256 : value;
       var meaning = parameter ? parameter.label : 'Meaning not yet confirmed';
       if (parameter && parameter.options && parameter.options[shown] !== undefined) meaning += ': ' + parameter.options[shown];

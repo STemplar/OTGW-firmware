@@ -28,6 +28,8 @@ public:
   }
   // The model profile is specific to the Remeha Tzerra M 28c Plus. dF/dU (ID131) is the
   // type code from the boiler's type plate; 36/1 is confirmed for this model.
+  // Remeha Tzerra Ace Matic: member 11, product type 27 version 1 (OTGW boiler matrix).
+  bool tzerraAceMatic() const { return remeha() && has(127) && values[127] == 0x1b01; }
   bool tzerraM28cPlus() const { return tzerra() && has(131) && values[131] == 0x2401; }
   bool oemAllowed() const {
     if (!has(3)) return false;
