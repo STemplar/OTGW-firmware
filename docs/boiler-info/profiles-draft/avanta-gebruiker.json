@@ -1,0 +1,67 @@
+{
+  "id": "remeha-avanta",
+  "name": "Remeha Avanta (24c / 28c / 35c) — gebruikershandleiding",
+  "language": "nl",
+  "status_of_draft": "CONCEPT — niet in gebruik. Member-ID en ID127 van deze ketel zijn onbekend; zonder bevestigde herkenning staat dit profiel niet in kBoilerModelProfiles.",
+  "source": "Remeha Avanta gebruikershandleiding 121239 v.13 (24-07-2020; bestandsnaam V14): Tab.9 parameters op gebruikersniveau, §8.1 storingscodes.",
+  "notes": {
+    "parameters": "Alleen gebruikersparameters P1–P6. Of TSP-index = P-nummer (zoals bij de Tzerra M Plus) is niet bevestigd.",
+    "codes": "De gebruikershandleiding noemt alleen E01, E02, E07, E09 (waterdruk) en E04 (gaskraan) met handelingen; overige codes: installateur."
+  },
+  "parameters": {
+    "1": {
+      "label": "Verwarmingsaanvoertemperatuur: TSet",
+      "unit": "°C",
+      "range": "20 tot 85",
+      "default": 75
+    },
+    "2": {
+      "label": "SWW-temperatuur: TSet",
+      "unit": "°C",
+      "range": "40 tot 60",
+      "default": 60
+    },
+    "3": {
+      "label": "Ketelregeling / SWW",
+      "default": 1,
+      "options": {
+        "0": "CV uit / SWW uit",
+        "1": "CV aan / SWW aan",
+        "2": "CV aan / SWW uit",
+        "3": "CV uit / SWW aan"
+      }
+    },
+    "4": {
+      "label": "ECO-stand",
+      "default": 2,
+      "options": {
+        "0": "Dagcyclus",
+        "1": "ECO-stand",
+        "2": "Regelaarafhankelijk"
+      }
+    },
+    "5": {
+      "label": "Anticipatieweerstand",
+      "default": 0,
+      "options": {
+        "0": "Geen anticipatieweerstand voor de Aan/Uit-thermostaat",
+        "1": "Anticipatieweerstand voor de Aan/Uit-thermostaat"
+      }
+    },
+    "6": {
+      "label": "Display",
+      "default": 1,
+      "options": {
+        "0": "De display blijft aan",
+        "1": "De display gaat automatisch uit na 3 minuten"
+      }
+    }
+  },
+  "user_codes": {
+    "E01": "Controleer de waterdruk: hoger dan 0,8 bar → RESET; lager dan 0,8 bar → installatie bijvullen, dan RESET. Blijft de code: installateur.",
+    "E02": "Controleer de waterdruk: hoger dan 0,8 bar → RESET; lager dan 0,8 bar → installatie bijvullen, dan RESET. Blijft de code: installateur.",
+    "E07": "Controleer de waterdruk: hoger dan 0,8 bar → RESET; lager dan 0,8 bar → installatie bijvullen, dan RESET. Blijft de code: installateur.",
+    "E09": "Controleer de waterdruk: hoger dan 0,8 bar → RESET; lager dan 0,8 bar → installatie bijvullen, dan RESET. Blijft de code: installateur.",
+    "E04": "Controleer of de gaskraan goed geopend is, dan RESET. Blijft de code: installateur."
+  }
+}

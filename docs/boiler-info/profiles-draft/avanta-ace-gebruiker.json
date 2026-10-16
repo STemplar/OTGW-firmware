@@ -1,0 +1,665 @@
+{
+  "id": "remeha-avanta-ace",
+  "name": "Remeha Avanta Ace (24c / 28c / 35c) — gebruikershandleiding",
+  "language": "nl",
+  "status_of_draft": "CONCEPT — niet in gebruik. Member-ID en ID127 van deze ketel zijn onbekend; zonder bevestigde herkenning staat dit profiel niet in kBoilerModelProfiles.",
+  "source": "Remeha Avanta Ace gebruikershandleiding 7745712-06 (30-11-2022): Tab.13/14 parameters, Tab.15 tellers, Tab.16–18 foutcodes.",
+  "notes": {
+    "relation": "Deelverzameling van de installatie- en servicehandleiding 7745710-07 (avanta-ace.json): parameters en tellers op gebruikersniveau en de foutcodelijst."
+  },
+  "settings": [
+    {
+      "code": "AP016",
+      "label": "cv-bedrijf 0: Uit 1: Aan",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "AP017",
+      "label": "Sanitair warm water (SWW) 0: Uit 1: Aan",
+      "default": "1",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "AP073",
+      "label": "Gemiddelde buitentemperatuur [°C] bij het overschakelen van zomer-/wintermodus (met buitensensor)",
+      "default": "22",
+      "min": "10",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "AP074",
+      "label": "Zomermodus forceren (met buitensensor). Sanitair warm water (SWW) ingeschakeld en verwarming uitgeschakeld. 0: Automatisch conform AP073 1: Zomer",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "DP004",
+      "label": "Legionella-preventiefunctie 0: Uitgeschakeld 1: Wekelijks 2: Dagelijks (alleen beschikbaar met thermostaat)",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "DP070",
+      "label": "Richttemperatuur sanitair warm water. In het geval van gebruik met een warmwaterboiler en programmering via een thermostaat overeenkomstig de comfortrichtwaarde [°C] * Afhankelijk van de markt",
+      "default": "(55/60) *",
+      "min": "35",
+      "max": "(60/65) *",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "DP200",
+      "label": "SWW-modus: 0: Volgens klokprogramma 1: Comfortstand 2: Eco-stand",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP060",
+      "label": "Vereiste omgevingstemperatuur (°C) in de zone tijdens de vakantie-/antivriesperiode",
+      "default": "6",
+      "min": "5",
+      "max": "20",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP081",
+      "label": "Temperatuur (°C) ingesteld door HOME activiteit in de zone",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP082",
+      "label": "Temperatuur (°C) ingesteld door AWAY activiteit in de zone",
+      "default": "6",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP083",
+      "label": "Temperatuur (°C) ingesteld door MORNING activiteit in de zone",
+      "default": "21",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP084",
+      "label": "Temperatuur (°C) ingesteld door EVENING activiteit in de zone",
+      "default": "22",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP085",
+      "label": "Temperatuur (°C) ingesteld door CUSTOM activiteit in de zone",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP200",
+      "label": "Vereiste omgevingstemperatuur (°C) voor de zone in handmatige modus",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP250",
+      "label": "De door de thermostaat gemeten temperatuur corrigeren",
+      "default": "0",
+      "min": "-5",
+      "max": "+5",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP320",
+      "label": "Bedrijfsmodus zone 0: Programmering 1: Handleiding 2: Uit",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP510",
+      "label": "Buitentemperatuurwaarde die voor de zone is ingesteld",
+      "default": "20",
+      "min": "5",
+      "max": "30",
+      "level": "Gebruiker",
+      "page": 17
+    },
+    {
+      "code": "CP550",
+      "label": "Openhaardfunctie 0: Uitgeschakeld 1: Ingeschakeld",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 18
+    },
+    {
+      "code": "CP570",
+      "label": "Door gebruiker geselecteerd klokprogramma 0: Programma 1 1: Programma 2 2: Programma 3",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 18
+    },
+    {
+      "code": "DP060",
+      "label": "Voor SWW geselecteerd klokprogramma 0: Programma 1 1: Programma 2 2: Programma 3",
+      "default": "0",
+      "min": "–",
+      "max": "–",
+      "level": "Gebruiker",
+      "page": 18
+    },
+    {
+      "code": "DP080",
+      "label": "Verlaagde richttemperatuur voor de sanitair-warmwaterboiler [°C]",
+      "default": "35",
+      "min": "10",
+      "max": "60",
+      "level": "Gebruiker",
+      "page": 18
+    },
+    {
+      "code": "DP337",
+      "label": "Richttemperatuur sanitair-warmwaterboiler voor de vakantieperiode [°C]",
+      "default": "10",
+      "min": "10",
+      "max": "60",
+      "level": "Gebruiker",
+      "page": 18
+    }
+  ],
+  "counters": [
+    {
+      "code": "AC001",
+      "level": "Gebruiker",
+      "label": "Aantal netvoedingsuren van de ketel",
+      "page": 18
+    },
+    {
+      "code": "AC005",
+      "level": "Gebruiker",
+      "label": "Indicatief energieverbruik [kW/h] in verwarmingsmodus",
+      "page": 18
+    },
+    {
+      "code": "AC006",
+      "level": "Gebruiker",
+      "label": "Indicatief energieverbruik [kW/h] in sanitair-warmwatermodus (SWW)",
+      "page": 18
+    },
+    {
+      "code": "GC007",
+      "level": "Gebruiker",
+      "label": "Mislukte opstartpogingen",
+      "page": 18
+    }
+  ],
+  "codes": [
+    {
+      "code": "H.00.42",
+      "type": "Tijdelijke storing",
+      "description": "Druksensor geopend/defect of druk te hoog",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de werking van de druksensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 20
+    },
+    {
+      "code": "H.00.81",
+      "type": "Tijdelijke storing",
+      "description": "Thermostaat losgekoppeld",
+      "cause_solution": "Controleer de werking van de thermostaat Controleer de aansluiting van de thermostaat/ printplaat In het geval dat de thermostaat opzettelijk verwijderd is, moet de verwarmingsketel uit- en weer ingeschakeld worden en op CP780 = 0 ingesteld worden om de fout te verwijderen.",
+      "page": 20
+    },
+    {
+      "code": "H.01.00",
+      "type": "Tijdelijke storing",
+      "description": "Tijdelijke communicatiestoring in de printplaat",
+      "cause_solution": "De fout wordt automatisch opgelost",
+      "page": 20
+    },
+    {
+      "code": "H.01.05",
+      "type": "Tijdelijke storing",
+      "description": "Maximaal temperatuurverschil tussen aanvoer en retour bereikt.",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de circulatie van de verwarmingsketel/installatie Start een handmatige ontluchting Controleer de druk van de installatie OVERIGE OORZAKEN Controleer de wisselaar op vervuiling Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 20
+    },
+    {
+      "code": "H.01.08",
+      "type": "Tijdelijke storing",
+      "description": "Te snelle toename van de aanvoertemperatuur in de verwarmingsmodus.",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de circulatie van de verwarmingsketel/installatie Start een handmatige ontluchting Controleer de druk van de installatie Controleer de werking van de pomp OVERIGE OORZAKEN Controleer de wisselaar op vervuiling Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 21
+    },
+    {
+      "code": "H.01.14",
+      "type": "Tijdelijke storing",
+      "description": "Maximale aanvoer- of retourtemperatuur bereikt.",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de circulatie van de verwarmingsketel/installatie Start een handmatige ontluchting",
+      "page": 21
+    },
+    {
+      "code": "H.01.18",
+      "type": "Tijdelijke storing",
+      "description": "Water stroomt niet door (tijdelijk).",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de druk van de installatie Start een handmatige ontluchting Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/installatie FOUT TEMPERATUURSENSOR Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 21
+    },
+    {
+      "code": "H.01.21",
+      "type": "Tijdelijke storing",
+      "description": "Aanvoertemperatuur loopt te snel op tijdens sanitair-warmwatermodus.",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de druk van de installatie Start een handmatige ontluchting Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/installatie FOUT TEMPERATUURSENSOR Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 21
+    },
+    {
+      "code": "H.02.00",
+      "type": "Tijdelijke storing",
+      "description": "Bezig met resetprocedure.",
+      "cause_solution": "Lost zichzelf op",
+      "page": 21
+    },
+    {
+      "code": "H.02.02",
+      "type": "Tijdelijke storing",
+      "description": "Wacht op invoer van configuratie-instellingen (CN1,CN2).",
+      "cause_solution": "CN1/CN2 CONFIGURATIE ONTBREEKT Configureer CN1/CN2",
+      "page": 21
+    },
+    {
+      "code": "H.02.03",
+      "type": "Tijdelijke storing",
+      "description": "Configuratie-instellingen (CN1,CN2) niet correct ingevoerd.",
+      "cause_solution": "Controleer de configuratie CN1/CN2 Configureer CN1/CN2 op juiste wijze",
+      "page": 21
+    },
+    {
+      "code": "H.02.04",
+      "type": "Tijdelijke storing",
+      "description": "De instellingen van de printplaat kunnen niet worden gelezen.",
+      "cause_solution": "FOUT HOOFDBESTURINGSPRINT Configureer CN1/CN2 Vervang de hoofdbesturingsprint",
+      "page": 21
+    },
+    {
+      "code": "H.02.05",
+      "type": "Tijdelijke storing",
+      "description": "Het instelgeheugen is niet compatibel met het type printplaat van de verwarmingsketel.",
+      "cause_solution": "Neem contact op met een vakman",
+      "page": 21
+    },
+    {
+      "code": "H.02.07",
+      "type": "Tijdelijke storing",
+      "description": "Lage druk in het verwarmingscircuit (water moet worden bijgevuld).",
+      "cause_solution": "Controleer en herstel de druk van de installatie Controleer de drukt van het expansievat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 21
+    },
+    {
+      "code": "H.02.09",
+      "type": "Tijdelijke storing",
+      "description": "Gedeeltelijke stop van de verwarmingsketel (vorstbeveiligingsfunctie actief)",
+      "cause_solution": "SIGNAAL GEEFT BLOKKERENDE INGANG AAN Controleer of X15 open is, controleer de aangesloten apparaten Configuratiefout instellen: Controleer AP001",
+      "page": 21
+    },
+    {
+      "code": "H.02.10",
+      "type": "Tijdelijke storing",
+      "description": "Volledige stop van de verwarmingsketel (vorstbeveiligingsfunctie niet actief)",
+      "cause_solution": "SIGNAAL GEEFT BLOKKERENDE INGANG AAN Controleer of X15 open is, controleer de aangesloten apparaten Configuratiefout instellen: Controleer AP001",
+      "page": 22
+    },
+    {
+      "code": "H.02.70",
+      "type": "Tijdelijke storing",
+      "description": "Warmtehersteltest externe unit mislukt",
+      "cause_solution": "Storing printplaat accessoire SCB-09 Controleer het apparaat dat is aangesloten op contact X9",
+      "page": 22
+    },
+    {
+      "code": "H.03.00",
+      "type": "Tijdelijke storing",
+      "description": "Geen identificatiegegevens voor de veiligheidsvoorziening van de verwarmingsketel.",
+      "cause_solution": "FOUT HOOFDBESTURINGSPRINT Neem contact op met een vakman",
+      "page": 22
+    },
+    {
+      "code": "H.03.02",
+      "type": "Tijdelijke storing",
+      "description": "Tijdelijk vlamverlies",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de aansluiting en bedrading van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep ROOKGASLEIDINGEN Controleer de leidingen en het eindstuk",
+      "page": 22
+    },
+    {
+      "code": "H.03.05",
+      "type": "Tijdelijke storing",
+      "description": "Te lage netvoedingsspanning",
+      "cause_solution": "Controleer de netspanning",
+      "page": 22
+    },
+    {
+      "code": "H.03.54",
+      "type": "Tijdelijke storing",
+      "description": "Tijdelijk vlamverlies Uitschakeling als gevolg van een te lage netvoedingsspanning",
+      "cause_solution": "PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode GASTOEVOER Controleer de druk van de gasinlaat Controleer de kalibratie van de gasklep ROOKGASAFVOERPIJP Controleer het eindstuk van de luchtinlaat en de rookgasafvoer Controleer de voedingsspanning",
+      "page": 22
+    },
+    {
+      "code": "E.00.04",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Retourtemperatuursensor niet aangesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de werking van de temperatuursensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 22
+    },
+    {
+      "code": "E.00.05",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Retour temperatuursensor kortgesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de werking van de sensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 22
+    },
+    {
+      "code": "E.00.16",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Temperatuursensor SWW-boiler niet aangesloten",
+      "cause_solution": "SENSOR GEOPEND Controleer de werking van de sensor Controleer de aansluiting van de sensor/printplaat Stel bij het verwijderen van een sanitair-warmwaterboiler parameter DP150=1 in",
+      "page": 22
+    },
+    {
+      "code": "E.00.17",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Temperatuursensor SWW-boiler kortgesloten",
+      "cause_solution": "SENSOR GESLOTEN Controleer de werking van de sensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 22
+    },
+    {
+      "code": "E.00.20",
+      "type": "Permanente storing (reset vereist)",
+      "description": "De temperatuursensor voor rookgassen is niet aangesloten of heeft een temperatuur onder het aanbevolen bereik gemeten",
+      "cause_solution": "SENSOR GEOPEND Controleer de werking van de sensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 22
+    },
+    {
+      "code": "E.00.21",
+      "type": "Permanente storing (reset vereist)",
+      "description": "De temperatuursensor voor rookgassen is kortgesloten of heeft een temperatuur boven het aanbevolen bereik gemeten",
+      "cause_solution": "SENSOR GESLOTEN Controleer de werking van de sensor Controleer de aansluiting van de sensor/printplaat",
+      "page": 22
+    },
+    {
+      "code": "E.01.04",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Vijf keer in 24 uur vlamverlies gedetecteerd",
+      "cause_solution": "GASTOEVOER Controleer de gastoevoerdruk Controleer de kalibratie van de gasklep PROBLEEM MET DE ELEKTRODE Controleer de aansluiting en bedrading van de elektrode Controleer de staat van de elektrode ROOKGASLEIDINGEN Controleer de leidingen van de luchtinlaat en de rookgasafvoer WISSELAAR AAN DE ROOKGASZIJDE GEBLOKKEERD Controleer de wisselaar op vervuiling NETSPANNING Controleer de voedingsspanning",
+      "page": 23
+    },
+    {
+      "code": "E.01.12",
+      "type": "Permanente storing (reset vereist)",
+      "description": "De door de retoursensor gemeten temperatuur is hoger dan de aanvoertemperatuur",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer of de sensoren op de juiste manier zijn geplaatst Controleer of de debietsensor zich in de juiste positie bevindt Controleer de retourtemperatuur in de verwarmingsketel Controleer de werking van de sensoren",
+      "page": 23
+    },
+    {
+      "code": "E.01.17",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Het water stroomt niet door (permanent)",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de druk van de installatie Start een handmatige ontluchting Controleer de werking van de pomp Controleer de circulatie van de verwarmingsketel/ installatie SENSORFOUT Controleer de werking van de temperatuursensoren Controleer de aansluiting van de temperatuursensoren",
+      "page": 23
+    },
+    {
+      "code": "E.01.20",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Maximale rookgastemperatuur bereikt",
+      "cause_solution": "WISSELAAR AAN DE ROOKGASZIJDE GEBLOKKEERD Controleer de wisselaar op vervuiling",
+      "page": 23
+    },
+    {
+      "code": "E.02.13",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Volledige stop van de verwarmingsketel (vorstbeveiligingsfunctie niet actief)",
+      "cause_solution": "SIGNAAL GEEFT BLOKKERENDE INGANG AAN Controleer of X15 open is, controleer de aangesloten apparaten Configuratiefout parameter: Controleer instelling AP001",
+      "page": 23
+    },
+    {
+      "code": "E.02.17",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Permanente communicatiestoring in de printplaat",
+      "cause_solution": "FOUT HOOFDBESTURINGSPRINT Controleer op elektromagnetische storing Neem contact op met een vakman",
+      "page": 23
+    },
+    {
+      "code": "E.02.35",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Kritiek veiligheidsapparaat losgekoppeld",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie (parameter AD) Controleer de apparaten die zijn aangesloten op het contact X9",
+      "page": 23
+    },
+    {
+      "code": "E.02.39",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Minimale druk niet bereikt na 6 minuten automatisch vullen",
+      "cause_solution": "FOUT BIJ AUTOMATISCH VULLEN Controleer of automatisch vullen werkt",
+      "page": 23
+    },
+    {
+      "code": "E.02.47",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Verbinding met extern apparaat mislukt",
+      "cause_solution": "FOUT ELEKTRISCHE AANSLUITING Start de automatische detectiefunctie (parameter AD)) Controleer de elektrische aansluitingen van externe apparatuur.",
+      "page": 23
+    },
+    {
+      "code": "E.04.01",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Aanvoertemperatuursensor kortgesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de sensor",
+      "page": 24
+    },
+    {
+      "code": "E.04.02",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Aanvoertemperatuursensor niet aangesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de sensor",
+      "page": 24
+    },
+    {
+      "code": "E.04.03",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Maximale aanvoertemperatuur overschreden of aanvoertemperatuursensor kortgesloten",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de circulatie van de verwarmingsketel/ installatie Start een handmatige ontluchting Controleer de werking van de sensoren",
+      "page": 24
+    },
+    {
+      "code": "E.04.08",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Maximum veilige temperatuurwaarde bereikt",
+      "cause_solution": "ONVOLDOENDE CIRCULATIE Controleer de druk in de installatie Schakel de handmatige ontgassingsfunctie in Controleer of de pomp werkt Controleer de circulatie van de verwarmingsketel/ installatie OVERIGE MOGELIJKE OORZAKEN Controleer de aansluiting van de veiligheidsthermostaat Controleer of de veiligheidsthermostaat naar behoren werkt",
+      "page": 24
+    },
+    {
+      "code": "E.04.10",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Ontsteking brander mislukt na vier pogingen",
+      "cause_solution": "GASTOEVOER Controleer de gastoevoerdruk Controleer de elektrische aansluiting van de gasklep Controleer de kalibratie van de gasklep Controleer de werking van de gasklep PROBLEEM MET DE ELEKTRODE Controleer de elektrische aansluitingen van de elektrode Controleer de staat van de elektrode OVERIGE OORZAKEN Controleer de werking van de ventilator Controleer de staat van de rookgasafvoer (blokkades)",
+      "page": 24
+    },
+    {
+      "code": "E.04.12",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Ontstekingsfout voor detectie van valse vlam",
+      "cause_solution": "Controleer het aardcircuit Controleer de voedingsspanning Controleer de toestand van de elektrode",
+      "page": 24
+    },
+    {
+      "code": "E.04.13",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Ventilatorblad geblokkeerd of maximaal tpm overschreden",
+      "cause_solution": "PROBLEEM VENTILATOR/PRINTPLAAT Controleer de aansluiting van de printplaat/ventilator Controleer de werking van de ventilator",
+      "page": 24
+    },
+    {
+      "code": "E.04.17",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Fout in het regelcircuit van de gasklep",
+      "cause_solution": "FOUT HOOFDBESTURINGSPRINT Controleer de elektrische aansluitingen voor de gasklep",
+      "page": 24
+    },
+    {
+      "code": "E.04.18",
+      "type": "Permanente storing (reset vereist)",
+      "description": "De aanvoertemperatuur is onder de minimumtemperatuur of de aanvoertemperatuursensor is niet aangesloten",
+      "cause_solution": "PROBLEEM MET SENSOR/AANSLUITING Controleer de aansluiting van de sensor/printplaat Controleer de werking van de sensor",
+      "page": 24
+    },
+    {
+      "code": "E.04.23",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Communicatie interne stop",
+      "cause_solution": "Schakel de stroomvoorziening uit en weer in en daarna RESETTEN",
+      "page": 24
+    },
+    {
+      "code": "E.04.29",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Communicatie interne stop (maximumaantal resets overschreden)",
+      "cause_solution": "Schakel de stroomvoorziening uit en weer in en daarna RESETTEN",
+      "page": 24
+    },
+    {
+      "code": "E.04.54",
+      "type": "Permanente storing (reset vereist)",
+      "description": "Fout in het regelcircuit van de gasklep",
+      "cause_solution": "FOUT HOOFDBESTURINGSPRINT Controle van elektrische aansluitingen",
+      "page": 24
+    },
+    {
+      "code": "A.00.28",
+      "type": "Waarschuwing",
+      "description": "De temperatuursensor is niet aangesloten of meet een temperatuur onder het aanbevolen bereik",
+      "cause_solution": "Controleer de bedrading van de temperatuursensoren voor de zonneboiler. Vervang de sensor indien nodig. In het geval dat de zonneboiler verwijderd is, moet de instelling DP150=1 ingevoerd worden.",
+      "page": 25
+    },
+    {
+      "code": "A.00.29",
+      "type": "Waarschuwing",
+      "description": "De temperatuursensor is kortgesloten of meet een temperatuur boven het aanbevolen bereik",
+      "cause_solution": "Controleer de bedrading van de temperatuursensoren voor de zonneboiler. Vervang de sensor indien nodig.",
+      "page": 25
+    },
+    {
+      "code": "A.00.34",
+      "type": "Waarschuwing",
+      "description": "Buitentemperatuursensor verwacht maar niet gedetecteerd",
+      "cause_solution": "Buitentemperatuursensor NIET GEDETECTEERD Voer de correcte waarde van de instelling AP091 in Sluit de buitentemperatuursensor aan Buitentemperatuursensor is niet correct aangesloten",
+      "page": 25
+    },
+    {
+      "code": "A.02.06",
+      "type": "Waarschuwing",
+      "description": "Lage druk in het verwarmingscircuit",
+      "cause_solution": "Controleer en herstel de druk van de installatie Controleer de drukt van het expansievat Controleer de verwarmingsketel/installatie op lekkage",
+      "page": 25
+    },
+    {
+      "code": "A.02.36",
+      "type": "Waarschuwing",
+      "description": "Functioneel apparaat losgekoppeld",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie (parameter AD) Controleer de apparaten die zijn aangesloten op het contact X9",
+      "page": 25
+    },
+    {
+      "code": "A.02.37",
+      "type": "Waarschuwing",
+      "description": "Passief functioneel apparaat losgekoppeld",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie (parameter AD) Controleer de apparaten die zijn aangesloten op het contact X9",
+      "page": 25
+    },
+    {
+      "code": "A.02.45",
+      "type": "Waarschuwing",
+      "description": "Verbindingsfout",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie (parameter AD))",
+      "page": 25
+    },
+    {
+      "code": "A.02.46",
+      "type": "Waarschuwing",
+      "description": "Prioriteitsfout apparaat",
+      "cause_solution": "COMMUNICATIEFOUT Start de automatische detectiefunctie (parameter AD))",
+      "page": 25
+    },
+    {
+      "code": "A.02.48",
+      "type": "Waarschuwing",
+      "description": "Configuratiefout unitfunctie",
+      "cause_solution": "FOUT ELEKTRISCHE AANSLUITING Start de automatische detectiefunctie (parameter AD)) Controleer de elektrische aansluitingen van externe apparaten",
+      "page": 25
+    },
+    {
+      "code": "A.02.49",
+      "type": "Waarschuwing",
+      "description": "Initialisatie knooppunt mislukt",
+      "cause_solution": "FOUT ELEKTRISCHE AANSLUITING Start de automatische detectiefunctie (parameter AD)) Controleer de elektrische aansluitingen van externe apparaten",
+      "page": 25
+    },
+    {
+      "code": "A.02.54",
+      "type": "Waarschuwing",
+      "description": "Voedingsfout Open Therm-bus",
+      "cause_solution": "Controleer de apparaten die aangesloten zijn op het contact X17 - aansluitprint M2 (7-8)",
+      "page": 25
+    },
+    {
+      "code": "A.02.55",
+      "type": "Waarschuwing",
+      "description": "Verkeerd of ontbrekend serienummer",
+      "cause_solution": "Neem contact op met een vakman",
+      "page": 25
+    },
+    {
+      "code": "A.02.76",
+      "type": "Waarschuwing",
+      "description": "Intern geheugen gereserveerd voor volledige aanpassing van de instellingen. Er kunnen geen verdere wijzigingen worden doorgevoerd",
+      "cause_solution": "Neem contact op met een vakman",
+      "page": 25
+    }
+  ]
+}
