@@ -51,6 +51,8 @@ streamingmodus en de seriële verbinding beschikbaar zijn, start de controller:
 2. `PM=127`: producttype en productversie.
 3. `PM=125`: OpenTherm-versie slave.
 4. `PM=93`, `PM=94`, `PM=95`: telkens wachten op de volledige tekenreeks.
+5. `PM=131`: dF/dU, alleen als het member-ID ID131 in de waargenomen
+   leeslijst heeft (Remeha: member-ID 11). Nodig voor de modelkeuze.
 
 **Refresh identification** start een nieuwe ronde op aanvraag. Het openen van de
 pagina en de REST-poll om de vijf seconden starten geen nieuwe OT-verzoeken.
@@ -81,11 +83,19 @@ antwoorden of een time-out. Uitlezen is uitgeschakeld in simulatie- en monitormo
 
 ## Betekenissen en bewijsniveau
 
-Het modelprofiel **Remeha Tzerra M Plus** vereist zowel slave member-ID **11**
-als ID127 producttype **13** met productversie **14** of **16**; beide versies staan
-in de OTGW-ketelmatrix bij dezelfde Remeha Tzerra Plus. Alleen member-ID 11 is
-onvoldoende om deze modelbeschrijvingen op een willekeurige ketel toe te passen.
-De letterlijke teksten staan in `data/boiler-profile-tzerra.json`, met bronvermelding.
+Het modelprofiel is specifiek voor de **Remeha Tzerra M 28c Plus**. Het vereist
+slave member-ID **11**, ID127 producttype **13** (versie 14 of 16) én dF/dU
+(ID131) **36/1**, de typecode van de typeplaat. Binnen de Tzerra-serie verschillen
+fabriekswaarden en mogelijk parameters per uitvoering; een andere dF/dU (zoals
+37/1, gezien bij 13/14 in de matrix) krijgt daarom het generieke beeld tot er een
+eigen, bevestigd profiel is. Alleen member-ID 11 is onvoldoende om deze
+modelbeschrijvingen op een willekeurige ketel toe te passen.
+
+Het profiel bevat uit handleiding 7618573 v.10: Tab.43 (status/substatus), Tab.45
+(blokkeringscodes als substatus bij status 9), Tab.48 (storingscodes) en Tab.34
+(parameters met bereik en de fabrieksinstelling uit de kolom 28c Plus). Wijkt een
+uitgelezen parameter af van de fabrieksinstelling, dan toont de UI die ernaast.
+De letterlijke teksten staan in `data/tzerra-m-28c-plus.json`, met bronvermelding.
 Substatusbeschrijvingen worden met de combinatie status/substatus opgezocht:
 substatus 0 heeft bijvoorbeeld niet bij iedere status dezelfde betekenis.
 
@@ -153,7 +163,7 @@ Home Assistant Discovery is in deze wijziging niet uitgebreid.
 | `MQTTstuff.ino` | Teksten opnieuw aanbieden na reconnect |
 | `restAPI.ino` | Boiler info GET en geauthenticeerde uitleesacties |
 | `data/index.html`, `index.js`, `index_common.css` | Knop, pagina, responsieve segmentweergave en polling |
-| `data/boiler-profile-tzerra.json` | Modelgebonden bronbeschrijvingen |
+| `data/tzerra-m-28c-plus.json` | Modelgebonden bronbeschrijvingen |
 | `version.h` | Samenhangende prereleaseverhoging naar beta.2 |
 
 ## Verificatie

@@ -1,14 +1,16 @@
 {
   "id": "remeha-tzerra-m-28c-plus",
-  "name": "Remeha Tzerra M Plus",
+  "name": "Remeha Tzerra M 28c Plus",
   "language": "nl",
-  "member": 11,
-  "product": 13,
-  "versions": [
-    14,
-    16
-  ],
-  "source": "User qSense lookup; Tzerra M Plus installation/service manual 7618573 v.10 (2017-03-17), Tab.34; TSP index = P-number confirmed against a live 28c Plus readout (2026-10-16)",
+  "match": {
+    "member": 11,
+    "product": 13,
+    "versions": [
+      16
+    ],
+    "dfdu": "36:1"
+  },
+  "source": "Remeha Tzerra M 24c/28c/39c Plus installatie- en servicehandleiding 7618573 v.10 (17-03-2017): Tab.34 (parameters, kolom 28c Plus, G25), Tab.43 (status/substatus), Tab.45 (blokkeringscodes), Tab.48 (storingscodes). Typeplaat: dF 36 / dU 1. TSP-index = P-nummer bevestigd met een live uitlezing (2026-10-16).",
   "models": {
     "36:1": "Tzerra M 28c Plus"
   },
@@ -21,8 +23,8 @@
     "5": "Branderstop",
     "6": "Ketelstop (einde warmtevraag)",
     "8": "Regelstop",
-    "17": "Ontluchten",
-    "9": "Blokkering"
+    "9": "Blokkering",
+    "17": "Ontluchten"
   },
   "substatus": {
     "0:0": "Rust",
@@ -72,7 +74,25 @@
     "17:2": "Driewegklep aansturen",
     "17:3": "Start pomp",
     "17:61": "Pomp uit",
-    "17:62": "Driewegklep aansturen"
+    "17:62": "Driewegklep aansturen",
+    "9:0": "Blokkeringscode Su:0 — Parameterfout",
+    "9:1": "Blokkeringscode Su:1 — Maximale aanvoertemperatuur overschreden",
+    "9:2": "Blokkeringscode Su:2 — Maximale stijging van de aanvoertemperatuur is overschreden",
+    "9:7": "Blokkeringscode Su:7 — Maximaal verschil tussen aanvoer- en retourtemperatuur overschreden",
+    "9:10": "Blokkeringscode Su:10 — Blokkerende ingang is actief",
+    "9:11": "Blokkeringscode Su:11 — Blokkerende ingang of vorstbeveiliging is actief",
+    "9:12": "Blokkeringscode Su:12 — Communicatiefout met de HMI-print",
+    "9:13": "Blokkeringscode Su:13 — Communicatiefout met de SCU-print",
+    "9:14": "Blokkeringscode Su:14 — Waterdruk te laag",
+    "9:15": "Blokkeringscode Su:15 — Gasdruk te laag",
+    "9:16": "Blokkeringscode Su:16 — Configuratiefout",
+    "9:17": "Blokkeringscode Su:17 — Configuratiefout of default parametertabel niet in orde",
+    "9:18": "Blokkeringscode Su:18 — Configuratiefout of PSU-print niet herkend",
+    "9:19": "Blokkeringscode Su:19 — Configuratiefout of parameters dF en dU onbekend",
+    "9:20": "Blokkeringscode Su:20 — Configuratieprocedure actief",
+    "9:21": "Blokkeringscode Su:21 — Communicatiefout met de SU-print",
+    "9:22": "Blokkeringscode Su:22 — Vlamwegval tijdens bedrijf",
+    "9:25": "Blokkeringscode Su:25 — Interne fout gas-/luchteenheid"
   },
   "faults": {
     "0": "Parameter storage unit PSU niet gevonden",
@@ -103,14 +123,19 @@
   "parameters": {
     "1": {
       "label": "Aanvoertemperatuur: TSet",
-      "unit": "°C"
+      "unit": "°C",
+      "range": "20 tot 90",
+      "default": 80
     },
     "2": {
       "label": "Temperatuur SWW: TSet",
-      "unit": "°C"
+      "unit": "°C",
+      "range": "40 tot 65",
+      "default": 60
     },
     "3": {
       "label": "Ketelregeling / SWW",
+      "default": 1,
       "options": {
         "0": "CV uit / SWW uit",
         "1": "CV aan / SWW aan",
@@ -120,6 +145,7 @@
     },
     "4": {
       "label": "ECO-stand",
+      "default": 2,
       "options": {
         "0": "Comfort",
         "1": "ECO-stand",
@@ -129,60 +155,83 @@
     "5": {
       "label": "Pompnadraaitijd",
       "unit": "min",
+      "range": "1 tot 98; 99 = continu",
+      "default": 1,
       "options": {
         "99": "Continu"
       }
     },
     "17": {
-      "label": "Maximum volumestroom van de ventilator (CV)"
+      "label": "Maximum volumestroom van de ventilator (CV)",
+      "default": 39
     },
     "18": {
-      "label": "Maximum volumestroom van de ventilator (SWW)"
+      "label": "Maximum volumestroom van de ventilator (SWW)",
+      "default": 56
     },
     "19": {
-      "label": "Minimum volumestroom van de ventilator (CV + SWW)"
+      "label": "Minimum volumestroom van de ventilator (CV + SWW)",
+      "default": 11
     },
     "20": {
-      "label": "Minimum volumestroom van de ventilator (offset)"
+      "label": "Minimum volumestroom van de ventilator (offset)",
+      "default": 80
     },
     "21": {
-      "label": "Startvolumestroom (niet wijzigen)"
+      "label": "Startvolumestroom (niet wijzigen)",
+      "default": 23
     },
     "23": {
       "label": "Maximum aanvoertemperatuur systeem",
-      "unit": "°C"
+      "unit": "°C",
+      "range": "20 tot 90",
+      "default": 90
     },
     "24": {
-      "label": "Tijdfactor gemiddelde aanvoerberekening (niet wijzigen)"
+      "label": "Tijdfactor gemiddelde aanvoerberekening (niet wijzigen)",
+      "default": 35
     },
     "25": {
       "label": "Instelpunt van de stooklijn (maximum buitentemperatuur)",
-      "unit": "°C"
+      "unit": "°C",
+      "range": "0 tot 30",
+      "default": 20
     },
     "26": {
       "label": "Instelpunt van de stooklijn (aanvoertemperatuur)",
-      "unit": "°C"
+      "unit": "°C",
+      "range": "0 tot 90",
+      "default": 20
     },
     "27": {
       "label": "Instelpunt van de stooklijn (minimum buitentemperatuur)",
       "unit": "°C",
+      "range": "-30 tot 0",
+      "default": -15,
       "signed": true
     },
     "28": {
       "label": "Instelling van het toerental van de pomp (minimale pompsnelheid CV-bedrijf)",
-      "unit": "x 10 %"
+      "unit": "x 10 %",
+      "range": "2 tot 10",
+      "default": 3
     },
     "29": {
       "label": "Instelling van het toerental van de pomp (maximale pompsnelheid CV-bedrijf)",
-      "unit": "x 10 %"
+      "unit": "x 10 %",
+      "range": "2 tot 10",
+      "default": 8
     },
     "30": {
       "label": "Temperatuur vorstbeveiliging",
       "unit": "°C",
+      "range": "-30 tot 0",
+      "default": -10,
       "signed": true
     },
     "31": {
       "label": "Legionellabeveiliging",
+      "default": 1,
       "options": {
         "0": "Uit",
         "1": "Aan",
@@ -191,14 +240,19 @@
     },
     "32": {
       "label": "Setpuntverhoging boiler",
-      "unit": "°C"
+      "unit": "°C",
+      "range": "0 tot 25",
+      "default": 20
     },
     "33": {
       "label": "Inschakeltemperatuur SWW boilersensor",
-      "unit": "°C"
+      "unit": "°C",
+      "range": "2 tot 15",
+      "default": 4
     },
     "34": {
       "label": "Aansturing externe driewegklep",
+      "default": 0,
       "options": {
         "0": "Normaal",
         "1": "Omgekeerd"
@@ -206,6 +260,7 @@
     },
     "35": {
       "label": "Keteltype",
+      "default": 0,
       "options": {
         "0": "Combi",
         "1": "Solo"
@@ -213,6 +268,7 @@
     },
     "36": {
       "label": "Functie blokkerende ingang",
+      "default": 1,
       "options": {
         "1": "Blokkering zonder vorstbeveiliging",
         "2": "Blokkering met vorstbeveiliging",
@@ -221,6 +277,7 @@
     },
     "37": {
       "label": "Minimum gasdrukschakelaar (GpS)",
+      "default": 0,
       "options": {
         "0": "Niet aangesloten",
         "1": "Aangesloten"
@@ -228,6 +285,7 @@
     },
     "38": {
       "label": "Warmteterugwinunit (HRU)",
+      "default": 0,
       "options": {
         "0": "Niet aangesloten",
         "1": "Aangesloten"
@@ -236,10 +294,13 @@
     "39": {
       "label": "Rookgasklep looptijd",
       "unit": "s",
+      "range": "0 tot 255",
+      "default": 0,
       "allows255": true
     },
     "40": {
       "label": "Functie storingsrelais",
+      "default": 2,
       "options": {
         "0": "Bedrijfsmelding",
         "1": "Alarmmelding",
@@ -247,16 +308,20 @@
       }
     },
     "41": {
-      "label": "Servicemelding (niet wijzigen)"
+      "label": "Servicemelding (niet wijzigen)",
+      "default": 1
     },
     "42": {
-      "label": "Service bedrijfsuren (niet wijzigen)"
+      "label": "Service bedrijfsuren (niet wijzigen)",
+      "default": 175
     },
     "43": {
-      "label": "Service branduren (niet wijzigen)"
+      "label": "Service branduren (niet wijzigen)",
+      "default": 30
     },
     "44": {
       "label": "Ontluchtingscyclus",
+      "default": 2,
       "options": {
         "0": "Uit",
         "1": "Standenpomp",

@@ -7408,7 +7408,7 @@ function renderBoilerDetails(data) {
   boilerInfoData = data;
   if (data.profile === 'remeha-tzerra-m-28c-plus' && !boilerProfileData && !boilerProfileLoading) {
     boilerProfileLoading = true;
-    fetch('boiler-profile-tzerra.json').then(function(r) { if (!r.ok) throw new Error('Profile unavailable'); return r.json(); })
+    fetch('tzerra-m-28c-plus.json').then(function(r) { if (!r.ok) throw new Error('Profile unavailable'); return r.json(); })
       .then(function(p) { boilerProfileData = p; if (boilerInfoData) renderBoilerDetails(boilerInfoData); })
       .catch(function() { /* Keep raw values when the optional profile file cannot be loaded. */ })
       .then(function() { boilerProfileLoading = false; });
@@ -7488,6 +7488,7 @@ function renderBoilerDetails(data) {
       var meaning = parameter ? parameter.label : 'Meaning not yet confirmed';
       if (parameter && parameter.options && parameter.options[shown] !== undefined) meaning += ': ' + parameter.options[shown];
       else if (parameter && parameter.unit) meaning += ' (' + parameter.unit + ')';
+      if (parameter && parameter.default !== undefined && parameter.default !== shown) meaning += ' · fabrieksinstelling: ' + parameter.default;
       boilerRow(container, (kind === 'Parameters' ? 'TSP ' : 'Entry ') + index,
         kind === 'Parameters' ? String(shown) : boilerRaw(value), meaning, kind === 'Parameters');
     });

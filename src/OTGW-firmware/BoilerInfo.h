@@ -26,6 +26,9 @@ public:
     const uint8_t version = values[127] & 255;
     return version == 14 || version == 16;
   }
+  // The model profile is specific to the Remeha Tzerra M 28c Plus. dF/dU (ID131) is the
+  // type code from the boiler's type plate; 36/1 is confirmed for this model.
+  bool tzerraM28cPlus() const { return tzerra() && has(131) && values[131] == 0x2401; }
   bool oemAllowed() const {
     if (!has(3)) return false;
     // Observed slave member IDs with OEM read traffic. Not brand-name guesses.
@@ -67,6 +70,10 @@ public:
     if (group == Operating) { ids = operating; count = sizeof(operating); }
     if (group == Parameters) { ids = parameters; count = sizeof(parameters); }
     if (group == History) { ids = history; count = sizeof(history); }
+    if (group == Identification) {
+      // ID131 (dF/dU) only for vendors whose observed read list contains it.
+      while (position < count && ids[position] == 131 && !boilerOEMReadAllowed(values[3] & 255, 131)) ++position;
+    }
     if (group == OEM) {
       count = 128;
       while (position < count && !boilerOEMReadAllowed(values[3] & 255, 128 + position)) ++position;
@@ -130,7 +137,7 @@ private:
   uint8_t requestId = 0, target = 0, position = 0, remaining = 0;
   uint32_t requestAt = 0, started = 0, lastSend = 0;
   Group group = Identification;
-  static constexpr uint8_t identification[] = {3, 127, 125, 93, 94, 95};
+  static constexpr uint8_t identification[] = {3, 127, 125, 93, 94, 95, 131};
   static constexpr uint8_t operating[] = {5, 115};
   static constexpr uint8_t parameters[] = {10};
   static constexpr uint8_t history[] = {12};

@@ -17,7 +17,7 @@ assert.equal(ctx.formatBoilerText(d,'brand').value,'Br···');assert(ctx.format
 d.brand_text='<img src=x>';d.brand_mask='1'.repeat(11);d.brand_received=11;d.brand_expected=11;d.brand_complete=true;
 ctx.renderBoilerInfo(d);assert.equal(nodes['boiler-brand-value'].textContent,'<img src=x>');assert.equal(nodes['boiler-brand-status'].textContent,'');
 assert.equal(ctx.formatBoilerText({serial_text:'A'.repeat(50),serial_mask:'1'.repeat(50),serial_received:50,serial_expected:50,serial_complete:true},'serial').value.length,50);
-ctx.boilerProfileData=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/boiler-profile-tzerra.json','utf8'));
+ctx.boilerProfileData=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/tzerra-m-28c-plus.json','utf8'));
 d={profile:'remeha-tzerra-m-28c-plus',value_115:0x031e,value_131:0x0806,value_132:2,value_133:0xff01,value_0:0,value_5:0,value_3:11,value_127:0x0d10,tsp_entries:'1:80,21:0',fhb_entries:'0:11',oem_allowed:true,oem_readable:true};
 ctx.renderBoilerDetails(d);
 function findText(n,text){return n.attributes['aria-label']===text || n.children.some(c=>findText(c,text));}
@@ -36,6 +36,8 @@ assert(tp.includes('TSP 5')&&tp.includes('Pompnadraaitijd')&&tp.includes('Startv
 assert(findText(nodes.boilerParameters,'-15')&&findText(nodes.boilerParameters,'-10'));
 assert(tp.includes('TSP 39')&&findText(nodes.boilerParameters,'255'),'P39 0-255 s keeps a real 255');
 assert(tp.includes('Ketelregeling / SWW: CV aan / SWW aan')&&tp.includes('Ontluchtingscyclus: Modulerende pomp'));
+assert(tp.includes('fabrieksinstelling: 39'),'P17=15 differs from 28c default');assert(!/Aanvoertemperatuur: TSet \(°C\) · fabriek/.test(tp));
+ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.textContent.includes('Waterdruk te laag'));
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});assert(nodes.boilerParameters.textContent.includes('No supported parameters reported'));
 ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(!nodes.boilerParameters.textContent.includes('TSP 6'));
 ctx.renderBoilerDetails({...d,value_131:0x2401});assert(findText(nodes.boilerOEM,'dF: 36 dU: 1'));assert(nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));

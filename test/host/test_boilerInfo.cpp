@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "../../src/OTGW-firmware/BoilerInfo.h"
 static uint32_t frame(uint8_t type,uint8_t id,uint8_t hb=0,uint8_t lb=0) {
   uint32_t f=uint32_t(type)<<28|uint32_t(id)<<16|uint32_t(hb)<<8|lb,b=f;uint8_t p=0;
@@ -30,10 +31,17 @@ int main(){
  b.observe('B',frame(7,94),9003);
  assert(b.support[94]==BoilerInfo::Unsupported);
  assert(b.next(11000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=95"));
- // A timeout is unknown, not unsupported, and ends the bounded run.
- assert(!b.next(102000,true,cmd,sizeof(cmd))&&!b.busy);
+ // A timeout is unknown, not unsupported; Remeha then reads dF/dU (ID131).
+ assert(b.next(102000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=131"));
  assert(b.support[95]==BoilerInfo::Unknown);
- assert(!b.next(104000,true,cmd,sizeof(cmd))); // one boot cycle only
+ assert(!b.tzerraM28cPlus());reply(b,131,0x24,0x01,102001);assert(b.tzerraM28cPlus());
+ assert(!b.next(104000,true,cmd,sizeof(cmd))&&!b.busy);
+ assert(!b.next(106000,true,cmd,sizeof(cmd))); // one boot cycle only
+ { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);reply(v,131,0x25,0x01);assert(v.tzerra()&&!v.tzerraM28cPlus()); }
+ { BoilerInfo g;char c[12];reply(g,3,0,8);g.bootReadStarted=true;assert(g.start(BoilerInfo::Identification,0)); // no ID131 for other vendors
+   const char* seq[]={"PM=3","PM=127","PM=125","PM=93","PM=94","PM=95"};uint32_t now=0;
+   for(const char* s:seq){assert(g.next(now,true,c,sizeof(c))&&!strcmp(c,s));g.observe('R',frame(0,atoi(s+3)),now+1);g.observe('B',frame(7,atoi(s+3)),now+2);now+=3000;}
+   assert(!g.next(now,true,c,sizeof(c))&&!g.busy); }
  assert(b.start(BoilerInfo::Identification,105000)); // explicit retry includes previously unsupported IDs
  assert(!b.start(BoilerInfo::Operating,105001));
  BoilerInfo t;reply(t,3,0,11);t.bootReadStarted=true;
