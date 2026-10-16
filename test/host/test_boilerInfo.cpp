@@ -14,6 +14,8 @@ int main(){
  assert(!b.next(0,true,cmd,sizeof(cmd))); // No traffic: no speculative requests.
  reply(b,3,0,11);reply(b,127,13,16);
  assert(b.tzerra()&&b.oemAllowed());
+ { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);assert(v.tzerra()); // older Tzerra Plus product version
+   reply(v,127,13,15);assert(!v.tzerra());reply(v,127,12,16);assert(!v.tzerra()); }
  assert(!b.next(1000,false,cmd,sizeof(cmd)));
  assert(b.next(1000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=3"));
  assert(!b.next(1001,true,cmd,sizeof(cmd)));

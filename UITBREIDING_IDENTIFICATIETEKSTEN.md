@@ -81,8 +81,9 @@ antwoorden of een time-out. Uitlezen is uitgeschakeld in simulatie- en monitormo
 
 ## Betekenissen en bewijsniveau
 
-Het modelprofiel **Remeha Tzerra M 28c Plus** vereist zowel slave member-ID **11**
-als ID127 producttype **13** / productversie **16**. Alleen member-ID 11 is
+Het modelprofiel **Remeha Tzerra M Plus** vereist zowel slave member-ID **11**
+als ID127 producttype **13** met productversie **14** of **16**; beide versies staan
+in de OTGW-ketelmatrix bij dezelfde Remeha Tzerra Plus. Alleen member-ID 11 is
 onvoldoende om deze modelbeschrijvingen op een willekeurige ketel toe te passen.
 De letterlijke teksten staan in `data/boiler-profile-tzerra.json`, met bronvermelding.
 Substatusbeschrijvingen worden met de combinatie status/substatus opgezocht:

@@ -19,7 +19,13 @@ public:
 
   bool has(uint8_t id) const { return (seen[id >> 3] & (1U << (id & 7))) != 0; }
   bool remeha() const { return has(3) && (values[3] & 255) == 11; }
-  bool tzerra() const { return remeha() && has(127) && values[127] == 0x0d10; }
+  // Remeha Tzerra M Plus: product type 13, product versions 14 and 16 both observed in the
+  // OTGW boiler matrix for the same model. Other versions stay generic until confirmed.
+  bool tzerra() const {
+    if (!remeha() || !has(127) || (values[127] >> 8) != 13) return false;
+    const uint8_t version = values[127] & 255;
+    return version == 14 || version == 16;
+  }
   bool oemAllowed() const {
     if (!has(3)) return false;
     // Observed slave member IDs with OEM read traffic. Not brand-name guesses.
