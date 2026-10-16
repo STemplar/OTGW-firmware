@@ -251,7 +251,8 @@
       "level": "service",
       "label": "Warmwater aansturing",
       "range": "00 driewegklep (A=c.v., B=boiler); 01 boilerpomp; 02 driewegklep (A=boiler, B=c.v.)",
-      "default": "00"
+      "default": "00",
+      "note": "Displayteken J bevestigd door de gebruiker."
     },
     {
       "code": "L",
@@ -263,7 +264,8 @@
         "30s": "0.3",
         "28c": "73",
         "35c": "73"
-      }
+      },
+      "note": "Displayteken L bevestigd door de gebruiker."
     },
     {
       "code": "n",

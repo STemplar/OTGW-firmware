@@ -219,14 +219,16 @@
       "level": "service",
       "label": "Warmwater aansturing",
       "range": "00 wisselklep (A=c.v., B=boiler); 01 boilerpomp; 02 wisselklep (A=boiler, B=c.v.)",
-      "default": "01"
+      "default": "01",
+      "note": "Displayteken J bevestigd door de gebruiker."
     },
     {
       "code": "L",
       "level": "service",
       "label": "PWM-pomp aansturing (optie)",
       "range": "1e cijfer pompstand bij c.v.; 2e cijfer pompstand tijdens nadraaien",
-      "default": "0.3"
+      "default": "0.3",
+      "note": "Displayteken L bevestigd door de gebruiker."
     },
     {
       "code": "n",
