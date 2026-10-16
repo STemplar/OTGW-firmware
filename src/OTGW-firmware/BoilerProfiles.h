@@ -19,3 +19,25 @@ inline bool boilerOEMReadAllowed(uint8_t member, uint8_t id) {
     default: return false;
   }
 }
+
+// Model profiles: the single source for boiler-model recognition and for the profile file the web
+// UI loads (data/<file>). A model matches on real boiler READ-ACKs only: slave member ID (ID3 LB),
+// product type/version (ID127) and, when oem131 is set, the dF/dU type code in OEM ID131.
+// OT 4.2 leaves ID5 LB, ID115 and IDs 128-255 to the manufacturer, so their meanings live in the
+// profile file, never in generic code. Keep file names <= 30 chars (LittleFS path limit).
+struct BoilerModelProfile {
+  const char* id;           // also the "id" field inside the profile file
+  const char* file;         // profile file on LittleFS
+  uint8_t member;           // ID3 LB
+  uint8_t productType;      // ID127 HB
+  uint8_t versions[4];      // accepted ID127 LB values
+  uint8_t versionCount;
+  uint16_t oem131;          // required ID131 value (HB=dF, LB=dU); 0 = not used
+};
+static const BoilerModelProfile kBoilerModelProfiles[] = {
+  // Remeha Tzerra M 28c Plus: type plate dF 36 / dU 1; ID127 13/14 and 13/16 seen in the matrix.
+  { "remeha-tzerra-m-28c-plus", "tzerra-m-28c-plus.json", 11, 13, {14, 16}, 2, 0x2401 },
+  // Remeha Tzerra Ace Matic: ID127 27/1 (matrix, 3 logs).
+  { "remeha-tzerra-ace-matic", "tzerra-ace-matic.json", 11, 27, {1}, 1, 0 },
+};
+static const uint8_t kBoilerModelProfileCount = sizeof(kBoilerModelProfiles) / sizeof(kBoilerModelProfiles[0]);

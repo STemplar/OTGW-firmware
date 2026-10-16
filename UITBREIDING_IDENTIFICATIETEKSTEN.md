@@ -81,6 +81,29 @@ tegelijk eigen PIC-commando’s verstuurt, kan de PIC-prioriteitsreeks onderbrek
 de controller kan de externe client niet vergrendelen en meldt dan ontbrekende
 antwoorden of een time-out. Uitlezen is uitgeschakeld in simulatie- en monitormodus.
 
+## Ketelherkenning en profielkeuze
+
+Herkenning staat op één plek: de tabel `kBoilerModelProfiles` in `BoilerProfiles.h`.
+Elke regel legt vast:
+
+- `member`: slave member-ID (ID3 LB);
+- `productType` en `versions`: ID127 HB en de toegestane LB-waarden;
+- `oem131`: indien niet 0, de vereiste dF/dU-waarde in ID131;
+- `id` en `file`: het profiel-ID en het profielbestand in `data/`.
+
+Alleen echte ketel-READ-ACK's tellen (bron B, correcte pariteit, binnen 1,5 s na het
+eigen verzoek). `BoilerInfo::profile()` geeft de eerste volledig passende regel; zonder
+treffer is het apparaat generiek. ID131 wordt bij het opstarten alleen gelezen als een
+passende regel `oem131` vraagt en ID131 voor dat member-ID is waargenomen.
+
+De REST-respons bevat `profile` (het ID) en `profile_file`. De UI laadt dat bestand
+één keer en gebruikt het alleen als het `id` erin overeenkomt; anders blijven alle
+waarden ruw. De profielbestanden bevatten zelf geen herkenningsregels. Een hosttest
+controleert dat elk bestand uit de tabel bestaat, hetzelfde `id` draagt en binnen de
+LittleFS-naamlengte past.
+
+Nieuw model: regel toevoegen in de tabel en het profielbestand in `data/` zetten.
+
 ## Betekenissen en bewijsniveau
 
 Het modelprofiel is specifiek voor de **Remeha Tzerra M 28c Plus**. Het vereist

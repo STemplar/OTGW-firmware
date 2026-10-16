@@ -5868,8 +5868,9 @@ void sendBoilerInfoV2() {
   }
   sendJsonMapEntry(F("busy"), boilerInfo.busy);
   sendJsonMapEntry(F("read_status"), boilerInfo.result);
-  sendJsonMapEntry(F("profile"), boilerInfo.tzerraM28cPlus() ? "remeha-tzerra-m-28c-plus" :
-    boilerInfo.tzerraAceMatic() ? "remeha-tzerra-ace-matic" : "generic");
+  const BoilerModelProfile* model = boilerInfo.profile();
+  sendJsonMapEntry(F("profile"), model ? model->id : "generic");
+  if (model) sendJsonMapEntry(F("profile_file"), model->file);
   sendJsonMapEntry(F("oem_allowed"), boilerInfo.oemAllowed());
   sendJsonMapEntry(F("oem_readable"), boilerInfo.oemReadable());
   // Known scalar formats remain numeric; interpretation is profile-specific in the UI.

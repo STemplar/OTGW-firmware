@@ -19,18 +19,26 @@ public:
 
   bool has(uint8_t id) const { return (seen[id >> 3] & (1U << (id & 7))) != 0; }
   bool remeha() const { return has(3) && (values[3] & 255) == 11; }
-  // Remeha Tzerra M Plus: product type 13, product versions 14 and 16 both observed in the
-  // OTGW boiler matrix for the same model. Other versions stay generic until confirmed.
-  bool tzerra() const {
-    if (!remeha() || !has(127) || (values[127] >> 8) != 13) return false;
-    const uint8_t version = values[127] & 255;
-    return version == 14 || version == 16;
+  // Member ID and ID127 match a table entry (see BoilerProfiles.h); ID131 not yet considered.
+  bool familyMatches(const BoilerModelProfile& p) const {
+    if (!has(3) || !has(127) || (values[3] & 255) != p.member || (values[127] >> 8) != p.productType) return false;
+    for (uint8_t i = 0; i < p.versionCount; ++i) if ((values[127] & 255) == p.versions[i]) return true;
+    return false;
   }
-  // The model profile is specific to the Remeha Tzerra M 28c Plus. dF/dU (ID131) is the
-  // type code from the boiler's type plate; 36/1 is confirmed for this model.
-  // Remeha Tzerra Ace Matic: member 11, product type 27 version 1 (OTGW boiler matrix).
-  bool tzerraAceMatic() const { return remeha() && has(127) && values[127] == 0x1b01; }
-  bool tzerraM28cPlus() const { return tzerra() && has(131) && values[131] == 0x2401; }
+  // The recognised model profile, or nullptr (generic OpenTherm device).
+  const BoilerModelProfile* profile() const {
+    for (uint8_t i = 0; i < kBoilerModelProfileCount; ++i) {
+      const BoilerModelProfile& p = kBoilerModelProfiles[i];
+      if (familyMatches(p) && (!p.oem131 || (has(131) && values[131] == p.oem131))) return &p;
+    }
+    return nullptr;
+  }
+  // ID131 is needed to tell models apart when a matching table entry asks for it.
+  bool needsOem131() const {
+    for (uint8_t i = 0; i < kBoilerModelProfileCount; ++i)
+      if (kBoilerModelProfiles[i].oem131 && familyMatches(kBoilerModelProfiles[i])) return true;
+    return false;
+  }
   bool oemAllowed() const {
     if (!has(3)) return false;
     // Observed slave member IDs with OEM read traffic. Not brand-name guesses.
@@ -73,10 +81,9 @@ public:
     if (group == Parameters) { ids = parameters; count = sizeof(parameters); }
     if (group == History) { ids = history; count = sizeof(history); }
     if (group == Identification) {
-      // ID131 (dF/dU) only for the Tzerra M Plus family (member 11, type 13), where reads were
-      // observed. For other Remeha products (Ace Matic 27/1, 23/1) the matrix cells are empty:
-      // not observed, which is not evidence of non-support. Reads stay limited to observed IDs.
-      while (position < count && ids[position] == 131 && !(tzerra() && boilerOEMReadAllowed(values[3] & 255, 131))) ++position;
+      // ID131 (dF/dU) only when a profile entry needs it to recognise the model, and only for a
+      // vendor whose ID131 reads were actually observed. An empty matrix cell is not evidence.
+      while (position < count && ids[position] == 131 && !(needsOem131() && boilerOEMReadAllowed(values[3] & 255, 131))) ++position;
     }
     if (group == OEM) {
       count = 128;

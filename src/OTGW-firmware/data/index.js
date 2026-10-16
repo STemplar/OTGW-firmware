@@ -7405,10 +7405,10 @@ function boilerUnknown(data, id) {
   return data['support_' + id] === 2 ? 'Not supported by this boiler' : 'Support not yet determined';
 }
 // Model profiles: OEM-specific meanings (OT 4.2 leaves ID5 LB, ID115 and IDs 128-255 to the manufacturer).
-var BOILER_PROFILE_FILES = { 'remeha-tzerra-m-28c-plus': 'tzerra-m-28c-plus.json', 'remeha-tzerra-ace-matic': 'tzerra-ace-matic.json' };
+// The firmware recognises the model (BoilerProfiles.h) and names the file; the UI only loads it.
 function renderBoilerDetails(data) {
   boilerInfoData = data;
-  var profileFile = BOILER_PROFILE_FILES[data.profile];
+  var profileFile = typeof data.profile_file === 'string' && /^[a-z0-9-]+\.json$/.test(data.profile_file) ? data.profile_file : null;
   if (profileFile && boilerProfileRequested !== data.profile && !boilerProfileLoading) {
     boilerProfileLoading = true; boilerProfileRequested = data.profile; // one request per profile id
     fetch(profileFile).then(function(r) { if (!r.ok) throw new Error('Profile unavailable'); return r.json(); })

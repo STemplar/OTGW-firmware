@@ -2,14 +2,7 @@
   "id": "remeha-tzerra-m-28c-plus",
   "name": "Remeha Tzerra M 28c Plus",
   "language": "nl",
-  "match": {
-    "member": 11,
-    "product": 13,
-    "versions": [
-      16
-    ],
-    "dfdu": "36:1"
-  },
+  "recognition": "Herkenning staat uitsluitend in src/OTGW-firmware/BoilerProfiles.h (kBoilerModelProfiles); \"id\" moet daarmee overeenkomen.",
   "source": "Remeha Tzerra M 24c/28c/39c Plus installatie- en servicehandleiding 7618573 v.10 (17-03-2017): Tab.34 (parameters, kolom 28c Plus, G25), Tab.43 (status/substatus), Tab.45 (blokkeringscodes), Tab.48 (storingscodes). Typeplaat: dF 36 / dU 1. TSP-index = P-nummer bevestigd met een live uitlezing (2026-10-16).",
   "models": {
     "36:1": "Tzerra M 28c Plus"

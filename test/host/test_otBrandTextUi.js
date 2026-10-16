@@ -18,7 +18,7 @@ d.brand_text='<img src=x>';d.brand_mask='1'.repeat(11);d.brand_received=11;d.bra
 ctx.renderBoilerInfo(d);assert.equal(nodes['boiler-brand-value'].textContent,'<img src=x>');assert.equal(nodes['boiler-brand-status'].textContent,'');
 assert.equal(ctx.formatBoilerText({serial_text:'A'.repeat(50),serial_mask:'1'.repeat(50),serial_received:50,serial_expected:50,serial_complete:true},'serial').value.length,50);
 ctx.boilerProfileData=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/tzerra-m-28c-plus.json','utf8'));
-d={profile:'remeha-tzerra-m-28c-plus',value_115:0x031e,value_131:0x0806,value_132:2,value_133:0xff01,value_0:0,value_5:0,value_3:11,value_127:0x0d10,tsp_entries:'1:80,21:0',fhb_entries:'0:11',oem_allowed:true,oem_readable:true};
+d={profile:'remeha-tzerra-m-28c-plus',profile_file:'tzerra-m-28c-plus.json',value_115:0x031e,value_131:0x0806,value_132:2,value_133:0xff01,value_0:0,value_5:0,value_3:11,value_127:0x0d10,tsp_entries:'1:80,21:0',fhb_entries:'0:11',oem_allowed:true,oem_readable:true};
 ctx.renderBoilerDetails(d);
 function findText(n,text){return n.attributes['aria-label']===text || n.children.some(c=>findText(c,text));}
 assert(findText(nodes.boilerOEM,'dF: 8 dU: 6'));
@@ -44,7 +44,7 @@ ctx.renderBoilerDetails({...d,value_131:0x2401});assert(findText(nodes.boilerOEM
 ctx.renderBoilerDetails({...d,value_131:0x2501});assert(!nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
 // Tzerra Ace Matic: Tab.54/55 status texts, flat substatus list, raw ID5, no dF/dU block.
 const tz=ctx.boilerProfileData;ctx.boilerProfileData=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/tzerra-ace-matic.json','utf8'));
-ctx.renderBoilerDetails({profile:'remeha-tzerra-ace-matic',value_115:0x031e,value_0:1,value_5:0x0001,value_127:0x1b01,value_131:0x2401,oem_allowed:true});
+ctx.renderBoilerDetails({profile:'remeha-tzerra-ace-matic',profile_file:'tzerra-ace-matic.json',value_115:0x031e,value_0:1,value_5:0x0001,value_127:0x1b01,value_131:0x2401,oem_allowed:true});
 assert(nodes.boilerOperating.textContent.includes('Bedrijf in de verwarmingsmodus')&&nodes.boilerOperating.textContent.includes('Werking op de ingestelde richttemperatuur'));
 assert(!nodes.boilerOperating.textContent.includes('E:01')&&!findText(nodes.boilerOEM,'dF: 36 dU: 1')&&nodes.boilerOEM.textContent.includes('No OEM fields documented'));
 ctx.renderBoilerDetails({profile:'remeha-tzerra-ace-matic',value_115:0x115f});assert(nodes.boilerOperating.textContent.includes('waterdruk voldoende'));

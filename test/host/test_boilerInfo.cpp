@@ -14,9 +14,9 @@ int main(){
  BoilerInfo b;char cmd[12];
  assert(!b.next(0,true,cmd,sizeof(cmd))); // No traffic: no speculative requests.
  reply(b,3,0,11);reply(b,127,13,16);
- assert(b.tzerra()&&b.oemAllowed());
- { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);assert(v.tzerra()); // older Tzerra Plus product version
-   reply(v,127,13,15);assert(!v.tzerra());reply(v,127,12,16);assert(!v.tzerra()); }
+ assert(b.needsOem131()&&!b.profile()&&b.oemAllowed()); // Tzerra M Plus family: model needs dF/dU first
+ { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);assert(v.needsOem131()); // other observed product version
+   reply(v,127,13,15);assert(!v.needsOem131());reply(v,127,12,16);assert(!v.needsOem131()); }
  assert(!b.next(1000,false,cmd,sizeof(cmd)));
  assert(b.next(1000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=3"));
  assert(!b.next(1001,true,cmd,sizeof(cmd)));
@@ -34,12 +34,20 @@ int main(){
  // A timeout is unknown, not unsupported; Remeha then reads dF/dU (ID131).
  assert(b.next(102000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=131"));
  assert(b.support[95]==BoilerInfo::Unknown);
- assert(!b.tzerraM28cPlus());reply(b,131,0x24,0x01,102001);assert(b.tzerraM28cPlus());
+ assert(!b.profile());reply(b,131,0x24,0x01,102001);assert(b.profile()&&!strcmp(b.profile()->id,"remeha-tzerra-m-28c-plus"));
  assert(!b.next(104000,true,cmd,sizeof(cmd))&&!b.busy);
  assert(!b.next(106000,true,cmd,sizeof(cmd))); // one boot cycle only
- { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);reply(v,131,0x25,0x01);assert(v.tzerra()&&!v.tzerraM28cPlus()); }
- { BoilerInfo m;reply(m,3,0,11);reply(m,127,27,1);assert(m.tzerraAceMatic()&&!m.tzerra()&&!m.tzerraM28cPlus());
-   reply(m,127,23,1);assert(!m.tzerraAceMatic()); }
+ { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);reply(v,131,0x25,0x01);assert(v.needsOem131()&&!v.profile()); } // dF 37/dU 1: no profile
+ { BoilerInfo m;reply(m,3,0,11);reply(m,127,27,1);assert(m.profile()&&!strcmp(m.profile()->id,"remeha-tzerra-ace-matic")&&!m.needsOem131());
+   reply(m,127,23,1);assert(!m.profile()); // Remeha Tzerra 23/1: generic
+   reply(m,127,27,1);reply(m,3,0,4);assert(!m.profile()); } // ID127 alone never selects a profile
+ // Table consistency: every profile file exists in data/, carries the same id, and fits LittleFS.
+ for(uint8_t i=0;i<kBoilerModelProfileCount;++i){const BoilerModelProfile& p=kBoilerModelProfiles[i];
+   assert(strlen(p.file)+1<=31&&p.versionCount>=1&&p.versionCount<=4);
+   char path[96];snprintf(path,sizeof(path),"src/OTGW-firmware/data/%s",p.file);FILE* f=fopen(path,"rb");assert(f);
+   static char buf[65536];size_t n=fread(buf,1,sizeof(buf)-1,f);fclose(f);buf[n]=0;
+   char want[96];snprintf(want,sizeof(want),"\"id\": \"%s\"",p.id);assert(strstr(buf,want));
+   for(uint8_t k=0;k<i;++k) assert(strcmp(kBoilerModelProfiles[k].id,p.id)&&strcmp(kBoilerModelProfiles[k].file,p.file)); }
  { BoilerInfo a;char c[12];reply(a,3,0,11);reply(a,127,27,1);a.bootReadStarted=true;assert(a.start(BoilerInfo::Identification,0)); // Ace Matic: no PM=131
    const char* seq[]={"PM=3","PM=127","PM=125","PM=93","PM=94","PM=95"};uint32_t now=0;
    for(const char* s:seq){assert(a.next(now,true,c,sizeof(c))&&!strcmp(c,s));uint8_t id=atoi(s+3);a.observe('R',frame(0,id),now+1);

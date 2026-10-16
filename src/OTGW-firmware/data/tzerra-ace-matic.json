@@ -2,13 +2,7 @@
   "id": "remeha-tzerra-ace-matic",
   "name": "Remeha Tzerra Ace Matic",
   "language": "nl",
-  "match": {
-    "member": 11,
-    "product": 27,
-    "versions": [
-      1
-    ]
-  },
+  "recognition": "Herkenning staat uitsluitend in src/OTGW-firmware/BoilerProfiles.h (kBoilerModelProfiles); \"id\" moet daarmee overeenkomen.",
   "source": "Remeha Tzerra Ace-Matic installatie- en servicehandleiding 7875186-01 (20-06-2024): Tab.54 (statussen, AM012) en Tab.55 (substatussen, AM014). ID127 27/1 en member-ID 11 uit de OTGW-ketelmatrix (3 logs).",
   "notes": {
     "status_encoding": "ID115 is volgens OT 4.2 een OEM-specifieke code. HB=status, LB=substatus is overgenomen van de Remeha Tzerra M Plus en past bij de matrixwaarde 798 (3/30: verwarmingsmodus, ingestelde richttemperatuur); nog niet met een live uitlezing bevestigd.",
