@@ -98,7 +98,14 @@ OEM-specifieke code; HB=status/LB=substatus is overgenomen van Remeha en past bi
 de matrixwaarde 798 (3/30), maar is nog niet live bevestigd. De Ace Matic geeft
 UNKNOWN-DATAID op ID10–13, dus er zijn geen parameters of foutgeheugen. De
 tweedelige CU-GH16-foutcodes (Axx.yy, Hxx.yy) zijn niet aan ID5 gekoppeld; ID5
-blijft ruw. Er wordt geen ID131 gelezen (typeplaat gebruikt CN1/CN2).
+blijft ruw. Er wordt geen ID131 gelezen: dat is bij de Ace Matic niet waargenomen.
+
+**Bewijswaarde van de OTGW-ketelmatrix.** De logs zijn vaak korte, onvolledige
+scans; sommige ID's verschijnen pas als de thermostaat ze opvraagt. Alleen een
+ingevulde waarde (ondersteund) en ✖ (UNKNOWN-DATAID, niet ondersteund) zijn
+bewijs. Een lege cel betekent 'niet waargenomen' en wordt nooit als
+'niet ondersteund' behandeld. De firmware leest OEM-ID's alleen als ze ergens
+daadwerkelijk zijn waargenomen.
 
 Het profiel bevat uit handleiding 7618573 v.10: Tab.43 (status/substatus), Tab.45
 (blokkeringscodes als substatus bij status 9), Tab.48 (storingscodes) en Tab.34

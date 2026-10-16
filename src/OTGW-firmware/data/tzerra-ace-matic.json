@@ -13,9 +13,10 @@
   "notes": {
     "status_encoding": "ID115 is volgens OT 4.2 een OEM-specifieke code. HB=status, LB=substatus is overgenomen van de Remeha Tzerra M Plus en past bij de matrixwaarde 798 (3/30: verwarmingsmodus, ingestelde richttemperatuur); nog niet met een live uitlezing bevestigd.",
     "substatus": "De handleiding geeft één substatuslijst, los van de status.",
-    "parameters": "ID10/11 (TSP) en ID12/13 (FHB) zijn in alle matrixlogs UNKNOWN-DATAID: er zijn geen parameters of foutgeheugen via OpenTherm.",
+    "parameters": "ID10–13 zijn in alle drie de matrixlogs ✖: de ketel antwoordde UNKNOWN-DATAID (OT 4.2: niet ondersteund). Er zijn dus geen parameters of foutgeheugen via OpenTherm.",
     "faults": "De CU-GH16 gebruikt tweedelige codes (Axx.yy, Hxx.yy, Exx.yy). De handleiding koppelt die niet aan de ene byte van ID5 (OEM fault code); ID5 blijft daarom ruw.",
-    "oem": "Geen ID131–133-verkeer waargenomen; geen dF/dU (typeplaat gebruikt CN1/CN2)."
+    "oem": "ID131–133 zijn in de matrix niet waargenomen (lege cellen = niet opgevraagd, geen bewijs van niet-ondersteuning). Zonder waarneming worden ze niet gelezen. De typeplaat vermeldt CN1/CN2; of en hoe die via OpenTherm leesbaar zijn, is onbekend.",
+    "matrix": "Matrixgegevens zijn vaak onvolledige scans van enkele minuten. Alleen ✖ (UNKNOWN-DATAID) en ingevulde waarden zijn bewijs; een lege cel niet."
   },
   "status": {
     "0": "Stand-by",

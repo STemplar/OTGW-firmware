@@ -73,8 +73,9 @@ public:
     if (group == Parameters) { ids = parameters; count = sizeof(parameters); }
     if (group == History) { ids = history; count = sizeof(history); }
     if (group == Identification) {
-      // ID131 (dF/dU) only for the Tzerra M Plus family (member 11, type 13): it was observed
-      // there, not on other Remeha products such as the Tzerra Ace Matic (27/1) or 23/1.
+      // ID131 (dF/dU) only for the Tzerra M Plus family (member 11, type 13), where reads were
+      // observed. For other Remeha products (Ace Matic 27/1, 23/1) the matrix cells are empty:
+      // not observed, which is not evidence of non-support. Reads stay limited to observed IDs.
       while (position < count && ids[position] == 131 && !(tzerra() && boilerOEMReadAllowed(values[3] & 255, 131))) ++position;
     }
     if (group == OEM) {
