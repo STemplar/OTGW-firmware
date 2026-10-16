@@ -7461,13 +7461,15 @@ function renderBoilerDetails(data) {
     var container = document.getElementById('boiler' + kind); container.textContent = '';
     var entries = data[kind === 'Parameters' ? 'tsp_entries' : 'fhb_entries'] || '';
     var hidden = 0;
-    if (kind === 'Parameters' && entries) {
-      // A boiler answers TSP value 255 for a parameter it does not support. Hide those,
-      // unless the model profile says 255 is a real setting (signed -1, or a 0-255 range).
+    var marker = profile ? profile.tsp_unsupported_value : undefined;
+    if (kind === 'Parameters' && entries && marker !== undefined) {
+      // OT 4.2 §5.3.6: an undefined TSP index is answered with DATA-INVALID, and every READ-ACK
+      // value is valid. Some boilers (see the profile) instead READ-ACK a fixed marker value for
+      // parameters they lack; only a profile can declare that, and it keeps real settings visible.
       entries = entries.split(',').filter(function(entry) {
         var parts = entry.split(':');
-        if (Number(parts[1]) !== 255) return true;
-        var parameter = profile && profile.parameters ? profile.parameters[Number(parts[0])] : null;
+        if (Number(parts[1]) !== marker) return true;
+        var parameter = profile.parameters ? profile.parameters[Number(parts[0])] : null;
         if (parameter && (parameter.signed || parameter.allows255)) return true;
         hidden++; return false;
       }).join(',');

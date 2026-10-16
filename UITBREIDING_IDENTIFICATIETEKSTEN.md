@@ -117,8 +117,13 @@ substatus 0 heeft bijvoorbeeld niet bij iedere status dezelfde betekenis.
   P22 bestaat in deze serie niet). P27 en P30 zijn signed (241 = -15, 246 = -10);
   keuzeparameters tonen de handleidingtekst. Een ontvangen waarde wordt niet door
   een default vervangen.
-- TSP-waarde 255 betekent 'parameter niet ondersteund' en wordt niet getoond, behalve
-  waar het profiel 255 als echte instelling kent (signed -1, of P39 met bereik 0–255).
+- Volgens OT 4.2 §5.3.6 beantwoordt een slave een onbekende TSP-/FHB-index met
+  DATA-INVALID; iedere READ-ACK-waarde, ook 255, is geldig. De uitleesronde telt
+  DATA-INVALID als beantwoord, maar bewaart en toont er geen waarde voor.
+- De Tzerra M 28c Plus wijkt hiervan af: die antwoordt READ-ACK met 255 voor indexen
+  zonder parameter. Het profiel legt dat vast (`tsp_unsupported_value: 255`); alleen
+  dan wordt 255 verborgen, behalve waar 255 een echte instelling is (signed -1, P39).
+  Zonder profiel wordt 255 gewoon getoond.
 - FHB-index en FHB-waarde worden bewaard. Een koppeling van FHB-waarden aan
   blokkeringscodes of E-codes wordt niet als bewezen gepresenteerd.
 - Zonder toepasbare betekenis blijft de payload beschikbaar als **Hex / Binary**.

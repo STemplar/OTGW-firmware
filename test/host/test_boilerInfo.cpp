@@ -55,6 +55,12 @@ int main(){
  reply(t,11,1,8,1100);assert(!t.next(4000,true,cmd,sizeof(cmd)));
  reply(t,11,0,42,4100);assert(!t.next(6000,true,cmd,sizeof(cmd))&&!t.busy);
  assert(t.tsp[0]==42&&t.tsp[1]==8);
+ // OT 4.2 §5.3.6: DATA-INVALID answers an undefined index; it completes the run but stores no value.
+ assert(t.start(BoilerInfo::Parameters,10000));
+ assert(t.next(10000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=10"));reply(t,10,3,0,10001);
+ reply(t,11,0,7,10100);t.observe('R',frame(0,11,1),10200);t.observe('B',frame(6,11,1,0),10201);
+ assert(t.busy);reply(t,11,2,255,10300);assert(!t.next(13000,true,cmd,sizeof(cmd))&&!t.busy);
+ assert(t.tsp[2]==255&&(t.tspSeen[0]&2)==0&&(t.tspSeen[0]&5)==5); // 255 is a READ-ACK value, index 1 has none
  // Vendor=0, a master member ID, and spoofed answers never enable OEM reads.
  BoilerInfo u;reply(u,2,0,11);reply(u,3,0,0);u.bootReadStarted=true;
  assert(!u.oemAllowed()&&!u.start(BoilerInfo::OEM,0));

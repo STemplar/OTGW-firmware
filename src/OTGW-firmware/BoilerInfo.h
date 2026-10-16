@@ -48,8 +48,8 @@ public:
     if (requested == Identification) bootReadStarted = true;
     group = requested; position = 0; waiting = false; busy = true; result = "queued"; timedOut = false;
     started = lastSend = now; sent = false; remaining = 0; textReceived = 0;
-    if (group == Parameters) memset(tspSeen, 0, sizeof(tspSeen));
-    if (group == History) memset(fhbSeen, 0, sizeof(fhbSeen));
+    if (group == Parameters) { memset(tspSeen, 0, sizeof(tspSeen)); memset(tspAnswered, 0, sizeof(tspAnswered)); }
+    if (group == History) { memset(fhbSeen, 0, sizeof(fhbSeen)); memset(fhbAnswered, 0, sizeof(fhbAnswered)); }
     return true;
   }
   // Caller admits a command only when its serial queue is empty and live gateway mode is known.
@@ -102,6 +102,13 @@ public:
     pending = false;
     if (!matched || (type != 4 && type != 6 && type != 7)) return;
     support[id] = type == 7 ? Unsupported : Supported;
+    // OT 4.2 §5.3.6: READ-ACK(id,index,value) is a defined entry; DATA-INVALID(id,index,00) means the
+    // index is out of range or undefined. Both answer the index; only READ-ACK carries a value.
+    if ((id == 11 || id == 13) && (type == 4 || type == 6)) {
+      const uint8_t index = data >> 8;
+      uint8_t* answered = id == 11 ? tspAnswered : fhbAnswered;
+      answered[index >> 3] |= 1U << (index & 7);
+    }
     if (type == 4) {
       values[id] = data; seen[id >> 3] |= 1U << (id & 7);
       const uint8_t index = data >> 8;
@@ -122,8 +129,8 @@ public:
       remaining = data >> 8; return; // PIC owns the indexed traversal.
     }
     const uint8_t entryId = group == Parameters ? 11 : 13;
-    if ((group == Parameters || group == History) && id == entryId && remaining && type == 4) {
-      const uint8_t* bitmap = group == Parameters ? tspSeen : fhbSeen;
+    if ((group == Parameters || group == History) && id == entryId && remaining && (type == 4 || type == 6)) {
+      const uint8_t* bitmap = group == Parameters ? tspAnswered : fhbAnswered;
       for (uint16_t i = 0; i < remaining; ++i) if (!(bitmap[i >> 3] & (1U << (i & 7)))) return;
       waiting = false; return;
     }
@@ -131,6 +138,7 @@ public:
   }
 private:
   uint8_t seen[32] = {};
+  uint8_t tspAnswered[32] = {}, fhbAnswered[32] = {};
   bool timedOut = false;
   bool pending = false, waiting = false, sent = false;
   uint8_t requestIndex = 0;

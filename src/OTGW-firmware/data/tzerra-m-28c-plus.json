@@ -120,6 +120,8 @@
     "40": "Indien aanwezig: HRU/WTW-unit testfout",
     "41": "Maximale temperatuur van de automaat overschreden"
   },
+  "tsp_unsupported_value": 255,
+  "tsp_unsupported_note": "Afwijkend van OT 4.2 §5.3.6 (DATA-INVALID): deze ketel antwoordt READ-ACK met 255 voor indexen zonder parameter (live uitlezing: P6–P16 en P22, die niet in Tab.34 staan). Waar 255 een geldige instelling is (signed -1, P39 0–255 s) blijft de waarde zichtbaar.",
   "parameters": {
     "1": {
       "label": "Aanvoertemperatuur: TSet",

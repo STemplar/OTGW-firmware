@@ -39,7 +39,7 @@ assert(tp.includes('Ketelregeling / SWW: CV aan / SWW aan')&&tp.includes('Ontluc
 assert(tp.includes('fabrieksinstelling: 39'),'P17=15 differs from 28c default');assert(!/Aanvoertemperatuur: TSet \(°C\) · fabriek/.test(tp));
 ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.textContent.includes('Waterdruk te laag'));
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});assert(nodes.boilerParameters.textContent.includes('No supported parameters reported'));
-ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(!nodes.boilerParameters.textContent.includes('TSP 6'));
+ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(nodes.boilerParameters.textContent.includes('TSP 6'),'OT 4.2: generic READ-ACK 255 is a valid value');
 ctx.renderBoilerDetails({...d,value_131:0x2401});assert(findText(nodes.boilerOEM,'dF: 36 dU: 1'));assert(nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
 ctx.renderBoilerDetails({...d,value_131:0x2501});assert(!nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
 ctx.boilerRawFormat='binary';ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.textContent.includes('0000000000000010'));
