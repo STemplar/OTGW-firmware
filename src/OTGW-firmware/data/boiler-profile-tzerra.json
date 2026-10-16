@@ -5,7 +5,7 @@
   "member": 11,
   "product": 13,
   "version": 16,
-  "source": "User qSense lookup; Tzerra M Plus installation/service manual 7618573 v05 (2015-04-09)",
+  "source": "User qSense lookup; Tzerra M Plus installation/service manual 7618573 v.10 (2017-03-17), Tab.34; TSP index = P-number confirmed against a live 28c Plus readout (2026-10-16)",
   "status": {
     "0": "Rust",
     "1": "Ketel start (warmtevraag)",
@@ -96,16 +96,36 @@
   },
   "parameters": {
     "1": {
-      "label": "Aanvoertemperatuur: TSet"
+      "label": "Aanvoertemperatuur: TSet",
+      "unit": "°C"
     },
     "2": {
-      "label": "Temperatuur SWW: TSet"
+      "label": "Temperatuur SWW: TSet",
+      "unit": "°C"
     },
     "3": {
-      "label": "Ketelregeling / SWW"
+      "label": "Ketelregeling / SWW",
+      "options": {
+        "0": "CV uit / SWW uit",
+        "1": "CV aan / SWW aan",
+        "2": "CV aan / SWW uit",
+        "3": "CV uit / SWW aan"
+      }
     },
     "4": {
-      "label": "ECO-stand"
+      "label": "ECO-stand",
+      "options": {
+        "0": "Comfort",
+        "1": "ECO-stand",
+        "2": "Regelaar afhankelijk"
+      }
+    },
+    "5": {
+      "label": "Pompnadraaitijd",
+      "unit": "min",
+      "options": {
+        "99": "Continu"
+      }
     },
     "17": {
       "label": "Maximum volumestroom van de ventilator (CV)"
@@ -119,56 +139,123 @@
     "20": {
       "label": "Minimum volumestroom van de ventilator (offset)"
     },
-    "22": {
-      "label": "Minimum waterdruk"
+    "21": {
+      "label": "Startvolumestroom (niet wijzigen)"
     },
     "23": {
-      "label": "Maximum aanvoertemperatuur systeem"
+      "label": "Maximum aanvoertemperatuur systeem",
+      "unit": "°C"
+    },
+    "24": {
+      "label": "Tijdfactor gemiddelde aanvoerberekening (niet wijzigen)"
     },
     "25": {
-      "label": "Instelpunt van de stooklijn (maximum buitentemperatuur)"
+      "label": "Instelpunt van de stooklijn (maximum buitentemperatuur)",
+      "unit": "°C"
     },
     "26": {
-      "label": "Instelpunt van de stooklijn (aanvoertemperatuur)"
+      "label": "Instelpunt van de stooklijn (aanvoertemperatuur)",
+      "unit": "°C"
     },
     "27": {
-      "label": "Instelpunt van de stooklijn (minimum buitentemperatuur)"
+      "label": "Instelpunt van de stooklijn (minimum buitentemperatuur)",
+      "unit": "°C",
+      "signed": true
     },
     "28": {
-      "label": "Instelling van het toerental van de pomp (minimale pompsnelheid CV-bedrijf)"
+      "label": "Instelling van het toerental van de pomp (minimale pompsnelheid CV-bedrijf)",
+      "unit": "x 10 %"
     },
     "29": {
-      "label": "Instelling van het toerental van de pomp (maximale pompsnelheid CV-bedrijf)"
+      "label": "Instelling van het toerental van de pomp (maximale pompsnelheid CV-bedrijf)",
+      "unit": "x 10 %"
     },
     "30": {
-      "label": "Temperatuur vorstbeveiliging"
+      "label": "Temperatuur vorstbeveiliging",
+      "unit": "°C",
+      "signed": true
     },
     "31": {
-      "label": "Legionellabeveiliging"
+      "label": "Legionellabeveiliging",
+      "options": {
+        "0": "Uit",
+        "1": "Aan",
+        "2": "Regelaar afhankelijk"
+      }
+    },
+    "32": {
+      "label": "Setpuntverhoging boiler",
+      "unit": "°C"
     },
     "33": {
-      "label": "Inschakeltemperatuur SWW boilersensor"
+      "label": "Inschakeltemperatuur SWW boilersensor",
+      "unit": "°C"
     },
     "34": {
-      "label": "Aansturing externe driewegklep"
+      "label": "Aansturing externe driewegklep",
+      "options": {
+        "0": "Normaal",
+        "1": "Omgekeerd"
+      }
     },
     "35": {
-      "label": "Keteltype"
+      "label": "Keteltype",
+      "options": {
+        "0": "Combi",
+        "1": "Solo"
+      }
     },
     "36": {
-      "label": "Functie blokkerende ingang"
+      "label": "Functie blokkerende ingang",
+      "options": {
+        "1": "Blokkering zonder vorstbeveiliging",
+        "2": "Blokkering met vorstbeveiliging",
+        "3": "Vergrendeling met vorstbeveiliging"
+      }
+    },
+    "37": {
+      "label": "Minimum gasdrukschakelaar (GpS)",
+      "options": {
+        "0": "Niet aangesloten",
+        "1": "Aangesloten"
+      }
+    },
+    "38": {
+      "label": "Warmteterugwinunit (HRU)",
+      "options": {
+        "0": "Niet aangesloten",
+        "1": "Aangesloten"
+      }
+    },
+    "39": {
+      "label": "Rookgasklep looptijd",
+      "unit": "s",
+      "allows255": true
+    },
+    "40": {
+      "label": "Functie storingsrelais",
+      "options": {
+        "0": "Bedrijfsmelding",
+        "1": "Alarmmelding",
+        "2": "Externe driewegklep"
+      }
     },
     "41": {
-      "label": "Servicemelding"
+      "label": "Servicemelding (niet wijzigen)"
     },
     "42": {
-      "label": "Service bedrijfsuren"
+      "label": "Service bedrijfsuren (niet wijzigen)"
     },
     "43": {
-      "label": "Service branduren"
+      "label": "Service branduren (niet wijzigen)"
     },
     "44": {
-      "label": "Ontluchtingscyclus"
+      "label": "Ontluchtingscyclus",
+      "options": {
+        "0": "Uit",
+        "1": "Standenpomp",
+        "2": "Modulerende pomp"
+      }
     }
   }
 }

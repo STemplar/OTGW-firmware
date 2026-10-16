@@ -95,9 +95,13 @@ substatus 0 heeft bijvoorbeeld niet bij iedere status dezelfde betekenis.
   in de handleiding bewijst die bytekoppeling niet. Het bevestigde wiscommando
   Write-Data(1,255) wordt door deze uitbreiding niet aangeboden of uitgevoerd.
 - ID133 heeft de opgegeven u8/u8-presentatie. Er wordt geen detectie-write gestart.
-- TSP-indexen zijn gescheiden van hun waarden en van fabrieksinstellingen. De
-  ondubbelzinnige bronlabels zijn opgenomen; historisch tegenstrijdige indexlabels
-  blijven zonder betekenis. Een ontvangen waarde wordt niet door een default vervangen.
+- TSP-index = P-nummer, bevestigd met een echte uitlezing van een Tzerra M 28c Plus.
+  De labels komen uit handleiding 7618573 v.10, Tab.34 (P1–P5, P17–P21, P23–P44;
+  P22 bestaat in deze serie niet). P27 en P30 zijn signed (241 = -15, 246 = -10);
+  keuzeparameters tonen de handleidingtekst. Een ontvangen waarde wordt niet door
+  een default vervangen.
+- TSP-waarde 255 betekent 'parameter niet ondersteund' en wordt niet getoond, behalve
+  waar het profiel 255 als echte instelling kent (signed -1, of P39 met bereik 0–255).
 - FHB-index en FHB-waarde worden bewaard. Een koppeling van FHB-waarden aan
   blokkeringscodes of E-codes wordt niet als bewezen gepresenteerd.
 - Zonder toepasbare betekenis blijft de payload beschikbaar als **Hex / Binary**.

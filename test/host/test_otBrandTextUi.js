@@ -28,6 +28,16 @@ assert(nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));asse
 assert(nodes.boilerOperating.textContent.includes('No active fault reported'));assert(!nodes.boilerOperating.textContent.includes('PSU'));
 assert(nodes.boilerParameters.textContent.includes('Aanvoertemperatuur: TSet'));assert(findText(nodes.boilerParameters,'0'));
 assert(nodes.boilerHistory.textContent.includes('Meaning not yet confirmed'));
+// Live Tzerra M 28c Plus readout: 255 = unsupported is hidden, signed values and option texts shown.
+const live='1:80,2:60,3:1,4:2,5:1,'+[6,7,8,9,10,11,12,13,14,15,16].map(i=>i+':255').join(',')+',17:15,18:56,21:23,22:255,24:35,27:241,30:246,32:20,39:255,44:2';
+ctx.renderBoilerDetails({...d,tsp_entries:live});const tp=nodes.boilerParameters.textContent;
+assert(!tp.includes('TSP 6')&&!tp.includes('TSP 16')&&!tp.includes('TSP 22')&&!tp.includes('Minimum waterdruk'));
+assert(tp.includes('TSP 5')&&tp.includes('Pompnadraaitijd')&&tp.includes('Startvolumestroom')&&tp.includes('Setpuntverhoging boiler'));
+assert(findText(nodes.boilerParameters,'-15')&&findText(nodes.boilerParameters,'-10'));
+assert(tp.includes('TSP 39')&&findText(nodes.boilerParameters,'255'),'P39 0-255 s keeps a real 255');
+assert(tp.includes('Ketelregeling / SWW: CV aan / SWW aan')&&tp.includes('Ontluchtingscyclus: Modulerende pomp'));
+ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});assert(nodes.boilerParameters.textContent.includes('No supported parameters reported'));
+ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(!nodes.boilerParameters.textContent.includes('TSP 6'));
 ctx.boilerRawFormat='binary';ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.textContent.includes('0000000000000010'));
 ctx.renderBoilerDetails({...d,profile:'generic'});assert(!nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(!findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 // Context-dependent substatus zero must use the status/substatus pair.

@@ -7372,7 +7372,7 @@ function boilerSegment(target, notation) {
   var text = String(notation);
   var segments = { '0':'abcdef','1':'bc','2':'abdeg','3':'abcdg','4':'bcfg','5':'acdfg',
     '6':'acdefg','7':'abc','8':'abcdefg','9':'abcdfg',A:'abcefg',B:'cdefg',C:'adef',
-    D:'bcdeg',E:'adefg',F:'aefg',d:'bcdeg',U:'bcdef',o:'cdeg',e:'adefg' };
+    D:'bcdeg',E:'adefg',F:'aefg',d:'bcdeg',U:'bcdef',o:'cdeg',e:'adefg','-':'g' };
   var group = document.createElement('span'); group.className = 'boiler-lcd';
   group.setAttribute('role','img'); group.setAttribute('aria-label', text);
   Array.from(text).forEach(function(glyph) {
@@ -7458,9 +7458,22 @@ function renderBoilerDetails(data) {
   ['Parameters','History'].forEach(function(kind) {
     var container = document.getElementById('boiler' + kind); container.textContent = '';
     var entries = data[kind === 'Parameters' ? 'tsp_entries' : 'fhb_entries'] || '';
+    var hidden = 0;
+    if (kind === 'Parameters' && entries) {
+      // A boiler answers TSP value 255 for a parameter it does not support. Hide those,
+      // unless the model profile says 255 is a real setting (signed -1, or a 0-255 range).
+      entries = entries.split(',').filter(function(entry) {
+        var parts = entry.split(':');
+        if (Number(parts[1]) !== 255) return true;
+        var parameter = profile && profile.parameters ? profile.parameters[Number(parts[0])] : null;
+        if (parameter && (parameter.signed || parameter.allows255)) return true;
+        hidden++; return false;
+      }).join(',');
+    }
     if (!entries) {
       var sizeId = kind === 'Parameters' ? 10 : 12;
       var empty = data['support_' + (sizeId + 1)] === 2 ? 'Not supported by this boiler' :
+        hidden > 0 ? 'No supported parameters reported' :
         data['value_' + sizeId] !== undefined && (data['value_' + sizeId] >> 8) === 0 ? 'No entries reported' :
         data['support_' + sizeId] === 1 ? 'No entries received' : boilerUnknown(data,sizeId);
       boilerRow(container, 'Readout', empty, '', false); return;
@@ -7469,9 +7482,12 @@ function renderBoilerDetails(data) {
       var parts = entry.split(':'), index = Number(parts[0]), value = Number(parts[1]);
       if (parts.length !== 2 || !Number.isInteger(index) || !Number.isInteger(value)) return;
       var parameter = profile && kind === 'Parameters' ? profile.parameters[index] : null;
+      var shown = parameter && parameter.signed && value > 127 ? value - 256 : value;
+      var meaning = parameter ? parameter.label : 'Meaning not yet confirmed';
+      if (parameter && parameter.options && parameter.options[shown] !== undefined) meaning += ': ' + parameter.options[shown];
+      else if (parameter && parameter.unit) meaning += ' (' + parameter.unit + ')';
       boilerRow(container, (kind === 'Parameters' ? 'TSP ' : 'Entry ') + index,
-        kind === 'Parameters' ? String(value) : boilerRaw(value),
-        parameter ? parameter.label : 'Meaning not yet confirmed', kind === 'Parameters');
+        kind === 'Parameters' ? String(shown) : boilerRaw(value), meaning, kind === 'Parameters');
     });
   });
   document.querySelectorAll('[data-boiler-read]').forEach(function(button) {
