@@ -7313,14 +7313,19 @@ function formatBoilerText(data, key) {
 }
 function renderBoilerInfo(data) {
   renderBoilerDetails(data);
+  var fields = {};
+  ['brand', 'version', 'serial'].forEach(function(key) { fields[key] = formatBoilerText(data, key); });
+  var statusUsed = ['brand', 'version', 'serial'].some(function(key) {
+    return fields[key].value !== BOILER_NOT_SUPPORTED && fields[key].status !== '';
+  });
   ['brand', 'version', 'serial'].forEach(function(key) {
-    var field = formatBoilerText(data, key);
+    var field = fields[key];
     var value = document.getElementById('boiler-' + key + '-value');
     var status = document.getElementById('boiler-' + key + '-status');
     var row = document.getElementById('boiler-' + key + '-row');
     if (row) row.style.display = field.value === BOILER_NOT_SUPPORTED ? 'none' : ''; // unsupported: leave the row out
     if (value) value.textContent = field.value;
-    if (status) status.textContent = field.status;
+    if (status) { status.textContent = field.status; status.style.display = statusUsed ? '' : 'none'; }
   });
 }
 function startBoilerInfoPolling() {
@@ -7371,13 +7376,20 @@ function boilerRaw(value) {
 }
 // Rows use the same table layout as Device info (devinforow / devinfocolumn1 / devinfocolumn2).
 var BOILER_NOT_SUPPORTED = 'Not supported by this boiler';
+// Three columns: label | value | meaning. The third column is hidden when no row in the table uses it.
 function boilerRow(container, label, value, meaning) {
   if (value === BOILER_NOT_SUPPORTED) return; // unsupported items are left out
   var row = document.createElement('div'); row.className = 'devinforow';
-  var title = document.createElement('div'); title.className = 'devinfocolumn1'; title.textContent = label;
-  var field = document.createElement('div'); field.className = 'devinfocolumn2';
-  field.textContent = String(value) + (meaning ? ' \u2014 ' + meaning : '');
-  row.appendChild(title); row.appendChild(field); container.appendChild(row);
+  [label, value, meaning || ''].forEach(function(text, i) {
+    var cell = document.createElement('div'); cell.className = 'devinfocolumn' + (i + 1);
+    cell.textContent = String(text); row.appendChild(cell);
+  });
+  container.appendChild(row);
+}
+function boilerFinishTable(container) {
+  var rows = Array.prototype.slice.call(container.children || []);
+  var used = rows.some(function(row) { return row.children[2] && row.children[2].textContent !== ''; });
+  rows.forEach(function(row) { if (row.children[2]) row.children[2].style.display = used ? '' : 'none'; });
 }
 function boilerUnknown(data, id) {
   return data['support_' + id] === 2 ? BOILER_NOT_SUPPORTED : 'Support not yet determined';
@@ -7472,13 +7484,16 @@ function renderBoilerDetails(data) {
       if (kind !== 'Parameters') { boilerRow(container, 'Entry ' + index, boilerRaw(value), 'Meaning not yet confirmed'); return; }
       var parameter = profile && profile.parameters ? profile.parameters[index] : null;
       if (!parameter) { boilerRow(container, 'TSP ' + index, String(value), profile ? 'Meaning not yet confirmed' : ''); return; }
-      // Manual view: P-number and description on the left, the value as the manual expresses it on the right.
+      // Manual view, as in the manual's parameter table: P-number | description | value.
       var shown = parameter.signed && value > 127 ? value - 256 : value;
       var unit = parameter.unit ? ' ' + parameter.unit : '';
       var text = parameter.options && parameter.options[shown] !== undefined ? shown + ' (' + parameter.options[shown] + ')' : shown + unit;
       if (parameter.default !== undefined && parameter.default !== shown) text += ' \u00b7 fabrieksinstelling: ' + parameter.default + unit;
-      boilerRow(container, 'P' + index + ' ' + parameter.label, text, '');
+      boilerRow(container, 'P' + index, parameter.label, text);
     });
+  });
+  ['boilerIdentityDetails', 'boilerOperating', 'boilerOEM', 'boilerParameters', 'boilerHistory'].forEach(function(id) {
+    var table = document.getElementById(id); if (table) boilerFinishTable(table);
   });
   document.querySelectorAll('[data-boiler-read]').forEach(function(button) {
     button.disabled = !!data.busy || (button.dataset.boilerRead === 'oem' && !data.oem_readable);

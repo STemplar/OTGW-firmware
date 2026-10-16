@@ -21,6 +21,9 @@ ctx.boilerProfileData=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/tzerra-
 d={profile:'remeha-tzerra-m-28c-plus',profile_file:'tzerra-m-28c-plus.json',value_115:0x031e,value_131:0x0806,value_132:2,value_133:0xff01,value_0:0,value_5:0,value_3:11,value_127:0x0d10,tsp_entries:'1:80,21:0',fhb_entries:'0:11',oem_allowed:true,oem_readable:true};
 ctx.renderBoilerDetails(d);
 function findText(n,text){return n.textContent.includes(text);}
+// One string per table row, cells joined with '|', so column positions are checked too.
+function rowsOf(n){return n.children.map(r=>r.children.map(c=>c.textContent).join('|'));}
+function hasRow(n,text){return rowsOf(n).includes(text);}
 assert(findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 assert(!nodes.boilerOEM.textContent.includes('0x0806'));
 assert(nodes.boilerOEM.textContent.includes('0x0002'));
@@ -30,13 +33,13 @@ assert(nodes.boilerParameters.textContent.includes('Aanvoertemperatuur: TSet'));
 assert(nodes.boilerHistory.textContent.includes('Meaning not yet confirmed'));
 // Live Tzerra M 28c Plus readout: 255 = unsupported is hidden, signed values and option texts shown.
 const live='1:80,2:60,3:1,4:2,5:1,'+[6,7,8,9,10,11,12,13,14,15,16].map(i=>i+':255').join(',')+',17:15,18:56,21:23,22:255,24:35,27:241,30:246,32:20,39:255,44:2';
-ctx.renderBoilerDetails({...d,tsp_entries:live});const tp=nodes.boilerParameters.textContent;
-assert(!tp.includes('TSP ')&&!tp.includes('P6 ')&&!tp.includes('P16 ')&&!tp.includes('P22 ')&&!tp.includes('Minimum waterdruk'));
-assert(tp.includes('P5 Pompnadraaitijd')&&tp.includes('Startvolumestroom')&&tp.includes('Setpuntverhoging boiler'));
+ctx.renderBoilerDetails({...d,tsp_entries:live});const tp=nodes.boilerParameters.textContent;const P=nodes.boilerParameters;
+assert(!tp.includes('TSP ')&&!rowsOf(P).some(r=>/^P(6|16|22)\|/.test(r))&&!tp.includes('Minimum waterdruk'));
+assert(hasRow(P,'P5|Pompnadraaitijd|1 min')&&tp.includes('Startvolumestroom')&&tp.includes('Setpuntverhoging boiler'));
 assert(findText(nodes.boilerParameters,'-15')&&findText(nodes.boilerParameters,'-10'));
-assert(tp.includes('P39 Rookgasklep looptijd')&&tp.includes('255 s'),'P39 0-255 s keeps a real 255');
-assert(tp.includes('P3 Ketelregeling / SWW')&&tp.includes('1 (CV aan / SWW aan)')&&tp.includes('2 (Modulerende pomp)'));
-assert(tp.includes('fabrieksinstelling: 39'),'P17=15 differs from 28c default');assert(!/80 °C · fabriek/.test(tp));
+assert(hasRow(P,'P39|Rookgasklep looptijd|255 s · fabrieksinstelling: 0 s'),'P39 0-255 s keeps a real 255');
+assert(hasRow(P,'P3|Ketelregeling / SWW|1 (CV aan / SWW aan)')&&hasRow(P,'P44|Ontluchtingscyclus|2 (Modulerende pomp)'));
+assert(hasRow(P,'P17|Maximum volumestroom van de ventilator (CV)|15 · fabrieksinstelling: 39'),'P17=15 differs from 28c default');assert(hasRow(P,'P1|Aanvoertemperatuur: TSet|80 °C'));
 ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.textContent.includes('Waterdruk te laag'));
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});assert(nodes.boilerParameters.textContent.includes('No supported parameters reported'));
 ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(nodes.boilerParameters.textContent.includes('TSP 6'),'OT 4.2: generic READ-ACK 255 is a valid value');
@@ -52,8 +55,15 @@ ctx.renderBoilerDetails({...d,profile:'remeha-tzerra-ace-matic'});assert(!nodes.
 ctx.boilerProfileData=tz;
 // Manual view: P-number + description, value with unit/option; no TSP label, no 7-segment, unsupported rows omitted.
 ctx.renderBoilerDetails({...d,tsp_entries:'1:80,3:1,17:15,27:241'});const pv=nodes.boilerParameters.textContent;
-assert(pv.includes('P1 Aanvoertemperatuur: TSet')&&pv.includes('80 °C')&&!pv.includes('TSP 1'));
-assert(pv.includes('1 (CV aan / SWW aan)')&&pv.includes('-15 °C')&&pv.includes('15 · fabrieksinstelling: 39'));
+const Q=nodes.boilerParameters;assert(hasRow(Q,'P1|Aanvoertemperatuur: TSet|80 °C')&&!pv.includes('TSP 1'));
+assert(hasRow(Q,'P3|Ketelregeling / SWW|1 (CV aan / SWW aan)')&&hasRow(Q,'P27|Instelpunt van de stooklijn (minimum buitentemperatuur)|-15 °C'));
+// Status, substatus and dF/dU: label | value | meaning in three columns.
+ctx.renderBoilerDetails({...d,value_115:0x0000,value_131:0x2401});
+assert(hasRow(nodes.boilerOperating,'Status|0|Rust')&&hasRow(nodes.boilerOperating,'Substatus|0|Rust'));
+assert(hasRow(nodes.boilerOEM,'Configuration|dF: 36 dU: 1|Tzerra M 28c Plus'));
+// A table without any meaning hides its third column.
+ctx.renderBoilerDetails({...d,profile:'generic',value_127:0x0d10});
+assert(nodes.boilerIdentityDetails.children.every(r=>r.children[2].style.display==='none'));
 assert(nodes.boilerParameters.children.every(r=>r.className==='devinforow'));
 ctx.renderBoilerDetails({...d,value_131:undefined,support_131:2});assert(!nodes.boilerOEM.textContent.includes('Not supported'));
 ctx.renderBoilerInfo({...d,brand_support:'unsupported'});assert(nodes['boiler-brand-row'].style.display==='none');

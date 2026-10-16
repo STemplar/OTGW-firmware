@@ -21,11 +21,14 @@ Nederlandse qSense-lookup en bijbehorende Tzerra-documentatie. Er worden geen
 zelfbedachte Engelse vertalingen gebruikt. Een geverifieerde Engelse brontabel
 kan later als afzonderlijk profielbestand worden toegevoegd.
 
-Alle regels gebruiken dezelfde tabel als **Device info** (`devinforow`,
-`devinfocolumn1`, `devinfocolumn2`): links het label, rechts de waarde in gewone tekst.
-Er is geen 7-segmentweergave. Parameters met een profiel staan als in de handleiding:
-links `P1 Aanvoertemperatuur: TSet`, rechts `80 °C`, of bij een keuzeparameter
-`1 (CV aan / SWW aan)`; wijkt de waarde af, dan volgt `· fabrieksinstelling: 39`.
+Alle regels gebruiken de tabelstijl van **Device info** (`devinforow`), in drie
+kolommen waar dat nodig is: label | waarde | betekenis (bijv. `Status | 0 | Rust`,
+`Configuration | dF: 36 dU: 1 | Tzerra M 28c Plus`). Heeft geen enkele regel van een
+tabel een betekenis, dan wordt de derde kolom verborgen. Er is geen 7-segmentweergave.
+Parameters met een profiel volgen de parametertabel van de handleiding:
+`P1 | Aanvoertemperatuur: TSet | 80 °C`, bij een keuzeparameter
+`P3 | Ketelregeling / SWW | 1 (CV aan / SWW aan)`; wijkt de waarde af, dan volgt
+`· fabrieksinstelling: 39`.
 Zonder profiel blijft het `TSP n` met de ruwe waarde. Rijen waarvan de ketel
 UNKNOWN-DATAID gaf (**Not supported by this boiler**) worden weggelaten, ook bij
 merk, versie en serienummer. De profielregel staat direct onder de kop Boiler info.
