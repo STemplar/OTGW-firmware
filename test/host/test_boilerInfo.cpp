@@ -67,6 +67,8 @@ int main(){
  for(unsigned id=131;id<=133;++id){assert(o.next(1000+(id-131)*2000,true,cmd,sizeof(cmd)));char expected[12];snprintf(expected,sizeof(expected),"PM=%u",id);assert(!strcmp(cmd,expected));reply(o,id,0,1,1001+(id-131)*2000);}
  assert(!o.next(7000,true,cmd,sizeof(cmd))&&!o.busy);
  assert(!boilerOEMReadAllowed(173,210)&&boilerOEMReadAllowed(173,220));
+ { BoilerInfo q;reply(q,3,0,2);assert(!q.oemAllowed()&&!q.oemReadable()); // member 2: memory dump, excluded
+   for(unsigned id=128;id<=202;++id) assert(!boilerOEMReadAllowed(2,id)); }
  // Loss of transport cannot keep a job busy forever.
  assert(o.start(BoilerInfo::Operating,10000));
  assert(!o.next(370000,false,cmd,sizeof(cmd))&&!o.busy);

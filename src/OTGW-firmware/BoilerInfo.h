@@ -33,7 +33,7 @@ public:
     if (!has(3)) return false;
     // Observed slave member IDs with OEM read traffic. Not brand-name guesses.
     switch (values[3] & 255) {
-      case 2: case 4: case 5: case 8: case 11: case 27: case 33:
+      case 4: case 5: case 8: case 11: case 27: case 33:
       case 131: case 161: case 173: case 211: return true;
       default: return false;
     }
