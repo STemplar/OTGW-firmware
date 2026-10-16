@@ -1,7 +1,7 @@
 /* 
 ***************************************************************************  
 **  Program  : restAPI
-**  Version  : v1.7.8-beta.1
+**  Version  : v1.7.8-beta.2
 **
 **  Copyright (c) 2021-2026 Robert van den Breemen
 **     based on Framework ESP8266 from Willem Aandewiel
@@ -1013,7 +1013,23 @@ static bool checkApiRateLimit(const char* words[], uint8_t wc, HTTPMethod method
   return true;
 }
 
+static void handleBoiler(const char* words[], uint8_t wc, HTTPMethod method, const char* originalURI) {
+  if (wc == 5 && strcmp_P(words[4], PSTR("info")) == 0) {
+    if (method != HTTP_GET) { sendApiMethodNotAllowed(F("GET")); return; }
+    sendBoilerInfoV2();
+  } else if (wc == 6 && strcmp_P(words[4], PSTR("read")) == 0) {
+    if (method != HTTP_POST) { sendApiMethodNotAllowed(F("POST")); return; }
+    if (!checkHttpAuth()) return;
+    if (!startBoilerInfoRead(words[5])) { sendApiError(409, F("Read unavailable, busy, or profile not applicable")); return; }
+    sendCorsOriginHeader();
+    httpServer.send(202, F("application/json"), F("{\"status\":\"queued\"}"));
+  } else sendApiNotFound(originalURI);
+}
+
+static const char kRouteBoiler[] PROGMEM = "boiler";
+
 static const ApiRoute kV2Routes[] = {
+  { kRouteBoiler,     handleBoiler },
   { kRouteHealth,     handleHealth },
   { kRouteSettings,   handleSettings },
   { kRouteSensors,    handleSensors },

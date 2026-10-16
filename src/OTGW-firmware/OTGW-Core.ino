@@ -1,7 +1,13 @@
+#include "OTBrandText.h"
+#include "BoilerInfo.h"
+
+static OTBrandText otBrandText;
+static BoilerInfo boilerInfo;
+
 /* 
 ***************************************************************************  
 **  Program  : OTGW-Core.ino
-**  Version  : v1.7.8-beta.1
+**  Version  : v1.7.8-beta.2
 **
 **  Copyright (c) 2021-2026 Robert van den Breemen
 **  Borrowed from OpenTherm library from: 
@@ -4324,6 +4330,8 @@ void processOT(const char *buf, int len){
     memcpy(OTdata.buf, buf, len);                     // copy the raw message to the buffer
     OTdata.len = len;                                 // set the length of the message  
     if (sscanf(bufval, "%8x", &value) != 1) return;    // extract the value, abort on parse failure
+    otBrandText.observe(buf[0], value, millis());
+    boilerInfo.observe(buf[0], value, millis());
     OTdata.value = value;                             // store the value
     OTdata.type = (value >> 28) & 0x7;                // byte 1 = take 3 bits that define msg msgType
     OTdata.masterslave = (OTdata.type >> 2) & 0x1;    // MSB from type --> 0 = master and 1 = slave
@@ -5797,3 +5805,124 @@ void saveOtSupportFilesIfDirty() {
 * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 * 
 ***************************************************************************/
+
+// Complete identification texts are retained. Failed publishes remain pending.
+void publishOTBrandTexts() {
+  static uint32_t lastHeartbeat = 0;
+  const uint32_t now = millis();
+  if (static_cast<uint32_t>(now - lastHeartbeat) >= 60000U) {
+    lastHeartbeat = now;
+    for (uint8_t i = 0; i < 3; ++i) {
+      if (otBrandText.texts[i].ready) otBrandText.texts[i].dirty = true;
+    }
+  }
+  for (uint8_t i = 0; i < 3; ++i) {
+    OTBrandText::Text& text = otBrandText.texts[i];
+    if (!text.clearPending && (!text.ready || !text.dirty)) continue;
+    const __FlashStringHelper* topic = i == 0 ? F("Brand_text") :
+      i == 1 ? F("BrandVersion_text") : F("BrandSerialNumber_text");
+    if (text.clearPending) {
+      if (sendMQTTData(topic, "", true)) text.clearPending = false;
+      return;
+    }
+    if (sendMQTTData(topic, text.complete, true)) {
+      text.dirty = false;
+      DebugTf(PSTR("Identification ID%u: %s\r\n"), 93U + i, text.complete);
+    }
+    return;
+  }
+}
+
+void markOTBrandTextsPending() {
+  for (uint8_t i = 0; i < 3; ++i) {
+    if (otBrandText.texts[i].support == OTBrandText::Support::Unsupported) otBrandText.texts[i].clearPending = true;
+    if (otBrandText.texts[i].ready) otBrandText.texts[i].dirty = true;
+  }
+}
+
+// Device-specific information is separate from PIC/ESP diagnostics.
+void sendBoilerInfoV2() {
+  sendStartJsonMap(F("boiler"));
+  for (uint8_t i = 0; i < 3; ++i) {
+    char characters[OTBrandText::Capacity + 1];
+    char mask[OTBrandText::Capacity + 1];
+    char key[32];
+    uint8_t count = 0;
+    bool finished = false;
+    otBrandText.snapshot(i, characters, mask, count, finished);
+    const char* prefix = i == 0 ? "brand" : i == 1 ? "version" : "serial";
+    snprintf(key, sizeof(key), "%s_text", prefix);
+    sendJsonMapEntry(key, characters);
+    snprintf(key, sizeof(key), "%s_mask", prefix);
+    sendJsonMapEntry(key, mask);
+    snprintf(key, sizeof(key), "%s_received", prefix);
+    sendJsonMapEntry(key, static_cast<uint32_t>(count));
+    snprintf(key, sizeof(key), "%s_expected", prefix);
+    sendJsonMapEntry(key, static_cast<uint32_t>(otBrandText.texts[i].length));
+    snprintf(key, sizeof(key), "%s_support", prefix);
+    const OTBrandText::Support support = otBrandText.texts[i].support;
+    sendJsonMapEntry(key, support == OTBrandText::Support::Unsupported ? "unsupported" :
+      support == OTBrandText::Support::Supported ? "supported" : "unknown");
+    snprintf(key, sizeof(key), "%s_complete", prefix);
+    sendJsonMapEntry(key, finished);
+  }
+  sendJsonMapEntry(F("busy"), boilerInfo.busy);
+  sendJsonMapEntry(F("read_status"), boilerInfo.result);
+  sendJsonMapEntry(F("profile"), boilerInfo.tzerra() ? "remeha-tzerra-m-28c-plus" : "generic");
+  sendJsonMapEntry(F("oem_allowed"), boilerInfo.oemAllowed());
+  sendJsonMapEntry(F("oem_readable"), boilerInfo.oemReadable());
+  // Known scalar formats remain numeric; interpretation is profile-specific in the UI.
+  const uint8_t ids[] = {0,2,3,5,10,11,12,13,74,103,115,125,127,131,132,133};
+  for (uint8_t id : ids) {
+    char key[20];
+    snprintf(key, sizeof(key), "value_%u", id);
+    if (boilerInfo.has(id)) sendJsonMapEntry(key, uint32_t(boilerInfo.values[id]));
+    snprintf(key, sizeof(key), "support_%u", id);
+    sendJsonMapEntry(key, uint32_t(boilerInfo.support[id]));
+  }
+  for (uint16_t id = 128; id < 256; ++id) {
+    if (id == 131 || id == 132 || id == 133 || boilerInfo.support[id] == BoilerInfo::Unknown) continue;
+    char key[20]; snprintf(key, sizeof(key), "support_%u", id);
+    sendJsonMapEntry(key, uint32_t(boilerInfo.support[id]));
+    if (boilerInfo.has(id)) {
+      snprintf(key, sizeof(key), "value_%u", id);
+      sendJsonMapEntry(key, uint32_t(boilerInfo.values[id]));
+    }
+  }
+  static char entries[2049];
+  for (uint8_t kind = 0; kind < 2; ++kind) {
+    size_t used = 0;
+    const uint8_t* bitmap = kind ? boilerInfo.fhbSeen : boilerInfo.tspSeen;
+    const uint8_t* values = kind ? boilerInfo.fhb : boilerInfo.tsp;
+    for (uint16_t i = 0; i < 256; ++i) {
+      if (!(bitmap[i >> 3] & (1U << (i & 7)))) continue;
+      const int n = snprintf(entries + used, sizeof(entries) - used, "%s%u:%u", used ? "," : "", i, values[i]);
+      if (n < 0 || size_t(n) >= sizeof(entries) - used) break;
+      used += n;
+    }
+    entries[used] = '\0';
+    sendJsonMapEntry(kind ? "fhb_entries" : "tsp_entries", entries);
+  }
+  sendEndJsonMap(F("boiler"));
+}
+
+void loopBoilerInfo() {
+  char command[12];
+  const bool ready = state.otgw.bOnline && state.otgw.bGatewayModeKnown && state.otgw.bGatewayMode &&
+    !state.otgw.bPSmode && !state.debug.bOTGWSimulation && cmdQueueSize == 0;
+  if (boilerInfo.next(millis(), ready, command, sizeof(command)))
+    addOTWGcmdtoqueue(command, strlen(command), true);
+}
+
+bool startBoilerInfoRead(const char* group) {
+  if (!state.otgw.bOnline || !state.otgw.bGatewayModeKnown || !state.otgw.bGatewayMode ||
+      state.otgw.bPSmode || state.debug.bOTGWSimulation) return false;
+  BoilerInfo::Group selected;
+  if (!strcmp(group, "identification")) selected = BoilerInfo::Identification;
+  else if (!strcmp(group, "operating")) selected = BoilerInfo::Operating;
+  else if (!strcmp(group, "parameters")) selected = BoilerInfo::Parameters;
+  else if (!strcmp(group, "history")) selected = BoilerInfo::History;
+  else if (!strcmp(group, "oem")) selected = BoilerInfo::OEM;
+  else return false;
+  return boilerInfo.start(selected, millis());
+}

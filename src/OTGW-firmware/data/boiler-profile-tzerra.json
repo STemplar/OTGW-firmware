@@ -1,0 +1,174 @@
+{
+  "id": "remeha-tzerra-m-28c-plus",
+  "name": "Remeha Tzerra M 28c Plus",
+  "language": "nl",
+  "member": 11,
+  "product": 13,
+  "version": 16,
+  "source": "User qSense lookup; Tzerra M Plus installation/service manual 7618573 v05 (2015-04-09)",
+  "status": {
+    "0": "Rust",
+    "1": "Ketel start (warmtevraag)",
+    "2": "Brander start",
+    "3": "Branden op CV-bedrijf",
+    "4": "SWW-bedrijf actief",
+    "5": "Branderstop",
+    "6": "Ketelstop (einde warmtevraag)",
+    "8": "Regelstop",
+    "17": "Ontluchten",
+    "9": "Blokkering"
+  },
+  "substatus": {
+    "0:0": "Rust",
+    "1:1": "Anti-pendel",
+    "1:2": "Driewegklep aansturen",
+    "1:3": "Start pomp",
+    "1:4": "Wacht op juiste temperatuur voor branderstart",
+    "2:10": "Open rookgasklep / externe gasklep",
+    "2:11": "Verhogen toerental ventilator",
+    "2:13": "Voorventileren",
+    "2:14": "Wacht op releasesignaal",
+    "2:15": "Brander aan",
+    "2:17": "Voorontsteking",
+    "2:18": "Hoofdontsteking",
+    "2:19": "Vlamdetectie",
+    "2:20": "Tussenventileren",
+    "3:30": "Temperatuurregeling",
+    "3:31": "Begrensde temperatuurregeling (ΔT beveiliging)",
+    "3:32": "Vermogensregeling",
+    "3:33": "Bescherming temperatuurgradiënt niveau 1 (Terugmoduleren)",
+    "3:34": "Bescherming temperatuurgradiënt niveau 2 (Laaglast)",
+    "3:35": "Bescherming temperatuurgradiënt niveau 3 (Blokkering)",
+    "3:36": "Opmoduleren voor vlambeveiliging",
+    "3:37": "Temperatuurstabilisatietijd",
+    "3:38": "Koude start",
+    "4:30": "Temperatuurregeling",
+    "4:31": "Begrensde temperatuurregeling (ΔT beveiliging)",
+    "4:32": "Vermogensregeling",
+    "4:33": "Bescherming temperatuurgradiënt niveau 1 (Terugmoduleren)",
+    "4:34": "Bescherming temperatuurgradiënt niveau 2 (Laaglast)",
+    "4:35": "Bescherming temperatuurgradiënt niveau 3 (Blokkering)",
+    "4:36": "Opmoduleren voor vlambeveiliging",
+    "4:37": "Temperatuurstabilisatietijd",
+    "4:38": "Koude start",
+    "5:40": "Brander uit",
+    "5:41": "Naventileren",
+    "5:42": "Sluit rookgasklep / externe gasklep",
+    "5:43": "Recirculatiebeveiliging",
+    "5:44": "Stop ventilator",
+    "6:60": "Pomp nadraaien",
+    "6:61": "Pomp uit",
+    "6:62": "Driewegklep aansturen",
+    "6:63": "Start anti-pendel",
+    "8:0": "Wacht op branderstart",
+    "8:1": "Anti-pendel",
+    "17:0": "Rust",
+    "17:2": "Driewegklep aansturen",
+    "17:3": "Start pomp",
+    "17:61": "Pomp uit",
+    "17:62": "Driewegklep aansturen"
+  },
+  "faults": {
+    "0": "Parameter storage unit PSU niet gevonden",
+    "1": "Veiligheidsparameters niet in orde",
+    "2": "Aanvoertemperatuursensor kortgesloten",
+    "3": "Aanvoertemperatuursensor open",
+    "4": "Temperatuur warmtewisselaar te laag",
+    "5": "Temperatuur warmtewisselaar te hoog",
+    "6": "Retourtemperatuursensor kortgesloten",
+    "7": "Retourtemperatuursensor open",
+    "8": "Retourtemperatuur te laag",
+    "9": "Retourtemperatuur te hoog",
+    "10": "Te veel verschil tussen aanvoer- en retourtemperatuur",
+    "11": "Te veel verschil tussen aanvoer- en retourtemperatuur",
+    "12": "Temperatuur warmtewisselaar boven normaal bereik (maximaalthermostaat STB)",
+    "14": "5 mislukte branderstarts",
+    "16": "Vals vlamsignaal",
+    "17": "Storing gasklep",
+    "34": "Storing ventilator",
+    "35": "Aanvoer en retour verwisseld",
+    "36": "5x Vlamverlies",
+    "37": "Communicatiefout",
+    "38": "Communicatiefout met de SCU-print",
+    "39": "Blokkerende ingang in vergrendelende mode",
+    "40": "Indien aanwezig: HRU/WTW-unit testfout",
+    "41": "Maximale temperatuur van de automaat overschreden"
+  },
+  "parameters": {
+    "1": {
+      "label": "Aanvoertemperatuur: TSet"
+    },
+    "2": {
+      "label": "Temperatuur SWW: TSet"
+    },
+    "3": {
+      "label": "Ketelregeling / SWW"
+    },
+    "4": {
+      "label": "ECO-stand"
+    },
+    "17": {
+      "label": "Maximum volumestroom van de ventilator (CV)"
+    },
+    "18": {
+      "label": "Maximum volumestroom van de ventilator (SWW)"
+    },
+    "19": {
+      "label": "Minimum volumestroom van de ventilator (CV + SWW)"
+    },
+    "20": {
+      "label": "Minimum volumestroom van de ventilator (offset)"
+    },
+    "22": {
+      "label": "Minimum waterdruk"
+    },
+    "23": {
+      "label": "Maximum aanvoertemperatuur systeem"
+    },
+    "25": {
+      "label": "Instelpunt van de stooklijn (maximum buitentemperatuur)"
+    },
+    "26": {
+      "label": "Instelpunt van de stooklijn (aanvoertemperatuur)"
+    },
+    "27": {
+      "label": "Instelpunt van de stooklijn (minimum buitentemperatuur)"
+    },
+    "28": {
+      "label": "Instelling van het toerental van de pomp (minimale pompsnelheid CV-bedrijf)"
+    },
+    "29": {
+      "label": "Instelling van het toerental van de pomp (maximale pompsnelheid CV-bedrijf)"
+    },
+    "30": {
+      "label": "Temperatuur vorstbeveiliging"
+    },
+    "31": {
+      "label": "Legionellabeveiliging"
+    },
+    "33": {
+      "label": "Inschakeltemperatuur SWW boilersensor"
+    },
+    "34": {
+      "label": "Aansturing externe driewegklep"
+    },
+    "35": {
+      "label": "Keteltype"
+    },
+    "36": {
+      "label": "Functie blokkerende ingang"
+    },
+    "41": {
+      "label": "Servicemelding"
+    },
+    "42": {
+      "label": "Service bedrijfsuren"
+    },
+    "43": {
+      "label": "Service branduren"
+    },
+    "44": {
+      "label": "Ontluchtingscyclus"
+    }
+  }
+}

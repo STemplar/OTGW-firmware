@@ -1,7 +1,7 @@
 /*
 ***************************************************************************  
 **  Program  : Header file: OTGW-Core.h 
-**  Version  : v1.7.8-beta.1
+**  Version  : v1.7.8-beta.2
 **
 **  Copyright (c) 2021-2026 Robert van den Breemen
 **  Borrowed from OpenTherm library from: 
@@ -633,6 +633,9 @@ extern OTOverrideEntry_t otOverrideStore[OVERRIDE_STORE_MAX];
 
 void recordOTOverride(uint8_t id, uint8_t kind, float value);
 bool isOTOverrideActive(const OTOverrideEntry_t &entry);
+
+void loopBoilerInfo();
+bool startBoilerInfoRead(const char* group);
 
 #endif
 

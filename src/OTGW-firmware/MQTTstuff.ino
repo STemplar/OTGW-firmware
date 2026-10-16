@@ -1,7 +1,7 @@
 /* 
 ***************************************************************************  
 **  Program  : MQTTstuff
-**  Version  : v1.7.8-beta.1
+**  Version  : v1.7.8-beta.2
 **
 **  Copyright (c) 2021-2026 Robert van den Breemen
 **      Modified version from (c) 2020 Willem Aandewiel
@@ -1011,6 +1011,7 @@ void handleMQTT()
         DebugTf(PSTR("[HEAP] post-subscribe: free=%u max_block=%u\r\n"), ESP.getFreeHeap(), ESP.getMaxFreeBlockSize());
         sendMQTTversioninfo();
         publishAllPICsettings();
+        markOTBrandTextsPending();
         publishBoilerUnsupportedMsgids();  // TASK-686: republish the retained CSV so HA/dashboards see it after every reconnect.
         clearBoilerUnsupportedDirty();
         DebugTf(PSTR("[HEAP] post-versioninfo: free=%u max_block=%u\r\n"), ESP.getFreeHeap(), ESP.getMaxFreeBlockSize());

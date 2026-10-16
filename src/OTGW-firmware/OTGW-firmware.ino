@@ -1,7 +1,7 @@
 /* 
 ***************************************************************************  
 **  Program  : OTGW-firmware.ino
-**  Version  : v1.7.8-beta.1
+**  Version  : v1.7.8-beta.2
 **
 **  Copyright (c) 2021-2026 Robert van den Breemen
 **
@@ -275,6 +275,7 @@ void doTaskEvery3s(){
   // TASK-1147: PR=E every 3 minutes when the PIC temperature sensor setting is on.
   // Also above the picSettingsCycleActive early-return, which ends after boot.
   pollPicTempSensor();
+  publishOTBrandTexts();
 
   if (!picSettingsCycleActive) return;
   queryNextPICsetting();
@@ -525,6 +526,7 @@ void loop()
     if (DUE(timer1s))                 doTaskEvery1s();
     if (minuteChanged())              doTaskMinuteChanged(); //ADR-064: sole minuteChanged() caller; hour/day/year dispatch lives inside
     loopMQTTDiscovery();
+    loopBoilerInfo();
     evalOutputs();
     evalWebhook();
     handlePendingUpgrade();

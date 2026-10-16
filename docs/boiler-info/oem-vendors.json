@@ -1,0 +1,3766 @@
+{
+  "source": "https://otgw.tclcode.com/matrix.cgi#boilers",
+  "details": "https://otgw.tclcode.com/details.cgi",
+  "date": "2026-10-13",
+  "note": "Per-log correlatie met ID3 LB. Geen universele ID-betekenissen; geen garantie dat alle modellen met hetzelfde member-ID alle genoemde OEM-ID’s ondersteunen. ID0 en255 geven geen betrouwbare algemene vendorregel.",
+  "vendor_allowlist": [
+    {
+      "member_id": 2,
+      "devices": [
+        "Bulex FAS",
+        "Remeha Quinta 28c"
+      ],
+      "read_ids": [
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202
+      ],
+      "write_ids": []
+    },
+    {
+      "member_id": 4,
+      "devices": [
+        "Atag i-Serie",
+        "BAXI Prime 1.24",
+        "Baxi Slim",
+        "Baxi luna 3 Confort HT",
+        "Brötje WGB 2",
+        "Brötje WHBS 22 D",
+        "Elco Euron 24 HG",
+        "Elco Thision 25",
+        "Elco Thision 9",
+        "Elco Thision XL",
+        "Geminox THRi 2-17 DC",
+        "Geminox ZEM 2-17C"
+      ],
+      "read_ids": [
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        189
+      ],
+      "write_ids": [
+        129,
+        130
+      ]
+    },
+    {
+      "member_id": 5,
+      "devices": [
+        "Itho Daalderop WPU4",
+        "Itho Daalderop WPU5G"
+      ],
+      "read_ids": [
+        130,
+        133,
+        134,
+        141,
+        142,
+        143,
+        146,
+        151,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        170,
+        171,
+        172
+      ],
+      "write_ids": [
+        135,
+        140
+      ]
+    },
+    {
+      "member_id": 8,
+      "devices": [
+        "Hoval TopGas Comfort 16KW"
+      ],
+      "read_ids": [],
+      "write_ids": [
+        128
+      ]
+    },
+    {
+      "member_id": 11,
+      "devices": [
+        "Remeha Tzerra Plus"
+      ],
+      "read_ids": [
+        131,
+        132,
+        133
+      ],
+      "write_ids": []
+    },
+    {
+      "member_id": 27,
+      "devices": [
+        "Ferroli BlueHelix HiTech RRT H",
+        "Thermona Therm 25 KDC"
+      ],
+      "read_ids": [
+        128,
+        151
+      ],
+      "write_ids": [
+        130
+      ]
+    },
+    {
+      "member_id": 33,
+      "devices": [
+        "Viessmann Vitodens 100-W",
+        "Viessmann Vitodens 100-W B1HC"
+      ],
+      "read_ids": [
+        128
+      ],
+      "write_ids": []
+    },
+    {
+      "member_id": 131,
+      "devices": [
+        "Nefit Proline NXT HRC 24/CW4",
+        "Nefit Proline NXT HRC 30/CW5",
+        "efit ProlLne NxT HRC 24/CW3 (Bosch)"
+      ],
+      "read_ids": [
+        128
+      ],
+      "write_ids": []
+    },
+    {
+      "member_id": 161,
+      "devices": [
+        "Novaya Thermastage Compact Duo"
+      ],
+      "read_ids": [
+        128,
+        142,
+        143,
+        144,
+        145,
+        148,
+        149,
+        160,
+        161,
+        200
+      ],
+      "write_ids": []
+    },
+    {
+      "member_id": 173,
+      "devices": [
+        "Hajdu HGK-28",
+        "Intergas HRE 28/24 A",
+        "Intergas Kombi Kompakt HRE A 28/24",
+        "Intergas XTend"
+      ],
+      "read_ids": [
+        200,
+        202,
+        204,
+        205,
+        220
+      ],
+      "write_ids": [
+        210,
+        211,
+        215
+      ]
+    },
+    {
+      "member_id": 211,
+      "devices": [
+        "Thermona Therm 23 CLN.A,"
+      ],
+      "read_ids": [
+        128,
+        130,
+        149,
+        150,
+        151,
+        160,
+        161,
+        162,
+        165,
+        173,
+        200,
+        202,
+        203,
+        204
+      ],
+      "write_ids": []
+    }
+  ],
+  "observations": [
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x000f",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x000f",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "read",
+      "marker": "■",
+      "value": "0x02d9",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "read",
+      "marker": "■",
+      "value": "0x02d9",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "read",
+      "marker": "■",
+      "value": "0x9431",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 131,
+      "access": "read",
+      "marker": "■",
+      "value": "0x9068",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 131,
+      "access": "read",
+      "marker": "■",
+      "value": "0x9068",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 132,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0307",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 132,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0307",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0065",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0065",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 134,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 134,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 135,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0003",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 135,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0003",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Atag i-Serie",
+      "member_id": 4,
+      "data_id": 136,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Baxi luna 3 Confort HT",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "BAXI Prime 1.24",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "BAXI Prime 1.24",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "BAXI Prime 1.24",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "BAXI Prime 1.24",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "BAXI Prime 1.24",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 4,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Baxi Slim",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brink Allure B25 HR",
+      "member_id": 0,
+      "data_id": 198,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brink Allure B25 HR",
+      "member_id": 0,
+      "data_id": 199,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brink Allure B25 HR",
+      "member_id": 0,
+      "data_id": 199,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brötje WGB 2",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brötje WGB 2",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brötje WHBS 22 D",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x311f",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 129,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2038",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 130,
+      "access": "read",
+      "marker": "■",
+      "value": "0x38db",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 131,
+      "access": "read",
+      "marker": "■",
+      "value": "0xdbdc",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 132,
+      "access": "read",
+      "marker": "■",
+      "value": "0xdc08",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0x08de",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 134,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0b2c",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 135,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2c18",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 136,
+      "access": "read",
+      "marker": "■",
+      "value": "0x187c",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 137,
+      "access": "read",
+      "marker": "■",
+      "value": "0x7cea",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 138,
+      "access": "read",
+      "marker": "■",
+      "value": "0xea18",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 139,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1808",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 140,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0834",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 141,
+      "access": "read",
+      "marker": "■",
+      "value": "0x8103",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 142,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0300",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 143,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0064",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 144,
+      "access": "read",
+      "marker": "■",
+      "value": "0x6400",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 145,
+      "access": "read",
+      "marker": "■",
+      "value": "0x00b3",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 146,
+      "access": "read",
+      "marker": "■",
+      "value": "0xb316",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 147,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1644",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 148,
+      "access": "read",
+      "marker": "■",
+      "value": "0x4416",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 149,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1644",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 150,
+      "access": "read",
+      "marker": "■",
+      "value": "0x4408",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 151,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0834",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 152,
+      "access": "read",
+      "marker": "■",
+      "value": "0x340a",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 153,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0a03",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 154,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0370",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 155,
+      "access": "read",
+      "marker": "■",
+      "value": "0x700a",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 156,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0a70",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 157,
+      "access": "read",
+      "marker": "■",
+      "value": "0x7064",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 158,
+      "access": "read",
+      "marker": "■",
+      "value": "0x6400",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 159,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 161,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0032",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 162,
+      "access": "read",
+      "marker": "■",
+      "value": "0x3214",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 163,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1400",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 164,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 165,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 166,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 167,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 168,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 169,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 170,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 171,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 172,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 173,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 174,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 175,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 176,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 177,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 178,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 179,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 180,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 181,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 182,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 183,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 184,
+      "access": "read",
+      "marker": "■",
+      "value": "0xdb00",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 185,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 186,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 187,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 188,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 189,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 190,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 191,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0a02",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 192,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0203",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 193,
+      "access": "read",
+      "marker": "■",
+      "value": "0x032f",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 194,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2f3c",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 195,
+      "access": "read",
+      "marker": "■",
+      "value": "0x3c00",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 196,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 197,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 198,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 199,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 201,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Bulex FAS",
+      "member_id": 2,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "efit ProlLne NxT HRC 24/CW3 (Bosch)",
+      "member_id": 131,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0019",
+      "log_column": 0,
+      "opentherm_version_slave": "4.20"
+    },
+    {
+      "device": "Elco Euron 24 HG",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Euron 24 HG",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Euron 24 HG",
+      "member_id": 4,
+      "data_id": 189,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0810",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 4,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 5,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 7,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 4,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 5,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 7,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 9",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 9",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision XL",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1fbd",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision XL",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0306",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Ferroli BlueHelix HiTech RRT H",
+      "member_id": 27,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0003",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Geminox THRi 2-17 DC",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Geminox THRi 2-17 DC",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Geminox ZEM 2-17C",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x033f",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0032",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0009",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 220,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1309",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hajdu HGK-28",
+      "member_id": 173,
+      "data_id": 220,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1309",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Heishamon_3.8",
+      "member_id": 0,
+      "data_id": 255,
+      "access": "read",
+      "marker": "■",
+      "value": "0xff0a",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hitachi RWM-2.0FSN3E",
+      "member_id": null,
+      "data_id": 128,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hitachi RWM-2.0FSN3E",
+      "member_id": null,
+      "data_id": 131,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hoval TopGas Comfort 16KW",
+      "member_id": 8,
+      "data_id": 128,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0222",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x029c",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0026",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0031",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0008",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0006",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 220,
+      "access": "read",
+      "marker": "■",
+      "value": "0x160b",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas HRE 28/24 A",
+      "member_id": 173,
+      "data_id": 220,
+      "access": "read",
+      "marker": "■",
+      "value": "0x170c",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HR",
+      "member_id": null,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HR",
+      "member_id": null,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HR",
+      "member_id": null,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HRE A 28/24",
+      "member_id": 173,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HRE A 28/24",
+      "member_id": 173,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HRE A 28/24",
+      "member_id": 173,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HRE A 28/24",
+      "member_id": 173,
+      "data_id": 220,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1101",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas XTend",
+      "member_id": 173,
+      "data_id": 205,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0008",
+      "log_column": 0,
+      "opentherm_version_slave": "4.10"
+    },
+    {
+      "device": "Intergas XTend",
+      "member_id": 173,
+      "data_id": 210,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": "4.10"
+    },
+    {
+      "device": "Intergas XTend",
+      "member_id": 173,
+      "data_id": 211,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": "4.10"
+    },
+    {
+      "device": "Intergas XTend",
+      "member_id": 173,
+      "data_id": 215,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": "4.10"
+    },
+    {
+      "device": "Inventum Ecolution Modul-AIR SOLO",
+      "member_id": null,
+      "data_id": 206,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 140,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 141,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0124",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 153,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0006",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 154,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0080",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 155,
+      "access": "read",
+      "marker": "■",
+      "value": "0x001e",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 156,
+      "access": "read",
+      "marker": "■",
+      "value": "0x001e",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 157,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0001",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 158,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0a0f",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 170,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 171,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU4",
+      "member_id": 5,
+      "data_id": 172,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 130,
+      "access": "read",
+      "marker": "■",
+      "value": "0x000d",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 130,
+      "access": "read",
+      "marker": "■",
+      "value": "0x000d",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0xa300",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0xae00",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 134,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 134,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 135,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 135,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 141,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0108",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 142,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1200",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 142,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1200",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 143,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1800",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 143,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1800",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 146,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0100",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 146,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0100",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 151,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0018",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 151,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0018",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 154,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0080",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 154,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0080",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 159,
+      "access": "read",
+      "marker": "■",
+      "value": "0x000c",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 159,
+      "access": "read",
+      "marker": "■",
+      "value": "0x000c",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0a00",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1200",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Nefit Proline NXT HRC 24/CW4",
+      "member_id": 131,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Nefit Proline NXT HRC 24/CW4",
+      "member_id": 131,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0028",
+      "log_column": 4,
+      "opentherm_version_slave": "4.20"
+    },
+    {
+      "device": "Nefit Proline NXT HRC 24/CW4",
+      "member_id": 131,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 8,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Nefit Proline NXT HRC 30/CW5",
+      "member_id": 131,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 4,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2e7d",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 142,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0008",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 142,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0008",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 142,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0008",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 143,
+      "access": "read",
+      "marker": "■",
+      "value": "0x54d0",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 143,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1a38",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 143,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1a38",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 144,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 144,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 144,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 145,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 145,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 145,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 148,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0003",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 148,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0002",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 148,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0002",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 149,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0958",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 149,
+      "access": "read",
+      "marker": "■",
+      "value": "0xfda0",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 149,
+      "access": "read",
+      "marker": "■",
+      "value": "0xfda0",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2805",
+      "log_column": 0,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2805",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2805",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2805",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 161,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1200",
+      "log_column": 0,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 161,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1200",
+      "log_column": 1,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 161,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1200",
+      "log_column": 2,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 161,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1200",
+      "log_column": 3,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Novaya Thermastage Compact Duo",
+      "member_id": 161,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0002",
+      "log_column": 0,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1919",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 129,
+      "access": "read",
+      "marker": "■",
+      "value": "0x19db",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 130,
+      "access": "read",
+      "marker": "■",
+      "value": "0xdbdb",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 131,
+      "access": "read",
+      "marker": "■",
+      "value": "0xdbdb",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 132,
+      "access": "read",
+      "marker": "■",
+      "value": "0xdb11",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2233",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 134,
+      "access": "read",
+      "marker": "■",
+      "value": "0x732d",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 135,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2d00",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 136,
+      "access": "read",
+      "marker": "■",
+      "value": "0x007c",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 137,
+      "access": "read",
+      "marker": "■",
+      "value": "0x7cfa",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 138,
+      "access": "read",
+      "marker": "■",
+      "value": "0xfa00",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 139,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0003",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 140,
+      "access": "read",
+      "marker": "■",
+      "value": "0x03e8",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 141,
+      "access": "read",
+      "marker": "■",
+      "value": "0xe803",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 142,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0300",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 143,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0046",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 144,
+      "access": "read",
+      "marker": "■",
+      "value": "0x4600",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 145,
+      "access": "read",
+      "marker": "■",
+      "value": "0x002b",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 146,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2b0f",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 147,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0fa0",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 148,
+      "access": "read",
+      "marker": "■",
+      "value": "0xa009",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 149,
+      "access": "read",
+      "marker": "■",
+      "value": "0x09c4",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 150,
+      "access": "read",
+      "marker": "■",
+      "value": "0xc403",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 151,
+      "access": "read",
+      "marker": "■",
+      "value": "0x03e8",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 152,
+      "access": "read",
+      "marker": "■",
+      "value": "0xe864",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 153,
+      "access": "read",
+      "marker": "■",
+      "value": "0x640a",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 154,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0a02",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 155,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0208",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 156,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0870",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 157,
+      "access": "read",
+      "marker": "■",
+      "value": "0x7024",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 158,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2400",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 159,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 161,
+      "access": "read",
+      "marker": "■",
+      "value": "0x002d",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 162,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2d00",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 163,
+      "access": "read",
+      "marker": "■",
+      "value": "0x004b",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 164,
+      "access": "read",
+      "marker": "■",
+      "value": "0x4b14",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 165,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1400",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 166,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 167,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 168,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 169,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 170,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 171,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 172,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 173,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 174,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 175,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 192,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0202",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 193,
+      "access": "read",
+      "marker": "■",
+      "value": "0x021b",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 194,
+      "access": "read",
+      "marker": "■",
+      "value": "0x1b00",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 195,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0009",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 196,
+      "access": "read",
+      "marker": "■",
+      "value": "0x09c4",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 197,
+      "access": "read",
+      "marker": "■",
+      "value": "0xc400",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 198,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 199,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0027",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 201,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2726",
+      "log_column": 0,
+      "opentherm_version_slave": "2.01"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 131,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2501",
+      "log_column": 2,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 131,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2401",
+      "log_column": 6,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 131,
+      "access": "read",
+      "marker": "■",
+      "value": "0x2401",
+      "log_column": 7,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 132,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0101",
+      "log_column": 2,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 132,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0102",
+      "log_column": 6,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 132,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0101",
+      "log_column": 7,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 6,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Remeha Tzerra Plus",
+      "member_id": 11,
+      "data_id": 133,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 7,
+      "opentherm_version_slave": "3.00"
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0009",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 130,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 149,
+      "access": "read",
+      "marker": "■",
+      "value": "0x000f",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 150,
+      "access": "read",
+      "marker": "■",
+      "value": "0x00ff",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 151,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 160,
+      "access": "read",
+      "marker": "■",
+      "value": "0x3200",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 161,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0032",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 162,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0010",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 165,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0040",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 173,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0201",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0427",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 203,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0107",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 23 CLN.A,",
+      "member_id": 211,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0004",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 25 KDC",
+      "member_id": 27,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0x004b",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 25 KDC",
+      "member_id": 27,
+      "data_id": 130,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Thermona Therm 25 KDC",
+      "member_id": 27,
+      "data_id": 151,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Viessmann Vitodens 100-W",
+      "member_id": 33,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0xef08",
+      "log_column": 7,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Viessmann Vitodens 100-W B1HC",
+      "member_id": 33,
+      "data_id": 128,
+      "access": "read",
+      "marker": "■",
+      "value": "0xef08",
+      "log_column": 4,
+      "opentherm_version_slave": null
+    }
+  ],
+  "device_exceptions_requiring_identification": [
+    {
+      "device": "Brink Allure B25 HR",
+      "member_id": 0,
+      "data_id": 198,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brink Allure B25 HR",
+      "member_id": 0,
+      "data_id": 199,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brink Allure B25 HR",
+      "member_id": 0,
+      "data_id": 199,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Heishamon_3.8",
+      "member_id": 0,
+      "data_id": 255,
+      "access": "read",
+      "marker": "■",
+      "value": "0xff0a",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hitachi RWM-2.0FSN3E",
+      "member_id": null,
+      "data_id": 128,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Hitachi RWM-2.0FSN3E",
+      "member_id": null,
+      "data_id": 131,
+      "access": "write",
+      "marker": "◆",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HR",
+      "member_id": null,
+      "data_id": 200,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HR",
+      "member_id": null,
+      "data_id": 202,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Intergas Kombi Kompakt HR",
+      "member_id": null,
+      "data_id": 204,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Inventum Ecolution Modul-AIR SOLO",
+      "member_id": null,
+      "data_id": 206,
+      "access": "read",
+      "marker": "■",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    }
+  ],
+  "recognised_but_not_proven_valid": [
+    {
+      "device": "Baxi luna 3 Confort HT",
+      "member_id": null,
+      "data_id": 129,
+      "access": "unconfirmed",
+      "marker": "★",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Brötje WGB 2",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Daikin D2CND024A1A",
+      "member_id": 6,
+      "data_id": 129,
+      "access": "unconfirmed",
+      "marker": "?",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Daikin D2CND024A1A",
+      "member_id": 6,
+      "data_id": 166,
+      "access": "unconfirmed",
+      "marker": "?",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Daikin D2CND024A1A",
+      "member_id": 6,
+      "data_id": 176,
+      "access": "unconfirmed",
+      "marker": "?",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": "4.00"
+    },
+    {
+      "device": "Elco Euron 24 HG",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 1,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "★",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "★",
+      "value": "0x0000",
+      "log_column": 3,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 4,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 5,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 6,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 25",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 7,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Elco Thision 9",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Geminox THRi 2-17 DC",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Geminox ZEM 2-17C",
+      "member_id": 4,
+      "data_id": 128,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Geminox ZEM 2-17C",
+      "member_id": 4,
+      "data_id": 129,
+      "access": "unconfirmed",
+      "marker": "★",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Geminox ZEM 2-17C",
+      "member_id": 4,
+      "data_id": 130,
+      "access": "unconfirmed",
+      "marker": "★",
+      "value": "0x0000",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Itho Daalderop WPU5G",
+      "member_id": 5,
+      "data_id": 141,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "0x0100",
+      "log_column": 0,
+      "opentherm_version_slave": null
+    },
+    {
+      "device": "Nefit Proline Eco HRC 24 HR CW4 + INsmart",
+      "member_id": 131,
+      "data_id": 255,
+      "access": "unconfirmed",
+      "marker": "—",
+      "value": "",
+      "log_column": 0,
+      "opentherm_version_slave": "4.20"
+    },
+    {
+      "device": "Remeha Quinta 28c",
+      "member_id": 2,
+      "data_id": 190,
+      "access": "unconfirmed",
+      "marker": "★",
+      "value": "0x0000",
+      "log_column": 2,
+      "opentherm_version_slave": null
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 /*
 ***************************************************************************  
 **  Program  : index.js, part of OTGW-firmware project
-**  Version  : v1.7.8-beta.1
+**  Version  : v1.7.8-beta.2
 **
 **  Copyright (c) 2021-2026 Robert van den Breemen
 **
@@ -376,7 +376,8 @@ function stopTimeUpdates() {
 }
 
 function setActivePageSection(activeId) {
-  ['displayMainPage', 'displaySettingsPage', 'displayDeviceInfo', 'displayPICflash', 'displayWebhookPage', 'displayDiagnosePage'].forEach(function(id) {
+  if (activeId !== 'displayBoilerInfo') stopBoilerInfoPolling();
+  ['displayMainPage', 'displayBoilerInfo', 'displaySettingsPage', 'displayDeviceInfo', 'displayPICflash', 'displayWebhookPage', 'displayDiagnosePage'].forEach(function(id) {
     var section = document.getElementById(id);
     if (!section) return;
     if (id === activeId) section.classList.add('active');
@@ -392,11 +393,13 @@ document.addEventListener('visibilitychange', function () {
   if (!isPageVisible()) {
     // When a tab is merely hidden, stop polling load but keep the OT log socket alive.
     // Reload/navigation teardown is handled by pagehide/beforeunload.
+    stopBoilerInfoPolling();
     stopTimeUpdates();
     stopOTmonitorPolling();
     stopPICsettingsRefreshTimer();
     return;
   }
+  if (isBoilerInfoActive()) startBoilerInfoPolling();
   // When tab becomes visible again, resume UI updates
   if (!flashModeActive) {
     refreshDevTime();
@@ -2955,6 +2958,9 @@ function updateThemeToggle() {
 
 //============================================================================
 function initMainPage() {
+  document.addEventListener('click', function(e) {
+    if (e.target.closest && e.target.closest('.tabBoilerInfo')) boilerinfoPage();
+  });
   console.log("initMainPage()");
   ensureWebkitScrollbarStyles();
 
@@ -3243,6 +3249,8 @@ function settingsPage() {
 } // settingsPage()
 
 function webhookPage() {
+  stopBoilerInfoPolling();
+  document.getElementById("displayBoilerInfo").classList.remove("active");
   disconnectOTLogWebSocket();
   clearInterval(tid);
   refreshDevTime();
@@ -7270,3 +7278,220 @@ function resetWiFiSettingsUI() {
     window.location.href = localURL + '/ResetWireless';
   }
 }
+
+// Boiler info is device information, independent of the PIC debug screen.
+var boilerInfoTimer = null;
+var boilerInfoController = null;
+var boilerInfoGeneration = 0;
+function isBoilerInfoActive() {
+  var page = document.getElementById('displayBoilerInfo');
+  return !!(page && page.classList.contains('active'));
+}
+function stopBoilerInfoPolling() {
+  ++boilerInfoGeneration;
+  if (boilerInfoTimer !== null) clearTimeout(boilerInfoTimer);
+  boilerInfoTimer = null;
+  if (boilerInfoController) boilerInfoController.abort();
+  boilerInfoController = null;
+}
+function formatBoilerText(data, key) {
+  if (data[key + '_support'] === 'unsupported') return {
+    value: 'Not supported by this boiler', status: 'This boiler does not provide this information.'
+  };
+  var text = typeof data[key + '_text'] === 'string' ? data[key + '_text'].slice(0, 50) : '';
+  var mask = typeof data[key + '_mask'] === 'string' ? data[key + '_mask'].slice(0, 50) : '';
+  var received = Number(data[key + '_received']) || 0;
+  var expected = Number(data[key + '_expected']) || 0;
+  var value = '';
+  for (var i = 0; i < text.length; ++i) value += mask[i] === '1' ? text[i] : '\u00b7';
+  return {
+    value: received ? value : 'No data received yet',
+    status: data[key + '_support'] === 'unknown' ? 'Support not yet determined' :
+      data[key + '_complete'] === true ? '' :
+      'Reception incomplete' + (expected ? ' (' + received + '/' + expected + ' characters)' : '')
+  };
+}
+function renderBoilerInfo(data) {
+  renderBoilerDetails(data);
+  ['brand', 'version', 'serial'].forEach(function(key) {
+    var field = formatBoilerText(data, key);
+    var value = document.getElementById('boiler-' + key + '-value');
+    var status = document.getElementById('boiler-' + key + '-status');
+    if (value) value.textContent = field.value;
+    if (status) status.textContent = field.status;
+  });
+}
+function startBoilerInfoPolling() {
+  stopBoilerInfoPolling();
+  var generation = boilerInfoGeneration;
+  function poll() {
+    if (generation !== boilerInfoGeneration || !isBoilerInfoActive() || document.hidden) return;
+    boilerInfoController = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var options = boilerInfoController ? { signal: boilerInfoController.signal } : {};
+    fetch(APIGW + 'v2/boiler/info', options)
+      .then(function(response) {
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        return response.json();
+      }).then(function(payload) {
+        if (generation !== boilerInfoGeneration) return;
+        if (!payload || !payload.boiler) throw new Error('Invalid response');
+        renderBoilerInfo(payload.boiler);
+        var message = document.getElementById('boilerInfoMessage');
+        if (message) message.textContent = '';
+      }).catch(function(error) {
+        if (generation !== boilerInfoGeneration || error.name === 'AbortError') return;
+        var message = document.getElementById('boilerInfoMessage');
+        if (message) message.textContent = 'Refresh failed; the last received data remains visible.';
+      }).then(function() {
+        if (generation !== boilerInfoGeneration) return;
+        boilerInfoController = null;
+        if (isBoilerInfoActive() && !document.hidden) boilerInfoTimer = setTimeout(poll, 5000);
+      });
+  }
+  poll();
+}
+function boilerinfoPage() {
+  disconnectOTLogWebSocket();
+  stopOTmonitorPolling();
+  setActivePageSection('displayBoilerInfo');
+  toggleHidden('adv_dropdown', true);
+  toggleHidden('btnSaveSettings', true);
+  startBoilerInfoPolling();
+}
+window.addEventListener('pagehide', stopBoilerInfoPolling);
+
+// Boiler values and manufacturer descriptions are rendered as text, never HTML.
+var boilerInfoData = null, boilerProfileData = null, boilerRawFormat = 'hex';
+var boilerProfileLoading = false;
+function boilerRaw(value) {
+  return boilerRawFormat === 'binary' ? value.toString(2).padStart(16, '0') :
+    '0x' + value.toString(16).toUpperCase().padStart(4, '0');
+}
+function boilerSegment(target, notation) {
+  target.textContent = '';
+  var text = String(notation);
+  var segments = { '0':'abcdef','1':'bc','2':'abdeg','3':'abcdg','4':'bcfg','5':'acdfg',
+    '6':'acdefg','7':'abc','8':'abcdefg','9':'abcdfg',A:'abcefg',B:'cdefg',C:'adef',
+    D:'bcdeg',E:'adefg',F:'aefg',d:'bcdeg',U:'bcdef',o:'cdeg',e:'adefg' };
+  var group = document.createElement('span'); group.className = 'boiler-lcd';
+  group.setAttribute('role','img'); group.setAttribute('aria-label', text);
+  Array.from(text).forEach(function(glyph) {
+    var cell = document.createElement('span'); cell.setAttribute('aria-hidden','true');
+    if (glyph === ':') cell.className = 'boiler-lcd-colon';
+    else if (glyph === ' ') cell.className = 'boiler-lcd-space';
+    else if (segments[glyph]) {
+      cell.className = 'boiler-lcd-digit';
+      Array.from('abcdefg').forEach(function(segment) {
+        var bar = document.createElement('span');
+        bar.className = 'boiler-lcd-bar ' + segment + (segments[glyph].includes(segment) ? ' on' : '');
+        cell.appendChild(bar);
+      });
+    } else { cell.textContent = glyph; cell.className = 'boiler-lcd-fallback'; }
+    group.appendChild(cell);
+  });
+  target.appendChild(group);
+}
+function boilerRow(container, label, notation, meaning, segment) {
+  var row = document.createElement('div'); row.className = 'boiler-info-row';
+  var title = document.createElement('div'); title.className = 'boiler-info-label'; title.textContent = label;
+  var field = document.createElement('div'); field.className = 'boiler-info-field';
+  var value = document.createElement('div'); value.className = 'boiler-code-value';
+  if (segment) boilerSegment(value, notation); else value.textContent = notation;
+  field.appendChild(value);
+  if (meaning) { var note = document.createElement('span'); note.className = 'boiler-code-meaning'; note.textContent = meaning; field.appendChild(note); }
+  row.appendChild(title); row.appendChild(field); container.appendChild(row);
+}
+function boilerUnknown(data, id) {
+  return data['support_' + id] === 2 ? 'Not supported by this boiler' : 'Support not yet determined';
+}
+function renderBoilerDetails(data) {
+  boilerInfoData = data;
+  if (data.profile === 'remeha-tzerra-m-28c-plus' && !boilerProfileData && !boilerProfileLoading) {
+    boilerProfileLoading = true;
+    fetch('boiler-profile-tzerra.json').then(function(r) { if (!r.ok) throw new Error('Profile unavailable'); return r.json(); })
+      .then(function(p) { boilerProfileData = p; if (boilerInfoData) renderBoilerDetails(boilerInfoData); })
+      .catch(function() { /* Keep raw values when the optional profile file cannot be loaded. */ })
+      .then(function() { boilerProfileLoading = false; });
+  }
+  var profile = data.profile === 'remeha-tzerra-m-28c-plus' ? boilerProfileData : null;
+  var caption = document.getElementById('boilerProfile');
+  if (!caption) return;
+  caption.textContent = profile ? profile.name + ' · Manufacturer descriptions: Nederlands' : 'Generic OpenTherm device';
+  var identity = document.getElementById('boilerIdentityDetails'); identity.textContent = '';
+  [[3,'Slave member ID'],[2,'Master member ID'],[74,'Ventilation member ID'],[103,'Solar member ID']].forEach(function(pair) {
+    var value = data['value_' + pair[0]];
+    boilerRow(identity,pair[1],value === undefined ? 'Not observed' : value & 255,'',value !== undefined);
+  });
+  if (data.value_125 !== undefined) boilerRow(identity,'OpenTherm version (slave)',(data.value_125 / 256).toFixed(2),'',true);
+  if (data.value_127 !== undefined) boilerRow(identity,'Product type / version', (data.value_127 >> 8) + ': ' + (data.value_127 & 255),'',true);
+  var operating = document.getElementById('boilerOperating'); operating.textContent = '';
+  var status = data.value_115;
+  if (status !== undefined && profile) {
+    boilerRow(operating, 'Status', status >> 8, profile.status[status >> 8] || 'Meaning not yet confirmed', true);
+    boilerRow(operating, 'Substatus', status & 255, profile.substatus[(status >> 8) + ':' + (status & 255)] || 'Meaning not yet confirmed', true);
+  } else boilerRow(operating, 'Diagnostic status', status === undefined ? boilerUnknown(data,115) : boilerRaw(status), '', false);
+  var fault = data.value_5;
+  if (data.value_0 !== undefined && !(data.value_0 & 1)) boilerRow(operating, 'Fault status', 'No active fault reported', '', false);
+  else if (fault === undefined) boilerRow(operating, 'Fault status', boilerUnknown(data,5), '', false);
+  else {
+    // The ASF payload alone does not establish whether an E-code is an active fault.
+    boilerRow(operating, 'Fault flags', (fault >> 8).toString(2).padStart(8,'0'), '', false);
+    boilerRow(operating, 'Reported fault code', profile ? 'E:' + String(fault & 255).padStart(2,'0') : boilerRaw(fault),
+      profile ? profile.faults[fault & 255] || 'Meaning not yet confirmed' : '', !!profile);
+  }
+  var oem = document.getElementById('boilerOEM'); oem.textContent = '';
+  if (profile) {
+    boilerRow(oem, 'Configuration', data.value_131 === undefined ? boilerUnknown(data,131) :
+      'dF: ' + (data.value_131 >> 8) + ' dU: ' + (data.value_131 & 255), '', data.value_131 !== undefined);
+    boilerRow(oem, 'Service message', data.value_132 === undefined ? boilerUnknown(data,132) : boilerRaw(data.value_132),
+      data.value_132 === undefined ? '' : 'Service A/B/C response mapping not yet confirmed', false);
+    boilerRow(oem, 'Connected SCU', data.value_133 === undefined ? boilerUnknown(data,133) : (data.value_133 >> 8) + ': ' + (data.value_133 & 255), '', data.value_133 !== undefined);
+  } else {
+    boilerRow(oem, 'OEM information', data.oem_allowed ? 'OEM vendor recognised; no matching model profile' : 'No matching OEM vendor observed', '', false);
+  }
+  Object.keys(data).filter(function(key) { return /^support_\d+$/.test(key) && Number(key.slice(8)) > 127 && data[key] !== 0; }).forEach(function(key) {
+    var id = Number(key.slice(8));
+    if (profile && [131,132,133].includes(id)) return;
+    var value = data['value_' + id];
+    boilerRow(oem, 'OEM field ' + id, value === undefined ? boilerUnknown(data,id) : boilerRaw(value), '', false);
+  });
+  ['Parameters','History'].forEach(function(kind) {
+    var container = document.getElementById('boiler' + kind); container.textContent = '';
+    var entries = data[kind === 'Parameters' ? 'tsp_entries' : 'fhb_entries'] || '';
+    if (!entries) {
+      var sizeId = kind === 'Parameters' ? 10 : 12;
+      var empty = data['support_' + (sizeId + 1)] === 2 ? 'Not supported by this boiler' :
+        data['value_' + sizeId] !== undefined && (data['value_' + sizeId] >> 8) === 0 ? 'No entries reported' :
+        data['support_' + sizeId] === 1 ? 'No entries received' : boilerUnknown(data,sizeId);
+      boilerRow(container, 'Readout', empty, '', false); return;
+    }
+    entries.split(',').forEach(function(entry) {
+      var parts = entry.split(':'), index = Number(parts[0]), value = Number(parts[1]);
+      if (parts.length !== 2 || !Number.isInteger(index) || !Number.isInteger(value)) return;
+      var parameter = profile && kind === 'Parameters' ? profile.parameters[index] : null;
+      boilerRow(container, (kind === 'Parameters' ? 'TSP ' : 'Entry ') + index,
+        kind === 'Parameters' ? String(value) : boilerRaw(value),
+        parameter ? parameter.label : 'Meaning not yet confirmed', kind === 'Parameters');
+    });
+  });
+  document.querySelectorAll('[data-boiler-read]').forEach(function(button) {
+    button.disabled = !!data.busy || (button.dataset.boilerRead === 'oem' && !data.oem_readable);
+  });
+  document.getElementById('boilerReadStatus').textContent = data.read_status === 'idle' ? '' : data.read_status || '';
+}
+document.addEventListener('click', function(event) {
+  var read = event.target.closest && event.target.closest('[data-boiler-read]');
+  if (read && !read.disabled) {
+    read.disabled = true;
+    fetch(APIGW + 'v2/boiler/read/' + read.dataset.boilerRead, {method:'POST'})
+      .then(function(response) { if (!response.ok) throw new Error('Read unavailable or authentication required');
+        if (isBoilerInfoActive()) startBoilerInfoPolling(); })
+      .catch(function(error) { document.getElementById('boilerReadStatus').textContent = error.message; read.disabled = false; });
+  }
+  var format = event.target.closest && event.target.closest('[data-boiler-format]');
+  if (format) {
+    boilerRawFormat = format.dataset.boilerFormat;
+    document.querySelectorAll('[data-boiler-format]').forEach(function(button) { button.setAttribute('aria-pressed', String(button === format)); });
+    if (boilerInfoData) renderBoilerDetails(boilerInfoData);
+  }
+});
