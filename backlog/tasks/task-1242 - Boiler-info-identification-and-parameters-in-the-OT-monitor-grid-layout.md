@@ -36,6 +36,19 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #12 Fault history sits in column 4 below OEM; a profile with "fault_history": false hides the block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID, matrix evidence); without a profile or key the block stays
 <!-- AC:END -->
 
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. index.html (Boiler info section): wrap the blocks in one container .boiler-grid with four areas: identification and operating status (top, columns 1-3), parameters (below, columns 1-3), OEM + fault history (column 4, full height). Buttons stay under their block.
+2. index.css: .boiler-grid = CSS grid, 4 columns on wide screens; below the existing narrow breakpoint one column in the order identification, operating, parameters, OEM, fault history. Parameter block = inner grid, 3 columns, grid-auto-flow: column, rows = ceil(n/3) set from JS (difference at most 1 per column; 1 column on narrow screens).
+3. index.js: boilerRow() renders .otmonrow / .otmoncolumn1 (label) / .otmoncolumn2 (value) like the main page; value column widened for boiler rows (texts like "dF 36 dU 1"). Meaning, option text and factory setting go into the row tooltip (title) and open on tap (row toggles a small line below the cell). Parameter value != profile default gets class boiler-changed (highlight). boilerFinishTable() no longer needed for the meaning column.
+4. Identification: drop Ventilation/Solar member ID rows; brand/version/serial rows move into the same grid style.
+5. Profile key "fault_history": false hides the fault history block and its button; set in tzerra-m-28c-plus.json.
+6. OTGW-Core.ino sendBoilerInfoV2(): remove 74 and 103 from ids[].
+7. Tests: update test_otBrandTextUi.js (row classes, tooltip text, highlight, hidden rows, fault_history, equal columns); host tests; build.py (firmware + filesystem); evaluate.py --quick.
+8. Screenshots: headless chromium of the real OTGW page at wide and phone width after flashing (firmware + LittleFS together).
+<!-- SECTION:PLAN:END -->
+
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
