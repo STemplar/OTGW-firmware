@@ -1,9 +1,11 @@
 ---
 id: TASK-1244
 title: 'Boiler info: show Remeha service message A/B/C from ID132 via the profile'
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2026-10-17 13:12'
+updated_date: '2026-10-17 13:17'
 labels:
   - boiler-info
   - ui
@@ -26,3 +28,12 @@ ID132 (Remeha service message) is shown raw (0x0101) with 'mapping not yet confi
 - [ ] #4 Without a profile entry the row behaves as before
 - [ ] #5 test_otBrandTextUi.js covers 0x0101-0x0103, 0x0104 and 0x0000; python build.py exits 0; python evaluate.py --quick shows no new failures
 <!-- AC:END -->
+
+## Implementation Plan
+
+<!-- SECTION:PLAN:BEGIN -->
+1. tzerra-m-28c-plus.json: "service_messages": {"257": "A", "258": "B", "259": "C"} (decimal of 0x0101-0x0103) plus a source note.
+2. index.js OEM block: with profile.service_messages and a matching value, the Service message row shows the letter; any other value stays raw (Hex/Binary) without meaning text; without the profile key the row is unchanged (raw + "mapping not yet confirmed").
+3. test_otBrandTextUi.js: 0x0101-0x0103, 0x0104, 0x0000, profile without key.
+4. Gates: UI and host tests, python build.py (firmware + LittleFS), evaluate.py --quick.
+<!-- SECTION:PLAN:END -->
