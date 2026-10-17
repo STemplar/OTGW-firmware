@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 10:42'
-updated_date: '2026-10-17 11:31'
+updated_date: '2026-10-17 11:39'
 labels:
   - boiler-info
   - bug
@@ -69,4 +69,8 @@ Implementation 17-10-2026:
 - test_boilerInfo.cpp: timestamps after PM=95 shifted to the 300 s limit; assertions unchanged, one added (no send at 310999 ms).
 - Gates: both host tests PASS, test_otBrandText PASS, test_otBrandTextUi.js PASS, evaluate.py --quick 41 checks 0 failed, build.py --firmware OK (772680 B flash, 24644 B free RAM).
 - Open: AC3/AC5 need the bench run on the boiler.
+
+Bench, firmware 1.7.8-beta.2+2c0a0be + matching LittleFS, PIC 6.8, OT log via WebSocket 81:
+- Boot identification read started by itself 13:36:46 (right after reboot, after PR=M). One PM per ID, each in its own slot (~23 s): PM=125 13:37:15 -> R125 13:37:38, READ-ACK 0x0300 (OT 3.00), 23 s after the PM (old code gave up at 15 s). ID93-95 UNKNOWN-DATAID, ID131 0x2401. Profile remeha-tzerra-m-28c-plus. read_status "read finished" at 13:39:14 (2.5 min).
+- Parameters read started 13:39:31 (result pending).
 <!-- SECTION:NOTES:END -->
