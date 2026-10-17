@@ -57,23 +57,25 @@ public:
     if (busy || !busSeen || (requested == OEM && !oemReadable())) return false;
     if (requested == Identification) bootReadStarted = true;
     group = requested; position = 0; waiting = false; busy = true; result = "queued"; timedOut = false;
-    started = lastSend = now; sent = false; remaining = 0; textReceived = 0;
+    progressAt = lastSend = now; sent = false; remaining = 0; textReceived = 0;
     if (group == Parameters) { memset(tspSeen, 0, sizeof(tspSeen)); memset(tspAnswered, 0, sizeof(tspAnswered)); }
     if (group == History) { memset(fhbSeen, 0, sizeof(fhbSeen)); memset(fhbAnswered, 0, sizeof(fhbAnswered)); }
     return true;
   }
   // Caller admits a command only when its serial queue is empty and live gateway mode is known.
   bool next(uint32_t now, bool transportReady, char* command, size_t size) {
-    if (busy && uint32_t(now - started) >= 360000U) { finish("read timed out"); return false; }
+    // The PIC keeps a PM until a response with that ID arrives and retries it in each available slot,
+    // so a request only waits; a new PM would replace it. Slots can be 23 s apart, and absent for ~85 s
+    // after a PIC restart. One limit without progress covers a bus without slots and a lost transport.
+    if (busy && uint32_t(now - progressAt) >= 300000U) {
+      if (!waiting) { finish("read timed out"); return false; }
+      waiting = false; timedOut = true; progressAt = now; result = "read timed out";
+    }
     if (!transportReady) return false;
     if (!bootReadStarted && busSeen && !busy) {
       bootReadStarted = true; start(Identification, now);
     }
-    if (!busy) return false;
-    if (waiting) {
-      if (uint32_t(now - lastSend) < (group == Parameters || group == History ? 300000U : (target >= 93 && target <= 95 ? 90000U : 15000U))) return false;
-      waiting = false; timedOut = true; result = "read timed out";
-    }
+    if (!busy || waiting) return false;
     if (sent && uint32_t(now - lastSend) < 2000U) return false;
     const uint8_t* ids = identification;
     uint8_t count = sizeof(identification);
@@ -93,7 +95,7 @@ public:
     target = group == OEM ? uint8_t(128 + position++) : ids[position++]; remaining = 0; textReceived = 0;
     const int n = snprintf(command, size, "PM=%u", target);
     if (n < 0 || size_t(n) >= size) { finish("command buffer too small"); return false; }
-    waiting = sent = true; lastSend = now; result = "reading";
+    waiting = sent = true; lastSend = progressAt = now; result = "reading";
     return true;
   }
   void observe(char source, uint32_t frame, uint32_t now) {
@@ -126,6 +128,8 @@ public:
       if (id == 13) { fhb[index] = data; fhbSeen[index >> 3] |= 1U << (index & 7); }
     } else if (type == 7) seen[id >> 3] &= ~(1U << (id & 7));
     if (!busy || !waiting) return;
+    const uint8_t entryId = group == Parameters ? 11 : 13;
+    if (id == target || ((group == Parameters || group == History) && id == entryId)) progressAt = now;
     if (id == target && id >= 93 && id <= 95 && type == 4) {
       const uint8_t length = data >> 8;
       if (!length || length > 50 || requestIndex >= length) { waiting = false; return; }
@@ -138,7 +142,6 @@ public:
     if ((group == Parameters || group == History) && id == target && type == 4 && (data >> 8) != 0) {
       remaining = data >> 8; return; // PIC owns the indexed traversal.
     }
-    const uint8_t entryId = group == Parameters ? 11 : 13;
     if ((group == Parameters || group == History) && id == entryId && remaining && (type == 4 || type == 6)) {
       const uint8_t* bitmap = group == Parameters ? tspAnswered : fhbAnswered;
       for (uint16_t i = 0; i < remaining; ++i) if (!(bitmap[i >> 3] & (1U << (i & 7)))) return;
@@ -154,7 +157,7 @@ private:
   uint8_t requestIndex = 0;
   uint64_t textReceived = 0;
   uint8_t requestId = 0, target = 0, position = 0, remaining = 0;
-  uint32_t requestAt = 0, started = 0, lastSend = 0;
+  uint32_t requestAt = 0, progressAt = 0, lastSend = 0;
   Group group = Identification;
   static constexpr uint8_t identification[] = {3, 127, 125, 93, 94, 95, 131};
   static constexpr uint8_t operating[] = {5, 115};

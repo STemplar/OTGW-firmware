@@ -98,6 +98,12 @@ Een hosttest controleert dat elk tabelbestand bestaat en hetzelfde `id` heeft.
 - **Member-ID 2 (Bulex FAS, Quinta 28c) uitgesloten**: hun "OEM-reads" 128–202 zijn een
   geheugendump (LB(n) == HB(n+1)). Vastgelegd in `oem-vendors.json` → `excluded_as_invalid`.
 - **Oude Quinta displaycodes** I, II, J, L, u (gebruiker) / U (service): door gebruiker bevestigd.
+- **Uitleestempo (TASK-1241)**: de PIC stuurt `PM` alleen in een slot waar de ketel een
+  thermostaatverzoek met UNKNOWN-DATAID beantwoordt (bij deze thermostaat ID19, elke ~23 s), houdt
+  één `PM` vast tot het antwoord en herhaalt het zelf; een nieuw `PM` vervangt het. Na een
+  PIC-herstart ~85 s geen slots. Volledige parameterronde = 46 slots ≈ 18 min. Bron: OT-log via
+  WebSocket poort 81 en `Brink OTGW/otgw-5.8.X/gateway.asm`. `BoilerInfo.h` wacht daarom op het
+  antwoord met één vangnet van 300 s zonder voortgang.
 
 ## 5. Concepten (niet actief)
 
@@ -122,6 +128,7 @@ python evaluate.py --quick        # 17-10: 41 checks, 0 failed
 Hosttests:
 ```
 g++ -std=c++11 -Wall -Wextra -Werror -o /tmp/tbi test/host/test_boilerInfo.cpp && /tmp/tbi
+g++ -std=c++11 -Wall -Wextra -Werror -o /tmp/tbr test/host/test_boilerInfoReplay.cpp && /tmp/tbr
 node test/host/test_otBrandTextUi.js
 ```
 Laatste build: `1.7.8-beta.2+d51c91f`, 772.696 B flash (73 %), 24.644 B vrij RAM.

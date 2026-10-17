@@ -31,12 +31,14 @@ int main(){
  b.observe('B',frame(7,94),9003);
  assert(b.support[94]==BoilerInfo::Unsupported);
  assert(b.next(11000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=95"));
+ // No reply: the request waits for the PIC (no fixed wait per ID) until 300 s pass without progress.
+ assert(!b.next(310999,true,cmd,sizeof(cmd)));
  // A timeout is unknown, not unsupported; Remeha then reads dF/dU (ID131).
- assert(b.next(102000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=131"));
+ assert(b.next(311000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=131"));
  assert(b.support[95]==BoilerInfo::Unknown);
- assert(!b.profile());reply(b,131,0x24,0x01,102001);assert(b.profile()&&!strcmp(b.profile()->id,"remeha-tzerra-m-28c-plus"));
- assert(!b.next(104000,true,cmd,sizeof(cmd))&&!b.busy);
- assert(!b.next(106000,true,cmd,sizeof(cmd))); // one boot cycle only
+ assert(!b.profile());reply(b,131,0x24,0x01,311001);assert(b.profile()&&!strcmp(b.profile()->id,"remeha-tzerra-m-28c-plus"));
+ assert(!b.next(313000,true,cmd,sizeof(cmd))&&!b.busy);
+ assert(!b.next(315000,true,cmd,sizeof(cmd))); // one boot cycle only
  { BoilerInfo v;reply(v,3,0,11);reply(v,127,13,14);reply(v,131,0x25,0x01);assert(v.needsOem131()&&!v.profile()); } // dF 37/dU 1: no profile
  { BoilerInfo m;reply(m,3,0,11);reply(m,127,27,1);assert(m.profile()&&!strcmp(m.profile()->id,"remeha-tzerra-ace-matic")&&!m.needsOem131());
    reply(m,127,23,1);assert(!m.profile()); // Remeha Tzerra 23/1: generic
@@ -57,8 +59,8 @@ int main(){
    const char* seq[]={"PM=3","PM=127","PM=125","PM=93","PM=94","PM=95"};uint32_t now=0;
    for(const char* s:seq){assert(g.next(now,true,c,sizeof(c))&&!strcmp(c,s));g.observe('R',frame(0,atoi(s+3)),now+1);g.observe('B',frame(7,atoi(s+3)),now+2);now+=3000;}
    assert(!g.next(now,true,c,sizeof(c))&&!g.busy); }
- assert(b.start(BoilerInfo::Identification,105000)); // explicit retry includes previously unsupported IDs
- assert(!b.start(BoilerInfo::Operating,105001));
+ assert(b.start(BoilerInfo::Identification,316000)); // explicit retry includes previously unsupported IDs
+ assert(!b.start(BoilerInfo::Operating,316001));
  BoilerInfo t;reply(t,3,0,11);t.bootReadStarted=true;
  assert(t.start(BoilerInfo::Parameters,1000));
  assert(t.next(1000,true,cmd,sizeof(cmd))&&!strcmp(cmd,"PM=10"));reply(t,10,2,0,1001);
