@@ -4,7 +4,7 @@ title: 'Boiler info: fault status from blocking and lockout via the model profil
 status: To Do
 assignee: []
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-17 12:27'
+updated_date: '2026-10-17 12:37'
 labels:
   - boiler-info
   - ui
@@ -27,3 +27,12 @@ The Operating status row 'Fault status' only looks at ID0 bit 0 (lockout). Remeh
 - [ ] #4 Without a profile the row behaves as before (ID0 bit 0 and raw ID5)
 - [ ] #5 test_otBrandTextUi.js covers the three states with and without profile; python build.py exits 0; python evaluate.py --quick shows no new failures
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Thermostat facts 17-10-2026 (OT log via WebSocket 81):
+- Regular thermostat: ID2 0x008C (flags 0, member ID 140), ID126 MasterVersion 143/1. Brand not yet known.
+- Remeha qSense (connected 14:31-14:36): ID2 0x010B (Smart Power flag, member ID 11), ID126 MasterVersion 35/12; label on the PCB: v12, Soft 1.2 (user). Uses Smart Power: PIC reports "* Medium power" / "* Low power".
+- Boiler info "Master member ID" shows the last ID2 seen: 11 after the qSense, 140 with the regular thermostat. Not a firmware fault.
+<!-- SECTION:NOTES:END -->
