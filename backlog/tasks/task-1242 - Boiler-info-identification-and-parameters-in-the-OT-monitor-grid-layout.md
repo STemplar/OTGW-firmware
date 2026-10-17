@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-17 12:03'
+updated_date: '2026-10-17 12:39'
 labels:
   - boiler-info
   - ui
@@ -30,11 +30,11 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #6 Hidden and unsupported parameters stay hidden as before (tsp_unsupported_value, signed/allows255 rules unchanged)
 - [ ] #7 test_otBrandTextUi.js and the boilerInfo host tests pass; python build.py exits 0; python evaluate.py --quick shows no new failures
 - [ ] #8 Checked in a browser on the real OTGW (wide screen and phone width) with a screenshot
-- [ ] #9 Operating status (status, substatus, fault) and OEM fields render as .otmonrow cells in the same grid; their meaning text is in the tooltip, as for parameters
-- [ ] #10 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
-- [ ] #11 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
-- [ ] #12 Fault history sits in column 4 below OEM; a profile with "fault_history": false hides the block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID, matrix evidence); without a profile or key the block stays
-- [ ] #13 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
+- [ ] #9 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
+- [ ] #10 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
+- [ ] #11 Fault history sits in column 4 below OEM; a profile with "fault_history": false hides the block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID, matrix evidence); without a profile or key the block stays
+- [ ] #12 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
+- [ ] #13 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -53,5 +53,6 @@ The Boiler info page shows identification and parameters as one-column Device-in
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-Layout chosen by user 17-10-2026: parameters over columns 1-3, OEM last in column 4 ("achteraan"). Fault history block: not discussed yet; it shows "Not supported" on the Tzerra M Plus.
+Layout chosen by user 17-10-2026: parameters over columns 1-3, OEM last in column 4 ("achteraan"); fault history below OEM in column 4, hidden by the profile key fault_history=false (AC12).
+AC9 revised with the user: operating status keeps its meaning in the cell.
 <!-- SECTION:NOTES:END -->
