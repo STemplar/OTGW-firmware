@@ -1,10 +1,11 @@
 ---
 id: TASK-1242
 title: 'Boiler info: identification and parameters in the OT monitor grid layout'
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-17 11:55'
+updated_date: '2026-10-17 11:57'
 labels:
   - boiler-info
   - ui
