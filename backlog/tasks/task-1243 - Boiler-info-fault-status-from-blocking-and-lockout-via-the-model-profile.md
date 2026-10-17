@@ -4,7 +4,7 @@ title: 'Boiler info: fault status from blocking and lockout via the model profil
 status: To Do
 assignee: []
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-17 13:26'
+updated_date: '2026-10-17 13:29'
 labels:
   - boiler-info
   - ui
@@ -40,4 +40,6 @@ Verification 17-10-2026 (qSense connected, OT log via WebSocket 81, firmware 588
 - Lockout: gas tap closed by the user, heat demand at 15:24:58 (ID0 slave 0x02 CH mode). 15:26:01 ID0 slave 0x01 (fault bit), 15:26:04 ID5 = 0x000E. qSense showed "E014" with the warning triangle; boiler blinked red (lockout). => lockout = ID0 bit 0 + ID5 LB = E-code, confirmed (E:14 "5 mislukte branderstarts", profile faults["14"]).
 - Blocking: the user saw Su:22 on the qSense before the lockout, but no ID115 frame was on the bus then (OTGW had just restarted after flashing 5882f68 at ~15:21, and the qSense did not request ID115). Blocking via ID115 status 9 / sub xx still unverified (AC2 open).
 - Power cycle 14:45: after power-on ID115 = status 17 (Ontluchten) 14:47:39-14:50:06; no status 9 seen (ID115 read only occasionally).
+
+- Boiler status signalling during the E:14 lockout: 3x red = Storingscode 3 "Ontstekingsfout" (manual v.10 Tab.46 lists E:14 under group 3). Boiler, qSense, OT log and manual agree.
 <!-- SECTION:NOTES:END -->
