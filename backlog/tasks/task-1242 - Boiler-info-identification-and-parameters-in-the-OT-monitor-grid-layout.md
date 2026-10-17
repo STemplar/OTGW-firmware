@@ -31,6 +31,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #8 Checked in a browser on the real OTGW (wide screen and phone width) with a screenshot
 - [ ] #9 Operating status (status, substatus, fault) and OEM fields render as .otmonrow cells in the same grid; their meaning text is in the tooltip, as for parameters
 - [ ] #10 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
+- [ ] #11 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
 <!-- AC:END -->
 
 ## Implementation Notes
