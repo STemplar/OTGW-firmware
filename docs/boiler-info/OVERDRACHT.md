@@ -2,6 +2,19 @@
 
 Stand: 17-10-2026. Repo `STemplar/OTGW-firmware`, branch **`otgw-1.x.x`**, HEAD `d51c91f15`.
 Upstream: `rvdbreemen/OTGW-firmware`, branch `otgw-1.x.x` (de fork loopt er alleen op vóór).
+Werk **alleen met de fork**; de upstream-repo is voor de gebruiker niet toegankelijk en is niet nodig.
+
+### Ophalen zonder de privé-submodule
+
+`.gitmodules` bevat `other-projects` → `rvdbreemen/OTGW-other-projects`. Die repo is niet openbaar,
+dus `git clone --recurse-submodules` faalt daarop. Hij is niet nodig voor bouwen of testen. Gebruik:
+```
+git clone --branch otgw-1.x.x https://github.com/STemplar/OTGW-firmware.git
+cd OTGW-firmware
+git submodule update --init src/libraries/OpenTherm src/libraries/SimpleTelnet
+```
+(`build.py` initialiseert die twee ook zelf als ze ontbreken.) Probeer `other-projects` niet op te halen
+en voeg geen `upstream`-remote toe.
 Eigenaar en tester: STemplar (Remeha Tzerra M 28c Plus, PIC 6.8, ESP8266 D1 mini).
 
 Lees na dit document ook `CLAUDE.md` (projectregels) en `UITBREIDING_IDENTIFICATIETEKSTEN.md`
