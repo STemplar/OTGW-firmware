@@ -5874,7 +5874,7 @@ void sendBoilerInfoV2() {
   sendJsonMapEntry(F("oem_allowed"), boilerInfo.oemAllowed());
   sendJsonMapEntry(F("oem_readable"), boilerInfo.oemReadable());
   // Known scalar formats remain numeric; interpretation is profile-specific in the UI.
-  const uint8_t ids[] = {0,2,3,5,10,11,12,13,74,103,115,125,127,131,132,133};
+  const uint8_t ids[] = {0,2,3,5,10,11,12,13,115,125,127,131,132,133};
   for (uint8_t id : ids) {
     char key[20];
     snprintf(key, sizeof(key), "value_%u", id);
