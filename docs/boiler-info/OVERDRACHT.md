@@ -154,7 +154,22 @@ worden door de build gestempeld — niet meecommitten.
 
 1. **Hardwaretest** van build `d51c91f`: pagina controleren (3 kolommen, P-nummers, geen
    rijen "Not supported"), ID131 wordt bij opstarten gelezen, profiel verschijnt.
-2. ID132 (servicemelding) mapping A/B/C onbevestigd; blijft ruw.
+2. ID132 (servicemelding), **bevestigd 17-10-2026** met Remeha qSense (v12, soft 1.2), OT-log via
+   WebSocket 81. De qSense leest ID131/132/133 bij het openen van het menu (`Read-Data 132, 255/255`).
+   De ketel antwoordt `0x0101`, ook na uit/aan. Met de PIC-override `SR=132:<HB>,<LB>` (alleen het
+   antwoord aan de thermostaat; de ketel bleef `0x0101` geven, `CR=132` na afloop) toonde de qSense:
+
+   | ID132 | qSense |
+   |---|---|
+   | `0x0101` | Clear A |
+   | `0x0102` | Clear B |
+   | `0x0103` | Clear C |
+   | `0x0104` | Clear (zonder letter) |
+   | `0x0001`, `0x0000` | `----` (geen servicecode) |
+
+   **Alleen `0x0101`–`0x0103` gelden als geldige waarden: servicemelding A, B, C** (besluit gebruiker).
+   Alle andere waarden worden niet geïnterpreteerd en blijven ruw. "0/1 = A" uit 2017 klopt niet.
+   Geen Clear gedaan (geen writes naar de ketel).
 3. Ace-Matic: HB=status/LB=substatus van ID115 nog niet live bevestigd.
 4. Tzerra 13/13 en 23/1 identificeren; Avanta Ace vs Calenta Ace onderscheiden
    (kandidaat: ID93–95-teksten bij OT 4.x, of een OEM-ID).
