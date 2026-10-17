@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 10:42'
-updated_date: '2026-10-17 10:48'
+updated_date: '2026-10-17 11:26'
 labels:
   - boiler-info
   - bug
@@ -24,23 +24,23 @@ The PIC sends a PM=<id> request only in a slot where the boiler answered UNKNOWN
 <!-- AC:BEGIN -->
 - [ ] #1 A host test replays the 17-10 identification read (slot every ~23 s) and fails on the old BoilerInfo.h: ID125 is not requested before PM=93 replaces it
 - [ ] #2 The same host test passes on the fix: every identification ID is requested and either answered or marked unsupported, and the result is 'read finished'
-- [ ] #3 Waiting for a PM reply ends when a gateway-substituted request (R frame) for another ID is seen, so a missing reply costs one slot, not a fixed time
-- [ ] #4 A safety time limit remains for a bus without slots, and it is longer than the ~85 s no-slot period after a PIC restart
-- [ ] #5 A reply that arrives after its wait ended does not leave read_status at 'missing replies' when all IDs were answered
-- [ ] #6 Parameters (ID10/11) read completes on the bench with the measured slot rate, or the task notes record why it cannot and a follow-up task exists
-- [ ] #7 test/host/test_boilerInfo.cpp passes; python build.py --firmware exits 0; python evaluate.py --quick shows no new failures
-- [ ] #8 Bench re-run on the real boiler with an OT log capture shows ID125 answered and read_status 'read finished'
+- [ ] #3 Parameters (ID10/11) read completes on the bench with the measured slot rate, or the task notes record why it cannot and a follow-up task exists
+- [ ] #4 test/host/test_boilerInfo.cpp passes; python build.py --firmware exits 0; python evaluate.py --quick shows no new failures
+- [ ] #5 Bench re-run on the real boiler with an OT log capture shows ID125 answered and read_status 'read finished'
+- [ ] #6 Waiting for a PM reply ends only on that reply or on the safety limit; there is no fixed wait per ID
+- [ ] #7 The safety limit is 300 s without progress (a sent request, a reply to it, or a next TSP/FHB index), above the ~85 s no-slot period plus PIC admin messages after a PIC restart
+- [ ] #8 read_status reports 'missing replies' only when the safety limit expired
 <!-- AC:END -->
 
 ## Implementation Plan
 
 <!-- SECTION:PLAN:BEGIN -->
-1. observe(): remember the ID of the last T frame. An R frame with a different ID is a substitution slot. While waiting: a slot for our request (target; ID11/13 during TSP/FHB traversal) is progress; a slot for any other ID more than 1 s after our PM (PIC echo is ~10 ms) means the PM was not used -> stop waiting, mark missing.
-2. next(): replace the fixed waits (15/90/300 s) and the 360 s per-read cap with one safety limit: 180 s without progress (send, our slot, or our reply). Covers the ~85 s no-slot window after a PIC restart and loss of transport.
-3. Host test: replay the measured identification read (slot every 23 s, ID3 answered passively by the thermostat) and a 46-slot parameters run; run against the old BoilerInfo.h (must fail) and the fix (must pass). Cover: same-ID override R is not a slot, a foreign slot within 1 s of PM is ignored, 85 s without slots keeps waiting. Update existing asserts that encode the old fixed waits.
-4. Gates: host test, python build.py --firmware, python evaluate.py --quick.
-5. Bench: identification + parameters read with OT log capture.
-No 2.0.0 port: Boiler info exists only on otgw-1.x.x.
+Approved by user 17-10-2026 (replaces the earlier slot-detection plan).
+1. BoilerInfo.h next(): drop the fixed waits (15/90/300 s) and the 360 s per-read cap; keep waiting until the reply arrives. One safety limit: 300 s without progress.
+2. Progress = PM sent, reply to the target, or a new TSP/FHB index answered during PIC traversal.
+3. No slot detection and no ESP retry: the PIC keeps the PM until a response with that ID and retries it in the next slot itself (OTGW 5.8 gateway.asm HandleResponse/SendPriorityMsg).
+4. Host test: replay the 17-10 identification read and a 46-slot parameters run; fails on old code, passes on the fix. Update asserts that encode the old fixed waits.
+5. Gates: host test, python build.py --firmware, python evaluate.py --quick. Bench re-run with OT log capture.
 <!-- SECTION:PLAN:END -->
 
 ## Implementation Notes
@@ -53,4 +53,12 @@ Old-code measurements, 17-10-2026, firmware 1.7.8-beta.2+d51c91f, OT log via Web
 - PIC restart 12:32:37: the PIC forwards ID19 three times (B7 to thermostat) before it substitutes again (12:34:01): ~85 s without slots.
 - Parameters read 12:38:39: PM=10 in the first slot, then the PIC itself requested ID11 index 0..44, one slot per index (~23 s). Controller gave up at 12:44:39 (360 s cap); PIC kept going, values still stored passively (P1-P22 by 12:47). Full run = 46 slots, ~17.5 min.
 - A same-ID R frame is a PIC override (TT/CS), not a slot: a slot is an R whose ID differs from the preceding T.
+
+PIC source (OTGW 5.8 gateway.asm; user runs 6.8, behaviour matched the captures):
+- One priority message (prioritymsgid); SetPrioMessage overwrites it and clears TSPIndex/TSPCount.
+- PriorityMsg stays set until any response with that ID (HandleResponse), also a reply to a thermostat request for the same ID; no response -> retried in the next slot.
+- InitCmdLoop: PIC admin messages (remote params, DHW/maxCH bounds, setpoints) take slots before the PM after a PIC reset.
+- statusreturn: a new boiler fault sets PM=5 itself, overwriting ours (rare; covered by the safety limit).
+- TSP traversal index 0..count-1 (TSPReadEntry). Tzerra M 28c Plus: count 45, index 0 DATA-INVALID, P1-P44 = manual 7618573 v.10 range; nothing missed.
+- Full parameters run measured 12:38:42-~12:56 (46 slots).
 <!-- SECTION:NOTES:END -->
