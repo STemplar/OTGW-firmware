@@ -4,7 +4,7 @@ title: 'Boiler info: fault status from blocking and lockout via the model profil
 status: To Do
 assignee: []
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-17 13:29'
+updated_date: '2026-10-17 13:31'
 labels:
   - boiler-info
   - ui
@@ -42,4 +42,6 @@ Verification 17-10-2026 (qSense connected, OT log via WebSocket 81, firmware 588
 - Power cycle 14:45: after power-on ID115 = status 17 (Ontluchten) 14:47:39-14:50:06; no status 9 seen (ID115 read only occasionally).
 
 - Boiler status signalling during the E:14 lockout: 3x red = Storingscode 3 "Ontstekingsfout" (manual v.10 Tab.46 lists E:14 under group 3). Boiler, qSense, OT log and manual agree.
+
+- Correction (user): Su:22 was the user's expectation, not shown on the qSense. No blocking was observed before the E:14 lockout; the earlier note "the user saw Su:22" is wrong. Blocking (ID115 status 9) remains unverified.
 <!-- SECTION:NOTES:END -->
