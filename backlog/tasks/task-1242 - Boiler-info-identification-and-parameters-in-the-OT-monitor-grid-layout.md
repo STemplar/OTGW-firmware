@@ -4,7 +4,7 @@ title: 'Boiler info: identification and parameters in the OT monitor grid layout
 status: To Do
 assignee: []
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-17 11:46'
+updated_date: '2026-10-17 11:49'
 labels:
   - boiler-info
   - ui
@@ -30,4 +30,11 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #7 test_otBrandTextUi.js and the boilerInfo host tests pass; python build.py exits 0; python evaluate.py --quick shows no new failures
 - [ ] #8 Checked in a browser on the real OTGW (wide screen and phone width) with a screenshot
 - [ ] #9 Operating status (status, substatus, fault) and OEM fields render as .otmonrow cells in the same grid; their meaning text is in the tooltip, as for parameters
+- [ ] #10 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+Layout chosen by user 17-10-2026: parameters over columns 1-3, OEM last in column 4 ("achteraan"). Fault history block: not discussed yet; it shows "Not supported" on the Tzerra M Plus.
+<!-- SECTION:NOTES:END -->
