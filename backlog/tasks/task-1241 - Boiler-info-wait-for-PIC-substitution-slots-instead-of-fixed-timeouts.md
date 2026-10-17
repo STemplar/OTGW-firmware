@@ -1,9 +1,11 @@
 ---
 id: TASK-1241
 title: 'Boiler info: wait for PIC substitution slots instead of fixed timeouts'
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2026-10-17 10:42'
+updated_date: '2026-10-17 10:42'
 labels:
   - boiler-info
   - bug
