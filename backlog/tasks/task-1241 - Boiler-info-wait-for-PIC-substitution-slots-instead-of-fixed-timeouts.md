@@ -1,11 +1,11 @@
 ---
 id: TASK-1241
 title: 'Boiler info: wait for PIC substitution slots instead of fixed timeouts'
-status: In Progress
+status: Done
 assignee:
   - '@claude'
 created_date: '2026-10-17 10:42'
-updated_date: '2026-10-17 11:39'
+updated_date: '2026-10-17 11:57'
 labels:
   - boiler-info
   - bug
@@ -24,9 +24,9 @@ The PIC sends a PM=<id> request only in a slot where the boiler answered UNKNOWN
 <!-- AC:BEGIN -->
 - [x] #1 A host test replays the 17-10 identification read (slot every ~23 s) and fails on the old BoilerInfo.h: ID125 is not requested before PM=93 replaces it
 - [x] #2 The same host test passes on the fix: every identification ID is requested and either answered or marked unsupported, and the result is 'read finished'
-- [ ] #3 Parameters (ID10/11) read completes on the bench with the measured slot rate, or the task notes record why it cannot and a follow-up task exists
+- [x] #3 Parameters (ID10/11) read completes on the bench with the measured slot rate, or the task notes record why it cannot and a follow-up task exists
 - [x] #4 test/host/test_boilerInfo.cpp passes; python build.py --firmware exits 0; python evaluate.py --quick shows no new failures
-- [ ] #5 Bench re-run on the real boiler with an OT log capture shows ID125 answered and read_status 'read finished'
+- [x] #5 Bench re-run on the real boiler with an OT log capture shows ID125 answered and read_status 'read finished'
 - [x] #6 Waiting for a PM reply ends only on that reply or on the safety limit; there is no fixed wait per ID
 - [x] #7 The safety limit is 300 s without progress (a sent request, a reply to it, or a next TSP/FHB index), above the ~85 s no-slot period plus PIC admin messages after a PIC restart
 - [x] #8 read_status reports 'missing replies' only when the safety limit expired
@@ -73,4 +73,27 @@ Implementation 17-10-2026:
 Bench, firmware 1.7.8-beta.2+2c0a0be + matching LittleFS, PIC 6.8, OT log via WebSocket 81:
 - Boot identification read started by itself 13:36:46 (right after reboot, after PR=M). One PM per ID, each in its own slot (~23 s): PM=125 13:37:15 -> R125 13:37:38, READ-ACK 0x0300 (OT 3.00), 23 s after the PM (old code gave up at 15 s). ID93-95 UNKNOWN-DATAID, ID131 0x2401. Profile remeha-tzerra-m-28c-plus. read_status "read finished" at 13:39:14 (2.5 min).
 - Parameters read started 13:39:31 (result pending).
+
+- Parameters read on the fix: PM=10 13:39:33, PIC traversal R11 index 0..44 one slot each, last R11 index 44 at 13:56:49; read_status "read finished" at 13:56:49 (17 min 16 s); tsp_entries P1-P44 complete, none missing.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Boiler info reads now wait for the PIC reply instead of giving up after fixed timeouts.
+
+Why: the PIC sends a PM only in a free slot (a thermostat request the boiler answers with UNKNOWN-DATAID), keeps it until a response with that ID arrives and retries it itself; a new PM replaces it. On the Tzerra M 28c Plus there is one slot every ~23 s and none for ~85 s after a PIC restart. The 15 s wait per ID made the controller send the next PM and lose the pending one (ID125 was never sent), and the 360 s cap stopped a 46-slot parameters read after a third.
+
+Changes:
+- BoilerInfo.h next(): fixed waits (15/90/300 s) and the 360 s per-read cap replaced by one limit, 300 s without progress (PM sent, reply, next TSP/FHB index). Expiry while waiting marks that ID missing; expiry between requests (transport lost) ends the read as "read timed out".
+- New test/host/test_boilerInfoReplay.cpp: thermostat/PIC/boiler model after OTGW 5.8 gateway.asm, four scenarios (23.4 s slots with a passive ID3, 46-slot parameters run, first slot after 200 s, no slots).
+- test_boilerInfo.cpp: timestamps after PM=95 moved to the new limit; assertions unchanged plus one.
+- docs/boiler-info/OVERDRACHT.md: read timing and the replay test.
+
+Evidence (same reproduction, old vs fix):
+- Replay test: old BoilerInfo.h fails all four scenarios (PM=125 replaced by PM=93 after 15 s, as in the 12:20 capture); the fix passes all four.
+- Bench, 1.7.8-beta.2+2c0a0be, PIC 6.8, OT log via WebSocket: boot identification read right after reboot, PM=125 answered 23 s later (OT 3.00), "read finished" in 2.5 min; parameters read P1-P44 complete, "read finished" in 17 min 16 s. Before the fix both reads ended with "missing replies".
+- Gates: host tests (boilerInfo, boilerInfoReplay, otBrandText, otBrandTextUi.js) pass; evaluate.py --quick 0 failed; build.py OK (772680 B flash, 24644 B free RAM).
+
+Follow-up: TASK-1242 (grid layout of the Boiler info page).
+<!-- SECTION:FINAL_SUMMARY:END -->
