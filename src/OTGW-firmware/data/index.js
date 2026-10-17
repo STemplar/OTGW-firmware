@@ -7449,8 +7449,10 @@ function renderBoilerDetails(data) {
     boilerRow(oem, 'Configuration', data.value_131 === undefined ? boilerUnknown(data,131) :
       'dF: ' + (data.value_131 >> 8) + ' dU: ' + (data.value_131 & 255),
       data.value_131 === undefined ? '' : (profile.models && profile.models[(data.value_131 >> 8) + ':' + (data.value_131 & 255)]) || '');
-    boilerRow(oem, 'Service message', data.value_132 === undefined ? boilerUnknown(data,132) : boilerRaw(data.value_132),
-      data.value_132 === undefined ? '' : 'Service A/B/C response mapping not yet confirmed');
+    // Only the values the profile lists are interpreted; any other ID132 value stays raw.
+    var services = profile.service_messages, letter = services && data.value_132 !== undefined ? services[data.value_132] : undefined;
+    boilerRow(oem, 'Service message', data.value_132 === undefined ? boilerUnknown(data,132) : letter || boilerRaw(data.value_132),
+      data.value_132 === undefined || services ? '' : 'Service A/B/C response mapping not yet confirmed');
     boilerRow(oem, 'Connected SCU', data.value_133 === undefined ? boilerUnknown(data,133) : (data.value_133 >> 8) + ': ' + (data.value_133 & 255), '');
   } else {
     boilerRow(oem, 'OEM information', profile ? 'No OEM fields documented for this model' :

@@ -114,6 +114,8 @@
     "40": "Indien aanwezig: HRU/WTW-unit testfout",
     "41": "Maximale temperatuur van de automaat overschreden"
   },
+  "service_messages": { "257": "A", "258": "B", "259": "C" },
+  "service_messages_note": "ID132 = 0x0101/0x0102/0x0103 (257/258/259) → servicemelding A/B/C; bevestigd met Remeha qSense (Clear A/B/C) op 17-10-2026, zie docs/boiler-info/OVERDRACHT.md. Andere waarden worden niet geïnterpreteerd.",
   "fault_history": false,
   "fault_history_note": "ID12/13 (foutgeheugen) beantwoordt deze ketel met UNKNOWN-DATAID (OTGW-ketelmatrix, zie docs/boiler-info/OVERDRACHT.md); het blok Fault history wordt niet getoond.",
   "tsp_unsupported_value": 255,

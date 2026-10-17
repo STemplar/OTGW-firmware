@@ -96,4 +96,11 @@ ctx.boilerRawFormat='binary';ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.t
 ctx.renderBoilerDetails({...d,profile:'generic'});assert(!nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(!findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 // Context-dependent substatus zero must use the status/substatus pair.
 ctx.renderBoilerDetails({...d,value_115:0x0800});assert(nodes.boilerOperating.textContent.includes('Wacht op branderstart'));
+// ID132 (TASK-1244): only 0x0101-0x0103 are service message A/B/C; any other value stays raw, no meaning.
+[[0x0101,'A'],[0x0102,'B'],[0x0103,'C']].forEach(([v,l])=>{ctx.boilerRawFormat='hex';ctx.renderBoilerDetails({...d,value_132:v});
+  assert(hasRow(nodes.boilerOEM,'Service message|'+l)&&meaningOf(nodes.boilerOEM,'Service message|'+l)==='');});
+[[0x0104,'0x0104'],[0x0000,'0x0000'],[0x0001,'0x0001']].forEach(([v,raw])=>{ctx.renderBoilerDetails({...d,value_132:v});
+  assert(hasRow(nodes.boilerOEM,'Service message|'+raw)&&!nodes.boilerOEM.textContent.includes('not yet confirmed'));});
+{const sm=tz.service_messages;delete tz.service_messages;ctx.renderBoilerDetails({...d,value_132:0x0101}); // profile without the key: as before
+  assert(hasRow(nodes.boilerOEM,'Service message|0x0101')&&meaningOf(nodes.boilerOEM,'Service message|0x0101').includes('not yet confirmed'));tz.service_messages=sm;}
 console.log('PASS: partial/complete/safe text, profile matching, contextual labels, manual-style parameter rows, unsupported rows omitted, raw fallback and service uncertainty');
