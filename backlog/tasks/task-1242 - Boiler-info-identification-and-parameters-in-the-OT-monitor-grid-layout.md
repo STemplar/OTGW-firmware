@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-17 11:57'
+updated_date: '2026-10-17 12:03'
 labels:
   - boiler-info
   - ui
@@ -34,6 +34,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #10 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
 - [ ] #11 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
 - [ ] #12 Fault history sits in column 4 below OEM; a profile with "fault_history": false hides the block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID, matrix evidence); without a profile or key the block stays
+- [ ] #13 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
 <!-- AC:END -->
 
 ## Implementation Plan
