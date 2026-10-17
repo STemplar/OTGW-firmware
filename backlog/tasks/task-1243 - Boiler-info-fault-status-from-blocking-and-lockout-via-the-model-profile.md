@@ -4,6 +4,7 @@ title: 'Boiler info: fault status from blocking and lockout via the model profil
 status: To Do
 assignee: []
 created_date: '2026-10-17 12:24'
+updated_date: '2026-10-17 12:27'
 labels:
   - boiler-info
   - ui
@@ -15,7 +16,7 @@ ordinal: 245000
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-The Operating status row 'Fault status' only looks at ID0 bit 0 (lockout). Remeha Tzerra M Plus manual 7618573 v.10 §11.1 distinguishes normal operation, blocking (tijdelijke blokkering, Tab.44/45: Su:0-Su:25, green blink) and lockout (vergrendeling, Tab.46/48: E:00-E:41, red blink, needs reset). The profile tzerra-m-28c-plus.json already holds the blocking codes as substatus 9:0-9:25 (matches Tab.45) and the E-codes as faults (Tab.48). That a blocking arrives as ID115 status 9 with substatus = Su-code is derived from manual and profile, not observed; it is verified against the user's qSense thermostat (member ID 140, MasterVersion 143/1, connected to the OTGW) before any code is written.
+The Operating status row 'Fault status' only looks at ID0 bit 0 (lockout). Remeha Tzerra M Plus manual 7618573 v.10 §11.1 distinguishes normal operation, blocking (tijdelijke blokkering, Tab.44/45: Su:0-Su:25, green blink) and lockout (vergrendeling, Tab.46/48: E:00-E:41, red blink, needs reset). The profile tzerra-m-28c-plus.json already holds the blocking codes as substatus 9:0-9:25 (matches Tab.45) and the E-codes as faults (Tab.48). That a blocking arrives as ID115 status 9 with substatus = Su-code is derived from manual and profile, not observed; it is verified against a Remeha qSense thermostat before any code is written. Thermostats seen 17-10-2026: the regular one sends ID2 0x008C (member ID 140, MasterVersion 143/1); the qSense, connected for a few minutes after 13:59, sends ID2 0x010B (Smart Power, member ID 11).
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
