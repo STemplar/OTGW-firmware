@@ -1,11 +1,11 @@
 ---
 id: TASK-1245
 title: 'Boiler info: OpenTherm member ID names from the official OTA list'
-status: In Progress
+status: Done
 assignee:
   - '@claude'
 created_date: '2026-10-18 11:06'
-updated_date: '2026-10-18 11:20'
+updated_date: '2026-10-18 16:33'
 labels:
   - boiler-info
   - ui
@@ -24,9 +24,9 @@ Member IDs (ID2 master, ID3 slave, ID74 ventilation, ID103 solar; LB) come from 
 <!-- AC:BEGIN -->
 - [x] #1 docs/opentherm specification/member-ids/ota-member-id-codes-2024-06-13.json holds every assigned code 1-251 with the company name exactly as in the PDF (asterisk kept as a flag), plus source and date
 - [x] #2 docs/boiler-info/oem-vendors.json and Documentatie/Vendoronderzoek/VENDOR_MEMBER_IDS_ACTUEEL.md name the company per member ID from that list; observations stay unchanged
-- [ ] #3 The Boiler info page shows the company next to Slave and Master member ID (e.g. '11 · BDR Thermea Group B.V.', '140 · Plugwise B.V.'); 0 and unassigned codes show only the number
-- [ ] #4 test_otBrandTextUi.js covers a known code, 0 and an unassigned code; python build.py exits 0; python evaluate.py --quick shows no new failures
-- [ ] #5 The member ID tooltip lists the company's brands where a source is recorded (BDR Thermea, codes 11 and 53: Baxi, De Dietrich, Remeha, Brötje, Chappée, Baymak - from the BDR Thermea website, supplied by the user 18-10-2026); codes without a recorded source show only the company
+- [x] #3 The Boiler info page shows the company next to Slave and Master member ID (e.g. '11 · BDR Thermea Group B.V.', '140 · Plugwise B.V.'); 0 and unassigned codes show only the number
+- [x] #4 test_otBrandTextUi.js covers a known code, 0 and an unassigned code; python build.py exits 0; python evaluate.py --quick shows no new failures
+- [x] #5 The member ID tooltip lists the company's brands where a source is recorded (BDR Thermea, codes 11 and 53: Baxi, De Dietrich, Remeha, Brötje, Chappée, Baymak - from the BDR Thermea website, supplied by the user 18-10-2026); codes without a recorded source show only the company
 <!-- AC:END -->
 
 ## Implementation Notes
@@ -39,4 +39,19 @@ Member IDs (ID2 master, ID3 slave, ID74 ventilation, ID103 solar; LB) come from 
 User 18-10-2026: tooltip shows the brand portfolio from the company (source: company website), not matrix observations; brands are brand names, not product models (e.g. Siemens, not Siemens QAA73).
 
 Brands extended (user 18-10-2026): company portfolio where sourced (BDR Thermea website), supplemented with brands observed per code from upstream opentherm_brand_ids.json (confidence HOOG/GEMIDDELD only; qualifiers in parentheses and the company itself omitted; slave+master merged). Stored per role with source in the register JSON as brands_seen.
+
+Device check 18-10-2026 (5c73e1b on the real OTGW): Slave member ID "11 · BDR Thermea Group B.V." with tooltip "BDR Thermea Group B.V. · merken: Baxi, De Dietrich, Remeha, Brötje, Chappée, Baymak"; Master member ID "140 · Plugwise B.V." with tooltip "Plugwise B.V." only (no brand source). Tests, build and evaluate green (see TASK-1242 notes).
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Member IDs on the Boiler info page now show the company from the official OpenTherm Association list (Member ID codes, 13-06-2024).
+
+Changes:
+- docs/opentherm specification/member-ids/ota-member-id-codes-2024-06-13.json: all 188 assigned codes verbatim, asterisk flag, source PDF and checksum; brands for codes 11/53 (BDR Thermea website) plus observed brands per role with source.
+- data/member-ids.json (derived) loaded by the page: "11 · BDR Thermea Group B.V."; 0 and unassigned codes show only the number; tooltip lists brands only where a source is recorded.
+- docs/boiler-info/oem-vendors.json and VENDOR_MEMBER_IDS_ACTUEEL.md name the company per member ID.
+
+Tests: test_otBrandTextUi.js (known, 0, unassigned code, brands) pass; build exit 0; evaluate 0 failures; checked on the real OTGW (5c73e1b).
+<!-- SECTION:FINAL_SUMMARY:END -->
