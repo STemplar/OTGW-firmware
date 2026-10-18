@@ -100,15 +100,22 @@ ctx.renderBoilerDetails({...d,profile:'generic'});assert(nodes.boilerHistoryBloc
 ctx.renderBoilerDetails({...d,value_131:undefined,support_131:2});assert(!nodes.boilerOEM.textContent.includes('Not supported'));
 ctx.renderBoilerInfo({...d,brand_support:'unsupported'});assert(nodes['boiler-brand-row'].style.display==='none');
 ctx.renderBoilerInfo({...d,brand_support:'supported',brand_text:'Remeha',brand_mask:'111111',brand_received:6,brand_expected:6,brand_complete:true});assert(nodes['boiler-brand-row'].style.display==='');
-ctx.boilerRawFormat='binary';ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.textContent.includes('0000000000000010'));
+ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.textContent.includes('0x0002')); // raw values are always hex (toggle removed)
 ctx.renderBoilerDetails({...d,profile:'generic'});assert(!nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(!findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 // Context-dependent substatus zero must use the status/substatus pair.
 ctx.renderBoilerDetails({...d,value_115:0x0800});assert(nodes.boilerOperating.textContent.includes('Wacht op branderstart'));
 // ID132 (TASK-1244): only 0x0101-0x0103 are service message A/B/C; any other value stays raw, no meaning.
-[[0x0101,'A'],[0x0102,'B'],[0x0103,'C']].forEach(([v,l])=>{ctx.boilerRawFormat='hex';ctx.renderBoilerDetails({...d,value_132:v});
+[[0x0101,'A'],[0x0102,'B'],[0x0103,'C']].forEach(([v,l])=>{ctx.renderBoilerDetails({...d,value_132:v});
   assert(hasRow(nodes.boilerOEM,'Service message|'+l)&&meaningOf(nodes.boilerOEM,'Service message|'+l)==='');});
 [[0x0104,'0x0104'],[0x0000,'0x0000'],[0x0001,'0x0001']].forEach(([v,raw])=>{ctx.renderBoilerDetails({...d,value_132:v});
   assert(hasRow(nodes.boilerOEM,'Service message|'+raw)&&!nodes.boilerOEM.textContent.includes('not yet confirmed'));});
 {const sm=tz.service_messages;delete tz.service_messages;ctx.renderBoilerDetails({...d,value_132:0x0101}); // profile without the key: as before
   assert(hasRow(nodes.boilerOEM,'Service message|0x0101')&&meaningOf(nodes.boilerOEM,'Service message|0x0101').includes('not yet confirmed'));tz.service_messages=sm;}
+// Generic view: once ID10 is known, TSP 0..count-1 are fixed cells; values fill in raw (255 included).
+ctx.renderBoilerDetails({...d,profile:'generic',value_10:45<<8,tsp_entries:''});const G=nodes.boilerParameters;
+assert.deepEqual(G.children.map(c=>c.children.length),[15,15,15]);assert(rowNodes(G).every(r=>r.children[1].textContent===''));
+const gpos=rowNodes(G).map(r=>r.children[0].textContent);assert(gpos[0]==='TSP 0'&&gpos[44]==='TSP 44');
+ctx.renderBoilerDetails({...d,profile:'generic',value_10:45<<8,tsp_entries:'1:80,6:255'});
+assert.deepEqual(rowNodes(nodes.boilerParameters).map(r=>r.children[0].textContent),gpos,'cells do not move');
+assert(hasRow(nodes.boilerParameters,'TSP 6|255')&&hasRow(nodes.boilerParameters,'TSP 1|80')&&hasRow(nodes.boilerParameters,'TSP 0|'));
 console.log('PASS: partial/complete/safe text, profile matching, contextual labels, manual-style parameter rows, unsupported rows omitted, raw fallback and service uncertainty');

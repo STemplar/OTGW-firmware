@@ -7369,11 +7369,10 @@ function boilerinfoPage() {
 window.addEventListener('pagehide', stopBoilerInfoPolling);
 
 // Boiler values and manufacturer descriptions are rendered as text, never HTML.
-var boilerInfoData = null, boilerProfileData = null, boilerRawFormat = 'hex';
+var boilerInfoData = null, boilerProfileData = null;
 var boilerProfileLoading = false, boilerProfileRequested = null;
 function boilerRaw(value) {
-  return boilerRawFormat === 'binary' ? value.toString(2).padStart(16, '0') :
-    '0x' + value.toString(16).toUpperCase().padStart(4, '0');
+  return '0x' + value.toString(16).toUpperCase().padStart(4, '0');
 }
 // Rows use the OT monitor row style (otmonrow / otmoncolumn1 / otmoncolumn2).
 var BOILER_NOT_SUPPORTED = 'Not supported by this boiler';
@@ -7488,7 +7487,9 @@ function renderBoilerDetails(data) {
     // With a profile, its parameters are fixed cells (manual order); values fill in as they are read.
     var fixed = kind === 'Parameters' && profile && profile.parameters && Object.keys(profile.parameters).length &&
       data.support_11 !== 2 ? profile.parameters : null;
-    if (!entries && !fixed) {
+    // Without a profile, ID10 (OT 4.2 §5.3.6) gives the number of TSPs; the PIC reads index 0..count-1.
+    var count = kind === 'Parameters' && !fixed && data.support_11 !== 2 && data.value_10 !== undefined ? data.value_10 >> 8 : 0;
+    if (!entries && !fixed && !count) {
       var sizeId = kind === 'Parameters' ? 10 : 12;
       var empty = data['support_' + (sizeId + 1)] === 2 ? 'Not supported by this boiler' :
         hidden > 0 ? 'No supported parameters reported' :
@@ -7501,7 +7502,7 @@ function renderBoilerDetails(data) {
       var parts = entry.split(':'), index = Number(parts[0]), value = Number(parts[1]);
       if (parts.length !== 2 || !Number.isInteger(index) || !Number.isInteger(value)) return;
       if (kind !== 'Parameters') { boilerRow(container, 'Entry ' + index, boilerRaw(value), 'Meaning not yet confirmed'); return; }
-      if (fixed && fixed[index]) received[index] = value; else extra.push([index, value]);
+      if ((fixed && fixed[index]) || index < count) received[index] = value; else extra.push([index, value]);
     });
     if (kind !== 'Parameters') return;
     // Manual view: 'P<n> description' and the value; option text and factory setting in the tooltip.
@@ -7514,6 +7515,8 @@ function renderBoilerDetails(data) {
       rows.push(boilerRow(target, 'P' + index + ' ' + parameter.label, shown === undefined ? '' : shown + unit,
         meaning.join(' \u00b7 '), shown !== undefined && parameter.default !== undefined && parameter.default !== shown));
     });
+    for (var tsp = 0; tsp < count; ++tsp)
+      rows.push(boilerRow(target, 'TSP ' + tsp, received[tsp] === undefined ? '' : String(received[tsp]), ''));
     extra.forEach(function(pair) {
       rows.push(boilerRow(target, 'TSP ' + pair[0], String(pair[1]), profile ? 'Meaning not yet confirmed' : ''));
     });
@@ -7532,11 +7535,5 @@ document.addEventListener('click', function(event) {
       .then(function(response) { if (!response.ok) throw new Error('Read unavailable or authentication required');
         if (isBoilerInfoActive()) startBoilerInfoPolling(); })
       .catch(function(error) { document.getElementById('boilerReadStatus').textContent = error.message; read.disabled = false; });
-  }
-  var format = event.target.closest && event.target.closest('[data-boiler-format]');
-  if (format) {
-    boilerRawFormat = format.dataset.boilerFormat;
-    document.querySelectorAll('[data-boiler-format]').forEach(function(button) { button.setAttribute('aria-pressed', String(button === format)); });
-    if (boilerInfoData) renderBoilerDetails(boilerInfoData);
   }
 });
