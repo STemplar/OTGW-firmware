@@ -103,6 +103,7 @@ ctx.renderBoilerDetails(d);assert(nodes.boilerOEM.textContent.includes('0x0002')
 ctx.renderBoilerDetails({...d,profile:'generic'});assert(!nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(!findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 // Context-dependent substatus zero must use the status/substatus pair.
 ctx.renderBoilerDetails({...d,value_115:0x0800});assert(nodes.boilerOperating.textContent.includes('Wacht op branderstart'));
+ctx.renderBoilerDetails({...d,value_115:0x0a00,value_0:1,value_5:0x000e});assert(hasRow(nodes.boilerOperating,'Status|10 · Vergrendeling'),'observed lockout status 10');
 // ID132 (TASK-1244): only 0x0101-0x0103 are service message A/B/C; any other value stays raw, no meaning.
 [[0x0101,'A'],[0x0102,'B'],[0x0103,'C']].forEach(([v,l])=>{ctx.renderBoilerDetails({...d,value_132:v});
   assert(hasRow(nodes.boilerOEM,'Service message|'+l)&&meaningOf(nodes.boilerOEM,'Service message|'+l)==='');});

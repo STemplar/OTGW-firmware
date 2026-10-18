@@ -18,8 +18,10 @@
     "6": "Ketelstop (einde warmtevraag)",
     "8": "Regelstop",
     "9": "Blokkering",
+    "10": "Vergrendeling",
     "17": "Ontluchten"
   },
+  "status_note": "Status 10 staat niet in handleiding 7618573 v.10 (Tab.43); waargenomen op 18-10-2026 tijdens vergrendeling E:14 (ID115 0x0A00, substatus 0; de E-code staat in ID5), zie TASK-1243.",
   "substatus": {
     "0:0": "Rust",
     "1:1": "Anti-pendel",
