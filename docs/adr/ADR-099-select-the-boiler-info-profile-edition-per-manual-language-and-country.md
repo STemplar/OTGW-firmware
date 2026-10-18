@@ -118,8 +118,15 @@ setting.**
 * Keep `kBoilerModelProfiles[]` as the only place for recognition; its file field becomes the
   model part (`tzerra-m-28c-plus`).
 * Add one setting for the edition code, default `nl-NL`, in a Boiler Info section of
-  `OTGWSettings` (ADR-051), editable on the settings page.
-* `sendBoilerInfoV2()` reports `profile_file` as `<model>.<edition>.json` and `profile_edition`.
+  `OTGWSettings` (ADR-051). It is selectable only on the Boiler Info page, which lists the
+  editions available for the recognised model; it does not appear on the settings page (the
+  scope is the Boiler Info page, user decision 2026-10-18).
+* Use language-country codes for every edition (`nl-NL`, `en-GB`), also where a country has
+  one language: the code then stays uniform when a country has two (Belgium: `nl-BE`, `fr-BE`).
+* Start with two editions: `nl-NL` (manual 7618573 v.10, available) and `en-GB` (the UK
+  installation and service manual of the same model; to be supplied).
+* `sendBoilerInfoV2()` reports `profile_file` as `<model>.<edition>.json`, `profile_edition`,
+  and the editions that exist for the model (`profile_editions`), so the page can offer them.
 * The page loads that file. When it is missing, the page shows the generic view with the note
   that no manufacturer data exists for that edition; it does not load another edition.
 * Rename the current file to `tzerra-m-28c-plus.nl-NL.json` without content changes.
@@ -136,6 +143,7 @@ either, and an overlay splits one manual over two files. Option 4 does not meet 
 * Take every manufacturer value in a profile file from the one manual edition named in its
   `source`.
 * Report the edition the page shows (`profile_edition`) together with `profile_file`.
+* Offer the edition choice only on the Boiler Info page, and only editions whose file exists.
 * Fall back to the generic view when the selected edition has no file.
 
 ### Must Not
@@ -153,7 +161,7 @@ either, and an overlay splits one manual over two files. Option 4 does not meet 
 * `test/host/test_boilerInfo.cpp`: every model plus edition file exists, carries the same
   `id`, and its name is at most 30 characters.
 * `test/host/test_otBrandTextUi.js`: edition chosen from `profile_file`, generic view for a
-  missing edition.
+  missing edition, the edition list on the Boiler Info page.
 
 ## Consequences
 
@@ -198,9 +206,12 @@ either, and an overlay splits one manual over two files. Option 4 does not meet 
 
 ## Open Questions
 
-* [ ] Which editions are wanted first, and which manuals are available for them?
-* [ ] Edition code form: `nl-NL` (language-country) or country only (`NL`, `BE`)?
-* [ ] Setting on the settings page only, or also selectable on the Boiler Info page?
+* [x] Which editions first? `nl-NL` and `en-GB` (user, 2026-10-18).
+* [x] Code form? Language-country for all editions; it only matters for Belgium, which has two
+  options; other countries have one (user, 2026-10-18).
+* [x] Where to choose? Only on the Boiler Info page (user, 2026-10-18).
+* [ ] The UK (en-GB) installation and service manual of the Tzerra M 28c Plus (or the UK model
+  name) has to be supplied before the `en-GB` file can be made.
 
 ## Related Decisions
 
