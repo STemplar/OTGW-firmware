@@ -1,6 +1,6 @@
 # Overdracht: Boiler info (otgw-1.x.x) naar Claude Code
 
-Stand: 17-10-2026. Repo `STemplar/OTGW-firmware`, branch **`otgw-1.x.x`**, HEAD `d51c91f15`.
+Stand: 18-10-2026. Repo `STemplar/OTGW-firmware`, branch **`otgw-1.x.x`**, HEAD `0162c4adb` (+ deze docs-commit).
 Upstream: `rvdbreemen/OTGW-firmware`, branch `otgw-1.x.x` (de fork loopt er alleen op vóór).
 Werk **alleen met de fork**; de upstream-repo is voor de gebruiker niet toegankelijk en is niet nodig.
 
@@ -90,11 +90,21 @@ Een hosttest controleert dat elk tabelbestand bestaat en hetzelfde `id` heeft.
   Ketel antwoordt READ-ACK 255 voor ontbrekende P (P6–P16, P22) → `tsp_unsupported_value: 255`.
   P27/P30 signed (241 = −15, 246 = −10). P17 staat op 15 (fabriek 39).
 - **ID131 = HB dF, LB dU** (bevestigd met typeplaat). 0x2501 (dF 37/dU 1) gezien bij 13/14: geen typenaam.
-- **ID15** = ingesteld maximaal vermogen, niet het typevermogen (vermogen is instelbaar).
-- **Tzerra-generaties**: 1 Tzerra M, 2 Tzerra M Plus (13/13?, 13/14, 13/16), 3 Tzerra Ace
-  (vermoedelijk 23/1), 4 Tzerra Ace-Matic (27/1, OT 4.00, ID10–13 ✖).
+- **ID15** = ingesteld maximaal vermogen, niet het typevermogen (vermogen is instelbaar). Gemeten
+  18-10-2026: 6 kW / 73 %, vermoedelijk door P17 = 15.
+- **Tzerra-generaties**: 1 Tzerra M, 2 Tzerra M Plus (13/13, 13/14, 13/16), 3 Tzerra Ace
+  (23/1, 7 matrixlogs), 4 Tzerra Ace-Matic (27/1, OT 4.00, ID10–13 ✖).
 - **ID127 is niet uniek per model**: Avanta Ace en Calenta Ace beide 20/1; 5/24 onder Avanta én Calenta.
   Overzicht in `docs/boiler-info/profiles-draft/README.md`.
+- **ID127/ID131 van alle 31 BDR-ketels in de matrix** (opgehaald 18-10-2026):
+  `Documentatie/Vendoronderzoek/ketelmatrix_id127_id131_2026-10-18.json` + ruwe pagina's in
+  `ketelmatrix_details_html_2026-10-18/` (buiten de repo). ID127 hoort bij een besturingsgeneratie,
+  niet bij een model of vermogen. Zelfde ID127 onder meerdere merken: 23/1 (Tzerra Ace, De Dietrich
+  NANEO, MCR 24), 27/1 (Tzerra Ace-Matic, Baxi Platinum iCompact) → vermoedelijk zustermodellen,
+  TASK-1247 (To Do). ID131 alleen bij de Tzerra Plus: 0x2401 en 0x2501.
+- **Modelvermogen** komt alleen uit ID131 dF/dU (36/1 = 28c Plus, van de typeplaat). De handleiding
+  heeft geen dF/dU-tabel. Parameters (P18 47/56/78, P21 23/30 voor 24c/28c/39c) zijn instelbaar en
+  dus hooguit een controle.
 - **Member-ID 2 (Bulex FAS, Quinta 28c) uitgesloten**: hun "OEM-reads" 128–202 zijn een
   geheugendump (LB(n) == HB(n+1)). Vastgelegd in `oem-vendors.json` → `excluded_as_invalid`.
 - **Oude Quinta displaycodes** I, II, J, L, u (gebruiker) / U (service): door gebruiker bevestigd.
@@ -109,6 +119,34 @@ Een hosttest controleert dat elk tabelbestand bestaat en hetzelfde `id` heeft.
   uitlezen (Boiler info: "missing replies", profiel niet herkend na een herstart). Buiten de scope
   van dit project. De vaste thermostaat (Plugwise Anna, member-ID 140) geeft via ID19 elke ~23 s een slot.
 - **ID115 = St/Su op de qSense** (HB = St, LB = Su), bevestigd 18-10-2026 bij 3/30, 5/41 en 4/30.
+  Verder gezien (Anna + PM=115, 60 antwoorden): 2/15, 2/18, 2/20, 3/30, 3/37, 4/30, 5/41, 5/44,
+  6/60, 8/0, 8/1, 10/0, 17/0. Status 0, 1 en 9 nooit gezien.
+- **Storing en blokkering (TASK-1243, 18-10-2026)**, twee gastests met de Anna, PM=115 elke 20 s
+  (captures `OTGW-captures/2026-10-18_1849_*` en `_1916_*`, buiten de repo):
+  - Vergrendeling = ID0 bit 0 + E-code in ID5 LB (E:14 = `0x000E`, de letter E wordt niet verstuurd)
+    + ID115 **status 10 / sub 0** (niet in handleiding Tab.43; de Ace-Matic-handleiding noemt 10
+    "Permanente storing"). De ID5-vlaggen (HB) blijven 0.
+  - Vlamwegval (kraan dicht of half dicht tijdens branden) → direct herstartpogingen (status 2:
+    2/15, 2/18, 2/20, 5/41) → E:14. **Nooit status 9** en nooit code 22 in ID5. Blokkering via
+    status 9 / Su-code is dus niet waargenomen; het profiel volgt daar Tab.45.
+  - ID5 HB bit 0 ("service request") staat aan op het eerste ID5 na elke vlamwegval en na elke reset
+    (4 van 4), nooit tijdens branden of vergrendeling: kandidaat-signaal, niet gebruikt.
+  - Tellers: ID113 (mislukte starts) 33 → 37 → 42, ID114 (vlamsignaal te laag) 7 → 8 → 9; elke
+    vlamwegval telt één keer in ID114.
+  - Lamp: onderbroken groen = ketel in bedrijf (Gebruikersinstructiekaart §14.2), knipperend groen
+    (1–6×) = blokkering, rood = storing. De Tzerra M Plus heeft geen display; het storingsgeheugen
+    is alleen via Recom/servicetool of een regelaar (qSense) te lezen.
+- **Thermostaatcycli (18-10-2026)**:
+  - Anna: drietallen `25 17 X`, vaste ronde ~23,4 s (X = 0 3 5 1 14 15 16 17 18 19 24 26 27 28 48 56
+    9 100 57 49 6, plus 35 ~2× en 99 soms); 3,32 verzoeken/s; ID17/25 elke ~0,85 s. ID19 is het enige
+    ID dat de ketel niet kent → het enige PM-slot; alle 111 PM-verzoeken van 18-10 namen dat slot,
+    de Anna krijgt van de PIC hetzelfde Unknown-Data-Id.
+  - qSense: vijftallen `17 25 X 0 1` (~5 s), X roteert 56 57 14 5 27 28 16 24; 0,99 verzoeken/s
+    (gemeten 11:57–12:02; de eerdere 1,30/s kwam uit een verloren capture). Menuverzoeken (115,
+    113–116 …) nemen de X-plek; de lijst schuift één stap op. ID0/1/17/25 blijven in elk vijftal.
+  - Het snellere OT-log met de Anna is dus een thermostaateigenschap, geen firmwarewijziging.
+  - OT 4.2 §5.2.1: master verplicht ID0, ID1, ID3 (bij opstarten); §4: master minstens elke 1 s
+    (+15 %). Anna max 1,12 s; qSense mediaan 1,00 s, 5× > 1,15 s (max 1,93 s).
 
 ## 5. Concepten (niet actief)
 
@@ -136,7 +174,8 @@ g++ -std=c++11 -Wall -Wextra -Werror -o /tmp/tbi test/host/test_boilerInfo.cpp &
 g++ -std=c++11 -Wall -Wextra -Werror -o /tmp/tbr test/host/test_boilerInfoReplay.cpp && /tmp/tbr
 node test/host/test_otBrandTextUi.js
 ```
-Laatste build: `1.7.8-beta.2+d51c91f`, 772.696 B flash (73 %), 24.644 B vrij RAM.
+Laatste build en flash (firmware + LittleFS via `/update`): `1.7.8-beta.2+0162c4a`, op het apparaat
+gecontroleerd 18-10-2026. Screenshots in `OTGW-captures/shots/`.
 
 **Cloud-sandbox zonder downloads.arduino.cc** (alleen nodig als daar opnieuw gebouwd wordt):
 arduino-cli van GitHub-release; `network.proxy` instellen; core `esp8266:esp8266@2.7.4` via de
@@ -157,8 +196,10 @@ worden door de build gestempeld — niet meecommitten.
 
 ## 8. Open punten en volgende stappen
 
-1. **Hardwaretest** van build `d51c91f`: pagina controleren (3 kolommen, P-nummers, geen
-   rijen "Not supported"), ID131 wordt bij opstarten gelezen, profiel verschijnt.
+1. Afgerond 18-10-2026: TASK-1241 (uitleestempo), 1242 (indeling en tooltips), 1243 (Fault status:
+   "Vergrendeling · E:xx" / "Blokkering · Su:xx" via `fault_status` in het profiel), 1244 (ID132),
+   1245 (bedrijfsnamen member-ID). TASK-1246 / ADR-099 (taaluitgaven) **ingetrokken** door de
+   gebruiker: geen en-GB-handleiding, Belgische modellen niet herkenbaar.
 2. ID132 (servicemelding), **bevestigd 17-10-2026** met Remeha qSense (v12, soft 1.2), OT-log via
    WebSocket 81. De qSense leest ID131/132/133 bij het openen van het menu (`Read-Data 132, 255/255`).
    De ketel antwoordt `0x0101`, ook na uit/aan. Met de PIC-override `SR=132:<HB>,<LB>` (alleen het
@@ -179,7 +220,14 @@ worden door de build gestempeld — niet meecommitten.
 4. Tzerra 13/13 en 23/1 identificeren; Avanta Ace vs Calenta Ace onderscheiden
    (kandidaat: ID93–95-teksten bij OT 4.x, of een OEM-ID).
 5. Oude Quinta's: welk data-ID hoort bij welke instelling/code — alleen via een echte uitlezing.
-6. FHB (ID12/13) is ✖ bij de Tzerra M Plus; de knop "Fault history" toont dat terecht.
+6. FHB (ID12/13) is ✖ bij de Tzerra M Plus; het blok wordt via `fault_history: false` verborgen.
+7. Voorstellen die op de gebruiker wachten: ruwe ID5-code tonen als die ≠ 255 en ID0 bit 0 uit;
+   bij vergrendeling met ID5 = 255 alleen "Vergrendeling"; tussenstap "BDR Thermea … · model not
+   yet recognised" zolang ID131 ontbreekt; P21-controle tegen het herkende model.
+8. Onderzoek: een echte blokkering (status 9) met ID115 op de bus; betekenis van ID5 bit 0; het
+   data-ID waarmee de qSense het storingsgeheugen leest (capture met qSense in dat menu); dF/dU van
+   24c/39c Plus; zustermodellen (TASK-1247).
+9. Master member ID toont na een OTGW-herstart "---" tot de Anna haar ID2 opnieuw stuurt.
 
 ## 9. Commits in deze reeks (oud → nieuw)
 
