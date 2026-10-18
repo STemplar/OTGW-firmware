@@ -243,7 +243,7 @@ body.col-resizing * {
 @media(max-width:768px) {
   .boiler-grid { grid-template-columns:minmax(0, 1fr); }
   .boiler-wide { width:auto; }
-  .boiler-wide .otmoncolumn1 { white-space:normal; }
+  .boiler-row .otmoncolumn1 { white-space:normal; }
 }
 @media(max-width:600px) { .boiler-info-panel { padding:12px; } }
 .boiler-info-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0; }
