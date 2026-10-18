@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-18 11:06'
-updated_date: '2026-10-18 11:07'
+updated_date: '2026-10-18 11:08'
 labels:
   - boiler-info
   - ui
@@ -22,8 +22,16 @@ Member IDs (ID2 master, ID3 slave, ID74 ventilation, ID103 solar; LB) come from 
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 docs/opentherm specification/member-ids/ota-member-id-codes-2024-06-13.json holds every assigned code 1-251 with the company name exactly as in the PDF (asterisk kept as a flag), plus source and date
-- [ ] #2 docs/boiler-info/oem-vendors.json and Documentatie/Vendoronderzoek/VENDOR_MEMBER_IDS_ACTUEEL.md name the company per member ID from that list; observations stay unchanged
+- [x] #1 docs/opentherm specification/member-ids/ota-member-id-codes-2024-06-13.json holds every assigned code 1-251 with the company name exactly as in the PDF (asterisk kept as a flag), plus source and date
+- [x] #2 docs/boiler-info/oem-vendors.json and Documentatie/Vendoronderzoek/VENDOR_MEMBER_IDS_ACTUEEL.md name the company per member ID from that list; observations stay unchanged
 - [ ] #3 The Boiler info page shows the company next to Slave and Master member ID (e.g. '11 · BDR Thermea Group B.V.', '140 · Plugwise B.V.'); 0 and unassigned codes show only the number
 - [ ] #4 test_otBrandTextUi.js covers a known code, 0 and an unassigned code; python build.py exits 0; python evaluate.py --quick shows no new failures
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+- d022e475a: official list as JSON (188 codes, 17 with asterisk; counts checked against the PDF), company added to 323 member_id entries in oem-vendors.json (observations unchanged), section "Officiële bedrijfsnamen" in Documentatie/Vendoronderzoek/VENDOR_MEMBER_IDS_ACTUEEL.md (outside the repo), data/member-ids.json for the page.
+- Observed IDs not assigned by the OTA list: 170, 211, 255; mismatches with matrix brands: 56 (Ti-Green vs Baxi/De Dietrich), 64 (WeHeat vs Intergas/Nefit). Observations left as is; page shows only the number for unassigned codes.
+- Pending: AC3 (on the real OTGW) and the gates already green in the commit (UI test, evaluate 0 failed, build OK).
+<!-- SECTION:NOTES:END -->
