@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:30'
+updated_date: '2026-10-18 10:34'
 labels:
   - boiler-info
   - ui
@@ -38,6 +38,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #14 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in fixed positions over columns 1-3 (11/11/10); a value appears when it is read, cells do not move while reading; without a profile the received TSPs are listed as before
 - [ ] #15 Without a profile, once ID10 is known, TSP 0..count-1 are fixed cells ('TSP n'); values fill in as read (raw, READ-ACK 255 included), cells do not move
 - [ ] #16 The Hex/Binary toggle is removed; raw values are always shown in hex
+- [ ] #17 Layout (user 18-10-2026, replaces the 4-column layout): 3 equal columns; Identification | Operating status | OEM on top, parameters below over the same 3 columns, fault history (when shown) below the parameters; all read buttons grouped at the bottom; narrow screens stack in that order
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -66,4 +67,6 @@ User 18-10-2026: choice 1b (only the profile parameters as predefined cells, not
 Principle (user 18-10-2026): tailor-made view when the boiler type is known (profile: fixed manual parameter cells, labels, factory setting tooltip, highlight); generic view when it is not yet known (received TSPs as "TSP n", raw values). Implemented in 4e8232332.
 
 User 18-10-2026: generic view also gets fixed cells from the ID10 count (yes); the Hex/Binary toggle adds nothing and is removed.
+
+User 18-10-2026: 3 columns instead of 4 (more room for text and values); OEM next to operating status; read buttons grouped below the columns so the data columns form one whole, like the OT monitor page. Supersedes the column-4 layout of AC10/AC12.
 <!-- SECTION:NOTES:END -->
