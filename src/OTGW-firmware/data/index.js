@@ -7426,8 +7426,10 @@ function renderBoilerDetails(data) {
   }
   [[3,'Slave member ID'],[2,'Master member ID']].forEach(function(pair) {
     var value = data['value_' + pair[0]], id = value === undefined ? undefined : value & 255;
-    var company = id && boilerMemberNames && typeof boilerMemberNames[id] === 'string' ? boilerMemberNames[id] : '';
-    boilerRow(identity, pair[1], id === undefined ? BOILER_NO_DATA : company ? id + ' \u00b7 ' + company : id, company);
+    var names = boilerMemberNames && boilerMemberNames.names, brands = boilerMemberNames && boilerMemberNames.brands;
+    var company = id && names && typeof names[id] === 'string' ? names[id] : '';
+    var tip = company && brands && Array.isArray(brands[id]) ? company + ' \u00b7 merken: ' + brands[id].join(', ') : company;
+    boilerRow(identity, pair[1], id === undefined ? BOILER_NO_DATA : company ? id + ' \u00b7 ' + company : id, tip);
   });
   if (data.value_125 !== undefined) boilerRow(identity,'OpenTherm version (slave)',(data.value_125 / 256).toFixed(2),'');
   if (data.value_127 !== undefined) boilerRow(identity,'Product type / version', (data.value_127 >> 8) + ': ' + (data.value_127 & 255),'');

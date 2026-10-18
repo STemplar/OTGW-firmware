@@ -1,7 +1,7 @@
 {
  "source": "OpenTherm Association, 'Assignment of Member ID Codes' (file Member-ID-Codes-2025.pdf, footer 'OTA Members ID codes last update 13-06-2024'), supplied by the user on 18-10-2026; kept outside the repo at Documentatie/Vendoronderzoek/Member-ID-Codes-2025.pdf (sha256 fce2e3445f03d422f9e3ac03cb863107afb77d92cad6e3d408a9d3b6276737de). All 188 entries checked against the PDF text: 0 differences.",
  "date": "2024-06-13",
- "note": "Company names verbatim from the PDF, including its spelling. One register for all roles: master (ID2 LB), slave (ID3 LB), ventilation (ID74 LB), solar (ID103 LB); OT 4.2 §5.1/§5.3.2. 'asterisk' = the PDF marks the entry with '*'; the PDF does not explain the mark. Codes absent here are empty in the PDF (87-130, 170, 174-176, 208-221, 229, 252-255). Code 0 = customer non-specific device (OT 4.2 §5.3.2 Note 2).",
+ "note": "Company names verbatim from the PDF, including its spelling. One register for all roles: master (ID2 LB), slave (ID3 LB), ventilation (ID74 LB), solar (ID103 LB); OT 4.2 §5.1/§5.3.2. 'asterisk' = the PDF marks the entry with '*'; the PDF does not explain the mark. Codes absent here are empty in the PDF (87-130, 170, 174-176, 208-221, 229, 252-255). Code 0 = customer non-specific device (OT 4.2 §5.3.2 Note 2). 'brands' = brand portfolio of the company, only where a source is recorded in 'brands_source' (not from the OTA list).",
  "codes": {
   "1": {
    "company": "Resideo"
@@ -37,7 +37,16 @@
    "asterisk": true
   },
   "11": {
-   "company": "BDR Thermea Group B.V."
+   "company": "BDR Thermea Group B.V.",
+   "brands": [
+    "Baxi",
+    "De Dietrich",
+    "Remeha",
+    "Brötje",
+    "Chappée",
+    "Baymak"
+   ],
+   "brands_source": "BDR Thermea website (brands page), quoted by the user on 18-10-2026"
   },
   "12": {
    "company": "Van de Beyl BV",
@@ -175,7 +184,16 @@
    "company": "Honeywell Combustion Controls Srl"
   },
   "53": {
-   "company": "BDR Thermea"
+   "company": "BDR Thermea",
+   "brands": [
+    "Baxi",
+    "De Dietrich",
+    "Remeha",
+    "Brötje",
+    "Chappée",
+    "Baymak"
+   ],
+   "brands_source": "BDR Thermea website (brands page), quoted by the user on 18-10-2026"
   },
   "54": {
    "company": "Sunvic Controls Ltd.",

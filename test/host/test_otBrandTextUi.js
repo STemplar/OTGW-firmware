@@ -124,6 +124,7 @@ ctx.boilerMemberNames=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/member-
 ctx.renderBoilerDetails({...d,value_3:0x410B,value_2:140});
 assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|11 · BDR Thermea Group B.V.')&&hasRow(nodes.boilerIdentityDetails,'Master member ID|140 · Plugwise B.V.'));
 assert(meaningOf(nodes.boilerIdentityDetails,'Master member ID|140 · Plugwise B.V.')==='Plugwise B.V.','full company name in the tooltip');
+assert(meaningOf(nodes.boilerIdentityDetails,'Slave member ID|11 · BDR Thermea Group B.V.')==='BDR Thermea Group B.V. · merken: Baxi, De Dietrich, Remeha, Brötje, Chappée, Baymak','brands where a source is recorded');
 ctx.renderBoilerDetails({...d,value_3:0,value_2:211});assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|0')&&hasRow(nodes.boilerIdentityDetails,'Master member ID|211'));
 ctx.boilerMemberNames=null;ctx.renderBoilerDetails({...d,value_3:11});assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|11'),'without the file only numbers');
 console.log('PASS: partial/complete/safe text, profile matching, contextual labels, manual-style parameter rows, unsupported rows omitted, raw fallback and service uncertainty');
