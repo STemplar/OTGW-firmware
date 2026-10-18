@@ -7371,6 +7371,8 @@ window.addEventListener('pagehide', stopBoilerInfoPolling);
 // Boiler values and manufacturer descriptions are rendered as text, never HTML.
 var boilerInfoData = null, boilerProfileData = null;
 var boilerProfileLoading = false, boilerProfileRequested = null;
+// OpenTherm Association member ID register (member-ids.json, from docs/opentherm specification/member-ids).
+var boilerMemberNames = null, boilerMemberNamesRequested = false;
 function boilerRaw(value) {
   return '0x' + value.toString(16).toUpperCase().padStart(4, '0');
 }
@@ -7416,9 +7418,16 @@ function renderBoilerDetails(data) {
   if (!caption) return;
   caption.textContent = profile ? profile.name + ' · Manufacturer descriptions: Nederlands' : 'Generic OpenTherm device';
   var identity = document.getElementById('boilerIdentityDetails'); identity.textContent = '';
+  if (!boilerMemberNamesRequested) {
+    boilerMemberNamesRequested = true; // one request; without the file only the numbers are shown
+    fetch('member-ids.json').then(function(r) { if (!r.ok) throw new Error('Member IDs unavailable'); return r.json(); })
+      .then(function(names) { boilerMemberNames = names; if (boilerInfoData) renderBoilerDetails(boilerInfoData); })
+      .catch(function() { /* numbers only */ });
+  }
   [[3,'Slave member ID'],[2,'Master member ID']].forEach(function(pair) {
-    var value = data['value_' + pair[0]];
-    boilerRow(identity,pair[1],value === undefined ? BOILER_NO_DATA : value & 255,'');
+    var value = data['value_' + pair[0]], id = value === undefined ? undefined : value & 255;
+    var company = id && boilerMemberNames && typeof boilerMemberNames[id] === 'string' ? boilerMemberNames[id] : '';
+    boilerRow(identity, pair[1], id === undefined ? BOILER_NO_DATA : company ? id + ' \u00b7 ' + company : id, company);
   });
   if (data.value_125 !== undefined) boilerRow(identity,'OpenTherm version (slave)',(data.value_125 / 256).toFixed(2),'');
   if (data.value_127 !== undefined) boilerRow(identity,'Product type / version', (data.value_127 >> 8) + ': ' + (data.value_127 & 255),'');

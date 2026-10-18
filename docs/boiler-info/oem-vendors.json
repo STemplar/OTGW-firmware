@@ -6,6 +6,7 @@
   "vendor_allowlist": [
     {
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "devices": [
         "Atag i-Serie",
         "BAXI Prime 1.24",
@@ -39,6 +40,7 @@
     },
     {
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "devices": [
         "Itho Daalderop WPU4",
         "Itho Daalderop WPU5G"
@@ -71,6 +73,7 @@
     },
     {
       "member_id": 8,
+      "company": "S.I.T. Controls B.V.",
       "devices": [
         "Hoval TopGas Comfort 16KW"
       ],
@@ -81,6 +84,7 @@
     },
     {
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "devices": [
         "Remeha Tzerra Plus"
       ],
@@ -93,6 +97,7 @@
     },
     {
       "member_id": 27,
+      "company": "Bertelli & Partners s.r.l.",
       "devices": [
         "Ferroli BlueHelix HiTech RRT H",
         "Thermona Therm 25 KDC"
@@ -107,6 +112,7 @@
     },
     {
       "member_id": 33,
+      "company": "Viessmann Elektronik GmbH & Co KG",
       "devices": [
         "Viessmann Vitodens 100-W",
         "Viessmann Vitodens 100-W B1HC"
@@ -118,6 +124,7 @@
     },
     {
       "member_id": 131,
+      "company": "Bosch Thermotechniek BV",
       "devices": [
         "Nefit Proline NXT HRC 24/CW4",
         "Nefit Proline NXT HRC 30/CW5",
@@ -130,6 +137,7 @@
     },
     {
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "devices": [
         "Novaya Thermastage Compact Duo"
       ],
@@ -149,6 +157,7 @@
     },
     {
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "devices": [
         "Hajdu HGK-28",
         "Intergas HRE 28/24 A",
@@ -196,6 +205,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -206,6 +216,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -216,6 +227,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "read",
       "marker": "■",
@@ -226,6 +238,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "read",
       "marker": "■",
@@ -236,6 +249,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "read",
       "marker": "■",
@@ -246,6 +260,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 131,
       "access": "read",
       "marker": "■",
@@ -256,6 +271,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 131,
       "access": "read",
       "marker": "■",
@@ -266,6 +282,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 132,
       "access": "read",
       "marker": "■",
@@ -276,6 +293,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 132,
       "access": "read",
       "marker": "■",
@@ -286,6 +304,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -296,6 +315,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -306,6 +326,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 134,
       "access": "read",
       "marker": "■",
@@ -316,6 +337,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 134,
       "access": "read",
       "marker": "■",
@@ -326,6 +348,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 135,
       "access": "read",
       "marker": "■",
@@ -336,6 +359,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 135,
       "access": "read",
       "marker": "■",
@@ -346,6 +370,7 @@
     {
       "device": "Atag i-Serie",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 136,
       "access": "read",
       "marker": "■",
@@ -356,6 +381,7 @@
     {
       "device": "Baxi luna 3 Confort HT",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -366,6 +392,7 @@
     {
       "device": "BAXI Prime 1.24",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -376,6 +403,7 @@
     {
       "device": "BAXI Prime 1.24",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -386,6 +414,7 @@
     {
       "device": "BAXI Prime 1.24",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -396,6 +425,7 @@
     {
       "device": "BAXI Prime 1.24",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -406,6 +436,7 @@
     {
       "device": "BAXI Prime 1.24",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -416,6 +447,7 @@
     {
       "device": "Baxi Slim",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -456,6 +488,7 @@
     {
       "device": "Brötje WGB 2",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -466,6 +499,7 @@
     {
       "device": "Brötje WGB 2",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -476,6 +510,7 @@
     {
       "device": "Brötje WHBS 22 D",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -486,6 +521,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -496,6 +532,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 129,
       "access": "read",
       "marker": "■",
@@ -506,6 +543,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 130,
       "access": "read",
       "marker": "■",
@@ -516,6 +554,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 131,
       "access": "read",
       "marker": "■",
@@ -526,6 +565,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 132,
       "access": "read",
       "marker": "■",
@@ -536,6 +576,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -546,6 +587,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 134,
       "access": "read",
       "marker": "■",
@@ -556,6 +598,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 135,
       "access": "read",
       "marker": "■",
@@ -566,6 +609,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 136,
       "access": "read",
       "marker": "■",
@@ -576,6 +620,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 137,
       "access": "read",
       "marker": "■",
@@ -586,6 +631,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 138,
       "access": "read",
       "marker": "■",
@@ -596,6 +642,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 139,
       "access": "read",
       "marker": "■",
@@ -606,6 +653,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 140,
       "access": "read",
       "marker": "■",
@@ -616,6 +664,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 141,
       "access": "read",
       "marker": "■",
@@ -626,6 +675,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 142,
       "access": "read",
       "marker": "■",
@@ -636,6 +686,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 143,
       "access": "read",
       "marker": "■",
@@ -646,6 +697,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 144,
       "access": "read",
       "marker": "■",
@@ -656,6 +708,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 145,
       "access": "read",
       "marker": "■",
@@ -666,6 +719,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 146,
       "access": "read",
       "marker": "■",
@@ -676,6 +730,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 147,
       "access": "read",
       "marker": "■",
@@ -686,6 +741,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 148,
       "access": "read",
       "marker": "■",
@@ -696,6 +752,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 149,
       "access": "read",
       "marker": "■",
@@ -706,6 +763,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 150,
       "access": "read",
       "marker": "■",
@@ -716,6 +774,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 151,
       "access": "read",
       "marker": "■",
@@ -726,6 +785,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 152,
       "access": "read",
       "marker": "■",
@@ -736,6 +796,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 153,
       "access": "read",
       "marker": "■",
@@ -746,6 +807,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 154,
       "access": "read",
       "marker": "■",
@@ -756,6 +818,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 155,
       "access": "read",
       "marker": "■",
@@ -766,6 +829,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 156,
       "access": "read",
       "marker": "■",
@@ -776,6 +840,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 157,
       "access": "read",
       "marker": "■",
@@ -786,6 +851,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 158,
       "access": "read",
       "marker": "■",
@@ -796,6 +862,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 159,
       "access": "read",
       "marker": "■",
@@ -806,6 +873,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -816,6 +884,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 161,
       "access": "read",
       "marker": "■",
@@ -826,6 +895,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 162,
       "access": "read",
       "marker": "■",
@@ -836,6 +906,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 163,
       "access": "read",
       "marker": "■",
@@ -846,6 +917,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 164,
       "access": "read",
       "marker": "■",
@@ -856,6 +928,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 165,
       "access": "read",
       "marker": "■",
@@ -866,6 +939,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 166,
       "access": "read",
       "marker": "■",
@@ -876,6 +950,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 167,
       "access": "read",
       "marker": "■",
@@ -886,6 +961,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 168,
       "access": "read",
       "marker": "■",
@@ -896,6 +972,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 169,
       "access": "read",
       "marker": "■",
@@ -906,6 +983,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 170,
       "access": "read",
       "marker": "■",
@@ -916,6 +994,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 171,
       "access": "read",
       "marker": "■",
@@ -926,6 +1005,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 172,
       "access": "read",
       "marker": "■",
@@ -936,6 +1016,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 173,
       "access": "read",
       "marker": "■",
@@ -946,6 +1027,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 174,
       "access": "read",
       "marker": "■",
@@ -956,6 +1038,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 175,
       "access": "read",
       "marker": "■",
@@ -966,6 +1049,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 176,
       "access": "read",
       "marker": "■",
@@ -976,6 +1060,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 177,
       "access": "read",
       "marker": "■",
@@ -986,6 +1071,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 178,
       "access": "read",
       "marker": "■",
@@ -996,6 +1082,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 179,
       "access": "read",
       "marker": "■",
@@ -1006,6 +1093,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 180,
       "access": "read",
       "marker": "■",
@@ -1016,6 +1104,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 181,
       "access": "read",
       "marker": "■",
@@ -1026,6 +1115,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 182,
       "access": "read",
       "marker": "■",
@@ -1036,6 +1126,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 183,
       "access": "read",
       "marker": "■",
@@ -1046,6 +1137,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 184,
       "access": "read",
       "marker": "■",
@@ -1056,6 +1148,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 185,
       "access": "read",
       "marker": "■",
@@ -1066,6 +1159,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 186,
       "access": "read",
       "marker": "■",
@@ -1076,6 +1170,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 187,
       "access": "read",
       "marker": "■",
@@ -1086,6 +1181,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 188,
       "access": "read",
       "marker": "■",
@@ -1096,6 +1192,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 189,
       "access": "read",
       "marker": "■",
@@ -1106,6 +1203,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 190,
       "access": "read",
       "marker": "■",
@@ -1116,6 +1214,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 191,
       "access": "read",
       "marker": "■",
@@ -1126,6 +1225,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 192,
       "access": "read",
       "marker": "■",
@@ -1136,6 +1236,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 193,
       "access": "read",
       "marker": "■",
@@ -1146,6 +1247,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 194,
       "access": "read",
       "marker": "■",
@@ -1156,6 +1258,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 195,
       "access": "read",
       "marker": "■",
@@ -1166,6 +1269,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 196,
       "access": "read",
       "marker": "■",
@@ -1176,6 +1280,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 197,
       "access": "read",
       "marker": "■",
@@ -1186,6 +1291,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 198,
       "access": "read",
       "marker": "■",
@@ -1196,6 +1302,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 199,
       "access": "read",
       "marker": "■",
@@ -1206,6 +1313,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -1216,6 +1324,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 201,
       "access": "read",
       "marker": "■",
@@ -1226,6 +1335,7 @@
     {
       "device": "Bulex FAS",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 202,
       "access": "read",
       "marker": "■",
@@ -1236,6 +1346,7 @@
     {
       "device": "efit ProlLne NxT HRC 24/CW3 (Bosch)",
       "member_id": 131,
+      "company": "Bosch Thermotechniek BV",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -1246,6 +1357,7 @@
     {
       "device": "Elco Euron 24 HG",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1256,6 +1368,7 @@
     {
       "device": "Elco Euron 24 HG",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1266,6 +1379,7 @@
     {
       "device": "Elco Euron 24 HG",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 189,
       "access": "read",
       "marker": "■",
@@ -1276,6 +1390,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1286,6 +1401,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1296,6 +1412,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1306,6 +1423,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1316,6 +1434,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1326,6 +1445,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1336,6 +1456,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1346,6 +1467,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1356,6 +1478,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1366,6 +1489,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1376,6 +1500,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1386,6 +1511,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1396,6 +1522,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1406,6 +1533,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1416,6 +1544,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1426,6 +1555,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1436,6 +1566,7 @@
     {
       "device": "Elco Thision 9",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1446,6 +1577,7 @@
     {
       "device": "Elco Thision 9",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1456,6 +1588,7 @@
     {
       "device": "Elco Thision XL",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -1466,6 +1599,7 @@
     {
       "device": "Elco Thision XL",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "read",
       "marker": "■",
@@ -1476,6 +1610,7 @@
     {
       "device": "Ferroli BlueHelix HiTech RRT H",
       "member_id": 27,
+      "company": "Bertelli & Partners s.r.l.",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -1486,6 +1621,7 @@
     {
       "device": "Geminox THRi 2-17 DC",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1496,6 +1632,7 @@
     {
       "device": "Geminox THRi 2-17 DC",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -1506,6 +1643,7 @@
     {
       "device": "Geminox ZEM 2-17C",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "write",
       "marker": "◆",
@@ -1516,6 +1654,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -1526,6 +1665,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -1536,6 +1676,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 202,
       "access": "read",
       "marker": "■",
@@ -1546,6 +1687,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 202,
       "access": "read",
       "marker": "■",
@@ -1556,6 +1698,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 204,
       "access": "read",
       "marker": "■",
@@ -1566,6 +1709,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 204,
       "access": "read",
       "marker": "■",
@@ -1576,6 +1720,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 220,
       "access": "read",
       "marker": "■",
@@ -1586,6 +1731,7 @@
     {
       "device": "Hajdu HGK-28",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 220,
       "access": "read",
       "marker": "■",
@@ -1626,6 +1772,7 @@
     {
       "device": "Hoval TopGas Comfort 16KW",
       "member_id": 8,
+      "company": "S.I.T. Controls B.V.",
       "data_id": 128,
       "access": "write",
       "marker": "◆",
@@ -1636,6 +1783,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -1646,6 +1794,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -1656,6 +1805,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 202,
       "access": "read",
       "marker": "■",
@@ -1666,6 +1816,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 202,
       "access": "read",
       "marker": "■",
@@ -1676,6 +1827,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 204,
       "access": "read",
       "marker": "■",
@@ -1686,6 +1838,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 204,
       "access": "read",
       "marker": "■",
@@ -1696,6 +1849,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 220,
       "access": "read",
       "marker": "■",
@@ -1706,6 +1860,7 @@
     {
       "device": "Intergas HRE 28/24 A",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 220,
       "access": "read",
       "marker": "■",
@@ -1746,6 +1901,7 @@
     {
       "device": "Intergas Kombi Kompakt HRE A 28/24",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -1756,6 +1912,7 @@
     {
       "device": "Intergas Kombi Kompakt HRE A 28/24",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 202,
       "access": "read",
       "marker": "■",
@@ -1766,6 +1923,7 @@
     {
       "device": "Intergas Kombi Kompakt HRE A 28/24",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 204,
       "access": "read",
       "marker": "■",
@@ -1776,6 +1934,7 @@
     {
       "device": "Intergas Kombi Kompakt HRE A 28/24",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 220,
       "access": "read",
       "marker": "■",
@@ -1786,6 +1945,7 @@
     {
       "device": "Intergas XTend",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 205,
       "access": "read",
       "marker": "■",
@@ -1796,6 +1956,7 @@
     {
       "device": "Intergas XTend",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 210,
       "access": "write",
       "marker": "◆",
@@ -1806,6 +1967,7 @@
     {
       "device": "Intergas XTend",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 211,
       "access": "write",
       "marker": "◆",
@@ -1816,6 +1978,7 @@
     {
       "device": "Intergas XTend",
       "member_id": 173,
+      "company": "Intergas Verwarming BV",
       "data_id": 215,
       "access": "write",
       "marker": "◆",
@@ -1836,6 +1999,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 140,
       "access": "write",
       "marker": "◆",
@@ -1846,6 +2010,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 141,
       "access": "read",
       "marker": "■",
@@ -1856,6 +2021,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 153,
       "access": "read",
       "marker": "■",
@@ -1866,6 +2032,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 154,
       "access": "read",
       "marker": "■",
@@ -1876,6 +2043,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 155,
       "access": "read",
       "marker": "■",
@@ -1886,6 +2054,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 156,
       "access": "read",
       "marker": "■",
@@ -1896,6 +2065,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 157,
       "access": "read",
       "marker": "■",
@@ -1906,6 +2076,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 158,
       "access": "read",
       "marker": "■",
@@ -1916,6 +2087,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 170,
       "access": "read",
       "marker": "■",
@@ -1926,6 +2098,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 171,
       "access": "read",
       "marker": "■",
@@ -1936,6 +2109,7 @@
     {
       "device": "Itho Daalderop WPU4",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 172,
       "access": "read",
       "marker": "■",
@@ -1946,6 +2120,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 130,
       "access": "read",
       "marker": "■",
@@ -1956,6 +2131,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 130,
       "access": "read",
       "marker": "■",
@@ -1966,6 +2142,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -1976,6 +2153,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -1986,6 +2164,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 134,
       "access": "read",
       "marker": "■",
@@ -1996,6 +2175,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 134,
       "access": "read",
       "marker": "■",
@@ -2006,6 +2186,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 135,
       "access": "write",
       "marker": "◆",
@@ -2016,6 +2197,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 135,
       "access": "write",
       "marker": "◆",
@@ -2026,6 +2208,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 141,
       "access": "read",
       "marker": "■",
@@ -2036,6 +2219,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 142,
       "access": "read",
       "marker": "■",
@@ -2046,6 +2230,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 142,
       "access": "read",
       "marker": "■",
@@ -2056,6 +2241,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 143,
       "access": "read",
       "marker": "■",
@@ -2066,6 +2252,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 143,
       "access": "read",
       "marker": "■",
@@ -2076,6 +2263,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 146,
       "access": "read",
       "marker": "■",
@@ -2086,6 +2274,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 146,
       "access": "read",
       "marker": "■",
@@ -2096,6 +2285,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 151,
       "access": "read",
       "marker": "■",
@@ -2106,6 +2296,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 151,
       "access": "read",
       "marker": "■",
@@ -2116,6 +2307,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 154,
       "access": "read",
       "marker": "■",
@@ -2126,6 +2318,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 154,
       "access": "read",
       "marker": "■",
@@ -2136,6 +2329,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 159,
       "access": "read",
       "marker": "■",
@@ -2146,6 +2340,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 159,
       "access": "read",
       "marker": "■",
@@ -2156,6 +2351,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -2166,6 +2362,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -2176,6 +2373,7 @@
     {
       "device": "Nefit Proline NXT HRC 24/CW4",
       "member_id": 131,
+      "company": "Bosch Thermotechniek BV",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -2186,6 +2384,7 @@
     {
       "device": "Nefit Proline NXT HRC 24/CW4",
       "member_id": 131,
+      "company": "Bosch Thermotechniek BV",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -2196,6 +2395,7 @@
     {
       "device": "Nefit Proline NXT HRC 24/CW4",
       "member_id": 131,
+      "company": "Bosch Thermotechniek BV",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -2206,6 +2406,7 @@
     {
       "device": "Nefit Proline NXT HRC 30/CW5",
       "member_id": 131,
+      "company": "Bosch Thermotechniek BV",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -2216,6 +2417,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -2226,6 +2428,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 142,
       "access": "read",
       "marker": "■",
@@ -2236,6 +2439,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 142,
       "access": "read",
       "marker": "■",
@@ -2246,6 +2450,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 142,
       "access": "read",
       "marker": "■",
@@ -2256,6 +2461,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 143,
       "access": "read",
       "marker": "■",
@@ -2266,6 +2472,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 143,
       "access": "read",
       "marker": "■",
@@ -2276,6 +2483,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 143,
       "access": "read",
       "marker": "■",
@@ -2286,6 +2494,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 144,
       "access": "read",
       "marker": "■",
@@ -2296,6 +2505,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 144,
       "access": "read",
       "marker": "■",
@@ -2306,6 +2516,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 144,
       "access": "read",
       "marker": "■",
@@ -2316,6 +2527,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 145,
       "access": "read",
       "marker": "■",
@@ -2326,6 +2538,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 145,
       "access": "read",
       "marker": "■",
@@ -2336,6 +2549,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 145,
       "access": "read",
       "marker": "■",
@@ -2346,6 +2560,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 148,
       "access": "read",
       "marker": "■",
@@ -2356,6 +2571,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 148,
       "access": "read",
       "marker": "■",
@@ -2366,6 +2582,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 148,
       "access": "read",
       "marker": "■",
@@ -2376,6 +2593,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 149,
       "access": "read",
       "marker": "■",
@@ -2386,6 +2604,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 149,
       "access": "read",
       "marker": "■",
@@ -2396,6 +2615,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 149,
       "access": "read",
       "marker": "■",
@@ -2406,6 +2626,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -2416,6 +2637,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -2426,6 +2648,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -2436,6 +2659,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -2446,6 +2670,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 161,
       "access": "read",
       "marker": "■",
@@ -2456,6 +2681,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 161,
       "access": "read",
       "marker": "■",
@@ -2466,6 +2692,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 161,
       "access": "read",
       "marker": "■",
@@ -2476,6 +2703,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 161,
       "access": "read",
       "marker": "■",
@@ -2486,6 +2714,7 @@
     {
       "device": "Novaya Thermastage Compact Duo",
       "member_id": 161,
+      "company": "Groupe Atlantic",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -2496,6 +2725,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -2506,6 +2736,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 129,
       "access": "read",
       "marker": "■",
@@ -2516,6 +2747,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 130,
       "access": "read",
       "marker": "■",
@@ -2526,6 +2758,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 131,
       "access": "read",
       "marker": "■",
@@ -2536,6 +2769,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 132,
       "access": "read",
       "marker": "■",
@@ -2546,6 +2780,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -2556,6 +2791,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 134,
       "access": "read",
       "marker": "■",
@@ -2566,6 +2802,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 135,
       "access": "read",
       "marker": "■",
@@ -2576,6 +2813,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 136,
       "access": "read",
       "marker": "■",
@@ -2586,6 +2824,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 137,
       "access": "read",
       "marker": "■",
@@ -2596,6 +2835,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 138,
       "access": "read",
       "marker": "■",
@@ -2606,6 +2846,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 139,
       "access": "read",
       "marker": "■",
@@ -2616,6 +2857,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 140,
       "access": "read",
       "marker": "■",
@@ -2626,6 +2868,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 141,
       "access": "read",
       "marker": "■",
@@ -2636,6 +2879,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 142,
       "access": "read",
       "marker": "■",
@@ -2646,6 +2890,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 143,
       "access": "read",
       "marker": "■",
@@ -2656,6 +2901,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 144,
       "access": "read",
       "marker": "■",
@@ -2666,6 +2912,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 145,
       "access": "read",
       "marker": "■",
@@ -2676,6 +2923,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 146,
       "access": "read",
       "marker": "■",
@@ -2686,6 +2934,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 147,
       "access": "read",
       "marker": "■",
@@ -2696,6 +2945,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 148,
       "access": "read",
       "marker": "■",
@@ -2706,6 +2956,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 149,
       "access": "read",
       "marker": "■",
@@ -2716,6 +2967,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 150,
       "access": "read",
       "marker": "■",
@@ -2726,6 +2978,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 151,
       "access": "read",
       "marker": "■",
@@ -2736,6 +2989,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 152,
       "access": "read",
       "marker": "■",
@@ -2746,6 +3000,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 153,
       "access": "read",
       "marker": "■",
@@ -2756,6 +3011,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 154,
       "access": "read",
       "marker": "■",
@@ -2766,6 +3022,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 155,
       "access": "read",
       "marker": "■",
@@ -2776,6 +3033,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 156,
       "access": "read",
       "marker": "■",
@@ -2786,6 +3044,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 157,
       "access": "read",
       "marker": "■",
@@ -2796,6 +3055,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 158,
       "access": "read",
       "marker": "■",
@@ -2806,6 +3066,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 159,
       "access": "read",
       "marker": "■",
@@ -2816,6 +3077,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 160,
       "access": "read",
       "marker": "■",
@@ -2826,6 +3088,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 161,
       "access": "read",
       "marker": "■",
@@ -2836,6 +3099,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 162,
       "access": "read",
       "marker": "■",
@@ -2846,6 +3110,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 163,
       "access": "read",
       "marker": "■",
@@ -2856,6 +3121,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 164,
       "access": "read",
       "marker": "■",
@@ -2866,6 +3132,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 165,
       "access": "read",
       "marker": "■",
@@ -2876,6 +3143,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 166,
       "access": "read",
       "marker": "■",
@@ -2886,6 +3154,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 167,
       "access": "read",
       "marker": "■",
@@ -2896,6 +3165,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 168,
       "access": "read",
       "marker": "■",
@@ -2906,6 +3176,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 169,
       "access": "read",
       "marker": "■",
@@ -2916,6 +3187,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 170,
       "access": "read",
       "marker": "■",
@@ -2926,6 +3198,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 171,
       "access": "read",
       "marker": "■",
@@ -2936,6 +3209,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 172,
       "access": "read",
       "marker": "■",
@@ -2946,6 +3220,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 173,
       "access": "read",
       "marker": "■",
@@ -2956,6 +3231,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 174,
       "access": "read",
       "marker": "■",
@@ -2966,6 +3242,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 175,
       "access": "read",
       "marker": "■",
@@ -2976,6 +3253,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 192,
       "access": "read",
       "marker": "■",
@@ -2986,6 +3264,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 193,
       "access": "read",
       "marker": "■",
@@ -2996,6 +3275,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 194,
       "access": "read",
       "marker": "■",
@@ -3006,6 +3286,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 195,
       "access": "read",
       "marker": "■",
@@ -3016,6 +3297,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 196,
       "access": "read",
       "marker": "■",
@@ -3026,6 +3308,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 197,
       "access": "read",
       "marker": "■",
@@ -3036,6 +3319,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 198,
       "access": "read",
       "marker": "■",
@@ -3046,6 +3330,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 199,
       "access": "read",
       "marker": "■",
@@ -3056,6 +3341,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 200,
       "access": "read",
       "marker": "■",
@@ -3066,6 +3352,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 201,
       "access": "read",
       "marker": "■",
@@ -3076,6 +3363,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 131,
       "access": "read",
       "marker": "■",
@@ -3086,6 +3374,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 131,
       "access": "read",
       "marker": "■",
@@ -3096,6 +3385,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 131,
       "access": "read",
       "marker": "■",
@@ -3106,6 +3396,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 132,
       "access": "read",
       "marker": "■",
@@ -3116,6 +3407,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 132,
       "access": "read",
       "marker": "■",
@@ -3126,6 +3418,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 132,
       "access": "read",
       "marker": "■",
@@ -3136,6 +3429,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -3146,6 +3440,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -3156,6 +3451,7 @@
     {
       "device": "Remeha Tzerra Plus",
       "member_id": 11,
+      "company": "BDR Thermea Group B.V.",
       "data_id": 133,
       "access": "read",
       "marker": "■",
@@ -3306,6 +3602,7 @@
     {
       "device": "Thermona Therm 25 KDC",
       "member_id": 27,
+      "company": "Bertelli & Partners s.r.l.",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -3316,6 +3613,7 @@
     {
       "device": "Thermona Therm 25 KDC",
       "member_id": 27,
+      "company": "Bertelli & Partners s.r.l.",
       "data_id": 130,
       "access": "write",
       "marker": "◆",
@@ -3326,6 +3624,7 @@
     {
       "device": "Thermona Therm 25 KDC",
       "member_id": 27,
+      "company": "Bertelli & Partners s.r.l.",
       "data_id": 151,
       "access": "read",
       "marker": "■",
@@ -3336,6 +3635,7 @@
     {
       "device": "Viessmann Vitodens 100-W",
       "member_id": 33,
+      "company": "Viessmann Elektronik GmbH & Co KG",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -3346,6 +3646,7 @@
     {
       "device": "Viessmann Vitodens 100-W B1HC",
       "member_id": 33,
+      "company": "Viessmann Elektronik GmbH & Co KG",
       "data_id": 128,
       "access": "read",
       "marker": "■",
@@ -3470,6 +3771,7 @@
     {
       "device": "Brötje WGB 2",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3480,6 +3782,7 @@
     {
       "device": "Daikin D2CND024A1A",
       "member_id": 6,
+      "company": "Elster GmbH",
       "data_id": 129,
       "access": "unconfirmed",
       "marker": "?",
@@ -3490,6 +3793,7 @@
     {
       "device": "Daikin D2CND024A1A",
       "member_id": 6,
+      "company": "Elster GmbH",
       "data_id": 166,
       "access": "unconfirmed",
       "marker": "?",
@@ -3500,6 +3804,7 @@
     {
       "device": "Daikin D2CND024A1A",
       "member_id": 6,
+      "company": "Elster GmbH",
       "data_id": 176,
       "access": "unconfirmed",
       "marker": "?",
@@ -3510,6 +3815,7 @@
     {
       "device": "Elco Euron 24 HG",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3520,6 +3826,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3530,6 +3837,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3540,6 +3848,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "★",
@@ -3550,6 +3859,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "★",
@@ -3560,6 +3870,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3570,6 +3881,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3580,6 +3892,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3590,6 +3903,7 @@
     {
       "device": "Elco Thision 25",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3600,6 +3914,7 @@
     {
       "device": "Elco Thision 9",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3610,6 +3925,7 @@
     {
       "device": "Geminox THRi 2-17 DC",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3620,6 +3936,7 @@
     {
       "device": "Geminox ZEM 2-17C",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 128,
       "access": "unconfirmed",
       "marker": "—",
@@ -3630,6 +3947,7 @@
     {
       "device": "Geminox ZEM 2-17C",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 129,
       "access": "unconfirmed",
       "marker": "★",
@@ -3640,6 +3958,7 @@
     {
       "device": "Geminox ZEM 2-17C",
       "member_id": 4,
+      "company": "Siemens Building Technologies HVAC AG",
       "data_id": 130,
       "access": "unconfirmed",
       "marker": "★",
@@ -3650,6 +3969,7 @@
     {
       "device": "Itho Daalderop WPU5G",
       "member_id": 5,
+      "company": "ITHO Holding BV",
       "data_id": 141,
       "access": "unconfirmed",
       "marker": "—",
@@ -3660,6 +3980,7 @@
     {
       "device": "Nefit Proline Eco HRC 24 HR CW4 + INsmart",
       "member_id": 131,
+      "company": "Bosch Thermotechniek BV",
       "data_id": 255,
       "access": "unconfirmed",
       "marker": "—",
@@ -3670,6 +3991,7 @@
     {
       "device": "Remeha Quinta 28c",
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "data_id": 190,
       "access": "unconfirmed",
       "marker": "★",
@@ -3681,6 +4003,7 @@
   "excluded_as_invalid": [
     {
       "member_id": 2,
+      "company": "Resideo Newhouse UK",
       "devices": [
         "Bulex FAS",
         "Remeha Quinta 28c"
@@ -3688,5 +4011,6 @@
       "read_ids": "128-202",
       "reason": "Geheugendump door ID-scan, geen OEM-data-ID's: bij opeenvolgende ID's is LB(n) == HB(n+1) in 37/40 (Bulex FAS) en 41/43 (Remeha Quinta 28c) paren; bij geen andere ketel komt dit patroon voor. Uitgesloten 2026-10-16."
     }
-  ]
+  ],
+  "member_id_names": "Company per member ID from docs/opentherm specification/member-ids/ota-member-id-codes-2024-06-13.json (OTA, last update 13-06-2024). Official names, leading over brands seen in the matrix (user decision 18-10-2026)."
 }

@@ -1,0 +1,588 @@
+{
+ "source": "OpenTherm Association, 'Assignment of Member ID Codes' (file Member-ID-Codes-2025.pdf, footer 'OTA Members ID codes last update 13-06-2024'), supplied by the user on 18-10-2026",
+ "date": "2024-06-13",
+ "note": "Company names verbatim from the PDF, including its spelling. One register for all roles: master (ID2 LB), slave (ID3 LB), ventilation (ID74 LB), solar (ID103 LB); OT 4.2 §5.1/§5.3.2. 'asterisk' = the PDF marks the entry with '*'; the PDF does not explain the mark. Codes absent here are empty in the PDF (87-130, 170, 174-176, 208-221, 229, 252-255). Code 0 = customer non-specific device (OT 4.2 §5.3.2 Note 2).",
+ "codes": {
+  "1": {
+   "company": "Resideo"
+  },
+  "2": {
+   "company": "Resideo Newhouse UK"
+  },
+  "3": {
+   "company": "Honeywell SA",
+   "asterisk": true
+  },
+  "4": {
+   "company": "Siemens Building Technologies HVAC AG"
+  },
+  "5": {
+   "company": "ITHO Holding BV"
+  },
+  "6": {
+   "company": "Elster GmbH"
+  },
+  "7": {
+   "company": "Karl Dungs BV",
+   "asterisk": true
+  },
+  "8": {
+   "company": "S.I.T. Controls B.V."
+  },
+  "9": {
+   "company": "Ferroli Nederland"
+  },
+  "10": {
+   "company": "Eberle Controls GmbH",
+   "asterisk": true
+  },
+  "11": {
+   "company": "BDR Thermea Group B.V."
+  },
+  "12": {
+   "company": "Van de Beyl BV",
+   "asterisk": true
+  },
+  "13": {
+   "company": "Airios"
+  },
+  "14": {
+   "company": "Celcius Benelux BV",
+   "asterisk": true
+  },
+  "15": {
+   "company": "Grässlin GmbH"
+  },
+  "16": {
+   "company": "Unical AG S.p.A."
+  },
+  "17": {
+   "company": "Pijnenburg Heating Controls BV",
+   "asterisk": true
+  },
+  "18": {
+   "company": "Theben AG"
+  },
+  "19": {
+   "company": "Technosystem s.r.l."
+  },
+  "20": {
+   "company": "TEM A.G. fur Elektronik"
+  },
+  "21": {
+   "company": "ShenZhen Topband Co. Ltd."
+  },
+  "22": {
+   "company": "EbV Elektronikbau- und Vertriebs-GmbH"
+  },
+  "23": {
+   "company": "Danfoss Randall Ltd."
+  },
+  "24": {
+   "company": "AWB CV ketel BV",
+   "asterisk": true
+  },
+  "25": {
+   "company": "Hager Electro S.A.S."
+  },
+  "26": {
+   "company": "Atlantic Industrie – Unite EFEL",
+   "asterisk": true
+  },
+  "27": {
+   "company": "Bertelli & Partners s.r.l."
+  },
+  "28": {
+   "company": "BRAHMA S.p.A."
+  },
+  "29": {
+   "company": "Daalderop BV",
+   "asterisk": true
+  },
+  "30": {
+   "company": "Elesta Energy Control AG 30"
+  },
+  "31": {
+   "company": "Riello S.p.A. – Divisione Murale"
+  },
+  "32": {
+   "company": "J.E. StorkAir",
+   "asterisk": true
+  },
+  "33": {
+   "company": "Viessmann Elektronik GmbH & Co KG"
+  },
+  "34": {
+   "company": "Pactrol Controls Ltd."
+  },
+  "35": {
+   "company": "Invensys Controls UK Ltd."
+  },
+  "36": {
+   "company": "Giordano Controls SPA"
+  },
+  "37": {
+   "company": "Enpi Electronics",
+   "asterisk": true
+  },
+  "38": {
+   "company": "PSV Project Service and Value srl"
+  },
+  "39": {
+   "company": "Techem Energy Service GmbH",
+   "asterisk": true
+  },
+  "40": {
+   "company": "Honda R&D C. Ltd.",
+   "asterisk": true
+  },
+  "41": {
+   "company": "AET80"
+  },
+  "42": {
+   "company": "Setecna Srl"
+  },
+  "43": {
+   "company": "AET80"
+  },
+  "44": {
+   "company": "K-W Electronic Service Inc."
+  },
+  "45": {
+   "company": "Bertelli & Partners s.r.l."
+  },
+  "46": {
+   "company": "Maelok BV",
+   "asterisk": true
+  },
+  "47": {
+   "company": "Watts Electronics",
+   "asterisk": true
+  },
+  "48": {
+   "company": "Atag Heating BV."
+  },
+  "49": {
+   "company": "Betronic Holding"
+  },
+  "50": {
+   "company": "Danfoss Randall Ltd."
+  },
+  "51": {
+   "company": "Betronic Holding"
+  },
+  "52": {
+   "company": "Honeywell Combustion Controls Srl"
+  },
+  "53": {
+   "company": "BDR Thermea"
+  },
+  "54": {
+   "company": "Sunvic Controls Ltd.",
+   "asterisk": true
+  },
+  "55": {
+   "company": "DeDietrich",
+   "asterisk": true
+  },
+  "56": {
+   "company": "Ti-Green B.V."
+  },
+  "57": {
+   "company": "Centrica Hive Ltd."
+  },
+  "58": {
+   "company": "Hubei Telin Energy-saving Equipment Co. Ltd"
+  },
+  "59": {
+   "company": "HZC Electric / Shenzhen Shyugj Technology Co. Ltd."
+  },
+  "60": {
+   "company": "ShenZhen Myuet Energy Saving Equipment Co., Ltd."
+  },
+  "61": {
+   "company": "Seekco Environmental Technology Co. Ltd."
+  },
+  "62": {
+   "company": "ShenZhen Saswell Technology Inc."
+  },
+  "63": {
+   "company": "Triple Solar"
+  },
+  "64": {
+   "company": "WeHeat"
+  },
+  "65": {
+   "company": "Tiemme Recorderie SpA"
+  },
+  "66": {
+   "company": "Quality Heating B.V."
+  },
+  "67": {
+   "company": "Guangdong Mezic Tech Co. Ltd."
+  },
+  "68": {
+   "company": "Universal Electronics In."
+  },
+  "69": {
+   "company": "Xiamen Hysen Control Technology"
+  },
+  "70": {
+   "company": "Eneco"
+  },
+  "71": {
+   "company": "Qingdao economic and technological development zone haier"
+  },
+  "72": {
+   "company": "KD Navien Co. Ltd."
+  },
+  "73": {
+   "company": "Guangzhou Devotion Home Environment Technology & Development Co. Ltd."
+  },
+  "74": {
+   "company": "Avidsen"
+  },
+  "75": {
+   "company": "Xiamen Ronglin Electronics Technology & Development Co. Ltd."
+  },
+  "76": {
+   "company": "Guangdong Baiwei Electronics Co. Ltd."
+  },
+  "77": {
+   "company": "Bosch Termotecnologia S.A."
+  },
+  "78": {
+   "company": "Chunhui Controls"
+  },
+  "79": {
+   "company": "Secure Meters"
+  },
+  "80": {
+   "company": "Midea German Research Center"
+  },
+  "81": {
+   "company": "Guangdong Zhida Hangyi Electrical Limited Company"
+  },
+  "82": {
+   "company": "Maxsmart Automation Hong Kong Limited"
+  },
+  "83": {
+   "company": "Xiamen Davell Auto Control Equipment Co. Ltd."
+  },
+  "84": {
+   "company": "Hangzhou Ezviz Network Co., Ltd."
+  },
+  "85": {
+   "company": "GuangDong JUSCE Electronics Co., Ltd"
+  },
+  "86": {
+   "company": "KOBER Ltd Vaduri Branch"
+  },
+  "131": {
+   "company": "Bosch Thermotechniek BV"
+  },
+  "132": {
+   "company": "ICY BV"
+  },
+  "133": {
+   "company": "Nest Labs Inc."
+  },
+  "134": {
+   "company": "NIKO NV"
+  },
+  "135": {
+   "company": "RES Enerji Sistemleri A.S."
+  },
+  "136": {
+   "company": "DELTA DORE"
+  },
+  "137": {
+   "company": "Thermosmart B.V."
+  },
+  "138": {
+   "company": "TECH Sp.J."
+  },
+  "139": {
+   "company": "Heatmiser UK Ltd."
+  },
+  "140": {
+   "company": "Plugwise B.V."
+  },
+  "141": {
+   "company": "BITRON SPA"
+  },
+  "142": {
+   "company": "BR Controls Nederland BV"
+  },
+  "143": {
+   "company": "Computime Ltd"
+  },
+  "144": {
+   "company": "E.D. & A. Electronic Controllers NV"
+  },
+  "145": {
+   "company": "Hitachi Air Conditioning Europe Products S.A."
+  },
+  "146": {
+   "company": "Giordano Controls SPA"
+  },
+  "147": {
+   "company": "KOBER SRL Sucursala Vaduri"
+  },
+  "148": {
+   "company": "KyungDong One Co. Ltd."
+  },
+  "149": {
+   "company": "NIBE AB"
+  },
+  "150": {
+   "company": "OVERKIZ"
+  },
+  "151": {
+   "company": "Renson Ventilation NV"
+  },
+  "152": {
+   "company": "Vaillant Group Netherlands BV"
+  },
+  "153": {
+   "company": "id43"
+  },
+  "154": {
+   "company": "Itho Daalderop BV"
+  },
+  "155": {
+   "company": "4-noks"
+  },
+  "156": {
+   "company": "tado GmbH"
+  },
+  "157": {
+   "company": "ESI Controls Ltd"
+  },
+  "158": {
+   "company": "emz-Hanauer GmbH & Co. KGaA"
+  },
+  "159": {
+   "company": "Green Momit S.L."
+  },
+  "160": {
+   "company": "Honeywell Building Controls EMEA"
+  },
+  "161": {
+   "company": "Groupe Atlantic"
+  },
+  "162": {
+   "company": "Joule Technolgies/Inventum Technologies"
+  },
+  "163": {
+   "company": "Rinnai Corporation"
+  },
+  "164": {
+   "company": "Salus Controls Plc"
+  },
+  "165": {
+   "company": "Engie Homie Services France"
+  },
+  "166": {
+   "company": "Thermondo GmbH Germany"
+  },
+  "167": {
+   "company": "Eneco"
+  },
+  "168": {
+   "company": "Ista Nederland"
+  },
+  "169": {
+   "company": "Guangdong HMJD Electrical Appliance Co., Ltd"
+  },
+  "171": {
+   "company": "Flamco MKZ BV"
+  },
+  "172": {
+   "company": "Edmi-Meters"
+  },
+  "173": {
+   "company": "Intergas Verwarming BV"
+  },
+  "177": {
+   "company": "AUER"
+  },
+  "178": {
+   "company": "Prodrive Technologies B.V."
+  },
+  "179": {
+   "company": "Thercon N.V."
+  },
+  "180": {
+   "company": "Beijing HaiLing"
+  },
+  "181": {
+   "company": "Wunda Group PLC"
+  },
+  "182": {
+   "company": "Heatmiser UK Ltd."
+  },
+  "183": {
+   "company": "Cercatrova"
+  },
+  "184": {
+   "company": "boostHEAT"
+  },
+  "185": {
+   "company": "Techneco Energiesystemen BV"
+  },
+  "186": {
+   "company": "IMHOTEP creation"
+  },
+  "187": {
+   "company": "Altlight Sp. z o. o."
+  },
+  "188": {
+   "company": "Strom Ltd."
+  },
+  "189": {
+   "company": "EPH Controls Ltd."
+  },
+  "190": {
+   "company": "Fortes Energy Systems"
+  },
+  "191": {
+   "company": "Netatmo"
+  },
+  "192": {
+   "company": "Armoya Yuksek Teknoloji"
+  },
+  "193": {
+   "company": "IRSAP SpA"
+  },
+  "194": {
+   "company": "EOGB Energy Products Ltd."
+  },
+  "195": {
+   "company": "Daikin Europe N.V."
+  },
+  "196": {
+   "company": "FHE FRANCE"
+  },
+  "197": {
+   "company": "Xiamen E-Top Controls Technology Co., Ltd."
+  },
+  "198": {
+   "company": "Xiamen E-Top Controls Technology Co., Ltd."
+  },
+  "199": {
+   "company": "K.Z. Meet- en Regelapparatuur"
+  },
+  "200": {
+   "company": "Koole Controls BV"
+  },
+  "201": {
+   "company": "ELEKTROBOCK CZ s.r.o."
+  },
+  "202": {
+   "company": "Shenzhen XingHuoYuan Intelligence Technology Co., Ltd"
+  },
+  "203": {
+   "company": "Nuvia Enerji Teknolojileri San ve Tic AŞ"
+  },
+  "204": {
+   "company": "Switchee Ltd"
+  },
+  "205": {
+   "company": "Enel X"
+  },
+  "206": {
+   "company": "Wolf GmbH"
+  },
+  "207": {
+   "company": "IndusA Electronics SAS"
+  },
+  "222": {
+   "company": "Hutchisons Technologies Ltd"
+  },
+  "223": {
+   "company": "Corporación empresarial Altra S.L. (Airzone)"
+  },
+  "224": {
+   "company": "Watss EMEA Holding BV"
+  },
+  "225": {
+   "company": "Caleffi SPA"
+  },
+  "226": {
+   "company": "Guanghzou MCOHome Technology Co., Ltd."
+  },
+  "227": {
+   "company": "LinkMoi (Chongqing) Network Technology Co., Ltd."
+  },
+  "228": {
+   "company": "A.S.I. Plumbing & Heating"
+  },
+  "230": {
+   "company": "IMIT Control Systen"
+  },
+  "231": {
+   "company": "Zhejiang Xingyue Electric Co., Ltd."
+  },
+  "232": {
+   "company": "Kensa Heat Pumps Ltd."
+  },
+  "233": {
+   "company": "Plump Sp. z.o.o."
+  },
+  "234": {
+   "company": "Cloud Garden Sentronics B.V."
+  },
+  "235": {
+   "company": "Elke E.P. s.r.o."
+  },
+  "236": {
+   "company": "Viessmann Limited"
+  },
+  "237": {
+   "company": "The Dynamic Way"
+  },
+  "238": {
+   "company": "Airfit (Shanghai) Heating Equipment Co. Ltd."
+  },
+  "239": {
+   "company": "Hangzhou Ureal Technology Co., Ltd."
+  },
+  "240": {
+   "company": "Fantini Cosmi SpA"
+  },
+  "241": {
+   "company": "Hero Balancer B.V."
+  },
+  "242": {
+   "company": "General Life"
+  },
+  "243": {
+   "company": "Perry Electric"
+  },
+  "244": {
+   "company": "Kblue Srl."
+  },
+  "245": {
+   "company": "Jotto"
+  },
+  "246": {
+   "company": "In. Ar. Technology s.r.l."
+  },
+  "247": {
+   "company": "ZonnSmart Science & Technology Co. Ltd."
+  },
+  "248": {
+   "company": "MCO Home Technology Co. Ltd."
+  },
+  "249": {
+   "company": "Seekco Environmental Technology Co. Ltd."
+  },
+  "250": {
+   "company": "Ebm-Papst GmbH"
+  },
+  "251": {
+   "company": "Knauf Energy Solution S.A."
+  }
+ }
+}

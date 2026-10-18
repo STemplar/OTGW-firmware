@@ -119,4 +119,11 @@ assert(hasRow(nodes.boilerParameters,'TSP 6|255')&&hasRow(nodes.boilerParameters
 ctx.renderBoilerDetails({profile:'generic',oem_allowed:false});
 assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|---')&&hasRow(nodes.boilerOperating,'Diagnostic status|---'));
 assert.equal(ctx.formatBoilerText({brand_support:'unknown'},'brand').value,'---');
+// Member ID names from the OTA register (TASK-1245): known code shows the company; 0 and unassigned codes only the number.
+ctx.boilerMemberNames=JSON.parse(fs.readFileSync('src/OTGW-firmware/data/member-ids.json','utf8'));
+ctx.renderBoilerDetails({...d,value_3:0x410B,value_2:140});
+assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|11 · BDR Thermea Group B.V.')&&hasRow(nodes.boilerIdentityDetails,'Master member ID|140 · Plugwise B.V.'));
+assert(meaningOf(nodes.boilerIdentityDetails,'Master member ID|140 · Plugwise B.V.')==='Plugwise B.V.','full company name in the tooltip');
+ctx.renderBoilerDetails({...d,value_3:0,value_2:211});assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|0')&&hasRow(nodes.boilerIdentityDetails,'Master member ID|211'));
+ctx.boilerMemberNames=null;ctx.renderBoilerDetails({...d,value_3:11});assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|11'),'without the file only numbers');
 console.log('PASS: partial/complete/safe text, profile matching, contextual labels, manual-style parameter rows, unsupported rows omitted, raw fallback and service uncertainty');
