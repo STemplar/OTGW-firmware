@@ -104,6 +104,11 @@ Een hosttest controleert dat elk tabelbestand bestaat en hetzelfde `id` heeft.
   PIC-herstart ~85 s geen slots. Volledige parameterronde = 46 slots ≈ 18 min. Bron: OT-log via
   WebSocket poort 81 en `Brink OTGW/otgw-5.8.X/gateway.asm`. `BoilerInfo.h` wacht daarom op het
   antwoord met één vangnet van 300 s zonder voortgang.
+- **Remeha qSense geeft geen slots** (17/18-10-2026): hij vraagt alleen ID's die de ketel kent; wat de
+  ketel niet heeft, krijgt DATA-INVALID (geen UNKNOWN-DATAID). Met de qSense kan de OTGW dus zelf niets
+  uitlezen (Boiler info: "missing replies", profiel niet herkend na een herstart). Buiten de scope
+  van dit project. De vaste thermostaat (Plugwise Anna, member-ID 140) geeft via ID19 elke ~23 s een slot.
+- **ID115 = St/Su op de qSense** (HB = St, LB = Su), bevestigd 18-10-2026 bij 3/30, 5/41 en 4/30.
 
 ## 5. Concepten (niet actief)
 
