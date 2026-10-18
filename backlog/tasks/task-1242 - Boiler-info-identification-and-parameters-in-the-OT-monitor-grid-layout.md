@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:50'
+updated_date: '2026-10-18 10:59'
 labels:
   - boiler-info
   - ui
@@ -38,6 +38,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #14 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in manual order; a value appears when it is read, cells do not move while reading
 - [ ] #15 Layout: columns follow the OT monitor page rule (at least 350px, equal width, as many as fit, no gap); Identification | Operating status | OEM take the first three; below them the parameters in one column as wide as the longest label plus value, without truncation; fault history (when shown) below; read buttons grouped at the bottom; narrow screens stack and may wrap long labels
 - [ ] #16 Parameter cells read 'P<n> <description> <value with unit>'; the descriptions start at the same position in every cell (P-number in a fixed-width part)
+- [ ] #17 A cell without received data shows '---' (instead of 'No data received yet', 'Support not yet determined', 'Not observed', 'No entries received', or an empty parameter value)
 <!-- AC:END -->
 
 ## Implementation Plan
