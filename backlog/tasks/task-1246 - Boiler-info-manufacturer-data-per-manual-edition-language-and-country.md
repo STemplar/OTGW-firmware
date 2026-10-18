@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-18 11:48'
-updated_date: '2026-10-18 11:48'
+updated_date: '2026-10-18 11:49'
 labels:
   - boiler-info
   - ui
@@ -28,3 +28,9 @@ Model profiles hold manufacturer data from one manual edition: descriptions, sta
 - [ ] #3 Without a matching edition the page falls back as decided in ADR-099 and never shows another country's factory values as if they applied
 - [ ] #4 Host/UI tests cover edition selection and fallback; python build.py exits 0; python evaluate.py --quick shows no new failures
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+ADR-099 drafted (Proposed, commit above). Local bin/adr-lint reports "missing Alternatives Considered" for MADR files, same as Accepted ADR-098 (older lint does not know the MADR heading "Considered Options"). Waiting for user review.
+<!-- SECTION:NOTES:END -->
