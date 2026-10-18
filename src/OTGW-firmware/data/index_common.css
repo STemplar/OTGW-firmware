@@ -235,8 +235,7 @@ body.col-resizing * {
 .boiler-row .otmoncolumn1 { min-width:0; }
 .boiler-row .boiler-value { width:auto; max-width:65%; padding-right:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .boiler-meaning { display:none; flex-basis:100%; padding:2px 10px; font-size:.85rem; white-space:normal; }
-.boiler-row.has-meaning { cursor:pointer; }
-.boiler-row.boiler-open .boiler-meaning { display:block; }
+.boiler-row.has-meaning { cursor:help; }
 .boiler-row.boiler-changed .boiler-value { font-weight:700; }
 .boiler-row.boiler-changed { box-shadow:inset 4px 0 0 #e08a00; }
 @media(max-width:1200px) {

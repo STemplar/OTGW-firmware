@@ -7322,7 +7322,7 @@ function renderBoilerInfo(data) {
     var row = document.getElementById('boiler-' + key + '-row');
     if (row) {
       row.style.display = field.value === BOILER_NOT_SUPPORTED ? 'none' : ''; // unsupported: leave the row out
-      row.classList.toggle('has-meaning', !!field.status); // reception status opens on a tap, like a meaning
+      row.classList.toggle('has-meaning', !!field.status); // reception status is the tooltip, like a meaning
       row.title = field.status;
     }
     if (value) value.textContent = field.value;
@@ -7377,7 +7377,7 @@ function boilerRaw(value) {
 }
 // Rows use the OT monitor row style (otmonrow / otmoncolumn1 / otmoncolumn2).
 var BOILER_NOT_SUPPORTED = 'Not supported by this boiler';
-// label | value; the meaning is the row tooltip and opens below the row on a tap (see the click handler).
+// label | value; the meaning (option text, factory setting) is only the row tooltip.
 function boilerRow(container, label, value, meaning, changed) {
   if (value === BOILER_NOT_SUPPORTED) return null; // unsupported items are left out
   var row = document.createElement('div');
@@ -7485,7 +7485,10 @@ function renderBoilerDetails(data) {
         hidden++; return false;
       }).join(',');
     }
-    if (!entries) {
+    // With a profile, its parameters are fixed cells (manual order); values fill in as they are read.
+    var fixed = kind === 'Parameters' && profile && profile.parameters && Object.keys(profile.parameters).length &&
+      data.support_11 !== 2 ? profile.parameters : null;
+    if (!entries && !fixed) {
       var sizeId = kind === 'Parameters' ? 10 : 12;
       var empty = data['support_' + (sizeId + 1)] === 2 ? 'Not supported by this boiler' :
         hidden > 0 ? 'No supported parameters reported' :
@@ -7493,23 +7496,28 @@ function renderBoilerDetails(data) {
         data['support_' + sizeId] === 1 ? 'No entries received' : boilerUnknown(data,sizeId);
       boilerRow(container, 'Readout', empty, ''); return;
     }
-    var rows = [];
+    var rows = [], received = {}, extra = [];
     entries.split(',').forEach(function(entry) {
       var parts = entry.split(':'), index = Number(parts[0]), value = Number(parts[1]);
       if (parts.length !== 2 || !Number.isInteger(index) || !Number.isInteger(value)) return;
       if (kind !== 'Parameters') { boilerRow(container, 'Entry ' + index, boilerRaw(value), 'Meaning not yet confirmed'); return; }
-      var parameter = profile && profile.parameters ? profile.parameters[index] : null;
-      if (!parameter) { rows.push(boilerRow(target, 'TSP ' + index, String(value), profile ? 'Meaning not yet confirmed' : '')); return; }
-      // Manual view: 'P<n> description' and the value; option text and factory setting in the tooltip.
-      var shown = parameter.signed && value > 127 ? value - 256 : value;
-      var unit = parameter.unit ? ' ' + parameter.unit : '';
-      var meaning = [];
-      if (parameter.options && parameter.options[shown] !== undefined) meaning.push(parameter.options[shown]);
-      if (parameter.default !== undefined) meaning.push('fabrieksinstelling: ' + parameter.default + unit);
-      rows.push(boilerRow(target, 'P' + index + ' ' + parameter.label, shown + unit, meaning.join(' \u00b7 '),
-        parameter.default !== undefined && parameter.default !== shown));
+      if (fixed && fixed[index]) received[index] = value; else extra.push([index, value]);
     });
-    if (kind === 'Parameters') boilerColumns(container, rows);
+    if (kind !== 'Parameters') return;
+    // Manual view: 'P<n> description' and the value; option text and factory setting in the tooltip.
+    if (fixed) Object.keys(fixed).map(Number).sort(function(a, b) { return a - b; }).forEach(function(index) {
+      var parameter = fixed[index], value = received[index], unit = parameter.unit ? ' ' + parameter.unit : '';
+      var shown = value === undefined ? undefined : parameter.signed && value > 127 ? value - 256 : value;
+      var meaning = [];
+      if (shown !== undefined && parameter.options && parameter.options[shown] !== undefined) meaning.push(parameter.options[shown]);
+      if (parameter.default !== undefined) meaning.push('fabrieksinstelling: ' + parameter.default + unit);
+      rows.push(boilerRow(target, 'P' + index + ' ' + parameter.label, shown === undefined ? '' : shown + unit,
+        meaning.join(' \u00b7 '), shown !== undefined && parameter.default !== undefined && parameter.default !== shown));
+    });
+    extra.forEach(function(pair) {
+      rows.push(boilerRow(target, 'TSP ' + pair[0], String(pair[1]), profile ? 'Meaning not yet confirmed' : ''));
+    });
+    boilerColumns(container, rows);
   });
   document.querySelectorAll('[data-boiler-read]').forEach(function(button) {
     button.disabled = !!data.busy || (button.dataset.boilerRead === 'oem' && !data.oem_readable);
@@ -7517,8 +7525,6 @@ function renderBoilerDetails(data) {
   document.getElementById('boilerReadStatus').textContent = data.read_status === 'idle' ? '' : data.read_status || '';
 }
 document.addEventListener('click', function(event) {
-  var meaningRow = event.target.closest && event.target.closest('.boiler-row.has-meaning');
-  if (meaningRow) meaningRow.classList.toggle('boiler-open'); // touch screens have no hover tooltip
   var read = event.target.closest && event.target.closest('[data-boiler-read]');
   if (read && !read.disabled) {
     read.disabled = true;

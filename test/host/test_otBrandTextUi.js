@@ -59,7 +59,15 @@ assert.deepEqual(rowsOf(P).map(r=>Number(r.match(/^P(\d+)/)[1])),rowsOf(P).map(r
 ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:Array.from({length:31},(_,i)=>(i+1)+':'+i).join(',')});
 assert.deepEqual(nodes.boilerParameters.children.map(c=>c.children.length),[11,10,10],'31 parameters: 11/10/10');
 ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.textContent.includes('Waterdruk te laag'));
-ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});assert(nodes.boilerParameters.textContent.includes('No supported parameters reported'));
+// With a profile the 32 manual parameters are fixed cells (11/11/10); unread cells are empty, never highlighted.
+ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});const E=nodes.boilerParameters;
+assert.deepEqual(E.children.map(c=>c.children.length),[11,11,10]);assert(rowNodes(E).every(r=>r.children[1].textContent===''&&!r.classList.contains('boiler-changed')));
+assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|')==='fabrieksinstelling: 39');
+// Cells keep their position while values arrive: the same label sits in the same column/row before and after.
+const pos=n=>rowNodes(n).map(r=>r.children[0].textContent);const before=pos(E);
+ctx.renderBoilerDetails({...d,tsp_entries:'1:80,17:15'});assert.deepEqual(pos(nodes.boilerParameters),before);
+assert.deepEqual(nodes.boilerParameters.children.map(c=>c.children.length),[11,11,10]);
+ctx.renderBoilerDetails({...d,tsp_entries:'',support_11:2});assert(nodes.boilerParameters.children.length===0,'ID11 UNKNOWN-DATAID: no fixed cells, unsupported row omitted');
 ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(nodes.boilerParameters.textContent.includes('TSP 6'),'OT 4.2: generic READ-ACK 255 is a valid value');
 ctx.renderBoilerDetails({...d,value_131:0x2401});assert(findText(nodes.boilerOEM,'dF: 36 dU: 1'));assert(nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
 ctx.renderBoilerDetails({...d,value_131:0x2501});assert(!nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
