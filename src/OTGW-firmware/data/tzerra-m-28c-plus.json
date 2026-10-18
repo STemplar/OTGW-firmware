@@ -114,7 +114,11 @@
     "40": "Indien aanwezig: HRU/WTW-unit testfout",
     "41": "Maximale temperatuur van de automaat overschreden"
   },
-  "service_messages": { "257": "A", "258": "B", "259": "C" },
+  "service_messages": {
+    "257": "A",
+    "258": "B",
+    "259": "C"
+  },
   "service_messages_note": "ID132 = 0x0101/0x0102/0x0103 (257/258/259) → servicemelding A/B/C; bevestigd met Remeha qSense (Clear A/B/C) op 17-10-2026, zie docs/boiler-info/OVERDRACHT.md. Andere waarden worden niet geïnterpreteerd.",
   "fault_history": false,
   "fault_history_note": "ID12/13 (foutgeheugen) beantwoordt deze ketel met UNKNOWN-DATAID (OTGW-ketelmatrix, zie docs/boiler-info/OVERDRACHT.md); het blok Fault history wordt niet getoond.",
@@ -125,13 +129,19 @@
       "label": "Aanvoertemperatuur: TSet",
       "unit": "°C",
       "range": "20 tot 90",
-      "default": 80
+      "default": 80,
+      "instelbereik": [
+        "20 tot 90 °C"
+      ]
     },
     "2": {
       "label": "Temperatuur SWW: TSet",
       "unit": "°C",
       "range": "40 tot 65",
-      "default": 60
+      "default": 60,
+      "instelbereik": [
+        "40 tot 65 °C"
+      ]
     },
     "3": {
       "label": "Ketelregeling / SWW",
@@ -141,7 +151,13 @@
         "1": "CV aan / SWW aan",
         "2": "CV aan / SWW uit",
         "3": "CV uit / SWW aan"
-      }
+      },
+      "instelbereik": [
+        "0 = CV uit / SWW uit",
+        "1 = CV aan / SWW aan",
+        "2 = CV aan / SWW uit",
+        "3 = CV uit / SWW aan"
+      ]
     },
     "4": {
       "label": "ECO-stand",
@@ -150,7 +166,12 @@
         "0": "Comfort",
         "1": "ECO-stand",
         "2": "Regelaar afhankelijk"
-      }
+      },
+      "instelbereik": [
+        "0 = Comfort",
+        "1 = ECO-stand",
+        "2 = Regelaar afhankelijk"
+      ]
     },
     "5": {
       "label": "Pompnadraaitijd",
@@ -159,75 +180,118 @@
       "default": 1,
       "options": {
         "99": "Continu"
-      }
+      },
+      "instelbereik": [
+        "1 tot 98 minuten",
+        "99 minuten = continu"
+      ]
     },
     "17": {
       "label": "Maximum volumestroom van de ventilator (CV)",
-      "default": 39
+      "default": 39,
+      "instelbereik": [
+        "G25 (L-gas)"
+      ]
     },
     "18": {
       "label": "Maximum volumestroom van de ventilator (SWW)",
-      "default": 56
+      "default": 56,
+      "instelbereik": [
+        "G25 (L-gas)"
+      ]
     },
     "19": {
       "label": "Minimum volumestroom van de ventilator (CV + SWW)",
-      "default": 11
+      "default": 11,
+      "instelbereik": [
+        "G25 (L-gas)"
+      ]
     },
     "20": {
       "label": "Minimum volumestroom van de ventilator (offset)",
-      "default": 80
+      "default": 80,
+      "instelbereik": [
+        "G25 (L-gas)"
+      ]
     },
     "21": {
       "label": "Startvolumestroom (niet wijzigen)",
-      "default": 23
+      "default": 23,
+      "instelbereik": [
+        "G25 (L-gas) (niet wijzigen)"
+      ]
     },
     "23": {
       "label": "Maximum aanvoertemperatuur systeem",
       "unit": "°C",
       "range": "20 tot 90",
-      "default": 90
+      "default": 90,
+      "instelbereik": [
+        "20 tot 90 °C"
+      ]
     },
     "24": {
       "label": "Tijdfactor gemiddelde aanvoerberekening (niet wijzigen)",
-      "default": 35
+      "default": 35,
+      "instelbereik": [
+        "Niet wijzigen"
+      ]
     },
     "25": {
       "label": "Instelpunt van de stooklijn (maximum buitentemperatuur)",
       "unit": "°C",
       "range": "0 tot 30",
-      "default": 20
+      "default": 20,
+      "instelbereik": [
+        "0 tot 30 °C (alleen met buitensensor)"
+      ]
     },
     "26": {
       "label": "Instelpunt van de stooklijn (aanvoertemperatuur)",
       "unit": "°C",
       "range": "0 tot 90",
-      "default": 20
+      "default": 20,
+      "instelbereik": [
+        "0 tot 90 °C (alleen met buitensensor)"
+      ]
     },
     "27": {
       "label": "Instelpunt van de stooklijn (minimum buitentemperatuur)",
       "unit": "°C",
       "range": "-30 tot 0",
       "default": -15,
-      "signed": true
+      "signed": true,
+      "instelbereik": [
+        "-30 tot 0 °C (alleen met buitensensor)"
+      ]
     },
     "28": {
       "label": "Instelling van het toerental van de pomp (minimale pompsnelheid CV-bedrijf)",
       "unit": "x 10 %",
       "range": "2 tot 10",
-      "default": 3
+      "default": 3,
+      "instelbereik": [
+        "2 - 10 (x 10 %)"
+      ]
     },
     "29": {
       "label": "Instelling van het toerental van de pomp (maximale pompsnelheid CV-bedrijf)",
       "unit": "x 10 %",
       "range": "2 tot 10",
-      "default": 8
+      "default": 8,
+      "instelbereik": [
+        "2 - 10 (x 10 %)"
+      ]
     },
     "30": {
       "label": "Temperatuur vorstbeveiliging",
       "unit": "°C",
       "range": "-30 tot 0",
       "default": -10,
-      "signed": true
+      "signed": true,
+      "instelbereik": [
+        "-30 tot 0 °C"
+      ]
     },
     "31": {
       "label": "Legionellabeveiliging",
@@ -236,19 +300,30 @@
         "0": "Uit",
         "1": "Aan",
         "2": "Regelaar afhankelijk"
-      }
+      },
+      "instelbereik": [
+        "0 = Uit",
+        "1 = Aan (na de inschakeling werkt de ketel één keer per week op 65 °C voor het SWW)",
+        "2 = Regelaar afhankelijk"
+      ]
     },
     "32": {
       "label": "Setpuntverhoging boiler",
       "unit": "°C",
       "range": "0 tot 25",
-      "default": 20
+      "default": 20,
+      "instelbereik": [
+        "0 tot 25 °C"
+      ]
     },
     "33": {
       "label": "Inschakeltemperatuur SWW boilersensor",
       "unit": "°C",
       "range": "2 tot 15",
-      "default": 4
+      "default": 4,
+      "instelbereik": [
+        "2 tot 15 °C"
+      ]
     },
     "34": {
       "label": "Aansturing externe driewegklep",
@@ -256,7 +331,11 @@
       "options": {
         "0": "Normaal",
         "1": "Omgekeerd"
-      }
+      },
+      "instelbereik": [
+        "0 = Normaal",
+        "1 = Omgekeerd"
+      ]
     },
     "35": {
       "label": "Keteltype",
@@ -264,7 +343,11 @@
       "options": {
         "0": "Combi",
         "1": "Solo"
-      }
+      },
+      "instelbereik": [
+        "0 = Combi",
+        "1 = Solo"
+      ]
     },
     "36": {
       "label": "Functie blokkerende ingang",
@@ -273,7 +356,12 @@
         "1": "Blokkering zonder vorstbeveiliging",
         "2": "Blokkering met vorstbeveiliging",
         "3": "Vergrendeling met vorstbeveiliging"
-      }
+      },
+      "instelbereik": [
+        "1 = Blokkering zonder vorstbeveiliging",
+        "2 = Blokkering met vorstbeveiliging",
+        "3 = Vergrendeling met vorstbeveiliging (alleen pomp)"
+      ]
     },
     "37": {
       "label": "Minimum gasdrukschakelaar (GpS)",
@@ -281,7 +369,11 @@
       "options": {
         "0": "Niet aangesloten",
         "1": "Aangesloten"
-      }
+      },
+      "instelbereik": [
+        "0 = Niet aangesloten",
+        "1 = Aangesloten"
+      ]
     },
     "38": {
       "label": "Warmteterugwinunit (HRU)",
@@ -289,14 +381,21 @@
       "options": {
         "0": "Niet aangesloten",
         "1": "Aangesloten"
-      }
+      },
+      "instelbereik": [
+        "0 = Niet aangesloten",
+        "1 = Aangesloten"
+      ]
     },
     "39": {
       "label": "Rookgasklep looptijd",
       "unit": "s",
       "range": "0 tot 255",
       "default": 0,
-      "allows255": true
+      "allows255": true,
+      "instelbereik": [
+        "0 tot 255 seconden"
+      ]
     },
     "40": {
       "label": "Functie storingsrelais",
@@ -305,19 +404,33 @@
         "0": "Bedrijfsmelding",
         "1": "Alarmmelding",
         "2": "Externe driewegklep"
-      }
+      },
+      "instelbereik": [
+        "0 = Bedrijfsmelding",
+        "1 = Alarmmelding",
+        "2 = Externe driewegklep"
+      ]
     },
     "41": {
       "label": "Servicemelding (niet wijzigen)",
-      "default": 1
+      "default": 1,
+      "instelbereik": [
+        "Niet wijzigen"
+      ]
     },
     "42": {
       "label": "Service bedrijfsuren (niet wijzigen)",
-      "default": 175
+      "default": 175,
+      "instelbereik": [
+        "Niet wijzigen"
+      ]
     },
     "43": {
       "label": "Service branduren (niet wijzigen)",
-      "default": 30
+      "default": 30,
+      "instelbereik": [
+        "Niet wijzigen"
+      ]
     },
     "44": {
       "label": "Ontluchtingscyclus",
@@ -326,7 +439,14 @@
         "0": "Uit",
         "1": "Standenpomp",
         "2": "Modulerende pomp"
-      }
+      },
+      "instelbereik": [
+        "0 = Uit",
+        "1 = Standenpomp",
+        "2 = Modulerende pomp"
+      ]
     }
-  }
+  },
+  "factory_label": "Fabrieksinstelling 28c Plus",
+  "instelbereik_source": "Handleiding 7618573 v.10 (17-03-2017), Tab.34 p.58-59, kolom Instelbereik letterlijk; voetnoten (1)-(4) tussen haakjes achter de regel waar ze bij horen."
 }

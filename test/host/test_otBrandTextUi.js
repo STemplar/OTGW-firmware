@@ -43,15 +43,16 @@ ctx.renderBoilerDetails({...d,tsp_entries:live});const tp=nodes.boilerParameters
 assert(!tp.includes('TSP ')&&!rowsOf(P).some(r=>/^P(6|16|22) /.test(r))&&!tp.includes('Minimum waterdruk'));
 assert(hasRow(P,'P5 Pompnadraaitijd|1 min')&&tp.includes('Startvolumestroom')&&tp.includes('Setpuntverhoging boiler'));
 assert(findText(nodes.boilerParameters,'-15')&&findText(nodes.boilerParameters,'-10'));
-assert(hasRow(P,'P39 Rookgasklep looptijd|255 s')&&meaningOf(P,'P39 Rookgasklep looptijd|255 s')==='fabrieksinstelling: 0 s','P39 0-255 s keeps a real 255');
-// Option text and factory setting are the meaning (tooltip, tap); the cell shows the value only.
-assert(hasRow(P,'P3 Ketelregeling / SWW|1')&&meaningOf(P,'P3 Ketelregeling / SWW|1')==='CV aan / SWW aan · fabrieksinstelling: 1');
-assert(hasRow(P,'P44 Ontluchtingscyclus|2')&&meaningOf(P,'P44 Ontluchtingscyclus|2').startsWith('Modulerende pomp'));
+assert(hasRow(P,'P39 Rookgasklep looptijd|255 s')&&meaningOf(P,'P39 Rookgasklep looptijd|255 s')==='Instelbereik: 0 tot 255 seconden\nFabrieksinstelling 28c Plus: 0','P39 0-255 s keeps a real 255');
+// Tooltip as in manual Tab.34: setting range (one line per option) and factory setting; the cell shows the value only.
+assert(hasRow(P,'P3 Ketelregeling / SWW|1')&&meaningOf(P,'P3 Ketelregeling / SWW|1')==='Instelbereik:\n0 = CV uit / SWW uit\n1 = CV aan / SWW aan\n2 = CV aan / SWW uit\n3 = CV uit / SWW aan\nFabrieksinstelling 28c Plus: 1');
+assert(hasRow(P,'P44 Ontluchtingscyclus|2')&&meaningOf(P,'P44 Ontluchtingscyclus|2').includes('2 = Modulerende pomp'));
 const p17='P17 Maximum volumestroom van de ventilator (CV)|15';
-assert(hasRow(P,p17)&&meaningOf(P,p17)==='fabrieksinstelling: 39','P17=15 differs from 28c default');
+assert(hasRow(P,p17)&&meaningOf(P,p17)==='Instelbereik: G25 (L-gas)\nFabrieksinstelling 28c Plus: 39','P17=15 differs from 28c default');
 assert(rowNode(P,p17).classList.contains('boiler-changed')&&rowNode(P,p17).classList.contains('has-meaning'));
 assert(rowNode(P,p17).children[0].children[0].className==='boiler-pnum'&&rowNode(P,p17).children[0].children[0].textContent==='P17','P-number in a fixed-width part');
-assert(rowNode(P,p17).title==='P17 Maximum volumestroom van de ventilator (CV)\nfabrieksinstelling: 39','tooltip: full label and meaning');
+assert(rowNode(P,p17).title==='P17 Maximum volumestroom van de ventilator (CV)\nInstelbereik: G25 (L-gas)\nFabrieksinstelling 28c Plus: 39','tooltip: full label and meaning');
+assert(meaningOf(P,'P27 Instelpunt van de stooklijn (minimum buitentemperatuur)|-15 °C')==='Instelbereik: -30 tot 0 °C (alleen met buitensensor)\nFabrieksinstelling 28c Plus: -15','footnote in parentheses');
 assert(hasRow(P,'P1 Aanvoertemperatuur: TSet|80 °C')&&!rowNode(P,'P1 Aanvoertemperatuur: TSet|80 °C').classList.contains('boiler-changed'));
 // One wide column: rows directly in the block, in P-number order.
 assert(P.children.every(r=>r.className.startsWith('otmonrow boiler-row')));
@@ -60,7 +61,7 @@ ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.te
 // With a profile the 32 manual parameters are fixed cells; unread cells are empty, never highlighted.
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});const E=nodes.boilerParameters;
 assert(E.children.length===32);assert(rowNodes(E).every(r=>r.children[1].textContent==='---'&&!r.classList.contains('boiler-changed')));
-assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|---')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|---')==='fabrieksinstelling: 39');
+assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|---')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|---')==='Instelbereik: G25 (L-gas)\nFabrieksinstelling 28c Plus: 39');
 // Cells keep their position while values arrive: the same label sits in the same column/row before and after.
 const pos=n=>rowNodes(n).map(r=>r.children[0].textContent);const before=pos(E);
 ctx.renderBoilerDetails({...d,tsp_entries:'1:80,17:15'});assert.deepEqual(pos(nodes.boilerParameters),before);

@@ -7520,11 +7520,13 @@ function renderBoilerDetails(data) {
     if (fixed) Object.keys(fixed).map(Number).sort(function(a, b) { return a - b; }).forEach(function(index) {
       var parameter = fixed[index], value = received[index], unit = parameter.unit ? ' ' + parameter.unit : '';
       var shown = value === undefined ? undefined : parameter.signed && value > 127 ? value - 256 : value;
-      var meaning = [];
-      if (shown !== undefined && parameter.options && parameter.options[shown] !== undefined) meaning.push(parameter.options[shown]);
-      if (parameter.default !== undefined) meaning.push('fabrieksinstelling: ' + parameter.default + unit);
+      // Tooltip as in the manual's parameter table: setting range (one line per option), factory setting.
+      var meaning = [], range = Array.isArray(parameter.instelbereik) ? parameter.instelbereik : null;
+      if (range) meaning.push(range.length > 1 ? 'Instelbereik:\n' + range.join('\n') : 'Instelbereik: ' + range[0]);
+      else if (shown !== undefined && parameter.options && parameter.options[shown] !== undefined) meaning.push(parameter.options[shown]);
+      if (parameter.default !== undefined) meaning.push((profile.factory_label || 'Fabrieksinstelling') + ': ' + parameter.default);
       rows.push(boilerRow(target, parameter.label, shown === undefined ? BOILER_NO_DATA : shown + unit,
-        meaning.join(' \u00b7 '), shown !== undefined && parameter.default !== undefined && parameter.default !== shown, 'P' + index));
+        meaning.join('\n'), shown !== undefined && parameter.default !== undefined && parameter.default !== shown, 'P' + index));
     });
     for (var tsp = 0; tsp < count; ++tsp)
       rows.push(boilerRow(target, 'TSP ' + tsp, received[tsp] === undefined ? BOILER_NO_DATA : String(received[tsp]), ''));
