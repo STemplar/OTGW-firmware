@@ -1,9 +1,11 @@
 ---
 id: TASK-1246
 title: 'Boiler info: manufacturer data per manual edition (language and country)'
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2026-10-18 11:48'
+updated_date: '2026-10-18 11:48'
 labels:
   - boiler-info
   - ui
