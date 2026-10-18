@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-18 11:48'
-updated_date: '2026-10-18 11:49'
+updated_date: '2026-10-18 15:52'
 labels:
   - boiler-info
   - ui
@@ -34,3 +34,13 @@ Model profiles hold manufacturer data from one manual edition: descriptions, sta
 <!-- SECTION:NOTES:BEGIN -->
 ADR-099 drafted (Proposed, commit above). Local bin/adr-lint reports "missing Alternatives Considered" for MADR files, same as Accepted ADR-098 (older lint does not know the MADR heading "Considered Options"). Waiting for user review.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Dropped by the user (2026-10-18) for lack of information; nothing implemented.
+
+- No en-GB manual of the Tzerra M Plus exists; the model has a Dutch manual only for the Netherlands.
+- Belgian manuals found and kept locally (nl-BE 7601052 v.11/v.13, fr-BE 7601050 v.11): texts equal to NL, factory values differ (P1 75, P2 55, P5 2, P31 2 vs NL 80/60/1/1), factory gas G20/G25 vs NL G25. Belgian models cannot be recognised from the data at hand.
+- ADR-099 set to Rejected (commit d9c6299ad). Profile stays tzerra-m-28c-plus.json (NL 7618573 v.10).
+<!-- SECTION:FINAL_SUMMARY:END -->
