@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-18 17:09'
+updated_date: '2026-10-18 17:25'
 labels:
   - boiler-info
   - ui
@@ -61,4 +61,12 @@ Test 18-10-2026 with the Plugwise Anna (capture OTGW-captures/2026-10-18_1849_an
 - Gap: ID115 was not sampled between 18:59:05 and 18:59:28; flame loss at 18:59:19 falls in that gap, so a short Su:22 cannot be excluded. During the restart attempts and the lockout there was no status 9. During lockout one ID115 sample: substatus 0, not the E-code (the E-code is only in ID5).
 - Su:22 is not marked (1) in Tab.45, so it would be stored in the boiler fault memory. The Tzerra M Plus has no display; the memory is readable only with Recom/the service tool or a suitable controller (manual §8, §11). The qSense has been removed (user), so this check is not possible now.
 - Profile: status 10 "Vergrendeling" added with status_note (observed, not in the manual), commit a138164, UI test (fails on the old profile, passes on the new), build exit 0, evaluate 0 failures, flashed LittleFS+firmware; device serves the profile with status 10.
+
+Test 2, 18-10-2026, gas tap half closed (captures OTGW-captures/2026-10-18_1916_anna-halfgas-su22.log, _1913_ and _1924_ counters; PM=115 every 20 s):
+- Lamp "1x green" while the bus said 3/30 + flame, no fault flags: manual §14.2 Gebruikersinstructiekaart: "Ketel in bedrijf" = onderbroken groen (CV-warmte / warm tapwater); blocking = knipperend groen. The green seen was most likely normal operation, also at 18:59.
+- 19:21:12 ID0 0x00 (flame lost); 19:21:14 ID5 HB bit0, OEM 255; ID115 19:21:21 2/15, 19:21:44 2/20, 19:22:08 2/18, 19:22:31 0x0529 5/41 (branderstop/naventileren); lamp off meanwhile.
+- 19:22:45 ID0 fault bit, 19:22:47 ID5 OEM 14 (E:14), lamp red. No ID115 sample during this lockout. Reset ~19:23:10: 19:23:12 ID0 still fault bit but ID5 HB bit0 set and OEM 255; 19:23:33 ID0 0x00; 19:23:42 3/37; 19:23:56 flame.
+- Counters: ID113 33 (12:00) -> 37 (19:13) -> 42 (19:25); ID114 7 -> 8 -> 9. Each flame loss counts once in ID114; failed restarts in ID113.
+- Again no status 9 and no OEM code 22 in ID5. ID5 HB bit0 ("service request" in OT 4.2) set on the first ID5 after each flame loss and after each reset (4 of 4), never during normal burning or during lockout: candidate Remeha signal for flame loss/restart, not confirmed.
+- Conclusion for AC2: a flame loss does not produce a Su-code blocking on this boiler; it goes straight to restart attempts (status 2) and after the failed starts to lockout E:14. Blocking via ID115 status 9 is still not observed.
 <!-- SECTION:NOTES:END -->
