@@ -13,7 +13,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "2": {
    "company": "Resideo Newhouse UK",
@@ -35,7 +35,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "3": {
    "company": "Honeywell SA",
@@ -64,7 +64,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "5": {
    "company": "ITHO Holding BV",
@@ -76,7 +76,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "6": {
    "company": "Elster GmbH",
@@ -89,7 +89,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "7": {
    "company": "Karl Dungs BV",
@@ -108,7 +108,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "9": {
    "company": "Ferroli Nederland"
@@ -146,7 +146,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "12": {
    "company": "Van de Beyl BV",
@@ -164,7 +164,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "14": {
    "company": "Celcius Benelux BV",
@@ -199,7 +199,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "19": {
    "company": "Technosystem s.r.l."
@@ -229,7 +229,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "25": {
    "company": "Hager Electro S.A.S."
@@ -249,7 +249,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "28": {
    "company": "BRAHMA S.p.A."
@@ -265,7 +265,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "30": {
    "company": "Elesta Energy Control AG 30"
@@ -315,7 +315,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "42": {
    "company": "Setecna Srl"
@@ -348,7 +348,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "49": {
    "company": "Betronic Holding"
@@ -393,7 +393,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "57": {
    "company": "Centrica Hive Ltd."
@@ -444,7 +444,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "71": {
    "company": "Qingdao economic and technological development zone haier"
@@ -504,7 +504,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "132": {
    "company": "ICY BV"
@@ -534,7 +534,7 @@
      "confidence": "GEMIDDELD"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "139": {
    "company": "Heatmiser UK Ltd."
@@ -645,7 +645,7 @@
      "confidence": "HOOG"
     }
    },
-   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; local copy Documentatie/Vendoronderzoek/opentherm_brand_ids.json (sha256 05028bd469a4be9753433218b965075c80adf52b8adaf698c9aec406dae4a9ba); only confidence HOOG/GEMIDDELD used"
   },
   "177": {
    "company": "AUER"
