@@ -48,10 +48,11 @@ assert(hasRow(P,'P39 Rookgasklep looptijd|255 s')&&meaningOf(P,'P39 Rookgasklep 
 assert(hasRow(P,'P3 Ketelregeling / SWW|1')&&meaningOf(P,'P3 Ketelregeling / SWW|1')==='Instelbereik:\n0 = CV uit / SWW uit\n1 = CV aan / SWW aan\n2 = CV aan / SWW uit\n3 = CV uit / SWW aan\nFabrieksinstelling 28c Plus: 1');
 assert(hasRow(P,'P44 Ontluchtingscyclus|2')&&meaningOf(P,'P44 Ontluchtingscyclus|2').includes('2 = Modulerende pomp'));
 const p17='P17 Maximum volumestroom van de ventilator (CV)|15';
-assert(hasRow(P,p17)&&meaningOf(P,p17)==='Instelbereik: G25 (L-gas)\nFabrieksinstelling 28c Plus: 39','P17=15 differs from 28c default');
+assert(hasRow(P,p17)&&meaningOf(P,p17)==='Fabrieksinstelling 28c Plus per gassoort:\nG25 (L-gas): 39\nG20 (H-gas): 39\nG25.3 (K-gas): 39\nG31 (Propaan): 39','P17=15 differs from 28c default (G25 base)');
 assert(rowNode(P,p17).classList.contains('boiler-changed')&&rowNode(P,p17).classList.contains('has-meaning'));
 assert(rowNode(P,p17).children[0].children[0].className==='boiler-pnum'&&rowNode(P,p17).children[0].children[0].textContent==='P17','P-number in a fixed-width part');
-assert(rowNode(P,p17).title==='P17 Maximum volumestroom van de ventilator (CV)\nInstelbereik: G25 (L-gas)\nFabrieksinstelling 28c Plus: 39','tooltip: full label and meaning');
+assert(rowNode(P,p17).title.startsWith('P17 Maximum volumestroom van de ventilator (CV)\nFabrieksinstelling 28c Plus per gassoort:'),'tooltip: full label and meaning');
+assert(meaningOf(P,'P21 Startvolumestroom (niet wijzigen)|23')==='Fabrieksinstelling 28c Plus: G25 (L-gas): 23');
 assert(meaningOf(P,'P27 Instelpunt van de stooklijn (minimum buitentemperatuur)|-15 °C')==='Instelbereik: -30 tot 0 °C (alleen met buitensensor)\nFabrieksinstelling 28c Plus: -15','footnote in parentheses');
 assert(hasRow(P,'P1 Aanvoertemperatuur: TSet|80 °C')&&!rowNode(P,'P1 Aanvoertemperatuur: TSet|80 °C').classList.contains('boiler-changed'));
 // One wide column: rows directly in the block, in P-number order.
@@ -61,7 +62,7 @@ ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.te
 // With a profile the 32 manual parameters are fixed cells; unread cells are empty, never highlighted.
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});const E=nodes.boilerParameters;
 assert(E.children.length===32);assert(rowNodes(E).every(r=>r.children[1].textContent==='---'&&!r.classList.contains('boiler-changed')));
-assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|---')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|---')==='Instelbereik: G25 (L-gas)\nFabrieksinstelling 28c Plus: 39');
+assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|---')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|---').startsWith('Fabrieksinstelling 28c Plus per gassoort:\nG25 (L-gas): 39'));
 // Cells keep their position while values arrive: the same label sits in the same column/row before and after.
 const pos=n=>rowNodes(n).map(r=>r.children[0].textContent);const before=pos(E);
 ctx.renderBoilerDetails({...d,tsp_entries:'1:80,17:15'});assert.deepEqual(pos(nodes.boilerParameters),before);
@@ -128,4 +129,8 @@ assert(meaningOf(nodes.boilerIdentityDetails,'Master member ID|140 · Plugwise B
 assert(meaningOf(nodes.boilerIdentityDetails,'Slave member ID|11 · BDR Thermea Group B.V.')==='BDR Thermea Group B.V. · merken: Baxi, De Dietrich, Remeha, Brötje, Chappée, Baymak','brands where a source is recorded');
 ctx.renderBoilerDetails({...d,value_3:0,value_2:211});assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|0')&&hasRow(nodes.boilerIdentityDetails,'Master member ID|211'));
 ctx.boilerMemberNames=null;ctx.renderBoilerDetails({...d,value_3:11});assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|11'),'without the file only numbers');
+// P19/P20: per gas type plus CLV overpressure (Tab.34-41); highlight compares with G25 (L-gas).
+ctx.boilerProfileData=tz;ctx.renderBoilerDetails({...d,tsp_entries:'19:14,20:80'});
+assert(meaningOf(nodes.boilerParameters,'P19 Minimum volumestroom van de ventilator (CV + SWW)|14')==='Fabrieksinstelling 28c Plus per gassoort:\nG25 (L-gas): 11\nG20 (H-gas): 11\nG25.3 (K-gas): 11\nG31 (Propaan): 14\nBij CLV-overdruk: G20 15, G25 15, G25.3 15, G31 15');
+assert(rowNode(nodes.boilerParameters,'P19 Minimum volumestroom van de ventilator (CV + SWW)|14').classList.contains('boiler-changed')&&!rowNode(nodes.boilerParameters,'P20 Minimum volumestroom van de ventilator (offset)|80').classList.contains('boiler-changed'));
 console.log('PASS: partial/complete/safe text, profile matching, contextual labels, manual-style parameter rows, unsupported rows omitted, raw fallback and service uncertainty');

@@ -7524,7 +7524,12 @@ function renderBoilerDetails(data) {
       var meaning = [], range = Array.isArray(parameter.instelbereik) ? parameter.instelbereik : null;
       if (range) meaning.push(range.length > 1 ? 'Instelbereik:\n' + range.join('\n') : 'Instelbereik: ' + range[0]);
       else if (shown !== undefined && parameter.options && parameter.options[shown] !== undefined) meaning.push(parameter.options[shown]);
-      if (parameter.default !== undefined) meaning.push((profile.factory_label || 'Fabrieksinstelling') + ': ' + parameter.default);
+      var label = profile.factory_label || 'Fabrieksinstelling', gas = parameter.factory_gas, gases = gas ? Object.keys(gas) : [];
+      // Factory setting per gas type (manual tables per edition); the first entry is the factory base gas.
+      if (gases.length > 1) meaning.push(label + ' per gassoort:\n' + gases.map(function(g) { return g + ': ' + gas[g]; }).join('\n'));
+      else if (gases.length === 1) meaning.push(label + ': ' + gases[0] + ': ' + gas[gases[0]]);
+      else if (parameter.default !== undefined) meaning.push(label + ': ' + parameter.default);
+      if (parameter.factory_clv) meaning.push('Bij CLV-overdruk: ' + Object.keys(parameter.factory_clv).map(function(g) { return g + ' ' + parameter.factory_clv[g]; }).join(', '));
       rows.push(boilerRow(target, parameter.label, shown === undefined ? BOILER_NO_DATA : shown + unit,
         meaning.join('\n'), shown !== undefined && parameter.default !== undefined && parameter.default !== shown, 'P' + index));
     });

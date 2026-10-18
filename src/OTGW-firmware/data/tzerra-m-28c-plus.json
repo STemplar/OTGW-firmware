@@ -189,37 +189,61 @@
     "17": {
       "label": "Maximum volumestroom van de ventilator (CV)",
       "default": 39,
-      "instelbereik": [
-        "G25 (L-gas)"
-      ]
+      "factory_gas": {
+        "G25 (L-gas)": 39,
+        "G20 (H-gas)": 39,
+        "G25.3 (K-gas)": 39,
+        "G31 (Propaan)": 39
+      }
     },
     "18": {
       "label": "Maximum volumestroom van de ventilator (SWW)",
       "default": 56,
-      "instelbereik": [
-        "G25 (L-gas)"
-      ]
+      "factory_gas": {
+        "G25 (L-gas)": 56,
+        "G20 (H-gas)": 56,
+        "G25.3 (K-gas)": 56,
+        "G31 (Propaan)": 50
+      }
     },
     "19": {
       "label": "Minimum volumestroom van de ventilator (CV + SWW)",
       "default": 11,
-      "instelbereik": [
-        "G25 (L-gas)"
-      ]
+      "factory_gas": {
+        "G25 (L-gas)": 11,
+        "G20 (H-gas)": 11,
+        "G25.3 (K-gas)": 11,
+        "G31 (Propaan)": 14
+      },
+      "factory_clv": {
+        "G20": 15,
+        "G25": 15,
+        "G25.3": 15,
+        "G31": 15
+      }
     },
     "20": {
       "label": "Minimum volumestroom van de ventilator (offset)",
       "default": 80,
-      "instelbereik": [
-        "G25 (L-gas)"
-      ]
+      "factory_gas": {
+        "G25 (L-gas)": 80,
+        "G20 (H-gas)": 80,
+        "G25.3 (K-gas)": 80,
+        "G31 (Propaan)": 20
+      },
+      "factory_clv": {
+        "G20": 0,
+        "G25": 0,
+        "G25.3": 0,
+        "G31": 0
+      }
     },
     "21": {
       "label": "Startvolumestroom (niet wijzigen)",
       "default": 23,
-      "instelbereik": [
-        "G25 (L-gas) (niet wijzigen)"
-      ]
+      "factory_gas": {
+        "G25 (L-gas)": 23
+      }
     },
     "23": {
       "label": "Maximum aanvoertemperatuur systeem",
@@ -448,5 +472,6 @@
     }
   },
   "factory_label": "Fabrieksinstelling 28c Plus",
-  "instelbereik_source": "Handleiding 7618573 v.10 (17-03-2017), Tab.34 p.58-59, kolom Instelbereik letterlijk; voetnoten (1)-(4) tussen haakjes achter de regel waar ze bij horen."
+  "instelbereik_source": "Handleiding 7618573 v.10 (17-03-2017), Tab.34 p.58-59, kolom Instelbereik letterlijk; voetnoten (1)-(4) tussen haakjes achter de regel waar ze bij horen.",
+  "factory_gas_source": "Handleiding 7618573 v.10 (17-03-2017): §7.6.1 p.50 (fabrieksinstelling = G25 (L-gas)); Tab.34 p.58 (G25), Tab.35-37 p.59 (G20, G25.3, G31), Tab.38-41 p.60 (CLV-overdruk). Uitgave Nederland (Tab.2)."
 }
