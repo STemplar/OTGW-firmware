@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:34'
+updated_date: '2026-10-18 10:46'
 labels:
   - boiler-info
   - ui
@@ -29,15 +29,14 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #5 Hidden and unsupported parameters stay hidden as before (tsp_unsupported_value, signed/allows255 rules unchanged)
 - [ ] #6 test_otBrandTextUi.js and the boilerInfo host tests pass; python build.py exits 0; python evaluate.py --quick shows no new failures
 - [ ] #7 Checked in a browser on the real OTGW (wide screen and phone width) with a screenshot
-- [ ] #8 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
-- [ ] #9 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
-- [ ] #10 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
-- [ ] #11 The option text and the factory setting of a parameter are only in the mouse tooltip (title); a click or tap does not expand the row
-- [ ] #12 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in fixed positions over columns 1-3 (11/11/10); a value appears when it is read, cells do not move while reading; without a profile the received TSPs are listed as before
-- [ ] #13 Without a profile, once ID10 is known, TSP 0..count-1 are fixed cells ('TSP n'); values fill in as read (raw, READ-ACK 255 included), cells do not move
-- [ ] #14 The Hex/Binary toggle is removed; raw values are always shown in hex
-- [ ] #15 Layout (user 18-10-2026, replaces the 4-column layout): 3 equal columns; Identification | Operating status | OEM on top, parameters below over the same 3 columns, fault history (when shown) below the parameters; all read buttons grouped at the bottom; narrow screens stack in that order
-- [ ] #16 A profile with "fault_history": false hides the fault history block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID); without a profile or key the block and button stay
+- [ ] #8 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
+- [ ] #9 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
+- [ ] #10 The option text and the factory setting of a parameter are only in the mouse tooltip (title); a click or tap does not expand the row
+- [ ] #11 Without a profile, once ID10 is known, TSP 0..count-1 are fixed cells ('TSP n'); values fill in as read (raw, READ-ACK 255 included), cells do not move
+- [ ] #12 The Hex/Binary toggle is removed; raw values are always shown in hex
+- [ ] #13 A profile with "fault_history": false hides the fault history block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID); without a profile or key the block and button stay
+- [ ] #14 Layout: 3 equal columns with Identification | Operating status | OEM on top; below them the parameters in one column as wide as the longest label plus value, without truncation; fault history (when shown) below; all read buttons grouped at the bottom; narrow screens stack in that order and may wrap long labels
+- [ ] #15 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in manual order; a value appears when it is read, cells do not move while reading
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -68,4 +67,6 @@ Principle (user 18-10-2026): tailor-made view when the boiler type is known (pro
 User 18-10-2026: generic view also gets fixed cells from the ID10 count (yes); the Hex/Binary toggle adds nothing and is removed.
 
 User 18-10-2026: 3 columns instead of 4 (more room for text and values); OEM next to operating status; read buttons grouped below the columns so the data columns form one whole, like the OT monitor page. Supersedes the column-4 layout of AC10/AC12.
+
+User 18-10-2026: parameters in one wide column (no truncation) instead of three columns; replaces the equal-columns AC.
 <!-- SECTION:NOTES:END -->
