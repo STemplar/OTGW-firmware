@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:20'
+updated_date: '2026-10-18 10:21'
 labels:
   - boiler-info
   - ui
@@ -35,6 +35,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #11 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
 - [ ] #12 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
 - [ ] #13 The option text and the factory setting of a parameter are only in the mouse tooltip (title); a click or tap does not expand the row
+- [ ] #14 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in fixed positions over columns 1-3 (11/11/10); a value appears when it is read, cells do not move while reading; without a profile the received TSPs are listed as before
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -57,4 +58,6 @@ Layout chosen by user 17-10-2026: parameters over columns 1-3, OEM last in colum
 AC9 revised with the user: operating status keeps its meaning in the cell.
 
 User 18-10-2026: factory setting / option text only as mouse tooltip, no expand on click/tap (replaces the tap behaviour of the original AC3).
+
+User 18-10-2026: choice 1b (only the profile parameters as predefined cells, not P0-P44) and 2a (parameters over columns 1-3, OEM in column 4). Like the OT monitor page: cells fixed, data filled in when detected.
 <!-- SECTION:NOTES:END -->
