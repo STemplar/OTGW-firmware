@@ -234,6 +234,7 @@ body.col-resizing * {
 .boiler-row .boiler-value { width:auto; max-width:65%; padding-right:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .boiler-wide { width:fit-content; max-width:100%; }
 .boiler-wide .otmoncolumn1 { overflow:visible; }
+.boiler-pnum { display:inline-block; min-width:2.4em; font-variant-numeric:tabular-nums; }
 .boiler-wide .boiler-value { max-width:none; overflow:visible; padding-left:2rem; }
 .boiler-meaning { display:none; flex-basis:100%; padding:2px 10px; font-size:.85rem; white-space:normal; }
 .boiler-row.has-meaning { cursor:help; }

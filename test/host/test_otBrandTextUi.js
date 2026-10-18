@@ -50,6 +50,7 @@ assert(hasRow(P,'P44 Ontluchtingscyclus|2')&&meaningOf(P,'P44 Ontluchtingscyclus
 const p17='P17 Maximum volumestroom van de ventilator (CV)|15';
 assert(hasRow(P,p17)&&meaningOf(P,p17)==='fabrieksinstelling: 39','P17=15 differs from 28c default');
 assert(rowNode(P,p17).classList.contains('boiler-changed')&&rowNode(P,p17).classList.contains('has-meaning'));
+assert(rowNode(P,p17).children[0].children[0].className==='boiler-pnum'&&rowNode(P,p17).children[0].children[0].textContent==='P17','P-number in a fixed-width part');
 assert(rowNode(P,p17).title==='P17 Maximum volumestroom van de ventilator (CV)\nfabrieksinstelling: 39','tooltip: full label and meaning');
 assert(hasRow(P,'P1 Aanvoertemperatuur: TSet|80 °C')&&!rowNode(P,'P1 Aanvoertemperatuur: TSet|80 °C').classList.contains('boiler-changed'));
 // One wide column: rows directly in the block, in P-number order.

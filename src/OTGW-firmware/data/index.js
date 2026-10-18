@@ -7377,15 +7377,21 @@ function boilerRaw(value) {
 // Rows use the OT monitor row style (otmonrow / otmoncolumn1 / otmoncolumn2).
 var BOILER_NOT_SUPPORTED = 'Not supported by this boiler';
 // label | value; the meaning (option text, factory setting) is only the row tooltip.
-function boilerRow(container, label, value, meaning, changed) {
+// number (e.g. 'P17') gets a fixed-width part so the descriptions line up in every cell.
+function boilerRow(container, label, value, meaning, changed, number) {
   if (value === BOILER_NOT_SUPPORTED) return null; // unsupported items are left out
   var row = document.createElement('div');
   row.className = 'otmonrow boiler-row' + (meaning ? ' has-meaning' : '') + (changed ? ' boiler-changed' : '');
-  [[label, 'otmoncolumn1'], [value, 'otmoncolumn2 boiler-value'], [meaning || '', 'boiler-meaning']].forEach(function(cell) {
+  [[label, 'otmoncolumn1'], [value, 'otmoncolumn2 boiler-value'], [meaning || '', 'boiler-meaning']].forEach(function(cell, i) {
     var node = document.createElement('div'); node.className = cell[1];
-    node.textContent = String(cell[0]); row.appendChild(node);
+    if (i === 0 && number) {
+      var num = document.createElement('span'); num.className = 'boiler-pnum'; num.textContent = number;
+      var text = document.createElement('span'); text.textContent = ' ' + label;
+      node.appendChild(num); node.appendChild(text);
+    } else node.textContent = String(cell[0]);
+    row.appendChild(node);
   });
-  row.title = String(label) + (meaning ? '\n' + meaning : '');
+  row.title = (number ? number + ' ' : '') + String(label) + (meaning ? '\n' + meaning : '');
   container.appendChild(row);
   return row;
 }
@@ -7505,8 +7511,8 @@ function renderBoilerDetails(data) {
       var meaning = [];
       if (shown !== undefined && parameter.options && parameter.options[shown] !== undefined) meaning.push(parameter.options[shown]);
       if (parameter.default !== undefined) meaning.push('fabrieksinstelling: ' + parameter.default + unit);
-      rows.push(boilerRow(target, 'P' + index + ' ' + parameter.label, shown === undefined ? '' : shown + unit,
-        meaning.join(' \u00b7 '), shown !== undefined && parameter.default !== undefined && parameter.default !== shown));
+      rows.push(boilerRow(target, parameter.label, shown === undefined ? '' : shown + unit,
+        meaning.join(' \u00b7 '), shown !== undefined && parameter.default !== undefined && parameter.default !== shown, 'P' + index));
     });
     for (var tsp = 0; tsp < count; ++tsp)
       rows.push(boilerRow(target, 'TSP ' + tsp, received[tsp] === undefined ? '' : String(received[tsp]), ''));
