@@ -1,10 +1,11 @@
 ---
 id: TASK-1243
 title: 'Boiler info: fault status from blocking and lockout via the model profile'
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-17 13:31'
+updated_date: '2026-10-18 09:35'
 labels:
   - boiler-info
   - ui
