@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-18 11:06'
-updated_date: '2026-10-18 11:17'
+updated_date: '2026-10-18 11:20'
 labels:
   - boiler-info
   - ui
@@ -37,4 +37,6 @@ Member IDs (ID2 master, ID3 slave, ID74 ventilation, ID103 solar; LB) come from 
 - Pending: AC3 (on the real OTGW) and the gates already green in the commit (UI test, evaluate 0 failed, build OK).
 
 User 18-10-2026: tooltip shows the brand portfolio from the company (source: company website), not matrix observations; brands are brand names, not product models (e.g. Siemens, not Siemens QAA73).
+
+Brands extended (user 18-10-2026): company portfolio where sourced (BDR Thermea website), supplemented with brands observed per code from upstream opentherm_brand_ids.json (confidence HOOG/GEMIDDELD only; qualifiers in parentheses and the company itself omitted; slave+master merged). Stored per role with source in the register JSON as brands_seen.
 <!-- SECTION:NOTES:END -->
