@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:59'
+updated_date: '2026-10-18 11:32'
 labels:
   - boiler-info
   - ui
@@ -39,6 +39,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #15 Layout: columns follow the OT monitor page rule (at least 350px, equal width, as many as fit, no gap); Identification | Operating status | OEM take the first three; below them the parameters in one column as wide as the longest label plus value, without truncation; fault history (when shown) below; read buttons grouped at the bottom; narrow screens stack and may wrap long labels
 - [ ] #16 Parameter cells read 'P<n> <description> <value with unit>'; the descriptions start at the same position in every cell (P-number in a fixed-width part)
 - [ ] #17 A cell without received data shows '---' (instead of 'No data received yet', 'Support not yet determined', 'Not observed', 'No entries received', or an empty parameter value)
+- [ ] #18 The parameter tooltip follows manual Tab.34: description, 'Instelbereik' verbatim from the manual (one line per option, footnotes in parentheses) and 'Fabrieksinstelling 28c Plus'; all 32 profile parameters carry the Tab.34 setting range
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -71,4 +72,6 @@ User 18-10-2026: generic view also gets fixed cells from the ID10 count (yes); t
 User 18-10-2026: 3 columns instead of 4 (more room for text and values); OEM next to operating status; read buttons grouped below the columns so the data columns form one whole, like the OT monitor page. Supersedes the column-4 layout of AC10/AC12.
 
 User 18-10-2026: parameters in one wide column (no truncation) instead of three columns; replaces the equal-columns AC.
+
+User 18-10-2026: tooltip also shows the setting range, laid out as in the manual (Tab.34, 7618573 v.10 p.58-59).
 <!-- SECTION:NOTES:END -->
