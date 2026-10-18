@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 11:32'
+updated_date: '2026-10-18 11:47'
 labels:
   - boiler-info
   - ui
@@ -40,6 +40,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #16 Parameter cells read 'P<n> <description> <value with unit>'; the descriptions start at the same position in every cell (P-number in a fixed-width part)
 - [ ] #17 A cell without received data shows '---' (instead of 'No data received yet', 'Support not yet determined', 'Not observed', 'No entries received', or an empty parameter value)
 - [ ] #18 The parameter tooltip follows manual Tab.34: description, 'Instelbereik' verbatim from the manual (one line per option, footnotes in parentheses) and 'Fabrieksinstelling 28c Plus'; all 32 profile parameters carry the Tab.34 setting range
+- [ ] #19 P17-P21 tooltips show the factory setting per gas type from manual Tab.34-41 (G25 L-gas base, G20, G25.3, G31; CLV overpressure for P19/P20) instead of a setting range; the highlight compares with the G25 (L-gas) value; the gas data lives in the profile (edition NL, 7618573 v.10)
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -74,4 +75,6 @@ User 18-10-2026: 3 columns instead of 4 (more room for text and values); OEM nex
 User 18-10-2026: parameters in one wide column (no truncation) instead of three columns; replaces the equal-columns AC.
 
 User 18-10-2026: tooltip also shows the setting range, laid out as in the manual (Tab.34, 7618573 v.10 p.58-59).
+
+User 18-10-2026: "G25 (L-gas)" in Tab.34 is the gas type of the factory value, not a range (verified in the manual: §7.6.1 p.50, Tab.34-41 p.58-60). Gas data per edition in the profile; multi-language/country editions are a separate task.
 <!-- SECTION:NOTES:END -->
