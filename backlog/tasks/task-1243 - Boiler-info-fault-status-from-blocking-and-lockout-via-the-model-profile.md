@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-18 09:35'
+updated_date: '2026-10-18 10:01'
 labels:
   - boiler-info
   - ui
@@ -22,7 +22,7 @@ The Operating status row 'Fault status' only looks at ID0 bit 0 (lockout). Remeh
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Verified against the qSense with a passive OT log: qSense status/substatus equals ID115 HB/LB during normal operation (at least two different states recorded with time)
+- [x] #1 Verified against the qSense with a passive OT log: qSense status/substatus equals ID115 HB/LB during normal operation (at least two different states recorded with time)
 - [ ] #2 Verified against the qSense: a blocking shown as Su:xx on the qSense arrives as ID115 status 9 / substatus xx, or the task notes record that no blocking could be observed and implementation waits
 - [ ] #3 With a profile, Fault status shows 'Vergrendeling · E:xx <meaning>' when ID0 bit 0 is set, 'Blokkering · Su:xx <meaning>' when ID115 status is 9, else 'Geen blokkering of vergrendeling'
 - [ ] #4 Without a profile the row behaves as before (ID0 bit 0 and raw ID5)
@@ -45,4 +45,8 @@ Verification 17-10-2026 (qSense connected, OT log via WebSocket 81, firmware 588
 - Boiler status signalling during the E:14 lockout: 3x red = Storingscode 3 "Ontstekingsfout" (manual v.10 Tab.46 lists E:14 under group 3). Boiler, qSense, OT log and manual agree.
 
 - Correction (user): Su:22 was the user's expectation, not shown on the qSense. No blocking was observed before the E:14 lockout; the earlier note "the user saw Su:22" is wrong. Blocking (ID115 status 9) remains unverified.
+
+AC1 verified 18-10-2026 (capture OTGW-captures/2026-10-18_1157_qsense-st-su.log, persistent folder outside the repo): with the qSense Informatiemenu open on St/Su the qSense read ID115 four times in 2 min; the user confirmed the qSense showed the same values: 11:57:12 0x031E = St 3 / Su 30 (Branden op CV-bedrijf / Temperatuurregeling), 11:58:33 0x0529 = 5 / 41 (Branderstop / Naventileren), 11:58:56 0x041E = 4 / 30 (SWW-bedrijf actief / Temperatuurregeling). => ID115 HB = St, LB = Su.
+Note: the raw captures of 17-10 were lost (stored under /tmp); facts above in these notes remain.
+qSense gives no free slots (requests only IDs the boiler knows; unsupported ones get DATA-INVALID, not UNKNOWN-DATAID): out of scope (user). Regular thermostat Plugwise Anna (member ID 140) goes back; AC2 (blocking) will use PM=115 with the Anna plus the boiler green blink code.
 <!-- SECTION:NOTES:END -->
