@@ -59,8 +59,8 @@ assert.deepEqual(rowsOf(P).map(r=>Number(r.match(/^P(\d+)/)[1])),rowsOf(P).map(r
 ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.textContent.includes('Waterdruk te laag'));
 // With a profile the 32 manual parameters are fixed cells; unread cells are empty, never highlighted.
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});const E=nodes.boilerParameters;
-assert(E.children.length===32);assert(rowNodes(E).every(r=>r.children[1].textContent===''&&!r.classList.contains('boiler-changed')));
-assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|')==='fabrieksinstelling: 39');
+assert(E.children.length===32);assert(rowNodes(E).every(r=>r.children[1].textContent==='---'&&!r.classList.contains('boiler-changed')));
+assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|---')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|---')==='fabrieksinstelling: 39');
 // Cells keep their position while values arrive: the same label sits in the same column/row before and after.
 const pos=n=>rowNodes(n).map(r=>r.children[0].textContent);const before=pos(E);
 ctx.renderBoilerDetails({...d,tsp_entries:'1:80,17:15'});assert.deepEqual(pos(nodes.boilerParameters),before);
@@ -110,9 +110,13 @@ ctx.renderBoilerDetails({...d,value_115:0x0800});assert(nodes.boilerOperating.te
   assert(hasRow(nodes.boilerOEM,'Service message|0x0101')&&meaningOf(nodes.boilerOEM,'Service message|0x0101').includes('not yet confirmed'));tz.service_messages=sm;}
 // Generic view: once ID10 is known, TSP 0..count-1 are fixed cells; values fill in raw (255 included).
 ctx.renderBoilerDetails({...d,profile:'generic',value_10:45<<8,tsp_entries:''});const G=nodes.boilerParameters;
-assert(G.children.length===45);assert(rowNodes(G).every(r=>r.children[1].textContent===''));
+assert(G.children.length===45);assert(rowNodes(G).every(r=>r.children[1].textContent==='---'));
 const gpos=rowNodes(G).map(r=>r.children[0].textContent);assert(gpos[0]==='TSP 0'&&gpos[44]==='TSP 44');
 ctx.renderBoilerDetails({...d,profile:'generic',value_10:45<<8,tsp_entries:'1:80,6:255'});
 assert.deepEqual(rowNodes(nodes.boilerParameters).map(r=>r.children[0].textContent),gpos,'cells do not move');
-assert(hasRow(nodes.boilerParameters,'TSP 6|255')&&hasRow(nodes.boilerParameters,'TSP 1|80')&&hasRow(nodes.boilerParameters,'TSP 0|'));
+assert(hasRow(nodes.boilerParameters,'TSP 6|255')&&hasRow(nodes.boilerParameters,'TSP 1|80')&&hasRow(nodes.boilerParameters,'TSP 0|---'));
+// Nothing received yet: '---' (identification, operating status, OEM, text fields).
+ctx.renderBoilerDetails({profile:'generic',oem_allowed:false});
+assert(hasRow(nodes.boilerIdentityDetails,'Slave member ID|---')&&hasRow(nodes.boilerOperating,'Diagnostic status|---'));
+assert.equal(ctx.formatBoilerText({brand_support:'unknown'},'brand').value,'---');
 console.log('PASS: partial/complete/safe text, profile matching, contextual labels, manual-style parameter rows, unsupported rows omitted, raw fallback and service uncertainty');

@@ -7305,7 +7305,7 @@ function formatBoilerText(data, key) {
   var value = '';
   for (var i = 0; i < text.length; ++i) value += mask[i] === '1' ? text[i] : '\u00b7';
   return {
-    value: received ? value : 'No data received yet',
+    value: received ? value : BOILER_NO_DATA,
     status: data[key + '_support'] === 'unknown' ? 'Support not yet determined' :
       data[key + '_complete'] === true ? '' :
       'Reception incomplete' + (expected ? ' (' + received + '/' + expected + ' characters)' : '')
@@ -7376,6 +7376,7 @@ function boilerRaw(value) {
 }
 // Rows use the OT monitor row style (otmonrow / otmoncolumn1 / otmoncolumn2).
 var BOILER_NOT_SUPPORTED = 'Not supported by this boiler';
+var BOILER_NO_DATA = '---'; // nothing received (yet); the reason, if any, is in the tooltip
 // label | value; the meaning (option text, factory setting) is only the row tooltip.
 // number (e.g. 'P17') gets a fixed-width part so the descriptions line up in every cell.
 function boilerRow(container, label, value, meaning, changed, number) {
@@ -7396,7 +7397,7 @@ function boilerRow(container, label, value, meaning, changed, number) {
   return row;
 }
 function boilerUnknown(data, id) {
-  return data['support_' + id] === 2 ? BOILER_NOT_SUPPORTED : 'Support not yet determined';
+  return data['support_' + id] === 2 ? BOILER_NOT_SUPPORTED : BOILER_NO_DATA;
 }
 // Model profiles: OEM-specific meanings (OT 4.2 leaves ID5 LB, ID115 and IDs 128-255 to the manufacturer).
 // The firmware recognises the model (BoilerProfiles.h) and names the file; the UI only loads it.
@@ -7417,7 +7418,7 @@ function renderBoilerDetails(data) {
   var identity = document.getElementById('boilerIdentityDetails'); identity.textContent = '';
   [[3,'Slave member ID'],[2,'Master member ID']].forEach(function(pair) {
     var value = data['value_' + pair[0]];
-    boilerRow(identity,pair[1],value === undefined ? 'Not observed' : value & 255,'');
+    boilerRow(identity,pair[1],value === undefined ? BOILER_NO_DATA : value & 255,'');
   });
   if (data.value_125 !== undefined) boilerRow(identity,'OpenTherm version (slave)',(data.value_125 / 256).toFixed(2),'');
   if (data.value_127 !== undefined) boilerRow(identity,'Product type / version', (data.value_127 >> 8) + ': ' + (data.value_127 & 255),'');
@@ -7493,7 +7494,7 @@ function renderBoilerDetails(data) {
       var empty = data['support_' + (sizeId + 1)] === 2 ? 'Not supported by this boiler' :
         hidden > 0 ? 'No supported parameters reported' :
         data['value_' + sizeId] !== undefined && (data['value_' + sizeId] >> 8) === 0 ? 'No entries reported' :
-        data['support_' + sizeId] === 1 ? 'No entries received' : boilerUnknown(data,sizeId);
+        data['support_' + sizeId] === 1 ? BOILER_NO_DATA : boilerUnknown(data,sizeId);
       boilerRow(container, 'Readout', empty, ''); return;
     }
     var rows = [], received = {}, extra = [];
@@ -7511,11 +7512,11 @@ function renderBoilerDetails(data) {
       var meaning = [];
       if (shown !== undefined && parameter.options && parameter.options[shown] !== undefined) meaning.push(parameter.options[shown]);
       if (parameter.default !== undefined) meaning.push('fabrieksinstelling: ' + parameter.default + unit);
-      rows.push(boilerRow(target, parameter.label, shown === undefined ? '' : shown + unit,
+      rows.push(boilerRow(target, parameter.label, shown === undefined ? BOILER_NO_DATA : shown + unit,
         meaning.join(' \u00b7 '), shown !== undefined && parameter.default !== undefined && parameter.default !== shown, 'P' + index));
     });
     for (var tsp = 0; tsp < count; ++tsp)
-      rows.push(boilerRow(target, 'TSP ' + tsp, received[tsp] === undefined ? '' : String(received[tsp]), ''));
+      rows.push(boilerRow(target, 'TSP ' + tsp, received[tsp] === undefined ? BOILER_NO_DATA : String(received[tsp]), ''));
     extra.forEach(function(pair) {
       rows.push(boilerRow(target, 'TSP ' + pair[0], String(pair[1]), profile ? 'Meaning not yet confirmed' : ''));
     });
