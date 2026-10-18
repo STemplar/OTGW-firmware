@@ -267,8 +267,8 @@
         <h2 id="boilerInfoTitle">Boiler info</h2>
         <p id="boilerProfile">Device profile not yet determined</p>
         <p id="boilerInfoMessage" role="status"></p>
-        <!-- Same row style as the OT monitor page. Wide: identification and operating status on top of
-             columns 1-3, parameters below over columns 1-3, OEM and fault history in column 4. -->
+        <!-- Same row style as the OT monitor page, three columns: identification | operating status | OEM
+             on top, parameters below over the same columns, fault history below; read buttons grouped. -->
         <div class="boiler-grid">
           <div class="boiler-block boiler-ident">
             <h3>Device identification</h3>
@@ -288,30 +288,32 @@
               <div class="boiler-meaning boiler-info-status" id="boiler-serial-status">Support not yet determined</div>
             </div>
             <div id="boilerIdentityDetails" class="boiler-list"></div>
-            <div class="boiler-info-actions"><button type="button" data-boiler-read="identification">Refresh identification</button></div>
-            <p class="boiler-info-status">Identification is read once after startup and on request. Values are kept in ESP memory.</p>
           </div>
           <div class="boiler-block boiler-operating">
             <h3>Operating status</h3>
             <div id="boilerOperating" class="boiler-list"></div>
-            <div class="boiler-info-actions"><button type="button" data-boiler-read="operating">Read operating status</button></div>
+          </div>
+          <div class="boiler-block boiler-oem">
+            <h3>OEM information</h3>
+            <div id="boilerOEM" class="boiler-list"></div>
           </div>
           <div class="boiler-block boiler-params">
             <h3>Parameters</h3>
             <div id="boilerParameters" class="boiler-columns"></div>
-            <div class="boiler-info-actions"><button type="button" data-boiler-read="parameters">Read parameters</button></div>
           </div>
-          <div class="boiler-block boiler-side">
-            <h3>OEM information</h3>
-            <div id="boilerOEM" class="boiler-list"></div>
-            <div class="boiler-info-actions"><button type="button" data-boiler-read="oem" id="boilerReadOEM" disabled>Read OEM information</button></div>
-            <div id="boilerHistoryBlock">
-              <h3>Fault history</h3>
-              <div id="boilerHistory" class="boiler-list"></div>
-              <div class="boiler-info-actions"><button type="button" data-boiler-read="history">Read fault history</button></div>
-            </div>
+          <div class="boiler-block boiler-history" id="boilerHistoryBlock">
+            <h3>Fault history</h3>
+            <div id="boilerHistory" class="boiler-list"></div>
           </div>
         </div>
+        <div class="boiler-info-actions">
+          <button type="button" data-boiler-read="identification">Refresh identification</button>
+          <button type="button" data-boiler-read="operating">Read operating status</button>
+          <button type="button" data-boiler-read="oem" id="boilerReadOEM" disabled>Read OEM information</button>
+          <button type="button" data-boiler-read="parameters">Read parameters</button>
+          <button type="button" data-boiler-read="history" id="boilerReadHistory">Read fault history</button>
+        </div>
+        <p class="boiler-info-status">Identification is read once after startup and on request. Values are kept in ESP memory.</p>
         <p id="boilerReadStatus" role="status"></p>
       </section>
     </div>

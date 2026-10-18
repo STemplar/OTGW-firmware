@@ -95,8 +95,8 @@ assert(rowNodes(nodes.boilerParameters).every(r=>r.className.startsWith('otmonro
 ctx.renderBoilerDetails({...d,value_74:0x0005,value_103:0x0007});
 assert(!nodes.boilerIdentityDetails.textContent.includes('Ventilation')&&!nodes.boilerIdentityDetails.textContent.includes('Solar'));
 // Fault history: hidden when the model profile says the boiler has none; shown otherwise.
-ctx.renderBoilerDetails(d);assert(nodes.boilerHistoryBlock.hidden===true);
-ctx.renderBoilerDetails({...d,profile:'generic'});assert(nodes.boilerHistoryBlock.hidden===false);
+ctx.renderBoilerDetails(d);assert(nodes.boilerHistoryBlock.hidden===true&&nodes.boilerReadHistory.hidden===true);
+ctx.renderBoilerDetails({...d,profile:'generic'});assert(nodes.boilerHistoryBlock.hidden===false&&nodes.boilerReadHistory.hidden===false);
 ctx.renderBoilerDetails({...d,value_131:undefined,support_131:2});assert(!nodes.boilerOEM.textContent.includes('Not supported'));
 ctx.renderBoilerInfo({...d,brand_support:'unsupported'});assert(nodes['boiler-brand-row'].style.display==='none');
 ctx.renderBoilerInfo({...d,brand_support:'supported',brand_text:'Remeha',brand_mask:'111111',brand_received:6,brand_expected:6,brand_complete:true});assert(nodes['boiler-brand-row'].style.display==='');

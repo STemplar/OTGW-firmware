@@ -221,15 +221,12 @@ body.col-resizing * {
 }
 
 /* Boiler information: rows share the OT monitor style (.otmonrow, colours from the theme file).
-   Wide: identification and operating status on top of columns 1-3, parameters below them over
-   columns 1-3 (three blocks filled by index.js), OEM and fault history in column 4. */
+   Three equal columns: identification | operating status | OEM on top, parameters below over the
+   same columns (three blocks filled by index.js), fault history below; read buttons under the grid. */
 .boiler-info-panel { padding: 1rem; max-width: 100%; box-sizing: border-box; }
 .boiler-info-status { font-size: .9rem; opacity: .8; }
-.boiler-grid { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:0 .5rem; align-items:start; }
-.boiler-ident { grid-column:1; grid-row:1; }
-.boiler-operating { grid-column:2; grid-row:1; }
-.boiler-params { grid-column:1 / 4; grid-row:2; }
-.boiler-side { grid-column:4; grid-row:1 / 3; }
+.boiler-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:0 .5rem; align-items:start; }
+.boiler-params, .boiler-history { grid-column:1 / 4; }
 .boiler-columns { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:0 .5rem; align-items:start; }
 .boiler-row { flex-wrap:wrap; }
 .boiler-row .otmoncolumn1 { min-width:0; }
@@ -238,16 +235,12 @@ body.col-resizing * {
 .boiler-row.has-meaning { cursor:help; }
 .boiler-row.boiler-changed .boiler-value { font-weight:700; }
 .boiler-row.boiler-changed { box-shadow:inset 4px 0 0 #e08a00; }
-@media(max-width:1200px) {
-  .boiler-grid { grid-template-columns:minmax(0, 1fr); }
-  .boiler-ident, .boiler-operating, .boiler-params, .boiler-side { grid-column:1; grid-row:auto; }
+@media(max-width:768px) {
+  .boiler-grid, .boiler-columns { grid-template-columns:minmax(0, 1fr); }
+  .boiler-params, .boiler-history { grid-column:1; }
 }
-@media(max-width:768px) { .boiler-columns { grid-template-columns:minmax(0, 1fr); } }
 @media(max-width:600px) { .boiler-info-panel { padding:12px; } }
 .boiler-info-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0; }
-.boiler-info-details { margin-top:1rem; border-top:1px solid var(--border-color,#536273); padding:1rem 0; }
-.boiler-info-details summary { cursor:pointer; font-weight:bold; margin-bottom:1rem; }
 
 .boiler-info-panel button { width:auto; min-height:44px; max-width:100%; padding:.5rem .8rem; border:1px solid currentColor; border-radius:4px; font:inherit; cursor:pointer; }
 .boiler-info-panel button:disabled { cursor:default; opacity:.55; }
-.boiler-info-panel button[aria-pressed="true"] { font-weight:bold; outline:2px solid currentColor; outline-offset:2px; }

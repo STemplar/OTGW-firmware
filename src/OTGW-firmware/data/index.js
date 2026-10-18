@@ -7464,7 +7464,10 @@ function renderBoilerDetails(data) {
     boilerRow(oem, 'OEM field ' + id, value === undefined ? boilerUnknown(data,id) : boilerRaw(value), '');
   });
   var historyBlock = document.getElementById('boilerHistoryBlock');
-  if (historyBlock) historyBlock.hidden = !!(profile && profile.fault_history === false); // model without FHB (profile)
+  var noHistory = !!(profile && profile.fault_history === false); // model without FHB (profile)
+  if (historyBlock) historyBlock.hidden = noHistory;
+  var historyButton = document.getElementById('boilerReadHistory');
+  if (historyButton) historyButton.hidden = noHistory;
   ['Parameters','History'].forEach(function(kind) {
     var container = document.getElementById('boiler' + kind); container.textContent = '';
     // Parameters are collected first, then spread over three columns.
