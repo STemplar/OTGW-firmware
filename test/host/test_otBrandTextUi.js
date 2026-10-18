@@ -52,21 +52,17 @@ assert(hasRow(P,p17)&&meaningOf(P,p17)==='fabrieksinstelling: 39','P17=15 differ
 assert(rowNode(P,p17).classList.contains('boiler-changed')&&rowNode(P,p17).classList.contains('has-meaning'));
 assert(rowNode(P,p17).title==='P17 Maximum volumestroom van de ventilator (CV)\nfabrieksinstelling: 39','tooltip: full label and meaning');
 assert(hasRow(P,'P1 Aanvoertemperatuur: TSet|80 °C')&&!rowNode(P,'P1 Aanvoertemperatuur: TSet|80 °C').classList.contains('boiler-changed'));
-// Three parameter columns, filled top to bottom, sizes differ by at most one row.
-const sizes=P.children.map(c=>c.children.length);assert(P.children.length===3&&P.children.every(c=>c.className==='boiler-col'));
-assert(Math.max(...sizes)-Math.min(...sizes)<=1&&sizes[0]>=sizes[1]&&sizes[1]>=sizes[2]);
+// One wide column: rows directly in the block, in P-number order.
+assert(P.children.every(r=>r.className.startsWith('otmonrow boiler-row')));
 assert.deepEqual(rowsOf(P).map(r=>Number(r.match(/^P(\d+)/)[1])),rowsOf(P).map(r=>Number(r.match(/^P(\d+)/)[1])).slice().sort((a,b)=>a-b));
-ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:Array.from({length:31},(_,i)=>(i+1)+':'+i).join(',')});
-assert.deepEqual(nodes.boilerParameters.children.map(c=>c.children.length),[11,10,10],'31 parameters: 11/10/10');
 ctx.renderBoilerDetails({...d,value_115:0x090e});assert(nodes.boilerOperating.textContent.includes('Waterdruk te laag'));
-// With a profile the 32 manual parameters are fixed cells (11/11/10); unread cells are empty, never highlighted.
+// With a profile the 32 manual parameters are fixed cells; unread cells are empty, never highlighted.
 ctx.renderBoilerDetails({...d,tsp_entries:'6:255,7:255'});const E=nodes.boilerParameters;
-assert.deepEqual(E.children.map(c=>c.children.length),[11,11,10]);assert(rowNodes(E).every(r=>r.children[1].textContent===''&&!r.classList.contains('boiler-changed')));
+assert(E.children.length===32);assert(rowNodes(E).every(r=>r.children[1].textContent===''&&!r.classList.contains('boiler-changed')));
 assert(hasRow(E,'P17 Maximum volumestroom van de ventilator (CV)|')&&meaningOf(E,'P17 Maximum volumestroom van de ventilator (CV)|')==='fabrieksinstelling: 39');
 // Cells keep their position while values arrive: the same label sits in the same column/row before and after.
 const pos=n=>rowNodes(n).map(r=>r.children[0].textContent);const before=pos(E);
 ctx.renderBoilerDetails({...d,tsp_entries:'1:80,17:15'});assert.deepEqual(pos(nodes.boilerParameters),before);
-assert.deepEqual(nodes.boilerParameters.children.map(c=>c.children.length),[11,11,10]);
 ctx.renderBoilerDetails({...d,tsp_entries:'',support_11:2});assert(nodes.boilerParameters.children.length===0,'ID11 UNKNOWN-DATAID: no fixed cells, unsupported row omitted');
 ctx.renderBoilerDetails({...d,profile:'generic',tsp_entries:'1:80,6:255'});assert(nodes.boilerParameters.textContent.includes('TSP 6'),'OT 4.2: generic READ-ACK 255 is a valid value');
 ctx.renderBoilerDetails({...d,value_131:0x2401});assert(findText(nodes.boilerOEM,'dF: 36 dU: 1'));assert(nodes.boilerOEM.textContent.includes('Tzerra M 28c Plus'));
@@ -113,7 +109,7 @@ ctx.renderBoilerDetails({...d,value_115:0x0800});assert(nodes.boilerOperating.te
   assert(hasRow(nodes.boilerOEM,'Service message|0x0101')&&meaningOf(nodes.boilerOEM,'Service message|0x0101').includes('not yet confirmed'));tz.service_messages=sm;}
 // Generic view: once ID10 is known, TSP 0..count-1 are fixed cells; values fill in raw (255 included).
 ctx.renderBoilerDetails({...d,profile:'generic',value_10:45<<8,tsp_entries:''});const G=nodes.boilerParameters;
-assert.deepEqual(G.children.map(c=>c.children.length),[15,15,15]);assert(rowNodes(G).every(r=>r.children[1].textContent===''));
+assert(G.children.length===45);assert(rowNodes(G).every(r=>r.children[1].textContent===''));
 const gpos=rowNodes(G).map(r=>r.children[0].textContent);assert(gpos[0]==='TSP 0'&&gpos[44]==='TSP 44');
 ctx.renderBoilerDetails({...d,profile:'generic',value_10:45<<8,tsp_entries:'1:80,6:255'});
 assert.deepEqual(rowNodes(nodes.boilerParameters).map(r=>r.children[0].textContent),gpos,'cells do not move');

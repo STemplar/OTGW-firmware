@@ -7389,15 +7389,6 @@ function boilerRow(container, label, value, meaning, changed) {
   container.appendChild(row);
   return row;
 }
-// Parameters fill three column blocks top to bottom; column sizes differ by at most one row.
-function boilerColumns(container, rows) {
-  var base = Math.floor(rows.length / 3), extra = rows.length % 3, next = 0;
-  for (var c = 0; c < 3; ++c) {
-    var column = document.createElement('div'); column.className = 'boiler-col';
-    for (var n = base + (c < extra ? 1 : 0); n > 0; --n) column.appendChild(rows[next++]);
-    container.appendChild(column);
-  }
-}
 function boilerUnknown(data, id) {
   return data['support_' + id] === 2 ? BOILER_NOT_SUPPORTED : 'Support not yet determined';
 }
@@ -7470,8 +7461,7 @@ function renderBoilerDetails(data) {
   if (historyButton) historyButton.hidden = noHistory;
   ['Parameters','History'].forEach(function(kind) {
     var container = document.getElementById('boiler' + kind); container.textContent = '';
-    // Parameters are collected first, then spread over three columns.
-    var target = kind === 'Parameters' ? document.createElement('div') : container;
+    var target = container;
     var entries = data[kind === 'Parameters' ? 'tsp_entries' : 'fhb_entries'] || '';
     var hidden = 0;
     var marker = profile ? profile.tsp_unsupported_value : undefined;
@@ -7523,7 +7513,6 @@ function renderBoilerDetails(data) {
     extra.forEach(function(pair) {
       rows.push(boilerRow(target, 'TSP ' + pair[0], String(pair[1]), profile ? 'Meaning not yet confirmed' : ''));
     });
-    boilerColumns(container, rows);
   });
   document.querySelectorAll('[data-boiler-read]').forEach(function(button) {
     button.disabled = !!data.busy || (button.dataset.boilerRead === 'oem' && !data.oem_readable);

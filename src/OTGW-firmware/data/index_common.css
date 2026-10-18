@@ -221,23 +221,28 @@ body.col-resizing * {
 }
 
 /* Boiler information: rows share the OT monitor style (.otmonrow, colours from the theme file).
-   Three equal columns: identification | operating status | OEM on top, parameters below over the
-   same columns (three blocks filled by index.js), fault history below; read buttons under the grid. */
+   Columns follow the OT monitor page rule (column-width 350px, no gap): as many columns of at least
+   350px as fit, equally wide. Identification | operating status | OEM take the first three; below them
+   the parameters in one column as wide as its longest row (no truncation), then fault history.
+   Read buttons are grouped under the grid. */
 .boiler-info-panel { padding: 1rem; max-width: 100%; box-sizing: border-box; }
 .boiler-info-status { font-size: .9rem; opacity: .8; }
-.boiler-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:0 .5rem; align-items:start; }
-.boiler-params, .boiler-history { grid-column:1 / 4; }
-.boiler-columns { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:0 .5rem; align-items:start; }
+.boiler-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(350px, 1fr)); gap:0; align-items:start; }
+.boiler-params, .boiler-history { grid-column:1 / -1; }
 .boiler-row { flex-wrap:wrap; }
 .boiler-row .otmoncolumn1 { min-width:0; }
 .boiler-row .boiler-value { width:auto; max-width:65%; padding-right:8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.boiler-wide { width:fit-content; max-width:100%; }
+.boiler-wide .otmoncolumn1 { overflow:visible; }
+.boiler-wide .boiler-value { max-width:none; overflow:visible; padding-left:2rem; }
 .boiler-meaning { display:none; flex-basis:100%; padding:2px 10px; font-size:.85rem; white-space:normal; }
 .boiler-row.has-meaning { cursor:help; }
 .boiler-row.boiler-changed .boiler-value { font-weight:700; }
 .boiler-row.boiler-changed { box-shadow:inset 4px 0 0 #e08a00; }
 @media(max-width:768px) {
-  .boiler-grid, .boiler-columns { grid-template-columns:minmax(0, 1fr); }
-  .boiler-params, .boiler-history { grid-column:1; }
+  .boiler-grid { grid-template-columns:minmax(0, 1fr); }
+  .boiler-wide { width:auto; }
+  .boiler-wide .otmoncolumn1 { white-space:normal; }
 }
 @media(max-width:600px) { .boiler-info-panel { padding:12px; } }
 .boiler-info-actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1rem 0; }
