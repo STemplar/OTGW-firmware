@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:47'
+updated_date: '2026-10-18 10:50'
 labels:
   - boiler-info
   - ui
@@ -37,6 +37,7 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #13 A profile with "fault_history": false hides the fault history block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID); without a profile or key the block and button stay
 - [ ] #14 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in manual order; a value appears when it is read, cells do not move while reading
 - [ ] #15 Layout: columns follow the OT monitor page rule (at least 350px, equal width, as many as fit, no gap); Identification | Operating status | OEM take the first three; below them the parameters in one column as wide as the longest label plus value, without truncation; fault history (when shown) below; read buttons grouped at the bottom; narrow screens stack and may wrap long labels
+- [ ] #16 Parameter cells read 'P<n> <description> <value with unit>'; the descriptions start at the same position in every cell (P-number in a fixed-width part)
 <!-- AC:END -->
 
 ## Implementation Plan
