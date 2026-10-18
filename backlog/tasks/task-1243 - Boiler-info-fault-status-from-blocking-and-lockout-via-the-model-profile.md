@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-18 17:25'
+updated_date: '2026-10-18 17:28'
 labels:
   - boiler-info
   - ui
@@ -23,10 +23,10 @@ The Operating status row 'Fault status' only looks at ID0 bit 0 (lockout). Remeh
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [x] #1 Verified against the qSense with a passive OT log: qSense status/substatus equals ID115 HB/LB during normal operation (at least two different states recorded with time)
-- [ ] #2 Verified against the qSense: a blocking shown as Su:xx on the qSense arrives as ID115 status 9 / substatus xx, or the task notes record that no blocking could be observed and implementation waits
-- [ ] #3 With a profile, Fault status shows 'Vergrendeling · E:xx <meaning>' when ID0 bit 0 is set, 'Blokkering · Su:xx <meaning>' when ID115 status is 9, else 'Geen blokkering of vergrendeling'
-- [ ] #4 Without a profile the row behaves as before (ID0 bit 0 and raw ID5)
-- [ ] #5 test_otBrandTextUi.js covers the three states with and without profile; python build.py exits 0; python evaluate.py --quick shows no new failures
+- [ ] #2 Without a profile the row behaves as before (ID0 bit 0 and raw ID5)
+- [ ] #3 test_otBrandTextUi.js covers the three states with and without profile; python build.py exits 0; python evaluate.py --quick shows no new failures
+- [ ] #4 Blocking verification closed by user decision 18-10-2026: two gas tests with the Plugwise Anna (PM=115) showed flame loss -> restart attempts (status 2) -> lockout E:14, never ID115 status 9; the blocking path is built from manual and profile and stays marked as not observed in the profile
+- [ ] #5 With a profile that names its blocking and lockout status (fault_status), Fault status shows '<lockout label> · E:xx <meaning>' when ID0 bit 0 is set, '<blocking label> · Su:xx <meaning>' when ID115 status is the blocking status, else 'No blocking or lockout'; labels come from the profile's status table (Tzerra: 'Vergrendeling', 'Blokkering'), fixed text stays English
 <!-- AC:END -->
 
 ## Implementation Notes
