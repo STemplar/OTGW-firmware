@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:23'
+updated_date: '2026-10-18 10:30'
 labels:
   - boiler-info
   - ui
@@ -36,6 +36,8 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #12 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
 - [ ] #13 The option text and the factory setting of a parameter are only in the mouse tooltip (title); a click or tap does not expand the row
 - [ ] #14 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in fixed positions over columns 1-3 (11/11/10); a value appears when it is read, cells do not move while reading; without a profile the received TSPs are listed as before
+- [ ] #15 Without a profile, once ID10 is known, TSP 0..count-1 are fixed cells ('TSP n'); values fill in as read (raw, READ-ACK 255 included), cells do not move
+- [ ] #16 The Hex/Binary toggle is removed; raw values are always shown in hex
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -62,4 +64,6 @@ User 18-10-2026: factory setting / option text only as mouse tooltip, no expand 
 User 18-10-2026: choice 1b (only the profile parameters as predefined cells, not P0-P44) and 2a (parameters over columns 1-3, OEM in column 4). Like the OT monitor page: cells fixed, data filled in when detected.
 
 Principle (user 18-10-2026): tailor-made view when the boiler type is known (profile: fixed manual parameter cells, labels, factory setting tooltip, highlight); generic view when it is not yet known (received TSPs as "TSP n", raw values). Implemented in 4e8232332.
+
+User 18-10-2026: generic view also gets fixed cells from the ID10 count (yes); the Hex/Binary toggle adds nothing and is removed.
 <!-- SECTION:NOTES:END -->
