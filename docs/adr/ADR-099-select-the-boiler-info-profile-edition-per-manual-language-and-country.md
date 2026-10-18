@@ -1,7 +1,7 @@
 ---
 id: "ADR-099"
 title: "Select the Boiler Info profile edition per manual language and country"
-status: "Proposed"
+status: "Rejected"
 date: "2026-10-18"
 binding: false
 gate: null
@@ -42,10 +42,14 @@ format: "madr"
 
 ## Status
 
-Proposed, 2026-10-18.
+Rejected, 2026-10-18. Never moved past Proposed; nothing was implemented.
 
-**Decision Maker:** pending. Drafted by the agent on request of the user (STemplar, fork
-otgw-1.x.x) under TASK-1246; acceptance needs the user's explicit approval.
+**Decision Maker:** User (STemplar, fork otgw-1.x.x). The wish for language and country
+editions was dropped for lack of information: no English (en-GB) manual of the Tzerra M Plus
+exists, and the model is sold with a Dutch manual only in the Netherlands. The Belgian manuals
+(nl-BE 7601052 v.13, fr-BE 7601050 v.11) differ from the Dutch one in factory values (P1, P2,
+P5, P31) and factory gas, but recognising the Belgian models is not possible from the data at
+hand. The profile stays one file, `tzerra-m-28c-plus.json`, following manual 7618573 v.10.
 
 ## Status History
 
@@ -55,6 +59,11 @@ status_history:
     status: Proposed
     changed_by: "User: STemplar"
     reason: Initial proposal, drafted by the agent on request (TASK-1246)
+    changed_via: manual
+  - date: 2026-10-18
+    status: Rejected
+    changed_by: "User: STemplar"
+    reason: "Wish for language/country editions dropped for lack of information: no en-GB manual of the Tzerra M Plus exists, and the Belgian models cannot be recognised from the data at hand. The profile stays the single NL edition (7618573 v.10)."
     changed_via: manual
 ```
 
