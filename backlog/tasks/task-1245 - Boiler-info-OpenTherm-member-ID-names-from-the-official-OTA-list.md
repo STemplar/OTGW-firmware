@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-18 11:06'
-updated_date: '2026-10-18 11:08'
+updated_date: '2026-10-18 11:17'
 labels:
   - boiler-info
   - ui
@@ -26,6 +26,7 @@ Member IDs (ID2 master, ID3 slave, ID74 ventilation, ID103 solar; LB) come from 
 - [x] #2 docs/boiler-info/oem-vendors.json and Documentatie/Vendoronderzoek/VENDOR_MEMBER_IDS_ACTUEEL.md name the company per member ID from that list; observations stay unchanged
 - [ ] #3 The Boiler info page shows the company next to Slave and Master member ID (e.g. '11 · BDR Thermea Group B.V.', '140 · Plugwise B.V.'); 0 and unassigned codes show only the number
 - [ ] #4 test_otBrandTextUi.js covers a known code, 0 and an unassigned code; python build.py exits 0; python evaluate.py --quick shows no new failures
+- [ ] #5 The member ID tooltip lists the company's brands where a source is recorded (BDR Thermea, codes 11 and 53: Baxi, De Dietrich, Remeha, Brötje, Chappée, Baymak - from the BDR Thermea website, supplied by the user 18-10-2026); codes without a recorded source show only the company
 <!-- AC:END -->
 
 ## Implementation Notes
@@ -34,4 +35,6 @@ Member IDs (ID2 master, ID3 slave, ID74 ventilation, ID103 solar; LB) come from 
 - d022e475a: official list as JSON (188 codes, 17 with asterisk; counts checked against the PDF), company added to 323 member_id entries in oem-vendors.json (observations unchanged), section "Officiële bedrijfsnamen" in Documentatie/Vendoronderzoek/VENDOR_MEMBER_IDS_ACTUEEL.md (outside the repo), data/member-ids.json for the page.
 - Observed IDs not assigned by the OTA list: 170, 211, 255; mismatches with matrix brands: 56 (Ti-Green vs Baxi/De Dietrich), 64 (WeHeat vs Intergas/Nefit). Observations left as is; page shows only the number for unassigned codes.
 - Pending: AC3 (on the real OTGW) and the gates already green in the commit (UI test, evaluate 0 failed, build OK).
+
+User 18-10-2026: tooltip shows the brand portfolio from the company (source: company website), not matrix observations; brands are brand names, not product models (e.g. Siemens, not Siemens QAA73).
 <!-- SECTION:NOTES:END -->
