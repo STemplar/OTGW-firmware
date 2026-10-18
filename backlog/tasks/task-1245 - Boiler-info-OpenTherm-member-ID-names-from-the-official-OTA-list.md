@@ -1,9 +1,11 @@
 ---
 id: TASK-1245
 title: 'Boiler info: OpenTherm member ID names from the official OTA list'
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@claude'
 created_date: '2026-10-18 11:06'
+updated_date: '2026-10-18 11:07'
 labels:
   - boiler-info
   - ui
