@@ -7428,7 +7428,7 @@ function renderBoilerDetails(data) {
     var value = data['value_' + pair[0]], id = value === undefined ? undefined : value & 255;
     var names = boilerMemberNames && boilerMemberNames.names, brands = boilerMemberNames && boilerMemberNames.brands;
     var company = id && names && typeof names[id] === 'string' ? names[id] : '';
-    var tip = company && brands && Array.isArray(brands[id]) ? company + ' \u00b7 merken: ' + brands[id].join(', ') : company;
+    var tip = company && brands && Array.isArray(brands[id]) ? company + ' \u00b7 brands: ' + brands[id].join(', ') : company;
     boilerRow(identity, pair[1], id === undefined ? BOILER_NO_DATA : company ? id + ' \u00b7 ' + company : id, tip);
   });
   if (data.value_125 !== undefined) boilerRow(identity,'OpenTherm version (slave)',(data.value_125 / 256).toFixed(2),'');
