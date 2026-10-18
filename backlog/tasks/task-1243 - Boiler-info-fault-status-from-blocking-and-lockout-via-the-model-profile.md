@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-18 10:01'
+updated_date: '2026-10-18 17:02'
 labels:
   - boiler-info
   - ui
@@ -49,4 +49,12 @@ Verification 17-10-2026 (qSense connected, OT log via WebSocket 81, firmware 588
 AC1 verified 18-10-2026 (capture OTGW-captures/2026-10-18_1157_qsense-st-su.log, persistent folder outside the repo): with the qSense Informatiemenu open on St/Su the qSense read ID115 four times in 2 min; the user confirmed the qSense showed the same values: 11:57:12 0x031E = St 3 / Su 30 (Branden op CV-bedrijf / Temperatuurregeling), 11:58:33 0x0529 = 5 / 41 (Branderstop / Naventileren), 11:58:56 0x041E = 4 / 30 (SWW-bedrijf actief / Temperatuurregeling). => ID115 HB = St, LB = Su.
 Note: the raw captures of 17-10 were lost (stored under /tmp); facts above in these notes remain.
 qSense gives no free slots (requests only IDs the boiler knows; unsupported ones get DATA-INVALID, not UNKNOWN-DATAID): out of scope (user). Regular thermostat Plugwise Anna (member ID 140) goes back; AC2 (blocking) will use PM=115 with the Anna plus the boiler green blink code.
+
+Test 18-10-2026 with the Plugwise Anna (capture OTGW-captures/2026-10-18_1849_anna-blocking-su22.log, outside the repo; PM=115 every 20 s via POST /api/v2/otgw/commands, read only; firmware 091d2f9). Gas tap closed by the user while the burner was burning:
+- 18:58:55 ID0 CH+flame; 18:59:05 ID115 0x031E (3/30 burning CH).
+- 18:59:19 ID0 0x00 (flame lost); 18:59:21 ID5 HB bit0 set, OEM 255 (transient).
+- 18:59:28 ID115 0x0212 (2/18 main ignition); 18:59:51 and 19:00:15 0x0214 (2/20 tussenventileren).
+- 19:00:29 ID0 fault bit; 19:00:31 ID5 OEM fault 14 (E:14, 5 mislukte branderstarts); 19:01:01 ID115 0x0A00 = status 10 / sub 0: NOT in manual Tab.43 (lists 0-6, 8, 9, 17). Lockout has its own status 10 (user hypothesis: lockout takes precedence).
+- User saw green blinking during the restart attempts, red at the end; opened gas and reset. 19:01:17 ID0 0x00 and ID5 bit0 again transient; 19:01:25 ID115 3/37; 19:01:40 CH+flame.
+- Result: no status 9 (blocking) on the bus. Flame loss went straight to ignition attempts (status 2) and then lockout. Green blinking here = restart attempts, not a Su-code blocking. AC2 stays open: blocking via ID115 status 9 not observed.
 <!-- SECTION:NOTES:END -->
