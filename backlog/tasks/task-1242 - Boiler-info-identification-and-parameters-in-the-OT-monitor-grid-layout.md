@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-18 10:21'
+updated_date: '2026-10-18 10:23'
 labels:
   - boiler-info
   - ui
@@ -60,4 +60,6 @@ AC9 revised with the user: operating status keeps its meaning in the cell.
 User 18-10-2026: factory setting / option text only as mouse tooltip, no expand on click/tap (replaces the tap behaviour of the original AC3).
 
 User 18-10-2026: choice 1b (only the profile parameters as predefined cells, not P0-P44) and 2a (parameters over columns 1-3, OEM in column 4). Like the OT monitor page: cells fixed, data filled in when detected.
+
+Principle (user 18-10-2026): tailor-made view when the boiler type is known (profile: fixed manual parameter cells, labels, factory setting tooltip, highlight); generic view when it is not yet known (received TSPs as "TSP n", raw values). Implemented in 4e8232332.
 <!-- SECTION:NOTES:END -->
