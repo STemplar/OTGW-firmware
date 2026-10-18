@@ -1,11 +1,11 @@
 ---
 id: TASK-1243
 title: 'Boiler info: fault status from blocking and lockout via the model profile'
-status: In Progress
+status: Done
 assignee:
   - '@claude'
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-18 17:28'
+updated_date: '2026-10-18 17:39'
 labels:
   - boiler-info
   - ui
@@ -23,10 +23,10 @@ The Operating status row 'Fault status' only looks at ID0 bit 0 (lockout). Remeh
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [x] #1 Verified against the qSense with a passive OT log: qSense status/substatus equals ID115 HB/LB during normal operation (at least two different states recorded with time)
-- [ ] #2 Without a profile the row behaves as before (ID0 bit 0 and raw ID5)
-- [ ] #3 test_otBrandTextUi.js covers the three states with and without profile; python build.py exits 0; python evaluate.py --quick shows no new failures
-- [ ] #4 Blocking verification closed by user decision 18-10-2026: two gas tests with the Plugwise Anna (PM=115) showed flame loss -> restart attempts (status 2) -> lockout E:14, never ID115 status 9; the blocking path is built from manual and profile and stays marked as not observed in the profile
-- [ ] #5 With a profile that names its blocking and lockout status (fault_status), Fault status shows '<lockout label> · E:xx <meaning>' when ID0 bit 0 is set, '<blocking label> · Su:xx <meaning>' when ID115 status is the blocking status, else 'No blocking or lockout'; labels come from the profile's status table (Tzerra: 'Vergrendeling', 'Blokkering'), fixed text stays English
+- [x] #2 Without a profile the row behaves as before (ID0 bit 0 and raw ID5)
+- [x] #3 test_otBrandTextUi.js covers the three states with and without profile; python build.py exits 0; python evaluate.py --quick shows no new failures
+- [x] #4 Blocking verification closed by user decision 18-10-2026: two gas tests with the Plugwise Anna (PM=115) showed flame loss -> restart attempts (status 2) -> lockout E:14, never ID115 status 9; the blocking path is built from manual and profile and stays marked as not observed in the profile
+- [x] #5 With a profile that names its blocking and lockout status (fault_status), Fault status shows '<lockout label> · E:xx <meaning>' when ID0 bit 0 is set, '<blocking label> · Su:xx <meaning>' when ID115 status is the blocking status, else 'No blocking or lockout'; labels come from the profile's status table (Tzerra: 'Vergrendeling', 'Blokkering'), fixed text stays English
 <!-- AC:END -->
 
 ## Implementation Notes
@@ -69,4 +69,20 @@ Test 2, 18-10-2026, gas tap half closed (captures OTGW-captures/2026-10-18_1916_
 - Counters: ID113 33 (12:00) -> 37 (19:13) -> 42 (19:25); ID114 7 -> 8 -> 9. Each flame loss counts once in ID114; failed restarts in ID113.
 - Again no status 9 and no OEM code 22 in ID5. ID5 HB bit0 ("service request" in OT 4.2) set on the first ID5 after each flame loss and after each reset (4 of 4), never during normal burning or during lockout: candidate Remeha signal for flame loss/restart, not confirmed.
 - Conclusion for AC2: a flame loss does not produce a Su-code blocking on this boiler; it goes straight to restart attempts (status 2) and after the failed starts to lockout E:14. Blocking via ID115 status 9 is still not observed.
+
+Implementation 0162c4a: profile key fault_status {blocking: 9, lockout: 10} plus fault_status_note; index.js shows one Fault status row: lockout (ID0 bit 0) "<status[10]> · E:xx <faults meaning>", else blocking (ID115 HB == 9) "<status[9]> · Su:xx <Tab.45 meaning>", else "No blocking or lockout". Without fault_status unchanged. Status 10 supported by the Ace-Matic manual ("Permanente storing (handmatige reset nodig)"). Tests: new UI assertions fail on the old code and pass on the new; boilerInfo host test pass; build exit 0; evaluate 0 failures; flashed LittleFS+firmware 0162c4a; device shows "Fault status | No blocking or lockout" with the profile recognised.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Fault status on the Boiler info page now distinguishes lockout and blocking through the model profile.
+
+Changes:
+- Profile key fault_status names the blocking and lockout status; the row reads "<lockout> · E:xx <meaning>" when ID0 bit 0 is set (E-code from ID5 LB, meaning from the profile faults table), "<blocking> · Su:xx <meaning>" when ID115 reports the blocking status, else "No blocking or lockout". A lockout goes before a blocking. Without fault_status (generic, Ace-Matic) the row is unchanged (ID0 bit 0 and raw ID5).
+- Tzerra M 28c Plus profile: status 10 "Vergrendeling" (observed during E:14, not in manual Tab.43; Ace-Matic manual lists it as permanent fault), fault_status {9, 10}, notes on what is observed.
+
+Evidence (OTGW-captures, outside the repo): qSense St/Su = ID115 HB/LB (AC1); two gas tests with the Plugwise Anna and PM=115: flame loss -> restart attempts (status 2) -> lockout E:14 (ID0 bit 0, ID5 0x000E, ID115 0x0A00); a blocking (status 9) was never observed and the blocking path follows manual Tab.45 (user decision 18-10-2026). Counters ID113/114 rise with each test. ID5 HB bit0 appears on each flame loss and reset: noted, not used.
+
+Tests: test_otBrandTextUi.js (lockout, blocking, lockout before blocking, none, without profile) fail on the old code and pass; test_boilerInfo.cpp pass; build exit 0; evaluate 0 failures; checked on the real OTGW (0162c4a).
+<!-- SECTION:FINAL_SUMMARY:END -->
