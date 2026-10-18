@@ -34,7 +34,7 @@ assert(findText(nodes.boilerOEM,'dF: 8 dU: 6'));
 assert(!nodes.boilerOEM.textContent.includes('0x0806'));
 assert(nodes.boilerOEM.textContent.includes('0x0002'));
 assert(nodes.boilerOperating.textContent.includes('Branden op CV-bedrijf'));assert(nodes.boilerOperating.textContent.includes('Temperatuurregeling'));
-assert(nodes.boilerOperating.textContent.includes('No active fault reported'));assert(!nodes.boilerOperating.textContent.includes('PSU'));
+assert(nodes.boilerOperating.textContent.includes('No blocking or lockout'));assert(!nodes.boilerOperating.textContent.includes('PSU'));
 assert(nodes.boilerParameters.textContent.includes('Aanvoertemperatuur: TSet'));assert(findText(nodes.boilerParameters,'0'));
 assert(nodes.boilerHistory.textContent.includes('Meaning not yet confirmed'));
 // Live Tzerra M 28c Plus readout: 255 = unsupported is hidden, signed values and option texts shown.
@@ -104,6 +104,11 @@ ctx.renderBoilerDetails({...d,profile:'generic'});assert(!nodes.boilerOperating.
 // Context-dependent substatus zero must use the status/substatus pair.
 ctx.renderBoilerDetails({...d,value_115:0x0800});assert(nodes.boilerOperating.textContent.includes('Wacht op branderstart'));
 ctx.renderBoilerDetails({...d,value_115:0x0a00,value_0:1,value_5:0x000e});assert(hasRow(nodes.boilerOperating,'Status|10 · Vergrendeling'),'observed lockout status 10');
+ctx.renderBoilerDetails({...d,value_0:0,value_115:0x0916});assert(hasRow(nodes.boilerOperating,'Fault status|Blokkering · Su:22 Vlamwegval tijdens bedrijf'),'blocking from ID115 status 9');
+ctx.renderBoilerDetails({...d,value_0:1,value_5:0x000e,value_115:0x0916});assert(hasRow(nodes.boilerOperating,'Fault status|Vergrendeling · E:14 5 mislukte branderstarts'),'lockout goes before blocking');
+ctx.renderBoilerDetails({...d,value_0:1,value_5:undefined,value_115:0x0a00});assert(hasRow(nodes.boilerOperating,'Fault status|Vergrendeling'),'lockout before ID5 arrives');
+ctx.renderBoilerDetails({...d,profile:'generic',profile_file:undefined,value_0:0});assert(hasRow(nodes.boilerOperating,'Fault status|No active fault reported'),'no profile: as before');
+ctx.renderBoilerDetails({...d,profile:'generic',profile_file:undefined,value_0:1,value_5:0x000e});assert(hasRow(nodes.boilerOperating,'Reported fault code|0x000E')&&!rowsOf(nodes.boilerOperating).some(r=>r.includes('Vergrendeling')),'no profile: raw ID5 as before');
 // ID132 (TASK-1244): only 0x0101-0x0103 are service message A/B/C; any other value stays raw, no meaning.
 [[0x0101,'A'],[0x0102,'B'],[0x0103,'C']].forEach(([v,l])=>{ctx.renderBoilerDetails({...d,value_132:v});
   assert(hasRow(nodes.boilerOEM,'Service message|'+l)&&meaningOf(nodes.boilerOEM,'Service message|'+l)==='');});

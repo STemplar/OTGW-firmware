@@ -21,7 +21,9 @@
     "10": "Vergrendeling",
     "17": "Ontluchten"
   },
-  "status_note": "Status 10 staat niet in handleiding 7618573 v.10 (Tab.43); waargenomen op 18-10-2026 tijdens vergrendeling E:14 (ID115 0x0A00, substatus 0; de E-code staat in ID5), zie TASK-1243.",
+  "status_note": "Status 10 staat niet in handleiding 7618573 v.10 (Tab.43); waargenomen op 18-10-2026 tijdens vergrendeling E:14 (ID115 0x0A00, substatus 0; de E-code staat in ID5), zie TASK-1243. De Tzerra Ace-Matic-handleiding (zelfde statustabel-familie) noemt status 10 \"Permanente storing (handmatige reset nodig)\".",
+  "fault_status": { "blocking": 9, "lockout": 10 },
+  "fault_status_note": "Fault status: vergrendeling = ID0 bit 0 met E-code in ID5 (waargenomen E:14, 17 en 18-10-2026); blokkering = ID115 status 9 met substatus Su:xx volgens Tab.45, niet waargenomen: twee gastests (18-10-2026) gaven vlamwegval, herstartpogingen (status 2) en daarna E:14, nooit status 9 (TASK-1243).",
   "substatus": {
     "0:0": "Rust",
     "1:1": "Anti-pendel",

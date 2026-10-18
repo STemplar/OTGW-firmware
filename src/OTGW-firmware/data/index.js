@@ -7442,8 +7442,20 @@ function renderBoilerDetails(data) {
       (profile.substatus_any && profile.substatus_any[status & 255]);
     boilerRow(operating, 'Substatus', (status & 255) + ' \u00b7 ' + (sub || 'Meaning not yet confirmed'), '');
   } else boilerRow(operating, 'Diagnostic status', status === undefined ? boilerUnknown(data,115) : boilerRaw(status), '');
-  var fault = data.value_5;
-  if (data.value_0 !== undefined && !(data.value_0 & 1)) boilerRow(operating, 'Fault status', 'No active fault reported', '');
+  var fault = data.value_5, states = profile && profile.fault_status;
+  if (states && data.value_0 !== undefined) {
+    // A lockout (ID0 bit 0, E-code in ID5) goes before a blocking (blocking status in ID115).
+    var faultText = 'No blocking or lockout';
+    if (data.value_0 & 1) {
+      faultText = profile.status[states.lockout] + (fault === undefined ? '' : ' · E:' + String(fault & 255).padStart(2,'0') + ' ' +
+        ((profile.faults && profile.faults[fault & 255]) || 'Meaning not yet confirmed'));
+    } else if (status !== undefined && (status >> 8) === states.blocking) {
+      var blocking = profile.substatus && profile.substatus[states.blocking + ':' + (status & 255)];
+      faultText = profile.status[states.blocking] + ' · Su:' + (status & 255) + ' ' +
+        (blocking ? blocking.split(' — ').pop() : 'Meaning not yet confirmed');
+    }
+    boilerRow(operating, 'Fault status', faultText, '');
+  } else if (data.value_0 !== undefined && !(data.value_0 & 1)) boilerRow(operating, 'Fault status', 'No active fault reported', '');
   else if (fault === undefined) boilerRow(operating, 'Fault status', boilerUnknown(data,5), '');
   else {
     // The ASF payload alone does not establish whether an E-code is an active fault.
