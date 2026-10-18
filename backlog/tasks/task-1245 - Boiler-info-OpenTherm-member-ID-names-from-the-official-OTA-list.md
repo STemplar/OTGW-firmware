@@ -1,11 +1,11 @@
 ---
 id: TASK-1245
 title: 'Boiler info: OpenTherm member ID names from the official OTA list'
-status: Done
+status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-18 11:06'
-updated_date: '2026-10-18 16:33'
+updated_date: '2026-10-18 16:40'
 labels:
   - boiler-info
   - ui
@@ -27,6 +27,7 @@ Member IDs (ID2 master, ID3 slave, ID74 ventilation, ID103 solar; LB) come from 
 - [x] #3 The Boiler info page shows the company next to Slave and Master member ID (e.g. '11 · BDR Thermea Group B.V.', '140 · Plugwise B.V.'); 0 and unassigned codes show only the number
 - [x] #4 test_otBrandTextUi.js covers a known code, 0 and an unassigned code; python build.py exits 0; python evaluate.py --quick shows no new failures
 - [x] #5 The member ID tooltip lists the company's brands where a source is recorded (BDR Thermea, codes 11 and 53: Baxi, De Dietrich, Remeha, Brötje, Chappée, Baymak - from the BDR Thermea website, supplied by the user 18-10-2026); codes without a recorded source show only the company
+- [ ] #6 The member ID tooltip labels the brand list 'brands:' (English, like the fixed page texts), e.g. 'BDR Thermea Group B.V. · brands: Baxi, ...' (user 18-10-2026)
 <!-- AC:END -->
 
 ## Implementation Notes
