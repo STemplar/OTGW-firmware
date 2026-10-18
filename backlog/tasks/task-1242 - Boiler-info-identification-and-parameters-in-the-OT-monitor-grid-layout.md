@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 11:46'
-updated_date: '2026-10-17 12:39'
+updated_date: '2026-10-18 10:20'
 labels:
   - boiler-info
   - ui
@@ -24,17 +24,17 @@ The Boiler info page shows identification and parameters as one-column Device-in
 <!-- AC:BEGIN -->
 - [ ] #1 Identification (slave/master member ID, OpenTherm version, product type/version) renders as .otmonrow cells in an .otmontable grid on the Boiler info page
 - [ ] #2 Parameters render as .otmonrow cells: 'P<n> <label>' and the value with unit; parameters without a profile entry show 'TSP <n>' and the raw value
-- [ ] #3 The option text and the factory setting of a parameter are in a tooltip that opens on hover and on tap
-- [ ] #4 A parameter whose value differs from the profile's factory setting is visually highlighted
-- [ ] #5 Ventilation member ID and Solar member ID no longer appear on the page; value_74/support_74/value_103/support_103 are gone from /api/v2/boiler/info
-- [ ] #6 Hidden and unsupported parameters stay hidden as before (tsp_unsupported_value, signed/allows255 rules unchanged)
-- [ ] #7 test_otBrandTextUi.js and the boilerInfo host tests pass; python build.py exits 0; python evaluate.py --quick shows no new failures
-- [ ] #8 Checked in a browser on the real OTGW (wide screen and phone width) with a screenshot
-- [ ] #9 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
-- [ ] #10 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
-- [ ] #11 Fault history sits in column 4 below OEM; a profile with "fault_history": false hides the block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID, matrix evidence); without a profile or key the block stays
-- [ ] #12 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
-- [ ] #13 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
+- [ ] #3 A parameter whose value differs from the profile's factory setting is visually highlighted
+- [ ] #4 Ventilation member ID and Solar member ID no longer appear on the page; value_74/support_74/value_103/support_103 are gone from /api/v2/boiler/info
+- [ ] #5 Hidden and unsupported parameters stay hidden as before (tsp_unsupported_value, signed/allows255 rules unchanged)
+- [ ] #6 test_otBrandTextUi.js and the boilerInfo host tests pass; python build.py exits 0; python evaluate.py --quick shows no new failures
+- [ ] #7 Checked in a browser on the real OTGW (wide screen and phone width) with a screenshot
+- [ ] #8 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
+- [ ] #9 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
+- [ ] #10 Fault history sits in column 4 below OEM; a profile with "fault_history": false hides the block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID, matrix evidence); without a profile or key the block stays
+- [ ] #11 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
+- [ ] #12 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
+- [ ] #13 The option text and the factory setting of a parameter are only in the mouse tooltip (title); a click or tap does not expand the row
 <!-- AC:END -->
 
 ## Implementation Plan
@@ -55,4 +55,6 @@ The Boiler info page shows identification and parameters as one-column Device-in
 <!-- SECTION:NOTES:BEGIN -->
 Layout chosen by user 17-10-2026: parameters over columns 1-3, OEM last in column 4 ("achteraan"); fault history below OEM in column 4, hidden by the profile key fault_history=false (AC12).
 AC9 revised with the user: operating status keeps its meaning in the cell.
+
+User 18-10-2026: factory setting / option text only as mouse tooltip, no expand on click/tap (replaces the tap behaviour of the original AC3).
 <!-- SECTION:NOTES:END -->
