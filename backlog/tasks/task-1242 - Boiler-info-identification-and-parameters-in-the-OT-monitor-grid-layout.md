@@ -29,16 +29,15 @@ The Boiler info page shows identification and parameters as one-column Device-in
 - [ ] #5 Hidden and unsupported parameters stay hidden as before (tsp_unsupported_value, signed/allows255 rules unchanged)
 - [ ] #6 test_otBrandTextUi.js and the boilerInfo host tests pass; python build.py exits 0; python evaluate.py --quick shows no new failures
 - [ ] #7 Checked in a browser on the real OTGW (wide screen and phone width) with a screenshot
-- [ ] #8 Wide screen: Identification and Operating status at the top of columns 1-3, Parameters below them flowing over columns 1-3, OEM information last, in column 4 over the full height; narrow screen: blocks stack in that order (OEM last)
-- [ ] #9 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
-- [ ] #10 Fault history sits in column 4 below OEM; a profile with "fault_history": false hides the block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID, matrix evidence); without a profile or key the block stays
-- [ ] #11 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
-- [ ] #12 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
-- [ ] #13 The option text and the factory setting of a parameter are only in the mouse tooltip (title); a click or tap does not expand the row
-- [ ] #14 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in fixed positions over columns 1-3 (11/11/10); a value appears when it is read, cells do not move while reading; without a profile the received TSPs are listed as before
-- [ ] #15 Without a profile, once ID10 is known, TSP 0..count-1 are fixed cells ('TSP n'); values fill in as read (raw, READ-ACK 255 included), cells do not move
-- [ ] #16 The Hex/Binary toggle is removed; raw values are always shown in hex
-- [ ] #17 Layout (user 18-10-2026, replaces the 4-column layout): 3 equal columns; Identification | Operating status | OEM on top, parameters below over the same 3 columns, fault history (when shown) below the parameters; all read buttons grouped at the bottom; narrow screens stack in that order
+- [ ] #8 The parameter columns 1-3 hold an equal number of rows where possible (difference at most 1, e.g. 11/10/10 for 31 parameters), filled top to bottom per column
+- [ ] #9 Brand name, product version and serial number rows (ID93-95) are hidden when the boiler answered UNKNOWN-DATAID (support = unsupported); they show as before otherwise
+- [ ] #10 Operating status (status, substatus, fault status) and OEM fields render as .otmonrow cells in the same grid; status, substatus and fault status keep their short meaning in the cell (e.g. '8 · Regelstop'); OEM meanings go in the tooltip
+- [ ] #11 The option text and the factory setting of a parameter are only in the mouse tooltip (title); a click or tap does not expand the row
+- [ ] #12 With a profile, all parameters of the profile (32 for the Tzerra M 28c Plus, manual Tab.34) are predefined cells in fixed positions over columns 1-3 (11/11/10); a value appears when it is read, cells do not move while reading; without a profile the received TSPs are listed as before
+- [ ] #13 Without a profile, once ID10 is known, TSP 0..count-1 are fixed cells ('TSP n'); values fill in as read (raw, READ-ACK 255 included), cells do not move
+- [ ] #14 The Hex/Binary toggle is removed; raw values are always shown in hex
+- [ ] #15 Layout (user 18-10-2026, replaces the 4-column layout): 3 equal columns; Identification | Operating status | OEM on top, parameters below over the same 3 columns, fault history (when shown) below the parameters; all read buttons grouped at the bottom; narrow screens stack in that order
+- [ ] #16 A profile with "fault_history": false hides the fault history block and its read button; tzerra-m-28c-plus.json sets it (ID12/13 UNKNOWN-DATAID); without a profile or key the block and button stay
 <!-- AC:END -->
 
 ## Implementation Plan
