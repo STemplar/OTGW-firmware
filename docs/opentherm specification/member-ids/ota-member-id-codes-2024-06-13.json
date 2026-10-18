@@ -1,33 +1,114 @@
 {
  "source": "OpenTherm Association, 'Assignment of Member ID Codes' (file Member-ID-Codes-2025.pdf, footer 'OTA Members ID codes last update 13-06-2024'), supplied by the user on 18-10-2026; kept outside the repo at Documentatie/Vendoronderzoek/Member-ID-Codes-2025.pdf (sha256 fce2e3445f03d422f9e3ac03cb863107afb77d92cad6e3d408a9d3b6276737de). All 188 entries checked against the PDF text: 0 differences.",
  "date": "2024-06-13",
- "note": "Company names verbatim from the PDF, including its spelling. One register for all roles: master (ID2 LB), slave (ID3 LB), ventilation (ID74 LB), solar (ID103 LB); OT 4.2 §5.1/§5.3.2. 'asterisk' = the PDF marks the entry with '*'; the PDF does not explain the mark. Codes absent here are empty in the PDF (87-130, 170, 174-176, 208-221, 229, 252-255). Code 0 = customer non-specific device (OT 4.2 §5.3.2 Note 2). 'brands' = brand portfolio of the company, only where a source is recorded in 'brands_source' (not from the OTA list).",
+ "note": "Company names verbatim from the PDF, including its spelling. One register for all roles: master (ID2 LB), slave (ID3 LB), ventilation (ID74 LB), solar (ID103 LB); OT 4.2 §5.1/§5.3.2. 'asterisk' = the PDF marks the entry with '*'; the PDF does not explain the mark. Codes absent here are empty in the PDF (87-130, 170, 174-176, 208-221, 229, 252-255). Code 0 = customer non-specific device (OT 4.2 §5.3.2 Note 2). 'brands' = brand portfolio of the company, only where a source is recorded in 'brands_source' (not from the OTA list). 'brands_seen' = brands observed with the code per role (community data, see 'brands_seen_source').",
  "codes": {
   "1": {
-   "company": "Resideo"
+   "company": "Resideo",
+   "brands_seen": {
+    "master": {
+     "brands": [
+      "Honeywell"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "2": {
-   "company": "Resideo Newhouse UK"
+   "company": "Resideo Newhouse UK",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Vaillant",
+      "Remeha",
+      "AWB",
+      "Bulex",
+      "Brink"
+     ],
+     "confidence": "GEMIDDELD"
+    },
+    "master": {
+     "brands": [
+      "Honeywell"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "3": {
    "company": "Honeywell SA",
    "asterisk": true
   },
   "4": {
-   "company": "Siemens Building Technologies HVAC AG"
+   "company": "Siemens Building Technologies HVAC AG",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "ATAG",
+      "Baxi",
+      "Brötje",
+      "Elco",
+      "Geminox",
+      "Atlantic"
+     ],
+     "confidence": "HOOG"
+    },
+    "master": {
+     "brands": [
+      "Elektrobock",
+      "Baxi",
+      "Thermosmart"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "5": {
-   "company": "ITHO Holding BV"
+   "company": "ITHO Holding BV",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Itho Daalderop"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "6": {
-   "company": "Elster GmbH"
+   "company": "Elster GmbH",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Ideal",
+      "Daikin"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "7": {
    "company": "Karl Dungs BV",
    "asterisk": true
   },
   "8": {
-   "company": "S.I.T. Controls B.V."
+   "company": "S.I.T. Controls B.V.",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Bosch",
+      "Buderus",
+      "Biasi",
+      "Hoval"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "9": {
    "company": "Ferroli Nederland"
@@ -46,14 +127,44 @@
     "Chappée",
     "Baymak"
    ],
-   "brands_source": "BDR Thermea website (brands page), quoted by the user on 18-10-2026"
+   "brands_source": "BDR Thermea website (brands page), quoted by the user on 18-10-2026",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Remeha",
+      "De Dietrich",
+      "Baxi"
+     ],
+     "confidence": "HOOG"
+    },
+    "master": {
+     "brands": [
+      "Remeha",
+      "De Dietrich",
+      "Baxi"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "12": {
    "company": "Van de Beyl BV",
    "asterisk": true
   },
   "13": {
-   "company": "Airios"
+   "company": "Airios",
+   "brands_seen": {
+    "master": {
+     "brands": [
+      "Honeywell",
+      "Ferroli",
+      "Termet"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "14": {
    "company": "Celcius Benelux BV",
@@ -70,7 +181,25 @@
    "asterisk": true
   },
   "18": {
-   "company": "Theben AG"
+   "company": "Theben AG",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Bosch",
+      "Junkers"
+     ],
+     "confidence": "GEMIDDELD"
+    },
+    "master": {
+     "brands": [
+      "Quatt",
+      "Viessmann",
+      "WOLF"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "19": {
    "company": "Technosystem s.r.l."
@@ -89,7 +218,18 @@
   },
   "24": {
    "company": "AWB CV ketel BV",
-   "asterisk": true
+   "asterisk": true,
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Vaillant",
+      "Saunier Duval",
+      "Bulex"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "25": {
    "company": "Hager Electro S.A.S."
@@ -99,14 +239,33 @@
    "asterisk": true
   },
   "27": {
-   "company": "Bertelli & Partners s.r.l."
+   "company": "Bertelli & Partners s.r.l.",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Immergas",
+      "Baxi"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "28": {
    "company": "BRAHMA S.p.A."
   },
   "29": {
    "company": "Daalderop BV",
-   "asterisk": true
+   "asterisk": true,
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Itho Daalderop"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "30": {
    "company": "Elesta Energy Control AG 30"
@@ -146,7 +305,17 @@
    "asterisk": true
   },
   "41": {
-   "company": "AET80"
+   "company": "AET80",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Radiant",
+      "ENBRA"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "42": {
    "company": "Setecna Srl"
@@ -169,7 +338,17 @@
    "asterisk": true
   },
   "48": {
-   "company": "Atag Heating BV."
+   "company": "Atag Heating BV.",
+   "brands_seen": {
+    "master": {
+     "brands": [
+      "Elco",
+      "Honeywell"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "49": {
    "company": "Betronic Holding"
@@ -204,7 +383,17 @@
    "asterisk": true
   },
   "56": {
-   "company": "Ti-Green B.V."
+   "company": "Ti-Green B.V.",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Baxi",
+      "De Dietrich"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "57": {
    "company": "Centrica Hive Ltd."
@@ -246,7 +435,16 @@
    "company": "Xiamen Hysen Control Technology"
   },
   "70": {
-   "company": "Eneco"
+   "company": "Eneco",
+   "brands_seen": {
+    "master": {
+     "brands": [
+      "Quby"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "71": {
    "company": "Qingdao economic and technological development zone haier"
@@ -297,7 +495,16 @@
    "company": "KOBER Ltd Vaduri Branch"
   },
   "131": {
-   "company": "Bosch Thermotechniek BV"
+   "company": "Bosch Thermotechniek BV",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "Nefit"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "132": {
    "company": "ICY BV"
@@ -318,7 +525,16 @@
    "company": "Thermosmart B.V."
   },
   "138": {
-   "company": "TECH Sp.J."
+   "company": "TECH Sp.J.",
+   "brands_seen": {
+    "master": {
+     "brands": [
+      "Thermosmart"
+     ],
+     "confidence": "GEMIDDELD"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "139": {
    "company": "Heatmiser UK Ltd."
@@ -420,7 +636,16 @@
    "company": "Edmi-Meters"
   },
   "173": {
-   "company": "Intergas Verwarming BV"
+   "company": "Intergas Verwarming BV",
+   "brands_seen": {
+    "slave": {
+     "brands": [
+      "MHG"
+     ],
+     "confidence": "HOOG"
+    }
+   },
+   "brands_seen_source": "rvdbreemen/OTGW-firmware dev: docs/opentherm specification/member-ids/opentherm_brand_ids.json (community observations: OTGW matrix, SAT, OTGateway wiki), fetched 18-10-2026; only confidence HOOG/GEMIDDELD used"
   },
   "177": {
    "company": "AUER"
