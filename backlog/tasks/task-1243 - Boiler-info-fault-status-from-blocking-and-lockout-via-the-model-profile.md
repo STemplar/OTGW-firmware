@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@claude'
 created_date: '2026-10-17 12:24'
-updated_date: '2026-10-18 17:02'
+updated_date: '2026-10-18 17:09'
 labels:
   - boiler-info
   - ui
@@ -57,4 +57,8 @@ Test 18-10-2026 with the Plugwise Anna (capture OTGW-captures/2026-10-18_1849_an
 - 19:00:29 ID0 fault bit; 19:00:31 ID5 OEM fault 14 (E:14, 5 mislukte branderstarts); 19:01:01 ID115 0x0A00 = status 10 / sub 0: NOT in manual Tab.43 (lists 0-6, 8, 9, 17). Lockout has its own status 10 (user hypothesis: lockout takes precedence).
 - User saw green blinking during the restart attempts, red at the end; opened gas and reset. 19:01:17 ID0 0x00 and ID5 bit0 again transient; 19:01:25 ID115 3/37; 19:01:40 CH+flame.
 - Result: no status 9 (blocking) on the bus. Flame loss went straight to ignition attempts (status 2) and then lockout. Green blinking here = restart attempts, not a Su-code blocking. AC2 stays open: blocking via ID115 status 9 not observed.
+
+- Gap: ID115 was not sampled between 18:59:05 and 18:59:28; flame loss at 18:59:19 falls in that gap, so a short Su:22 cannot be excluded. During the restart attempts and the lockout there was no status 9. During lockout one ID115 sample: substatus 0, not the E-code (the E-code is only in ID5).
+- Su:22 is not marked (1) in Tab.45, so it would be stored in the boiler fault memory. The Tzerra M Plus has no display; the memory is readable only with Recom/the service tool or a suitable controller (manual §8, §11). The qSense has been removed (user), so this check is not possible now.
+- Profile: status 10 "Vergrendeling" added with status_note (observed, not in the manual), commit a138164, UI test (fails on the old profile, passes on the new), build exit 0, evaluate 0 failures, flashed LittleFS+firmware; device serves the profile with status 10.
 <!-- SECTION:NOTES:END -->
